@@ -1,0 +1,34 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+!.env.template
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local JavaScript/app dependencies and generated builds
+node_modules/
+dist/
+build/
+coverage/
+
+# Local editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+~$*
+
+# Bulk data and model assets: keep manifests and pointers in Git
+/data/raw/
+/data/processed/
+/data/models/
+/data/checkpoints/
