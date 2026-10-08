@@ -1,0 +1,33 @@
+name: Task or feature
+description: Plan a scoped implementation, integration or documentation change.
+title: "[Task] "
+body:
+  - type: input
+    id: jira
+    attributes:
+      label: Jira issue
+      description: Add the assigned issue ID or link; use TBD until assigned.
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Problem and intended outcome
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and dependencies
+      description: Identify the component owner, affected teams, required features and conditional features.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance checks and evidence
+      description: State the checks, test environment and evidence to collect. Mark undecided targets as TBD.
+    validations:
+      required: true
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Open decisions and risks

@@ -1,0 +1,34 @@
+name: Research or experiment
+description: Investigate a question using sources or a reproducible experiment.
+title: "[Research] "
+body:
+  - type: input
+    id: jira
+    attributes:
+      label: Jira issue
+      description: Add the assigned issue ID or link; use TBD until assigned.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question and decision it informs
+    validations:
+      required: true
+  - type: textarea
+    id: existing
+    attributes:
+      label: Existing work and remaining gap
+      description: Link the sources or prior experiment; identify what is unknown.
+  - type: textarea
+    id: method
+    attributes:
+      label: Method and conditions
+      description: Specify source-search boundaries or experiment inputs, versions, comparison, measures and environment.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected record and completion check
+      description: Name the literature note, protocol or result artifact to produce. Do not pre-fill a successful result.
+    validations:
+      required: true
