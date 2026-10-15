@@ -17,3 +17,12 @@ Current plan: eight months, with board-to-simulation work and parallel app devel
 | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
 
 Confirm actual semester boundaries, hardware access, owners and acceptance targets with the supervisor.
+
+## Filed records
+
+| Folder | Records |
+| --- | --- |
+| [Plans](plans/README.md) | Project plans, timeline review and dependency/responsibility report copies |
+| [Jira](jira/README.md) | Draft and created backlog exports, delivery backlog, timeline and dated source snapshot |
+| [Templates](templates/README.md) | Course research-report and team/project-plan templates |
+| [Earlier reproduction plan](reproduce-arm/ROADMAP.md) and [risks](reproduce-arm/RISKS.md) | Earlier schedule and risk register; consult the current plan before reuse |

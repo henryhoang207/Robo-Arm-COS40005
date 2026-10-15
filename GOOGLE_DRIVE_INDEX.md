@@ -18,3 +18,13 @@ Formal reports and official logs live in Drive. This file is the navigation inde
 Record each document's title, owner and purpose when adding it. Check that the intended teammates or assessors can access it. A link in a public repository does not grant Drive access.
 
 When a report cites repository evidence, link to the relevant commit, PR or experiment record so the cited version is identifiable.
+
+## Uploaded repository copies
+
+The documents uploaded at the user's request are filed by purpose. These links provide access to those copies; they do not replace the missing formal Drive links above or identify a submitted version.
+
+- [Project plans and schedules](docs/project-management/plans/README.md)
+- [Course templates](docs/project-management/templates/README.md)
+- [Condensed technical reports](docs/technical/reports/README.md)
+- [Team source-document archives](docs/technical/source-archives/README.md)
+- [Reference PDFs](research/literature/README.md)

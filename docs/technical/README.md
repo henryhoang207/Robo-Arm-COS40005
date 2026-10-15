@@ -14,3 +14,15 @@ For model integration, document camera/state fields, preprocessing, action scali
 **[TBD TEAM shared interface and architecture]**
 
 **[TBD TEAM required conditional and deferred features per semester]**
+
+## Filed records
+
+- [Simulation benchmark decision](decisions/0001-simulation-benchmark-and-reference.md)
+- [Runtime, precision and resource-test decision](decisions/0002-ventuno-q-runtime-precision-and-test-plan.md)
+- [Scope, acceptance and minimum-console decision](decisions/0003-scope-acceptance-and-minimum-console.md)
+- [Assumption register](assumptions.md)
+- [Initial simulator selection](initial-simulator-selection.md)
+- [SoftDev acceptance criteria, scope and constraints](requirements/AC%2C%20Scope%2C%20Constraints%20-%20SoftDev.docx)
+- [Condensed technical reports](reports/README.md)
+- [Original team document archives](source-archives/README.md)
+- [Supporting parameter calculation](../../research/methodology/calcs/so101-34_param_split.py)

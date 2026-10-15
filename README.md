@@ -2,7 +2,7 @@
 
 AI robotics project for COS40005: investigate running a trained robot model on VENTUNO Q, first with simulation and later with a physical SO-101.
 
-**GitHub is the technical source of truth.** Code, tests, research execution, evidence indexes and handover live here. Formal reports and the official AI Usage Log stay in Google Drive.
+**GitHub is the technical source of truth.** Code, tests, research execution, evidence indexes and handover live here. Google Drive holds the formal reports and official AI Usage Log; the uploaded report copies are filed below for repository access.
 
 Repository structure: **SCAF GitHub Repository Template v1.1**, adapted for this project.
 
@@ -26,6 +26,10 @@ These are planned outcomes, not claims that deployment or physical task success 
 | [Evidence policy](EVIDENCE_POLICY.md) | How to record and link evidence |
 | [GitHub setup checklist](GITHUB_SETUP_CHECKLIST.md) | Repository settings to configure |
 | [Handover](handover/README.md) | Setup, deployment, issues and future work |
+| [Project plans and Jira records](docs/project-management/README.md) | Uploaded plans, schedules, templates and backlog exports |
+| [Technical records](docs/technical/README.md) | Requirements, decisions, assumptions and condensed reports |
+| [Experiments](research/experiments/README.md) and [results](research/results/README.md) | Runnable research and recorded measurements |
+| [Literature](research/literature/README.md) | References and earlier source notes |
 
 ## Repository layout
 
@@ -37,6 +41,7 @@ Robo-Arm_sedoitensau/
 ├── CONTRIBUTING.md
 ├── EVIDENCE_POLICY.md
 ├── GITHUB_SETUP_CHECKLIST.md
+├── CLAUDE.md
 ├── .gitignore
 ├── .github/
 │   ├── ISSUE_TEMPLATE/
@@ -51,7 +56,15 @@ Robo-Arm_sedoitensau/
 │   └── results/
 ├── docs/
 │   ├── technical/
+│   │   ├── decisions/
+│   │   ├── reports/
+│   │   ├── requirements/
+│   │   └── source-archives/
 │   └── project-management/
+│       ├── jira/
+│       ├── plans/
+│       ├── reproduce-arm/
+│       └── templates/
 ├── evidence/
 │   ├── product/
 │   ├── research/
@@ -59,10 +72,11 @@ Robo-Arm_sedoitensau/
 │   └── individual/
 ├── ai-usage/
 ├── data/
-└── handover/
+├── handover/
+└── SO-ARM100-main/       # imported source bundle; internal layout preserved
 ```
 
-Each folder contains a starter guide so it can be tracked by Git before implementation files are added.
+Folder READMEs link to the current records and retain templates for future work. The imported SO-ARM100 bundle stays together so its model, mesh and documentation paths remain valid.
 
 ## Folder purposes
 
@@ -90,7 +104,7 @@ Starter entries marked TBD need team input or measured results. Replace them whe
 
 ## Existing work
 
-[Reproduce Arm](Reproduce%20Arm/README.md) contains the earlier reproduction notes, scripts and CPU profiling results. Consult the current project plan before using its earlier schedule or scope assumptions.
+[Reproduce Arm](research/methodology/reproduce-arm/README.md) indexes the earlier methodology, [exploratory scripts](research/experiments/reproduce-arm/README.md), [CPU profiling results](research/results/stageC-laptop-cpu/README.md), and planning notes. Consult the current project plan before using its earlier schedule or scope assumptions. The [imported SO-ARM100 source](SO-ARM100-main/README.md) contains the mechanical and simulation resources; the standalone [MuJoCo smoke-test scene](tests/simulation/basic_test.xml) is under tests.
 
 ## Traceability
 

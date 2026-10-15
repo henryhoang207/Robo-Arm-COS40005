@@ -17,3 +17,9 @@ Store experiment plans, runnable notebooks/scripts and execution records here.
 - Linked result and next decision:
 
 Record exact executed commands after a run. **[TBD TEST experiment evidence]** is a placeholder, not a result.
+
+## Current records
+
+- [001 — Dataset/simulator joint convention check](001-dataset-sim-joint-convention-check/README.md): plan, input samples, pinned environment and scripts; [recorded outputs](../results/001-dataset-sim-joint-convention-check/README.md).
+- [002 — ManiSkill SO100 benchmark pilot](002-benchmark-pilot-maniskill-so100/README.md): pilot plan and proposed conditions.
+- [Earlier reproduction experiments](reproduce-arm/README.md): dataset review and CPU profiling scripts.

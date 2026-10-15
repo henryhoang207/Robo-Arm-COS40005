@@ -36,7 +36,7 @@ forget the reasoning within two weeks.
 |---|---|---|
 | 2026-09-06 | Ventuno Q fixed, not substituted | Faithful reproduction; the board is the novel element |
 | 2026-09-06 | Full on-device scope, not PC-tethered | On-device inference is the point of the video |
-| 2026-09-16 | Scope consolidated into [SCOPE.md](SCOPE.md); deliverables split into minimum / target / stretch | Scope was spread across README, this file and docs 00/05/06, with no stated floor and no out-of-scope list |
+| 2026-09-16 | Scope consolidated into `SCOPE.md` (historical reference; file absent from the uploaded repository); deliverables split into minimum / target / stretch | Scope was spread across README, this file and docs 00/05/06, with no stated floor and no out-of-scope list |
 | 2026-09-16 | Latency budget adopted as an explicit scope gate: Rung 2 must reach **<1.67 s per chunk** | Stage C measured 4.95 s/chunk (float32, 10 threads) on the dev laptop — 3x over the 50-action chunk duration, on cores unlikely to be slower than the board's Kryo. The 09-06 on-device decision predates this measurement, so the week-7 gate now tests the number, not just "does it run" |
 | | | |
 
@@ -46,7 +46,7 @@ Track what produced what. Essential once you have several checkpoints.
 
 | Date | Artefact | Source | Notes |
 |---|---|---|---|
-| 2026-09-15 | Stage C laptop CPU latency profile | `lerobot/smolvla_base`, LeRobot 0.6.2 @ `89236ea` | `results/stageC-laptop-cpu/` — baseline only, not fine-tuned |
+| 2026-09-15 | Stage C laptop CPU latency profile | `lerobot/smolvla_base`, LeRobot 0.6.2 @ `89236ea` | `research/results/stageC-laptop-cpu/` — baseline only, not fine-tuned |
 | | dataset commit hash | | |
 | | checkpoint / W&B run | trained from dataset ___ | |
 | | GGUF conversion | from checkpoint ___ | quant level |

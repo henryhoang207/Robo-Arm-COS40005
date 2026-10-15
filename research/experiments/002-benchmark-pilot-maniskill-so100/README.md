@@ -45,7 +45,7 @@ The Basis column marks evidence as **[V]** Verified this session, **[M]** From m
 | S10 | Cameras | Names `top` and `wrist`, 640 × 480 to match the dataset keys `observation.images.top` and `observation.images.wrist`. **Poses unknown.** Placeholder poses will be labelled unvalidated until matched to dataset frames. | [3] [V]. | B |
 | S11 | Success rule | Success at step *t* when all hold: cube centre inside the box's inner footprint, cube below the box rim, cube not touching either jaw, cube speed < 2 cm/s. The first success ends the episode. LeRobot-style `info["is_success"]` is returned on every step. | Adapted from Squint `SO101PlaceCube-v1` [10] [V] and the LeRobot benchmark contract [5] [V]. Thresholds are [R]. | B |
 | S12 | Timeout | 600 control steps, which is 20 s at 30 Hz. | Longest demonstration is 575 frames, 19.2 s [3] [V]. | B |
-| S13 | Failure classes | Never grasped / dropped outside box / grasped but not placed by timeout / unsafe contact (robot–table contact force above a logged threshold) / simulator error. | Adapted from `Reproduce Arm/docs/07-evaluation-protocol.md` [15] [V]. | B |
+| S13 | Failure classes | Never grasped / dropped outside box / grasped but not placed by timeout / unsafe contact (robot–table contact force above a logged threshold) / simulator error. | Adapted from `research/methodology/reproduce-arm/07-evaluation-protocol.md` [15] [V]. | B |
 | S14 | Seeds | Pilot list: seeds 0–29. Validation and final-test seed lists are created separately and later, under SO101-35. | Version 3 budget of 30 rollouts [15] [V]. | B |
 | S15 | Reference controller | Scripted and privileged: it reads the true cube and box poses. Sequence: pre-grasp above cube → descend → close → lift → move over box → open → retreat. Inverse kinematics uses the SAPIEN/Pinocchio solver. | `compute_inverse_kinematics` exists in SAPIEN 3.0.3 and is used by ManiSkill controllers [2] [V]. Design is [R]. | B |
 | S16 | Policy-in-the-loop gate | One checkpoint trained on `svla_so100_pickplace`, 10 seeds. **Which checkpoint is open**: the team's quick ACT run, or a public checkpoint (quality unknown). | [R]. | **C** |
@@ -81,4 +81,4 @@ Simulation only. No hardware is commanded. Any later hardware use first needs ap
 
 ## References
 
-See `docs/decisions/0001-simulation-benchmark-and-reference.md` for the numbered reference list [1]–[15].
+See `docs/technical/decisions/0001-simulation-benchmark-and-reference.md` for the numbered reference list [1]–[15].

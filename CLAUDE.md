@@ -1,7 +1,7 @@
 # CLAUDE.md — Robot Arm Project
 
 ## Project status
-- **Phase:** Planning & experimentation. Nothing is final unless it is recorded in `docs/decisions/`.
+- **Phase:** Planning & experimentation. Nothing is final unless it is recorded in `docs/technical/decisions/`.
 - **Owner / final decision-maker:** Me (the user). Claude advises and implements; Claude does not decide.
 - **Fill in and keep current:**
   - DOF / configuration: _TBD_
@@ -112,7 +112,7 @@ I verify; Claude does not self-certify. For any result Claude produces (calculat
 ---
 
 ## Decision log
-- Record every approved decision in `docs/decisions/NNNN-short-title.md`:
+- Record every approved decision in `docs/technical/decisions/NNNN-short-title.md`:
   ```
   # NNNN — Title
   Date: YYYY-MM-DD
@@ -122,13 +122,13 @@ I verify; Claude does not self-certify. For any result Claude produces (calculat
   Alternatives rejected: ...
   Verified by: <me> on <date> via <method>
   ```
-- Record approved assumptions in `docs/assumptions.md` with ID, statement, source, confidence, and verification status.
+- Record approved assumptions in `docs/technical/assumptions.md` with ID, statement, source, confidence, and verification status.
 - Before proposing anything, check these files so Claude doesn't contradict or re-ask settled questions.
 
 ---
 
 ## Experiments
-- Every experiment gets a plan in `experiments/NNN-name/README.md` before code is written: hypothesis, setup, variables, measurement method, expected outcome (with source if possible), safety notes.
+- Every experiment gets a plan in `research/experiments/NNN-name/README.md` before code is written: hypothesis, setup, variables, measurement method, expected outcome (with source if possible), safety notes.
 - Report results honestly, including failures and noise. Do not tune the narrative to match expectations.
 
 ---

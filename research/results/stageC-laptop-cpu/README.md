@@ -1,6 +1,6 @@
 # Stage C — SmolVLA inference on the development laptop CPU
 
-Measured 2026-09-15 with `scripts/profile_smolvla.py`. This is **not** the Ventuno Q: it is the baseline
+Measured 2026-09-15 with `research/experiments/reproduce-arm/scripts/profile_smolvla.py` (path from the repository root). This is **not** the Ventuno Q: it is the baseline
 every later rung (board CPU, vla.cpp, QNN) is compared against.
 
 ## Setup
@@ -56,7 +56,9 @@ Image resolution is fixed by the pretrained model and was not varied.
 
 ## Reproduce
 
+Run from the repository root in the original compatible environment. The output argument writes to the recorded result path; use a different filename to retain the existing measurement unchanged.
+
 ```bash
 source ~/venvs/lerobot/bin/activate
-python scripts/profile_smolvla.py --dtype float32 --threads 10 --runs 5 --warmup 2 --out results/stageC-laptop-cpu/profile_float32_threads10.json
+python research/experiments/reproduce-arm/scripts/profile_smolvla.py --dtype float32 --threads 10 --runs 5 --warmup 2 --out research/results/stageC-laptop-cpu/profile_float32_threads10.json
 ```

@@ -14,4 +14,7 @@ Record observed outcomes and analysis here. Link the experiment and protocol rat
 - Raw artifact location:
 - Reviewer:
 
-Existing exploratory CPU profiling is in [Reproduce Arm/results/stageC-laptop-cpu](../../Reproduce%20Arm/results/stageC-laptop-cpu/README.md). Its environment and scope must be considered before using it to support a board or robot claim.
+## Recorded outputs
+
+- [Experiment 001 forward-kinematics results](001-dataset-sim-joint-convention-check/README.md): preserved CSV outputs; original verification status remains unchanged.
+- [Stage C laptop CPU profiling](stageC-laptop-cpu/README.md): exploratory measurements. Its environment and scope must be considered before using it to support a board or robot claim.
