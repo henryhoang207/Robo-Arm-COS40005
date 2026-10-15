@@ -58,3 +58,61 @@ The simulation was run locally in the `so101_sim` Conda environment. Exact depen
 ## 7. Handover
 
 This evidence is intended to support review and preparation for the benchmark pilot. It does not establish physical-arm equivalence or hardware success.
+
+## Reproduction Instructions
+
+### Prerequisites
+
+- Python 3.11 recommended.
+- MuJoCo installed in the active Python environment.
+- Pillow installed for saving rendered camera images.
+- All model XML files and referenced mesh assets available in the repository.
+
+### Repository Layout
+
+- Model scene: `SO-ARM100-main/Simulation/SO101/scene.xml`
+- Simulation tests: `tests/simulation/`
+- Evidence output: `research/results/SO101-49/`
+
+### Camera Rendering
+
+Run `render_camera_views.py` from the simulation test suite.
+
+Expected output files:
+
+- `so101_top_camera.png`
+- `so101_wrist_cam_view.png`
+
+Expected console messages include `CAMERA RENDER: PASS` for both cameras and `CAMERA RENDER TEST: PASS` at the end.
+
+### State Capture and Restore
+
+Run `state_capture_test.py`.
+
+Expected checks:
+
+- `STATE SIZES: PASS`
+- `QPOS RESTORE: PASS`
+- `QVEL RESTORE: PASS`
+- `CTRL RESTORE: PASS`
+- `STATE CAPTURE TEST: PASS`
+
+### Gripper Motion
+
+Run `gripper_motion_test.py`.
+
+Expected checks:
+
+- `GRIPPER MOVEMENT: PASS`
+- `GRIPPER TARGET ERROR: PASS`
+- `GRIPPER MOTION TEST: PASS`
+
+The gripper target-error threshold of 0.01 rad is provisional and has not yet been approved by the team.
+
+### Evidence Limitations
+
+- Results from MuJoCo are simulation evidence, not physical-arm validation.
+- Camera images are rendered from the simulation, not captured from physical cameras.
+- Gripper motion does not establish grasp force or object-holding capability.
+- State restoration checks cover qpos, qvel, and ctrl; they do not establish restoration of every internal simulator state.
+- All expected outcomes must be verified by actually rerunning the scripts. Listing an expected result does not prove that it passed.
