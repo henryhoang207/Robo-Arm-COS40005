@@ -2,71 +2,42 @@
 
 ## 1. Decision question
 
-Which simulator should be adopted for the initial development stage of the COS40005 robot-arm project to investigate the integration of a trained robot model with VENTUNO Q and a simulated robot arm?
+Which simulator should be used for the initial development and validation of the SO-101 robot-arm project, including investigation of robot control, model integration and the intended VENTUNO Q/STM32H5F5 workflow?
 
 ## 2. Decision status
 
-**Status:** Initial recommendation — pending runnable validation and team confirmation.
+**Status:** MuJoCo selected by the project team as the initial simulator; compatibility and integration validation remain ongoing.
 
-**Recommended candidate:** ManiSkill with the SO100 robot model as a simulation reference.
+**Selected simulator:** MuJoCo 3.15.0.
 
-This recommendation supports the initial simulator-selection milestone. It does not establish that the simulator is runnable in the current development environment or that the simulated SO100 is fully equivalent to the project's physical SO-101 arm.
+**Robot model:** SO-101 model from the project's simulation resources.
 
-## 3. Options considered
+**Initial recommendation:** ManiSkill with the SO100 robot model was recommended in the original selection assessment. The project subsequently proceeded with MuJoCo for the initial runnable simulation and software validation work.
 
-| Option | Potential benefit | Outstanding concern |
+This decision records the current simulator choice. It does not establish full SO100/SO101 equivalence, successful integration of the final trained AI model, or execution on physical STM32H5F5 hardware.
+
+## 3. Candidates and selection rationale
+
+| Candidate | Potential benefit | Current assessment and outstanding concerns |
 |---|---|---|
-| ManiSkill with SO100 | Candidate robot model and pick-and-place dataset may support initial investigation of robot actions and observations. | Compatibility with the selected model checkpoint, camera setup and physical SO-101 remains to be verified. |
-| Other simulator candidates | May provide alternative robot models or integration workflows. | Comparative evaluation and compatibility evidence are not yet complete. |
+| ManiSkill with SO100 | Candidate robot model and `svla_so100_pickplace` dataset provide a starting point for investigating robot actions and observations. | The project's required model, action/state conventions, camera mapping and runnable configuration have not been verified by the tests recorded in this report. |
+| MuJoCo with SO-101 | Provides a runnable environment for inspecting the SO-101 model and testing joint control, trajectory tracking and software-level communication behaviour. | A local environment using MuJoCo 3.15.0 was launched, and software simulation tests were executed. This does not prove physical hardware integration or complete equivalence with the physical arm. |
 
-## 4. Selection rationale
+The project proceeded with MuJoCo because a runnable SO-101 simulation was available for initial software validation. This provides a practical starting point for examining joint configuration, command handling and simulated motion before hardware integration.
 
-ManiSkill with SO100 is recommended as the initial candidate because the available SO100 robot documentation and `svla_so100_pickplace` dataset provide a concrete starting point for investigating robot state, action conventions and a bounded pick-and-place task.
+The available evidence supports the feasibility of the tested MuJoCo workflow. It is not a comprehensive benchmark comparing MuJoCo against ManiSkill, and it does not establish that MuJoCo is superior for every project requirement.
 
-The candidate can be evaluated against the project's planned workflow:
+## 4. Compatibility assessment
 
-1. Obtain and inspect a suitable trained model.
-2. Run the model on the intended compute platform, subject to hardware and software compatibility checks.
-3. Exchange observations and actions between the model runtime and a computer-hosted simulator.
-4. Evaluate whether the simulator exposes the observations and accepts the actions required by the selected model.
-
-The simulator selection remains provisional until a runnable configuration and a compatible observation/action mapping are demonstrated.
-
-## 5. Compatibility assessment
-
-| Area | Current assessment | Required follow-up |
+| Area | Current evidence and assessment | Outstanding work |
 |---|---|---|
-| Robot model | SO100 is the initial simulation reference. | Compare its joint configuration and control conventions with the target SO-101 setup. |
-| Actions and states | The dataset and robot documentation provide starting points for investigation. | Verify action dimensions, joint ordering, units, ranges and state fields against the selected checkpoint. |
-| Cameras | Required camera mapping has not been verified. | Confirm camera names, viewpoints, image dimensions, colour format and preprocessing requirements. |
-| Simulation control | Runnable reset/step behaviour has not yet been demonstrated in the project environment. | Build a minimal environment and verify reset, observation retrieval, action submission and step execution. |
-| Model and hardware integration | Compatibility with the final checkpoint and VENTUNO Q runtime remains unverified. | Confirm model requirements, dependencies, runtime support and the intended communication interface. |
-| Physical SO-101 equivalence | Not established. | Validate joint mapping, limits, action scaling and relevant hardware differences before physical integration. |
-
-## 6. Trade-offs and risks
-
-- **Benefit:** provides a concrete candidate for the initial simulation and model-integration investigation.
-- **Trade-off:** the team may need additional mapping or adaptation work before the simulated robot can represent the physical SO-101.
-- **Risk:** dataset conventions may not match the selected checkpoint, simulator controller or hardware interface.
-- **Mitigation:** record the exact software versions and validate the smallest runnable simulation before proceeding to the benchmark pilot.
-
-## 7. Next steps
-
-1. Confirm the simulator choice with the project team.
-2. Record the actual simulator, robot asset and dependency versions used.
-3. Implement and run a minimal reset/step test.
-4. Verify observation and action mappings for the selected model.
-5. Record benchmark inputs, expected outputs, acceptance criteria and evidence separately.
-
-## 8. References
-
-- ManiSkill SO100 robot documentation: https://maniskill.readthedocs.io/en/latest/robots/so100/
-- LeRobot SO100 pick-and-place dataset: https://huggingface.co/datasets/lerobot/svla_so100_pickplace
-- SO-ARM100/SO-ARM101 simulation resources: https://github.com/TheRobotStudio/SO-ARM100/tree/main/Simulation
-
-## 9. Traceability
-
-- **Related Jira issue:** https://huu-hoan-hoang.atlassian.net/issues?jql=assignee%20%3D%20currentUser()%20AND%20statusCategory%20!%3D%20done%20AND%20due%20%3C%3D%202026-10-14%20AND%20due%20%3E%3D%202026-10-07&atlOrigin=eyJpIjoiMGY2YmFhNzViYzgwNGVmNGI2YzZmOWY1ZmVlYjE4OTkiLCJwIjoicG9zdE9mZmljZSJ9&selectedIssue=SO101-47
-- **Decision owner:** Nguyen
-- **Interface support:** Chung
-- **Last updated:** 14 October 2026
+| Simulator runtime | MuJoCo 3.15.0 installed in the `so101_sim` Conda environment using Python 3.11.17. The SO-101 scene was launched successfully. | Record any additional relevant package and model asset revisions needed for full reproducibility. |
+| Robot model | The SO-101 model loaded in MuJoCo. Inspection identified six joints and six actuators. | Verify model configuration and calibration against the intended physical SO-101 hardware. |
+| Joint control | Software tests exercised six-joint control and rejected an out-of-range shoulder-pan target. | Confirm controller behaviour and command scaling against the actual target hardware interface. |
+| Trajectory tracking | A synchronized four-second, six-joint trajectory test passed in simulation. | Define project-approved acceptance thresholds and validate against further representative trajectories. |
+| Action and state interface | Prototype binary ActionPacket and StatePacket round-trip tests passed; CRC corruption and unsupported protocol versions were rejected. | Confirm the interface with the actual AI runtime and STM32H5F5 firmware implementation. |
+| Fault and sequence handling | Simulation tests exercised stale/replayed sequences, incomplete targets, joint-limit rejection and watchdog timeout behaviour. | Confirm that the intended firmware uses the same rules and fault semantics. |
+| Cameras and observations | The current software validation does not establish compatibility with the ManiSkill dataset's top/wrist camera conventions or a final AI checkpoint. | Specify required camera views, image dimensions, colour format, preprocessing and observation mapping when the model is selected. |
+| Reset/step and task workflow | The MuJoCo scene was launched and scripted joint-control tests ran. This report does not establish full compatibility with the ManiSkill `svla_so100_pickplace` workflow. | Verify the reset, observation, action and step sequence required by the chosen application. |
+| VENTUNO Q / STM32H5F5 | The current end-to-end evidence uses software mocks and a simulated STM32 component. | Verify the actual communication transport, firmware implementation, runtime constraints and board execution. |
+| Physical SO-101 equivalence | Not established
