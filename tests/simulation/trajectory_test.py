@@ -3,7 +3,7 @@ import time
 import mujoco
 import mujoco.viewer
 import numpy as np
-
+from pathlib import Path
 
 JOINT_NAMES = (
     "shoulder_pan",
@@ -198,7 +198,15 @@ class SO101TrajectoryController:
             print("SYNCHRONIZED TRAJECTORY TEST: FAIL")
 
 
-controller = SO101TrajectoryController("scene.xml")
+MODEL_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "SO-ARM100-main"
+    / "Simulation"
+    / "SO101"
+    / "scene.xml"
+)
+
+controller = SO101TrajectoryController(str(MODEL_PATH))
 
 targets = {
     "shoulder_pan": 0.60,

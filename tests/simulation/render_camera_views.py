@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 import mujoco
@@ -69,9 +68,12 @@ def main():
             )
             pixels = renderer.render()
 
-            output_path = (
-                OUTPUT_DIR / f"so101_{camera_name}.png"
-            )
+            output_filename = {
+                "top_camera": "so101_top_camera.png",
+                "wrist_cam_view": "so101_wrist_camera.png",
+            }
+
+            output_path = OUTPUT_DIR / output_filename[camera_name]
 
             Image.fromarray(pixels).save(output_path)
 

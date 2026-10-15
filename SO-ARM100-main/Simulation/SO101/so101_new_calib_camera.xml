@@ -122,6 +122,10 @@
                     <!-- Part wrist_camera_so101_v1 -->
                     <geom type="mesh" class="visual" mesh="wrist_camera_so101_v1" material="wrist_camera_so101_v1_material"/>
                     <geom type="mesh" class="collision" mesh="wrist_camera_so101_v1" material="wrist_camera_so101_v1_material"/>
+                    <camera name="wrist_cam_view"
+                            pos="0 0 0.02"
+                            xyaxes="1 0 0 0 1 0"
+                            fovy="70" />
                   </body>
                 </body>
                 <!-- Link moving_jaw_so101_v1 -->

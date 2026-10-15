@@ -1,5 +1,6 @@
 import math
 import time
+from pathlib import Path
 
 import mujoco
 import mujoco.viewer
@@ -167,7 +168,15 @@ class SO101Controller:
             print("6-JOINT CONTROL TEST: FAIL")
 
 
-controller = SO101Controller("scene.xml")
+MODEL_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "SO-ARM100-main"
+    / "Simulation"
+    / "SO101"
+    / "scene.xml"
+)
+
+controller = SO101Controller(str(MODEL_PATH))
 
 controller.print_limits()
 

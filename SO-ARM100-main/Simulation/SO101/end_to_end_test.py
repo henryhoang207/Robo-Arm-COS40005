@@ -4,6 +4,7 @@ import time
 import zlib
 from dataclasses import dataclass
 from enum import IntEnum
+from pathlib import Path
 
 import mujoco
 import mujoco.viewer
@@ -893,11 +894,14 @@ def print_state(
 
 iq8 = MockIQ8()
 
-stm32 = SimulatedSTM32(
-    "scene.xml",
-    heartbeat_timeout=0.5,
+MODEL_PATH = (
+    Path(__file__).resolve().parent / "scene.xml"
 )
 
+stm32 = SimulatedSTM32(
+    str(MODEL_PATH),
+    heartbeat_timeout=0.5,
+)
 
 # ============================================================
 # TEST 1

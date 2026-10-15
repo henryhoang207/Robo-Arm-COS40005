@@ -1,5 +1,5 @@
 <mujoco model="scene">
-    <include file="so101_new_calib.xml" />
+    <include file="so101_new_calib_camera.xml" />
 
     <visual>
         <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0" />
@@ -19,6 +19,10 @@
 
     <worldbody>
         <light pos="0 0 3.5" dir="0 0 -1" directional="true" />
+        <camera name="top_camera"
+                pos="0.15 0 0.85"
+                xyaxes="1 0 0 0 1 0"
+                fovy="55" />
         <geom name="floor" size="0 0 0.05" pos="0 0 0" type="plane" material="groundplane" />
     </worldbody>
 </mujoco>
