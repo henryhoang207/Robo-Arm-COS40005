@@ -9,9 +9,9 @@ Verified by: Not yet verified. This is approval only. Board verification is pend
 
 - **Decision owner:** Hoan (SO101-34 assignee). **Technical evidence:** Duc. **Board/MCU support:** Chung.
 - **Prepared by:** Claude. Claude advises and does not decide.
-- **Condensed report:** `docs/SO101-34_Runtime_Precision_Condensed_Report_2026-10-14.docx`.
-- **Calculations:** `docs/calcs/so101-34_param_split.py`.
-- **Approved assumptions:** A-001 to A-003 in `docs/assumptions.md`.
+- **Condensed report:** `docs/technical/reports/SO101-34_Runtime_Precision_Condensed_Report_2026-10-14.docx`.
+- **Calculations:** `research/methodology/calcs/so101-34_param_split.py`.
+- **Approved assumptions:** A-001 to A-003 in `docs/technical/assumptions.md`.
 - **Evidence labels:**
   - **[V]** Verified: read this session (14 Oct 2026).
   - **[M]** From memory: Hoan must check.
@@ -55,7 +55,7 @@ Each cell discloses:
 - the artifact SHA-256 [1][2].
 
 ### Coverage [R]
-Source: `docs/calcs/so101-34_param_split.py`, using LeRobot 0.6.2 module definitions [12].
+Source: `research/methodology/calcs/so101-34_param_split.py`, using LeRobot 0.6.2 module definitions [12].
 
 - **SmolVLA:** 450.0 M parameters [13]. Mostly Linear layers, with a patch-embedding convolution.
 - **ACT inference graph:** 34.2 M parameters, of which 66.4% are Linear and 33.4% convolution. The training-only VAE encoder (17.4 M) is excluded.
@@ -152,7 +152,7 @@ The ResNet-18 convolution-weight count of 11,166,912 is [M]: the torchvision tot
 3. Any numeric fidelity threshold (Hoan). Revisit it if the SO101-22 validity check (0001 G3) finds that the unquantized references score zero in simulation [11].
 4. Day-0 board facts: Ubuntu version and glibc (the vla.cpp prebuilt needs 24.04), fp16 and dotprod flags, MemTotal, Hexagon and QAIRT versions.
 5. vla.cpp ACT support is unreleased: pin a commit or wait for a release (Duc).
-6. Write an experiments/NNN README per probe before any code is written (CLAUDE.md).
+6. Write a `research/experiments/NNN-name/README.md` per probe before any code is written (CLAUDE.md).
 
 ## 8. Dependent work to update
 
@@ -168,9 +168,9 @@ These are proposals only. Nothing has been applied to Jira.
 
 All sources were read on 2026-10-14 [V] unless marked otherwise.
 
-[1] SO101 Jira, "SO101-34: Decide the VENTUNO Q runtime, precision comparison and resource-test plan", adopted timeline v3 description, 2026-10-12. Internal: `.so101_report_2026-10-14/jira_snapshot.json`.
+[1] SO101 Jira, "SO101-34: Decide the VENTUNO Q runtime, precision comparison and resource-test plan", adopted timeline v3 description, 2026-10-12. Internal: `docs/project-management/jira/snapshots/2026-10-14.json`.
 
-[2] SO101 team, "SO101 resolved planning decisions and revised schedule", version 3, 2026-10-12. Internal: `SO101_Timeline_Review_and_Revised_Schedule_2026-10-12_v3.md`.
+[2] SO101 team, "SO101 resolved planning decisions and revised schedule", version 3, 2026-10-12. Internal: `docs/project-management/plans/SO101_Timeline_Review_and_Revised_Schedule_2026-10-12_v3.md`.
 
 [3] PyTorch, "Qualcomm AI Engine Backend", ExecuTorch 1.5 docs, https://docs.pytorch.org/executorch/stable/backends-qualcomm.html, and `backends/qualcomm/serialization/qc_schema.py` @ 38e0798 (2026-10-14).
 
@@ -188,13 +188,13 @@ All sources were read on 2026-10-14 [V] unless marked otherwise.
 
 [10] Arduino, "Arduino VENTUNO Q User Manual (ABX00181)", modified 2026-10-08, §§2.2.1, 7, 8.1, 12.1, https://docs.arduino.cc/resources/datasheets/ABX00181-datasheet.pdf
 
-[11] Decision record 0001, "Simulation benchmark, reference controller and outcome definitions (SO101-22)", proposed draft, 2026-10-14. Internal: `docs/decisions/0001-simulation-benchmark-and-reference.md`.
+[11] Decision record 0001, "Simulation benchmark, reference controller and outcome definitions (SO101-22)", proposed draft, 2026-10-14. Internal: `docs/technical/decisions/0001-simulation-benchmark-and-reference.md`.
 
 [12] Hugging Face, LeRobot v0.6.2 @ 53feaef (2026-10-14): `policies/act`, `policies/diffusion`, `policies/smolvla`. https://github.com/huggingface/lerobot
 
 [13] Hugging Face Hub API, safetensors parameter counts for lerobot/smolvla_base, lerobot/act_aloha_sim_transfer_cube_human, lerobot/diffusion_pusht and openvla/openvla-7b. https://huggingface.co/api/models/lerobot/smolvla_base?expand[]=safetensors
 
-[14] SO101 team, "Stage C: SmolVLA inference on the development laptop CPU", 2026-09-15. Internal: `Reproduce Arm/results/stageC-laptop-cpu/README.md`.
+[14] SO101 team, "Stage C: SmolVLA inference on the development laptop CPU", 2026-09-15. Internal: `research/results/stageC-laptop-cpu/README.md`.
 
 [15] Qualcomm, "General tools", QAIRT SDK docs 80-63442-10, https://docs.qualcomm.com/doc/80-63442-10/topic/general_tools.html
 

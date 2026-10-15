@@ -449,13 +449,12 @@ Original-file preservation hashes:
 
 ## Sources and preserved versions
 
-- [Original timeline proposal](<C:/Users/hoanh/OneDrive/Tài liệu/CS material/COS40005/SO101_Timeline_Review_and_Proposed_Schedule_2026-10-12.md>)
-- [Original Jira snapshot](<C:/Users/hoanh/OneDrive/Tài liệu/CS material/COS40005/SO101_Jira_Source_Snapshot_2026-10-12.md>)
-- [Read-only refresh with complete descriptions, dates, assignments and links](<C:/Users/hoanh/OneDrive/Tài liệu/CS material/COS40005/SO101_Jira_ReadOnly_Refresh_2026-10-12_v3.json>)
-- [Team and Project Plan template](<C:/Users/hoanh/OneDrive/Tài liệu/CS material/COS40005/Robo-Arm_sedoitensau/Group Project A Team and Project Plan-1.docx>)
-- [Individual Research Report template](<C:/Users/hoanh/OneDrive/Tài liệu/CS material/COS40005/Robo-Arm_sedoitensau/COS40005 Research Report-1.docx>)
-- [Preserved version 2 proposal](<C:/Users/hoanh/OneDrive/Tài liệu/CS material/COS40005/SO101_Timeline_Review_and_Revised_Schedule_2026-10-12_v2.md>)
+- Original timeline proposal — `SO101_Timeline_Review_and_Proposed_Schedule_2026-10-12.md` (historical local source; absent from this repository)
+- Original Jira snapshot — `SO101_Jira_Source_Snapshot_2026-10-12.md` (historical local source; absent from this repository)
+- Read-only refresh with complete descriptions, dates, assignments and links — `SO101_Jira_ReadOnly_Refresh_2026-10-12_v3.json` (historical local source; absent from this repository)
+- [Team and Project Plan template](../templates/Group%20Project%20A%20Team%20and%20Project%20Plan-1.docx)
+- [Individual Research Report template](../templates/COS40005%20Research%20Report-1.docx)
+- Preserved version 2 proposal — `SO101_Timeline_Review_and_Revised_Schedule_2026-10-12_v2.md` (historical local source; absent from this repository)
 - [Live SO101 board 2 timeline](https://huu-hoan-hoang.atlassian.net/jira/software/projects/SO101/boards/2/timeline). Individual issue links above resolve to the refreshed project.
 - User answers establish the fixed report/course dates, completed individual reports, ready dataset/splits, four model candidates, available RTX 5060/two RTX 4090s, permitted mixed precision and requested task-based scheduling. VENTUNO Q is available; simulator/code were absent at the implementation update. These have not been written to Jira.
 - Primary web documentation is linked beside its supported claims in section 2; actual model/profile execution remains a required test gate.
-

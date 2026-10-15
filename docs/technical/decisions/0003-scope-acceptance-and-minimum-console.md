@@ -50,7 +50,7 @@ All items DR-1 to DR-7 are approved.
 | DR-6 | Closed command set: create run / start / abort / export. Parameters are checked against frozen catalogues. Invalid input is rejected with a reason and logged, and starts nothing. Abort is always accepted. | Numeric joint, velocity and torque limits for SO101-37 (Hoan to supply) |
 | DR-7 | Minimum console as proposed. Mobile client, live camera and manual jog are out of the minimum. | Hosting (SO101-9) |
 | DR-2 (physical) | Physical workspace, lighting, payload and supervision rules are deferred to the SO101-38 procedure gate (22 Oct). Hoan and Chung supply the values. No powered test happens before then. | All values |
-| DR-3 | Claims rule approved as assumption A-004 (`docs/assumptions.md`). | None |
+| DR-3 | Claims rule approved as assumption A-004 (`docs/technical/assumptions.md`). | None |
 | DR-4 | Principles adopted. F04 (28/40, 30 s) and F05 (12/20) are retired as acceptance criteria. Operational definitions stay with decision 0001 and SO101-35. | 0001 approval |
 
 ## 2. Conflicts between the older drafts and the confirmed direction
@@ -207,12 +207,12 @@ No deadline changes.
 
 ## References
 
-1. SO101-23 and SO101-98 Jira descriptions, read-only snapshot 14 Oct 2026, `.so101_report_2026-10-14/jira_snapshot.json` [V]
-2. *SO101 resolved planning decisions and revised schedule*, version 3, 12 Oct 2026, §1–2, `SO101_Timeline_Review_and_Revised_Schedule_2026-10-12_v3.md` [V]
-3. *SO101 AI Robotics Project Plan (Literature Updated)*, `SO101_AI_Robotics_Project_Plan_Literature_Updated.docx`. Sections used: Framing (F04–F09, G0/F22), Build vs reuse (A02), Requirements R01–R09, Backlog B01 [V]
-4. *AC, Scope, Constraints – SoftDev*, `Robo-Arm_sedoitensau/AC, Scope, Constraints - SoftDev.docx`, AC-01 to AC-12 [V]
+1. SO101-23 and SO101-98 Jira descriptions, read-only snapshot 14 Oct 2026, `docs/project-management/jira/snapshots/2026-10-14.json` [V]
+2. *SO101 resolved planning decisions and revised schedule*, version 3, 12 Oct 2026, §1–2, `docs/project-management/plans/SO101_Timeline_Review_and_Revised_Schedule_2026-10-12_v3.md` [V]
+3. *SO101 AI Robotics Project Plan (Literature Updated)*, `docs/project-management/plans/SO101_AI_Robotics_Project_Plan_Literature_Updated.docx`. Sections used: Framing (F04–F09, G0/F22), Build vs reuse (A02), Requirements R01–R09, Backlog B01 [V]
+4. *AC, Scope, Constraints – SoftDev*, `docs/technical/requirements/AC, Scope, Constraints - SoftDev.docx`, AC-01 to AC-12 [V]
 5. Decision 0001 (Proposed), §3 [V]
-6. Decision 0002 (Approved 14 Oct), §1 and §3; `docs/assumptions.md` A-001 to A-003 [V]
-7. `experiments/002-benchmark-pilot-maniskill-so100/README.md`, S2 and S7–S13 [V]
-8. *Team and Project Plan* template (D01), `Robo-Arm_sedoitensau/Group Project A Team and Project Plan-1.docx` [V]
+6. Decision 0002 (Approved 14 Oct), §1 and §3; `docs/technical/assumptions.md` A-001 to A-003 [V]
+7. `research/experiments/002-benchmark-pilot-maniskill-so100/README.md`, S2 and S7–S13 [V]
+8. *Team and Project Plan* template (D01), `docs/project-management/templates/Group Project A Team and Project Plan-1.docx` [V]
 9. SO101-10, SO101-42, SO101-29 Jira descriptions, same snapshot as [1] [V]

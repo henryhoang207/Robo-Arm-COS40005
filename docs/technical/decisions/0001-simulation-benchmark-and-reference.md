@@ -190,7 +190,7 @@ These are proposals only. Nothing has been applied to Jira.
 [14] S. Tao et al., "ManiSkill3: GPU Parallelized Robotics Simulation and Rendering for Generalizable Embodied AI", RSS 2025, arXiv:2410.00425. Citation as given in [12]; paper not read. [V citation only]
 
 [15] Local project records, read this session [V]:
-- `SO101_Timeline_Review_and_Revised_Schedule_2026-10-12_v3.md`;
-- `.so101_report_2026-10-14/jira_snapshot.json` (SO101-21, 22, 31, 35, 37, 47, 49, 100, 101, 102);
-- `Robo-Arm_sedoitensau/Reproduce Arm/docs/07-evaluation-protocol.md`;
+- `docs/project-management/plans/SO101_Timeline_Review_and_Revised_Schedule_2026-10-12_v3.md`;
+- `docs/project-management/jira/snapshots/2026-10-14.json` (SO101-21, 22, 31, 35, 37, 47, 49, 100, 101, 102);
+- `research/methodology/reproduce-arm/07-evaluation-protocol.md`;
 - `CLAUDE.md`.

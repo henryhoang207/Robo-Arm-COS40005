@@ -66,14 +66,14 @@ The distribution across these tells you what to fix. If most failures are type
 
 ## Recording results
 
-Keep `results/` in this repo:
+Keep small result tables in `research/results/` in this repo. Store large recordings externally and record their location in the result note:
 
 ```
-results/
+research/results/
   rung1-pytorch-cpu/
     trials.csv          # trial_id, config, position, colour, outcome, failure_type, notes
     latency.csv
-    video/              # at least the failures
+    video-index.md      # external recordings, including failures
   rung2-vlacpp-q8/
   rung3-qnn-vision/
 ```

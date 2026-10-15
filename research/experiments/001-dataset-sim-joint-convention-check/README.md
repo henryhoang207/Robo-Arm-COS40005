@@ -68,7 +68,7 @@ Simulation and kinematics only. No hardware is commanded.
 - Files:
   - Data: `data/ep0_sampled_frames.csv`, `data/grasp_frames_multi_episode.csv`.
   - Scripts: `fk_check.py`, `fk_multi.py`.
-  - Outputs: `results/fk_results.csv`, `results/fk_multi_results.csv`.
+  - Outputs: `research/results/001-dataset-sim-joint-convention-check/fk_results.csv`, `research/results/001-dataset-sim-joint-convention-check/fk_multi_results.csv` (paths from the repository root).
   - Software pins: `environment-pins.txt`.
 
 ### Grasp identification
@@ -111,9 +111,9 @@ In all three episodes the gripper **action** falls to about 5–7. The measured 
 
 ## How to verify
 
-1. Re-run in the pinned environment:
+1. Re-run from the repository root in the pinned environment. Inputs and output paths are resolved from the script location, so the working directory does not change where results are written:
    ```
-   VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.json python fk_multi.py
+   VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.json python research/experiments/001-dataset-sim-joint-convention-check/fk_multi.py
    ```
    On a GPU machine, omit `VK_ICD_FILENAMES`. You should get the numbers in the table above, to within rounding.
 2. Open the Hugging Face dataset viewer for `lerobot/svla_so100_pickplace`. Compare these rows with `data/*.csv`:

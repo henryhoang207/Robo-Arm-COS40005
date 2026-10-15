@@ -39,3 +39,5 @@ Use the README in the relevant `evidence/` folder as its index. Link to the orig
 Keep source code and small reviewed artifacts in Git. Store large recordings, model weights, datasets and formal reports in agreed external storage. Include version identifiers or checksums where useful for reproducing a result.
 
 The official AI Usage Log and formal reports remain in Drive. Technical AI assistance notes and evidence indexes live here.
+
+The user-requested repository copies of plans and reports are filed under `docs/project-management/plans/` and `docs/technical/reports/`. Their presence is an archive copy, not evidence of formal submission or technical validation.
