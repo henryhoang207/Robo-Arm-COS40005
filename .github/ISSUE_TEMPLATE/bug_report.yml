@@ -1,0 +1,31 @@
+name: Bug report
+description: Record a reproducible defect and its evidence.
+title: "[Bug] "
+body:
+  - type: input
+    id: jira
+    attributes:
+      label: Jira issue
+      description: Add the assigned issue ID or link; use TBD until assigned.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce and actual result
+      description: Include inputs, versions and whether this used mocks, a computer, the board, simulation or the physical arm.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and impact
+      description: Link logs, tests, screenshots or experiment records; describe the effect on the project.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: How we will know the fix works
