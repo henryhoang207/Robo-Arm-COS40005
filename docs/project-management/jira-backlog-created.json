@@ -1,0 +1,177 @@
+[
+  {
+    "draftId": "E01",
+    "key": "ROBO-1",
+    "summary": "Plan, acceptance and shared interfaces"
+  },
+  {
+    "draftId": "E02",
+    "key": "ROBO-2",
+    "summary": "Trained model and VENTUNO Q deployment"
+  },
+  {
+    "draftId": "E03",
+    "key": "ROBO-3",
+    "summary": "Board-to-simulation feedback loop"
+  },
+  {
+    "draftId": "E04",
+    "key": "ROBO-4",
+    "summary": "Mobile app and AI/IoT integration"
+  },
+  {
+    "draftId": "E05",
+    "key": "ROBO-5",
+    "summary": "SO-101 hardware and controller readiness"
+  },
+  {
+    "draftId": "E06",
+    "key": "ROBO-6",
+    "summary": "Physical adaptation and evaluation"
+  },
+  {
+    "draftId": "E07",
+    "key": "ROBO-7",
+    "summary": "Semester reviews, evidence and handover"
+  },
+  {
+    "draftId": "T01",
+    "key": "ROBO-8",
+    "summary": "Agree the task, scope and semester acceptance criteria"
+  },
+  {
+    "draftId": "T02",
+    "key": "ROBO-9",
+    "summary": "Confirm owners, semester calendar and board/lab access"
+  },
+  {
+    "draftId": "T03",
+    "key": "ROBO-10",
+    "summary": "Agree the versioned AI/IoT/app command interface"
+  },
+  {
+    "draftId": "T04",
+    "key": "ROBO-11",
+    "summary": "Record hardware-delay and integration fallback decisions"
+  },
+  {
+    "draftId": "T05",
+    "key": "ROBO-12",
+    "summary": "Review and select a compatible trained checkpoint"
+  },
+  {
+    "draftId": "T06",
+    "key": "ROBO-13",
+    "summary": "Establish the original-model computer reference"
+  },
+  {
+    "draftId": "T07",
+    "key": "ROBO-14",
+    "summary": "Convert the checkpoint and replay inputs on VENTUNO Q"
+  },
+  {
+    "draftId": "T08",
+    "key": "ROBO-15",
+    "summary": "Compare conversion outputs and measure board runtime"
+  },
+  {
+    "draftId": "T09",
+    "key": "ROBO-16",
+    "summary": "Review and select simulator, SO-101 assets and cameras"
+  },
+  {
+    "draftId": "T10",
+    "key": "ROBO-17",
+    "summary": "Verify action mapping with known virtual-arm commands"
+  },
+  {
+    "draftId": "T11",
+    "key": "ROBO-18",
+    "summary": "Connect the live board/simulator observation-action loop"
+  },
+  {
+    "draftId": "T12",
+    "key": "ROBO-19",
+    "summary": "Evaluate repeated simulated task trials and failures"
+  },
+  {
+    "draftId": "T13",
+    "key": "ROBO-20",
+    "summary": "Freeze app features and map SoftDev AC01-AC12"
+  },
+  {
+    "draftId": "T14",
+    "key": "ROBO-21",
+    "summary": "Build mobile controls and feedback using mocks"
+  },
+  {
+    "draftId": "T15",
+    "key": "ROBO-22",
+    "summary": "Integrate app requests and feedback with board/simulation"
+  },
+  {
+    "draftId": "T16",
+    "key": "ROBO-23",
+    "summary": "Verify supported controls, errors and app usability"
+  },
+  {
+    "draftId": "T17",
+    "key": "ROBO-24",
+    "summary": "Validate app behavior with the physical SO-101"
+  },
+  {
+    "draftId": "T18",
+    "key": "ROBO-25",
+    "summary": "Confirm SO-101 procurement, delivery and access checkpoints"
+  },
+  {
+    "draftId": "T19",
+    "key": "ROBO-26",
+    "summary": "Assemble, calibrate and verify the physical controller"
+  },
+  {
+    "draftId": "T20",
+    "key": "ROBO-27",
+    "summary": "Establish a trained-model physical task reference"
+  },
+  {
+    "draftId": "T21",
+    "key": "ROBO-28",
+    "summary": "Collect aligned demonstrations and adapt only if needed"
+  },
+  {
+    "draftId": "T22",
+    "key": "ROBO-29",
+    "summary": "Measure physical timing and improve the proven bottleneck"
+  },
+  {
+    "draftId": "T23",
+    "key": "ROBO-30",
+    "summary": "Test supervised physical faults, stop and recovery"
+  },
+  {
+    "draftId": "T24",
+    "key": "ROBO-31",
+    "summary": "Run agreed physical task trials and report uncertainty"
+  },
+  {
+    "draftId": "T25",
+    "key": "ROBO-32",
+    "summary": "Deliver the Semester 1 board, simulation and app review"
+  },
+  {
+    "draftId": "T26",
+    "key": "ROBO-33",
+    "summary": "Review the Semester 2 scope and hardware fallback"
+  },
+  {
+    "draftId": "T27",
+    "key": "ROBO-34",
+    "summary": "Maintain issue-to-evidence traceability and AI records"
+  },
+  {
+    "draftId": "T28",
+    "key": "ROBO-35",
+    "summary": "Complete final system/app trials and repeatable handover"
+  }
+]

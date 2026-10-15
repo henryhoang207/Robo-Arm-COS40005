@@ -1,0 +1,442 @@
+"Issue ID","Issue Type","Summary","Description","Parent","Draft ID","Planning period","Owner role","Dependencies","Labels"
+"1","Epic","Plan, acceptance and shared interfaces","Goal
+Agree one task, measurable acceptance criteria, scope boundaries, ownership and a versioned shared interface. Keep actual dates and named assignees TBD until agreed.
+
+Planning period: Months 1-8 (relative; actual dates TBD).
+Owner role: PM with AI, IoT, SoftDev and supervisor; named assignee TBD.
+Completion: linked tasks have the agreed evidence and reviewed limitations.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","","E01","Months 1-8","PM with AI, IoT, SoftDev and supervisor","","robotics;planning;month-1"
+"2","Epic","Trained model and VENTUNO Q deployment","Goal
+Select a task-compatible trained checkpoint, establish a computer reference, convert/replay it on the board, and measure conversion differences and runtime limits. Acceleration remains optional until verified.
+
+Planning period: Semester 1, Months 1-4 (relative; actual dates TBD).
+Owner role: AI lead; named assignee TBD.
+Completion: linked tasks have the agreed evidence and reviewed limitations.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","","E02","Semester 1, Months 1-4","AI lead","","robotics;planning;month-1"
+"3","Epic","Board-to-simulation feedback loop","Goal
+Select compatible robot/camera assets, verify action mapping, connect new simulated observations to the board, and record repeated task behavior. Replay alone does not prove closed-loop control or physical task success.
+
+Planning period: Semester 1, Months 1-4 (relative; actual dates TBD).
+Owner role: Simulation and integration lead; named assignee TBD.
+Completion: linked tasks have the agreed evidence and reviewed limitations.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","","E03","Semester 1, Months 1-4","Simulation and integration lead","","robotics;planning;month-1"
+"4","Epic","Mobile app and AI/IoT integration","Goal
+Build the main mobile interface, start with mocks, integrate agreed endpoints, and verify supported controls, connection/status/errors and usability. Gripper, XYZ, camera and stop features depend on system support; recording and speech need scope decisions.
+
+Planning period: Semesters 1-2, Months 1-7 (relative; actual dates TBD).
+Owner role: SoftDev lead; named assignee TBD.
+Completion: linked tasks have the agreed evidence and reviewed limitations.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","","E04","Semesters 1-2, Months 1-7","SoftDev lead","","robotics;planning;month-1"
+"5","Epic","SO-101 hardware and controller readiness","Goal
+Confirm arm access, assemble/calibrate the available arm, and verify controller, cameras, limits and supervised stop behavior before model-driven physical motion. Preserve the simulation route while hardware is delayed.
+
+Planning period: Procurement Months 1-4; physical checks Month 5 (relative; actual dates TBD).
+Owner role: IoT and hardware lead; named assignee TBD.
+Completion: linked tasks have the agreed evidence and reviewed limitations.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","","E05","Procurement Months 1-4; physical checks Month 5","IoT and hardware lead","","robotics;planning;month-1;month-5"
+"6","Epic","Physical adaptation and evaluation","Goal
+Establish a physical task reference, adapt with aligned local demonstrations if evidence requires it, and evaluate task completion, timing, app feedback and permitted faults under agreed conditions.
+
+Planning period: Semester 2, Months 6-7 (relative; actual dates TBD).
+Owner role: AI lead with IoT, SoftDev and integration; named assignee TBD.
+Completion: linked tasks have the agreed evidence and reviewed limitations.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","","E06","Semester 2, Months 6-7","AI lead with IoT, SoftDev and integration","","robotics;planning;month-6"
+"7","Epic","Semester reviews, evidence and handover","Goal
+Maintain traceability and official AI records, demonstrate achieved Semester 1 scope, agree the Semester 2 checkpoint, and deliver repeatable final system/app results and handover.
+
+Planning period: Months 1-8; reviews Months 4 and 8 (relative; actual dates TBD).
+Owner role: PM and component leads; named assignee TBD.
+Completion: linked tasks have the agreed evidence and reviewed limitations.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","","E07","Months 1-8; reviews Months 4 and 8","PM and component leads","","robotics;planning;month-1;month-4"
+"8","Task","Agree the task, scope and semester acceptance criteria","Purpose
+Define the intended user, object, destination and user problem/value measure. Set required, conditional and deferred features. Agree what Semester 1 must demonstrate and the separate Semester 2 physical targets.
+
+Planning period: Month 1 (relative; actual dates TBD).
+Owner role: PM and supervisor; named assignee TBD.
+
+Acceptance checks
+1. Record the task and feature boundaries in a reviewed scope decision.
+2. Agree conversion, runtime, simulation, physical task and app targets with test conditions and trial allocation; leave unresolved values visibly TBD.
+3. Keep user value, simulation behavior and physical success as separate claims.
+
+Dependencies (draft references; replace with created Jira keys): None.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","1","T01","Month 1","PM and supervisor","","robotics;month-1"
+"9","Task","Confirm owners, semester calendar and board/lab access","Purpose
+Map the eight relative months to actual teaching weeks, breaks, assessments and hardware access. Confirm component responsibilities and named owners.
+
+Planning period: Month 1 (relative; actual dates TBD).
+Owner role: PM; named assignee TBD.
+
+Acceptance checks
+1. Record the semester boundaries and submission/review dates when confirmed.
+2. Confirm VENTUNO Q access and the simulator host; link the arm procurement work item.
+3. Record PM, AI, IoT/hardware, SoftDev, integration and supervisor owners; actual Jira assignees remain unassigned until confirmed.
+
+Dependencies (draft references; replace with created Jira keys): None.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","1","T02","Month 1","PM","","robotics;month-1"
+"10","Task","Agree the versioned AI/IoT/app command interface","Purpose
+Agree the shared command and observation contracts before substantial integration.
+
+Planning period: Month 1 (relative; actual dates TBD).
+Owner role: AI, IoT, SoftDev and integration leads; named assignee TBD.
+
+Acceptance checks
+1. Document image/state/action fields, task inputs, units, ranges, preprocessing and action scaling.
+2. Agree transport, statuses/errors, timestamps/timeouts, manual-versus-AI priority, stop/reset and access/security rules.
+3. Define sent, accepted, completed and failed feedback; sending alone must not imply completion. Record unsupported feedback explicitly.
+
+Dependencies (draft references; replace with created Jira keys): T01.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","1","T03","Month 1","AI, IoT, SoftDev and integration leads","T01","robotics;month-1"
+"11","Task","Record hardware-delay and integration fallback decisions","Purpose
+Track late board/arm access, model/simulator mismatch, slow runtime and interface drift. Maintain decisions and evidence for the agreed fallback.
+
+Planning period: Month 1; review monthly and in Month 4 (relative; actual dates TBD).
+Owner role: PM and supervisor; named assignee TBD.
+
+Acceptance checks
+1. Record risk owners, dependencies and monthly hardware checkpoints.
+2. If the board is delayed, retain a computer reference and mark board validation outstanding.
+3. At the Semester 2 planning review, agree revised assessed scope if the arm is unavailable; preserve the distinction between simulation and physical evidence.
+
+Dependencies (draft references; replace with created Jira keys): T02.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","1","T04","Month 1; review monthly and in Month 4","PM and supervisor","T02","robotics;month-1;month-4"
+"12","Task","Review and select a compatible trained checkpoint","Purpose
+Review existing task-trained checkpoints using primary model cards, papers and original repositories. SmolVLA and LeRobot are candidates, not a confirmed working controller.
+
+Planning period: Month 1 (relative; actual dates TBD).
+Owner role: AI lead; named assignee TBD.
+
+Acceptance checks
+1. Compare robot, camera/state/action conventions, task coverage and existing task evidence.
+2. Record licence/reuse conditions, exact checkpoint/version and provider.
+3. Close [TBD LIT compatible checkpoint task evidence and licence] or document the remaining gap; loading a base model is only a deployment check.
+
+Dependencies (draft references; replace with created Jira keys): T01.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","2","T05","Month 1","AI lead","T01","robotics;month-1"
+"13","Task","Establish the original-model computer reference","Purpose
+Run the selected original model on saved inputs before conversion.
+
+Planning period: Month 2 (relative; actual dates TBD).
+Owner role: AI lead; named assignee TBD.
+
+Acceptance checks
+1. Version inputs, checkpoint, dependencies, preprocessing and controlled random settings.
+2. Save every reference action field and restored action scaling.
+3. Record a reproducible run and its limits without claiming board or physical success.
+
+Dependencies (draft references; replace with created Jira keys): T05, T03.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","2","T06","Month 2","AI lead","T05;T03","robotics;month-2"
+"14","Task","Convert the checkpoint and replay inputs on VENTUNO Q","Purpose
+Use a compatible existing conversion/runtime path where possible. Feed the board known images and arm state; save predicted actions.
+
+Planning period: Month 2 (relative; actual dates TBD).
+Owner role: AI lead; named assignee TBD.
+
+Acceptance checks
+1. Record conversion/runtime versions, settings and the board configuration.
+2. Demonstrate model loading and repeat inference on the saved input set, or record the precise blocker and outputs.
+3. Keep NPU/Hexagon acceleration optional until the selected board/runtime path is locally verified.
+
+Dependencies (draft references; replace with created Jira keys): T06, T02.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","2","T07","Month 2","AI lead","T06;T02","robotics;month-2"
+"15","Task","Compare conversion outputs and measure board runtime","Purpose
+Compare original and converted results on identical inputs, then profile board operation separately from simulation rendering.
+
+Planning period: Months 2-4 (relative; actual dates TBD).
+Owner role: AI lead; named assignee TBD.
+
+Acceptance checks
+1. Compare every action field against the agreed tolerance and preserve failures.
+2. Measure loading/startup, steady prediction time, memory, errors and sustained run behavior.
+3. Report versions, cases, number of runs and limits; [TBD TEAM board timing memory duration and action-difference targets].
+
+Dependencies (draft references; replace with created Jira keys): T07, T01.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","2","T08","Months 2-4","AI lead","T07;T01","robotics;month-2"
+"16","Task","Review and select simulator, SO-101 assets and cameras","Purpose
+Select the checkpoint and simulator together, using existing simulation tooling and compatible robot assets where available.
+
+Planning period: Month 1 (relative; actual dates TBD).
+Owner role: Simulation and integration lead; named assignee TBD.
+
+Acceptance checks
+1. Document robot joints/gripper, camera views, state fields and control support.
+2. Justify compatibility or the adaptation required for the selected checkpoint.
+3. Close [TBD LIT simulator robot assets cameras and control support]; confirm the simulator host and board connection.
+
+Dependencies (draft references; replace with created Jira keys): T01, T05.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","3","T09","Month 1","Simulation and integration lead","T01;T05","robotics;month-1"
+"17","Task","Verify action mapping with known virtual-arm commands","Purpose
+Test mapping before claiming that model predictions control the virtual arm.
+
+Planning period: Months 2-3 (relative; actual dates TBD).
+Owner role: Simulation and integration lead; named assignee TBD.
+
+Acceptance checks
+1. Verify fields, units, direction, joint/gripper ranges and limits using known actions.
+2. Restore model action scaling before translation; record mapping checks and failures.
+3. Only then send board predictions through the verified mapping.
+
+Dependencies (draft references; replace with created Jira keys): T09, T03.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","3","T10","Months 2-3","Simulation and integration lead","T09;T03","robotics;month-2"
+"18","Task","Connect the live board/simulator observation-action loop","Purpose
+Send rendered images and current state to the board, execute predicted actions in simulation, and send the next observations after movement.
+
+Planning period: Month 3 (relative; actual dates TBD).
+Owner role: Simulation and integration lead; named assignee TBD.
+
+Acceptance checks
+1. Demonstrate repeated observation-prediction-execution feedback, or document a blocker with results.
+2. Test resets, timestamps, missing/stale messages and the agreed timeout policy.
+3. Keep rendering on the computer and label any slowed simulation; report wall-clock time separately.
+
+Dependencies (draft references; replace with created Jira keys): T07, T10.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","3","T11","Month 3","Simulation and integration lead","T07;T10","robotics;month-3"
+"19","Task","Evaluate repeated simulated task trials and failures","Purpose
+Evaluate simulated task behavior after compatibility and mapping are checked.
+
+Planning period: Month 4 (relative; actual dates TBD).
+Owner role: AI and integration leads; named assignee TBD.
+
+Acceptance checks
+1. Use agreed initial conditions and trial allocation; record all attempts, completions, completion time, resets and failure causes.
+2. Investigate rendered-versus-real image differences and task coverage when mapping is correct but task behavior fails.
+3. Report achieved simulation results and limits; do not infer physical task success.
+
+Dependencies (draft references; replace with created Jira keys): T11, T01.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","3","T12","Month 4","AI and integration leads","T11;T01","robotics;month-4"
+"20","Task","Freeze app features and map SoftDev AC01-AC12","Purpose
+Use the supplied SoftDev acceptance criteria, scope and constraints to agree the app checklist.
+
+Planning period: Month 1 (relative; actual dates TBD).
+Owner role: SoftDev lead with AI and IoT; named assignee TBD.
+
+Acceptance checks
+1. Choose the target mobile OS/device, communication method and supported command/status/camera endpoints.
+2. Mark required, conditional and deferred features per semester; gripper, XYZ, camera and stop depend on control support.
+3. Keep recording optional and speech separate; agree missing numerical responsiveness/usability targets and any dedicated AI-flow checks.
+
+Dependencies (draft references; replace with created Jira keys): T01, T03.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","4","T13","Month 1","SoftDev lead with AI and IoT","T01;T03","robotics;month-1"
+"21","Task","Build mobile controls and feedback using mocks","Purpose
+Develop app screens and navigation in parallel with board/model work, using labelled mock data and simulated AI responses.
+
+Planning period: Month 2 (relative; actual dates TBD).
+Owner role: SoftDev lead; named assignee TBD.
+
+Acceptance checks
+1. Implement clear labels, consistent target-device layout and easy access to a supported stop control.
+2. Show connected, disconnected and failed connection states; test reconnect and unavailable-robot command feedback.
+3. Demonstrate supported control/status/error flows with mock outcomes labelled as mocks.
+
+Dependencies (draft references; replace with created Jira keys): T13.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","4","T14","Month 2","SoftDev lead","T13","robotics;month-2"
+"22","Task","Integrate app requests and feedback with board/simulation","Purpose
+Connect the app to the agreed AI/IoT endpoints while model outputs pass through the control layer.
+
+Planning period: Month 3 (relative; actual dates TBD).
+Owner role: SoftDev and IoT/integration leads; named assignee TBD.
+
+Acceptance checks
+1. Verify agreed request formats, limits, statuses/errors and connection loss/reconnect.
+2. Display sent/accepted/completed/failed only as supported by actual feedback; no false success after a reported failure.
+3. Check manual-versus-AI control priority and unsupported endpoint feedback.
+
+Dependencies (draft references; replace with created Jira keys): T14, T03, T11.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","4","T15","Month 3","SoftDev and IoT/integration leads","T14;T03;T11","robotics;month-3"
+"23","Task","Verify supported controls, errors and app usability","Purpose
+Run the agreed AC01-AC12 checklist on the chosen device with integration evidence separate from earlier mocks.
+
+Planning period: Months 3-4 (relative; actual dates TBD).
+Owner role: SoftDev lead; named assignee TBD.
+
+Acceptance checks
+1. Verify supported joints, gripper, speed and XYZ inputs/ranges; invalid or unavailable commands have clear feedback.
+2. Verify incoming status updates, available camera stream/unavailable feedback and supported stop request/result feedback.
+3. Test retries where appropriate, clear labels, accessible controls and consistent layout; record response/usability results against agreed targets.
+
+Dependencies (draft references; replace with created Jira keys): T15, T13.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","4","T16","Months 3-4","SoftDev lead","T15;T13","robotics;month-3"
+"24","Task","Validate app behavior with the physical SO-101","Purpose
+Repeat agreed app checks using physical endpoints and the real arm when available.
+
+Planning period: Months 5-7 (relative; actual dates TBD).
+Owner role: SoftDev with IoT and integration; named assignee TBD.
+
+Acceptance checks
+1. Verify supported physical controls, camera/status updates, errors and manual/AI handover.
+2. Record the app stop request, controller/arm actually stopping, and returned state as separate observations.
+3. Record device/app/controller versions, failures and outstanding checks; do not substitute simulation results.
+
+Dependencies (draft references; replace with created Jira keys): T19, T16, T20.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","4","T17","Months 5-7","SoftDev with IoT and integration","T19;T16;T20","robotics;month-5"
+"25","Task","Confirm SO-101 procurement, delivery and access checkpoints","Purpose
+Confirm purchase or loan options and realistic access to the physical SO-101.
+
+Planning period: Months 1-4 (relative; actual dates TBD).
+Owner role: PM and IoT/hardware lead; named assignee TBD.
+
+Acceptance checks
+1. Record the route, accountable owner, expected access date when confirmed and required parts.
+2. Review availability monthly and link delay/fallback decisions.
+3. Confirm Semester 2 lab access without making an unapproved purchase or inventing a delivery commitment.
+
+Dependencies (draft references; replace with created Jira keys): T02.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","5","T18","Months 1-4","PM and IoT/hardware lead","T02","robotics;month-1"
+"26","Task","Assemble, calibrate and verify the physical controller","Purpose
+Establish basic physical control before model-driven motion, using the agreed lab procedure.
+
+Planning period: Month 5, subject to arm availability (relative; actual dates TBD).
+Owner role: IoT and hardware lead; named assignee TBD.
+
+Acceptance checks
+1. Record assembly/calibration, cameras/state inputs, controller path and operating limits.
+2. Verify basic supervised movement, limits, stop/reset and camera/status endpoints.
+3. Record the readiness gate and failures before permitting model-driven physical motion.
+
+Dependencies (draft references; replace with created Jira keys): T18, T03.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","5","T19","Month 5, subject to arm availability","IoT and hardware lead","T18;T03","robotics;month-5"
+"27","Task","Establish a trained-model physical task reference","Purpose
+Replace simulated observations with real camera/state inputs and route actions through the selected controller.
+
+Planning period: Month 6 (relative; actual dates TBD).
+Owner role: AI with IoT/integration; named assignee TBD.
+
+Acceptance checks
+1. Verify real inputs, calibration, data format and action mapping in the physical path.
+2. Run the agreed baseline task and record successes, failures and interventions.
+3. Version the reference and retain a failure log for deciding whether adaptation is needed.
+
+Dependencies (draft references; replace with created Jira keys): T19, T08, T10.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","6","T20","Month 6","AI with IoT/integration","T19;T08;T10","robotics;month-6"
+"28","Task","Collect aligned demonstrations and adapt only if needed","Purpose
+Investigate calibration, task coverage and image/domain differences before changing the model.
+
+Planning period: Month 6, conditional on observed need (relative; actual dates TBD).
+Owner role: AI lead with IoT/hardware; named assignee TBD.
+
+Acceptance checks
+1. Agree and record synchronized camera/state/action demonstrations; app command logs alone are not training data.
+2. Version collected data and any model adaptation settings.
+3. Compare adapted and reference behavior under the same conditions, or document why adaptation was unnecessary/deferred.
+
+Dependencies (draft references; replace with created Jira keys): T20.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","6","T21","Month 6, conditional on observed need","AI lead with IoT/hardware","T20","robotics;month-6"
+"29","Task","Measure physical timing and improve the proven bottleneck","Purpose
+Measure end-to-end physical timing before selecting an improvement.
+
+Planning period: Month 7 (relative; actual dates TBD).
+Owner role: AI and IoT/integration leads; named assignee TBD.
+
+Acceptance checks
+1. Measure board prediction, message delay, executed actions and pauses during actual movement.
+2. Compare with agreed operating/timing limits and identify the measured bottleneck.
+3. Change one relevant factor at a time and compare under the same conditions; acceleration stays optional until verified.
+
+Dependencies (draft references; replace with created Jira keys): T20, T01.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","6","T22","Month 7","AI and IoT/integration leads","T20;T01","robotics;month-7"
+"30","Task","Test supervised physical faults, stop and recovery","Purpose
+Run only the agreed permitted fault cases under the lab procedure.
+
+Planning period: Month 7 (relative; actual dates TBD).
+Owner role: IoT with SoftDev and integration; named assignee TBD.
+
+Acceptance checks
+1. Test connection loss, stale/invalid commands, stop/reset and manual/AI handover.
+2. Verify the app request, controller/arm stop and resulting feedback separately.
+3. Record recovery behavior, supervision, versions and failures against [TBD TEAM permitted fault tests and recovery criteria].
+
+Dependencies (draft references; replace with created Jira keys): T19, T17, T03.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","6","T23","Month 7","IoT with SoftDev and integration","T19;T17;T03","robotics;month-7"
+"31","Task","Run agreed physical task trials and report uncertainty","Purpose
+Evaluate the physical task using the agreed objects, destination, initial conditions and trial allocation.
+
+Planning period: Month 7 (relative; actual dates TBD).
+Owner role: AI and integration leads; named assignee TBD.
+
+Acceptance checks
+1. Count all attempts, correct completions, completion time and manual interventions.
+2. Report failures, exclusions, resets, uncertainty and operating conditions.
+3. Use supervisor-agreed targets; earlier draft numbers remain candidates, not confirmed requirements.
+
+Dependencies (draft references; replace with created Jira keys): T20, T01.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","6","T24","Month 7","AI and integration leads","T20;T01","robotics;month-7"
+"32","Task","Deliver the Semester 1 board, simulation and app review","Purpose
+Demonstrate the achieved Semester 1 scope and submit the agreed report evidence.
+
+Planning period: Month 4 (relative; actual dates TBD).
+Owner role: PM and component leads; named assignee TBD.
+
+Acceptance checks
+1. Provide a repeatable board/simulation/app package with frozen relevant versions and setup steps.
+2. Keep mock, board runtime, live feedback and simulated task results distinct; record blockers and unsupported features.
+3. Review whether the agreed minimum and task targets were achieved with the supervisor.
+
+Dependencies (draft references; replace with created Jira keys): T08, T12, T16.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","7","T25","Month 4","PM and component leads","T08;T12;T16","robotics;month-4"
+"33","Task","Review the Semester 2 scope and hardware fallback","Purpose
+Freeze the next semester's assessed scope using Semester 1 evidence and confirmed physical access.
+
+Planning period: Month 4 (relative; actual dates TBD).
+Owner role: PM and supervisor; named assignee TBD.
+
+Acceptance checks
+1. Record the required Semester 2 outcomes, conditional features, owners and deadlines when agreed.
+2. If the arm is unavailable, obtain a revised assessed scope with a documented fallback.
+3. Update backlog dependencies and keep unperformed physical checks outstanding.
+
+Dependencies (draft references; replace with created Jira keys): T25, T18, T04.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","7","T26","Month 4","PM and supervisor","T25;T18;T04","robotics;month-4"
+"34","Task","Maintain issue-to-evidence traceability and AI records","Purpose
+Maintain technical evidence indexes in GitHub and formal reports/the official AI Usage Log in Drive.
+
+Planning period: Months 1-8 (relative; actual dates TBD).
+Owner role: PM and all contributors; named assignee TBD.
+
+Acceptance checks
+1. Link Jira work items to relevant commits/PRs, experiment records, evidence and formal reports.
+2. Record methods, versions, actual results, failures, limitations and attributable contributions.
+3. Keep official Drive links and individual IC-SR/STAR references current; [TBD TEAM AI Usage Log and report locations].
+
+Dependencies (draft references; replace with created Jira keys): None.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","7","T27","Months 1-8","PM and all contributors","","robotics;month-1"
+"35","Task","Complete final system/app trials and repeatable handover","Purpose
+Prepare the final demonstration, report and handover, with time for repairs and revision.
+
+Planning period: Month 8 (relative; actual dates TBD).
+Owner role: PM and component leads; named assignee TBD.
+
+Acceptance checks
+1. Freeze app/model/data/controller/simulator versions and include calibration, interface/setup and deployment instructions.
+2. Provide final results including failures, known issues, future work and a repeated demonstration.
+3. Meet [TBD TEAM final acceptance and submission checklist] with the supervisor; keep formal reports in Drive.
+
+Dependencies (draft references; replace with created Jira keys): T17, T22, T23, T24, T26, T27.
+Evidence: link the relevant GitHub artifact/PR and Drive report.
+Source plan: https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI","7","T28","Month 8","PM and component leads","T17;T22;T23;T24;T26;T27","robotics;month-8"
