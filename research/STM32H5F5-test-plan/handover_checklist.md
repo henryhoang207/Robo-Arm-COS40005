@@ -16,16 +16,17 @@
 ## 2. Existing Simulation Evidence
 
 - [x] Existing SO101-49 results README reviewed.
-- [x] Planning documents distinguish MuJoCo evidence from physical
-      hardware validation.
-- [x] Position-error threshold identified as requiring approval.
-- [ ] Verify exact evidence paths and outputs for each claimed simulation
-      scenario.
-- [ ] Confirm which test scripts implement each proposed test case.
-- [ ] Re-run relevant tests from the documented repository setup if
-      reproducibility is required for the handoff.
-- [ ] Record actual execution results without treating script existence
-      as proof of a passing test.
+- [x] MuJoCo results distinguished from physical hardware validation.
+- [x] Position-error thresholds identified as requiring team approval.
+- [x] Previously reported SO101-49 simulation results recorded as existing
+      evidence, subject to verification of the relevant artifacts.
+- [ ] Confirm evidence paths and outputs for each SO101-40 test case
+      claimed to have simulation coverage.
+- [ ] Verify the exact test scripts and result artifacts where the
+      handoff requires test-level evidence.
+- [ ] Re-run relevant tests from a repository checkout only if
+      reproducibility is required or existing evidence is insufficient.
+- [ ] Record actual execution results and any remaining evidence gaps.
 
 ## 3. Decisions Requiring Confirmation
 
