@@ -1,4 +1,3 @@
-
 {
   "test_id": "TC-01",
   "sequence_id": 1,
@@ -12,9 +11,9 @@
   },
   "units": {
     "joint_angles": "radians - proposed; confirm with IoT team",
-    "duration": "seconds"
+    "duration": "seconds - proposed; confirm duration semantics"
   },
   "duration_seconds": 3.0,
-  "notes": "Proposed logical test input for TC-01. Confirm joint names, units, sequence ID policy, duration semantics, and command/packet schema with the IoT team before implementation.",
-  "status": "Draft - pending team approval"
+  "notes": "Proposed logical test input for TC-01, not a confirmed wire-format packet. Confirm joint names and mapping, units, sequence ID policy, duration semantics, command schema, and transport protocol before implementation.",
+  "status": "Draft - pending interface and team approval"
 }
