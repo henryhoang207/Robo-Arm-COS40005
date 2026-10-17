@@ -1,0 +1,33 @@
+
+{
+  "test_id": "TC-01",
+  "expected_state": "DONE",
+  "expected_fault_code": null,
+  "expected_joint_positions": {
+    "shoulder_pan": 0.5,
+    "shoulder_lift": 0.4,
+    "elbow_flex": -0.4,
+    "wrist_flex": 0.25,
+    "wrist_roll": 0.5,
+    "gripper": 0.6
+  },
+  "units": {
+    "joint_positions": "radians - proposed; confirm with IoT team"
+  },
+  "position_error_tolerance_rad": null,
+  "required_evidence": [
+    "command_input",
+    "state_response",
+    "target_vs_actual_joint_positions",
+    "absolute_error_per_joint",
+    "run_log"
+  ],
+  "acceptance_criteria": [
+    "The command is accepted and reaches the approved completion state.",
+    "No unexpected fault is reported.",
+    "Actual positions are recorded for all six joints.",
+    "Absolute position error for every joint is within the team-approved tolerance.",
+    "The run log identifies the test case and records the outcome."
+  ],
+  "status": "Draft - expected values, units, tolerance and interface contract require team approval"
+}

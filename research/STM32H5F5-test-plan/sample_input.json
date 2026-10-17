@@ -1,0 +1,20 @@
+
+{
+  "test_id": "TC-01",
+  "sequence_id": 1,
+  "targets": {
+    "shoulder_pan": 0.5,
+    "shoulder_lift": 0.4,
+    "elbow_flex": -0.4,
+    "wrist_flex": 0.25,
+    "wrist_roll": 0.5,
+    "gripper": 0.6
+  },
+  "units": {
+    "joint_angles": "radians - proposed; confirm with IoT team",
+    "duration": "seconds"
+  },
+  "duration_seconds": 3.0,
+  "notes": "Proposed logical test input for TC-01. Confirm joint names, units, sequence ID policy, duration semantics, and command/packet schema with the IoT team before implementation.",
+  "status": "Draft - pending team approval"
+}
