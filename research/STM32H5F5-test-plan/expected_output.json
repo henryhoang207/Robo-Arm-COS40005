@@ -1,9 +1,10 @@
-
 {
   "test_id": "TC-01",
-  "expected_state": "DONE",
+  "description": "Valid six-joint command",
+  "expected_command_status": "ACCEPTED - proposed; confirm with interface owner",
+  "expected_motion_status": "COMPLETED - proposed; confirm with interface owner",
   "expected_fault_code": null,
-  "expected_joint_positions": {
+  "expected_joint_targets": {
     "shoulder_pan": 0.5,
     "shoulder_lift": 0.4,
     "elbow_flex": -0.4,
@@ -12,22 +13,29 @@
     "gripper": 0.6
   },
   "units": {
-    "joint_positions": "radians - proposed; confirm with IoT team"
+    "joint_positions": "radians - proposed; confirm joint mapping and units with IoT team"
   },
+  "actual_joint_positions": null,
+  "position_error_rad": null,
   "position_error_tolerance_rad": null,
   "required_evidence": [
+    "test_id_and_run_id",
     "command_input",
-    "state_response",
-    "target_vs_actual_joint_positions",
-    "absolute_error_per_joint",
+    "command_response",
+    "motion_completion_status",
+    "target_and_actual_joint_positions_when_available",
+    "absolute_error_per_joint_when_positioning_is_assessed",
+    "execution_environment_and_measurement_source",
     "run_log"
   ],
   "acceptance_criteria": [
-    "The command is accepted and reaches the approved completion state.",
+    "The command response matches the approved interface contract.",
+    "If the command is accepted, the motion completion status matches the approved completion policy.",
     "No unexpected fault is reported.",
-    "Actual positions are recorded for all six joints.",
-    "Absolute position error for every joint is within the team-approved tolerance.",
-    "The run log identifies the test case and records the outcome."
+    "Actual joint positions are recorded for all six joints when the test environment provides them.",
+    "When positioning accuracy is assessed, the absolute error for every joint is within the team-approved tolerance.",
+    "The run log identifies the test case, run, execution environment, and outcome."
   ],
-  "status": "Draft - expected values, units, tolerance and interface contract require team approval"
+  "evidence_status": "Planning template only; actual test results have not been entered in this file.",
+  "status": "Draft - expected values, joint mapping, units, tolerance, and interface contract require confirmation"
 }
