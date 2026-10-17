@@ -13,10 +13,14 @@ implementation and validation.
 
 | File | Purpose |
 |---|---|
+| `README.md` | Summarises the test plan, scope, evidence boundaries, planning dates, and outstanding items |
 | `test_specification.csv` | Defines the proposed test cases, inputs, expected outputs, evidence, and acceptance criteria |
-| `sample_input.json` | Provides an example logical input for a six-joint command |
+| `sample_input.json` | Provides an example logical input for a six-joint command; the wire format is not yet confirmed |
 | `expected_output.json` | Defines the proposed expected result and evidence for TC-01 |
 | `decision_log.md` | Records proposed decisions, rationale, decision authority, and unresolved questions |
+| `test_evidence_mapping.md` | Maps each proposed test case to its required evidence |
+| `handover_checklist.md` | Lists the checks required for a complete planning handoff |
+| `interface_specification.md` | Records the draft MPU–MCU interface, research findings, and open technical questions |
 
 ## 3. Current Test Scope
 
