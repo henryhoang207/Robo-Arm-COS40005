@@ -30,7 +30,7 @@ before simulator/MCU implementation.
 | D-04 | Command and response interface | Confirm command schema, packet format, units, sequence handling, and state/error response | Interface contract is not yet confirmed in this planning record | IoT and Software Development interface owners | Pending |
 | D-05 | Test result artifact | Proposed evidence includes input, response, target-versus-actual positions, absolute errors, logs, and run identification | Required evidence listed in test_specification.csv and expected_output.json | IoT lead / team | Proposed |
 | D-06 | Missing deliverable | Check the original meeting notes or confirm with the meeting-note owner/project decision authority. If the source cannot be recovered by handoff, record the unresolved item, confirmation owner, and follow-up action without inventing the missing requirement. | Jira task identifies truncated source wording; the original missing content has not yet been verified. | Meeting-note owner / project decision authority | Unresolved |
-| D-07 | Simulator versus physical validation | Label MuJoCo evidence as simulation-only; keep STM32H5F5 and physical-arm validation separate | Existing evidence was produced in MuJoCo, not on the physical MCU or arm | IoT lead and relevant test owners | Proposed |
+| D-07 | Simulator versus physical validation | Treat the SO101-49 MuJoCo results as simulation evidence only; record STM32H5F5 execution and physical-arm validation separately | SO101-49 results README reports local simulation results and explicitly excludes physical MCU and robot validation | IoT lead and relevant test owners | Proposed |
 
 ## 4. Evidence Available
 
