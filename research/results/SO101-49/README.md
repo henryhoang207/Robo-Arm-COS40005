@@ -116,3 +116,17 @@ The gripper target-error threshold of 0.01 rad is provisional and has not yet be
 - Gripper motion does not establish grasp force or object-holding capability.
 - State restoration checks cover qpos, qvel, and ctrl; they do not establish restoration of every internal simulator state.
 - All expected outcomes must be verified by actually rerunning the scripts. Listing an expected result does not prove that it passed.
+- The SO101-49 README records local MuJoCo results for scene loading,
+  camera registration and rendering, six-joint control, joint-limit
+  rejection, gripper movement, and qpos/qvel/ctrl state restoration.
+- The README reports a maximum six-joint position error of approximately
+  0.000670 rad for its recorded simulation run.
+- The controller's 0.01 rad threshold is a test-code threshold only;
+  it has not been approved as the team's acceptance criterion.
+- Existing camera renders and state-capture artifacts may support
+  simulation evidence where relevant to the agreed test cases.
+- The SO101-49 README explicitly states that physical STM32H5F5 and
+  physical SO-101 validation were not performed by those checks.
+- Clean-checkout reproducibility remains unconfirmed until the documented
+  setup is reproduced and the scripts are rerun from a repository checkout.
+- Source: research/results/SO101-49/README.md.
