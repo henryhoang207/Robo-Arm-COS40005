@@ -34,13 +34,29 @@ before simulator/MCU implementation.
 
 ## 4. Evidence Available
 
-- A draft test specification containing eight test cases.
-- A sample logical input for a six-joint command.
-- An expected-output draft for TC-01.
-- Existing MuJoCo simulation test results may support scenario design.
+The SO101-49 results README reports the following local MuJoCo results:
 
-Important: Existing simulation results do not establish that the STM32H5F5
-or physical SO-101 arm has passed the same tests.
+- Scene loading and camera registration/rendering passed.
+- Six-joint control reported a maximum position error of approximately
+  0.000670 rad.
+- An invalid shoulder-pan target of 10 rad was rejected as outside the
+  configured joint limits.
+- Gripper movement and qpos/qvel/ctrl capture-and-restore checks passed
+  in the reported local simulation runs.
+
+SO101-49 evidence may support the design of relevant SO101-40 simulation
+scenarios. The exact test-to-artifact mapping must be confirmed before
+claiming coverage for an individual test case.
+
+The reported results do not establish STM32H5F5 execution or physical
+SO-101 validation. Clean-checkout reproducibility also remains unconfirmed.
+
+Other available planning artifacts include:
+
+- A draft specification containing eight proposed test cases.
+- A logical sample input for TC-01.
+- A proposed expected-output record for TC-01.
+- A draft interface specification and test-evidence mapping.
 
 ## 5. Unresolved Questions
 
