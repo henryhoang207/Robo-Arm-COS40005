@@ -1,6 +1,7 @@
 import time
 from dataclasses import dataclass
 from enum import Enum
+from pathlib import Path
 
 import mujoco
 import mujoco.viewer
@@ -298,7 +299,15 @@ def print_state_packet(packet):
         )
 
 
-stm32 = SimulatedSTM32("scene.xml")
+MODEL_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "SO-ARM100-main"
+    / "Simulation"
+    / "SO101"
+    / "scene.xml"
+)
+
+stm32 = SimulatedSTM32(str(MODEL_PATH))
 
 
 valid_action = ActionPacket(

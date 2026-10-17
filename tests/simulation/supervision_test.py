@@ -2,6 +2,7 @@ import math
 import time
 from dataclasses import dataclass
 from enum import Enum
+from pathlib import Path
 
 import mujoco
 import mujoco.viewer
@@ -347,11 +348,17 @@ def print_state(title, packet):
     print(f"fault_code  : {packet.fault_code}")
 
 
-stm32 = SimulatedSTM32(
-    "scene.xml",
-    heartbeat_timeout=0.5,
+MODEL_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "SO-ARM100-main"
+    / "Simulation"
+    / "SO101"
+    / "scene.xml"
 )
 
+stm32 = SimulatedSTM32(
+    str(MODEL_PATH),
+)
 
 # ------------------------------------------------------------
 # TEST 1
