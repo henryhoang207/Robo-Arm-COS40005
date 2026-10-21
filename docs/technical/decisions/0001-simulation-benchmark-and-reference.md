@@ -1,5 +1,7 @@
 # 0001 — Simulation benchmark, reference controller and outcome definitions (SO101-22)
 
+> Current scope context (21 October 2026, decision 0004): Project A delivers simulation and board evidence. The printed-arm branch is removed. Chung owns remaining IoT/simulator delivery. Physical SO101 equivalence remains a reporting limitation, not a Project A physical-build prerequisite. Benchmark/protocol approval remains open.
+
 Date: 2026-10-14
 Status: Proposed (DRAFT)
 Decision: Pending. Sections 2, 3 and 7 hold proposals awaiting Hoan's approval. The recommendation is withheld until the runnable pilot (experiment 002) and the dataset/embodiment check (experiment 001 plus a video check) have been reviewed.
