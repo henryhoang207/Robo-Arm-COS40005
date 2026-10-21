@@ -1,5 +1,7 @@
 # Roadmap
 
+> Historical reproduction notes, superseded for current Project A planning. Printing, procurement and physical assembly/trials are removed under decision 0004 (21 October 2026). Use the integrated master plan and current risk register; these earlier proposals are not active tasks or acceptance targets.
+
 Target: ~10 weeks. Scope: faithful reproduction with on-device inference.
 
 ## Phases and gates

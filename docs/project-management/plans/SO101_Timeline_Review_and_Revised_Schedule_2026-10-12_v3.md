@@ -8,6 +8,18 @@ The proposed task windows now distinguish conversion preparation from scored mea
 
 This version resolves the report-date, candidate-list, training-resource, precision-definition and individual-report ambiguities raised in version 2. Implementation, compatibility tests and supplier deliveries remain future work with defined gates. It does not certify completed experiments or supported combinations. Dates outside the fixed deadlines remain proposals. No Jira changes or messages were made; both original files and version 2 are preserved.
 
+## Approved amendment — 21 October 2026
+
+The current Project A scope is simulation, nine VENTUNO Q profiles, reports and minimum web experiment console. Printed-arm production and its isolated approval, BOM/order, receipt, assembly, physical calibration and positioning tasks are removed. The 30 November printed-arm checkpoint is superseded. GPU/board access, simulator, communication, command/fault checks and core integration remain required.
+
+Chung is the sole Project A IoT member and owner of all retained IoT tasks. The active team is Hoan, Duc, Khanh, Trieu and Chung. Review Chung's task load and handoff conflicts without inventing capacity. Commercial-arm Project B work remains conditional and its future owner is confirmed at rebaseline. Existing report/course dates and retained issue sprint memberships are preserved.
+
+### Acknowledgment
+
+The team acknowledges Nguyen for contributions during the earlier project phase. Nguyen is no longer an active member or task owner in the current plan. Historical contribution records remain intact.
+
+The 12 October captures below are historical where superseded; the integrated master plan, decision 0004 and the 21 October Jira snapshot define current ownership and scope.
+
 ## 1. Decisions recorded from the user
 
 | Item | Settled information | Consequence |
@@ -44,11 +56,11 @@ If the proposed three cannot pass the required export/native-board probes, Hoan 
 
 ### Use a simulator that matches the chosen data and control interface
 
-**Working simulator recommendation: ManiSkill's SO100 model, with a bounded pick-and-place evaluation scene mapped to the ready dataset.** Its published SO100 model has six DoF and joint-position controller options; its parameters are not fully identified. This is a suitable candidate to pilot, not proof of equivalence to the physical SO101/printed arm. [ManiSkill SO100 documentation](https://maniskill.readthedocs.io/en/latest/robots/so100/)
+**Working simulator recommendation: ManiSkill's SO100 model, with a bounded pick-and-place evaluation scene mapped to the ready dataset.** Its published SO100 model has six DoF and joint-position controller options; its parameters are not fully identified. This is a suitable candidate to pilot, not proof of equivalence to the physical SO101. [ManiSkill SO100 documentation](https://maniskill.readthedocs.io/en/latest/robots/so100/)
 
 The dataset card identifies SO100, six action/state values, top/wrist views and a published training partition. Preserve the user's prepared validation/test split manifest; the public training partition does not establish those custom splits. Pin the dataset and software revisions. [Dataset card](https://huggingface.co/datasets/lerobot/svla_so100_pickplace)
 
-Nguyen prepares the simulator and Chung the interface mapping. The deliverable on 15 October must reset/step the environment, return both agreed camera views and state, apply a valid action, and log observations. The benchmark pilot on 16 October must demonstrate a meaningful success/failure signal and a simple reference controller, then test the policy/data mapping. Joint order, units, normalized values, gripper convention, camera identifiers/geometry and timestamps are explicit acceptance checks. Dimensions alone are insufficient.
+Chung owns simulator preparation and interface mapping. The deliverable on 15 October must reset/step the environment, return both agreed camera views and state, apply a valid action, and log observations. The benchmark pilot on 16 October must demonstrate a meaningful success/failure signal and a simple reference controller, then test the policy/data mapping. Joint order, units, normalized values, gripper convention, camera identifiers/geometry and timestamps are explicit acceptance checks. Dimensions alone are insufficient.
 
 The project reports **simulation performance in the defined scene**, actual board inference/resources and conditional physical results separately. Real-to-simulation visual/dynamics differences are recorded as limitations. LIBERO is not automatically substituted: a different embodiment/action space would need new data/mapping/protocol evidence and an explicit scope decision.
 
@@ -96,7 +108,7 @@ The Jira defects remain in the saved record: SO101-30 has reversed dates; severa
 |---|---|
 | User-confirmed deadlines/completion | Individual research due 11 Oct and completed; EDA 16 Oct; baseline 24 Oct; plan 25 Oct; conversion 14 Nov; Sprint 1 submission 15 Nov; Project A final 6 Dec. |
 | Current Jira fields | Appendix A and saved-link audit; they are the live record at capture, including errors. |
-| Recorded project milestones | Review meetings 8/29 Nov; hardware/fallback checkpoint 30 Nov; intentional sprint overlap. |
+| Recorded project milestones | Review meetings 8/29 Nov; evidence reconciliation from 30 Nov; intentional sprint overlap. |
 | Proposed task/milestone dates | All other intervals below, including component delivery, acceptance, integration, retesting and Semester 2 reserves. |
 | Technical facts established by sources | Named hardware specifications and documented software interfaces; no model/board compatibility is inferred from them. |
 | Unverified external state | Supplier shipment/receipt, actual native profile execution and training elapsed duration; Project B final date. |
@@ -127,19 +139,16 @@ Every interval below is proposed except a due date explicitly confirmed above. S
 | [SO101-10](https://huu-hoan-hoang.atlassian.net/browse/SO101-10) — Requirements | Trieu | 2026-10-12 | 2026-10-13 | Bounded requirements draft feeding scope, console and course plan. |
 | [SO101-11](https://huu-hoan-hoang.atlassian.net/browse/SO101-11) — EDA and strategy | Hoan | 2026-10-14 | 2026-10-16 | Use audited ready dataset/splits after 31; EDA/report only. Simulator-dependent training recipe stays gated by 32/35/33. |
 | [SO101-12](https://huu-hoan-hoang.atlassian.net/browse/SO101-12) — Three-model baseline | Duc | 2026-10-19 | 2026-10-24 | Fixed 24 Oct report: proposed SmolVLA/ACT/Diffusion Policy; three reference checkpoints/results frozen 22 Oct; technical review 23 Oct. Full production comparisons require 16–18 Oct gates. |
-| [SO101-13](https://huu-hoan-hoang.atlassian.net/browse/SO101-13) — Printed parts | Nguyen | 2026-10-16 | 2026-10-30 | Prioritize simulator setup first. Print representative fit part, then remaining parts only after geometry/servo-envelope review; target unvalidated. |
-| [SO101-14](https://huu-hoan-hoang.atlassian.net/browse/SO101-14) — BOM and orders | Nguyen | 2026-10-19 | 2026-11-06 | BOM/quotes overlap printing; release orders only after 2 Nov feasibility approval. Friday order-status freeze feeds 8 Nov review. |
-| [SO101-15](https://huu-hoan-hoang.atlassian.net/browse/SO101-15) — Assembly/position testing | Nguyen | 2026-11-16 | 2026-11-30 | Conditional reserve, not forecast: inspected components by 13 Nov, procedure approved, parts ready. Mechanical assembly then calibration then powered tests. |
 | [SO101-16](https://huu-hoan-hoang.atlassian.net/browse/SO101-16) — Sprint 1 review | Hoan | 2026-11-05 | 2026-11-08 | Team evidence 5–6 Nov; review meeting 8 Nov, as recorded. Conversion work remains interim; course package due 15 Nov. |
-| [SO101-17](https://huu-hoan-hoang.atlassian.net/browse/SO101-17) — Sprint 2 review | Hoan | 2026-11-27 | 2026-11-29 | Review pack 27 Nov follows integrated acceptance 26 Nov; meeting 29 Nov; separate 30 Nov physical checkpoint. |
+| [SO101-17](https://huu-hoan-hoang.atlassian.net/browse/SO101-17) — Sprint 2 review | Hoan | 2026-11-27 | 2026-11-29 | Review pack 27 Nov follows integrated acceptance 26 Nov; meeting 29 Nov; evidence follow-up from 30 Nov. |
 | [SO101-18](https://huu-hoan-hoang.atlassian.net/browse/SO101-18) — Nine-cell conversion experiment | Duc | 2026-10-26 | 2026-11-14 | Fixed 14 Nov report. Convert/calibrate frozen references 26–29 Oct while harness is built; scored nine-cell measurements only after 29 Oct path acceptance, from 30 Oct; evidence freeze 11 Nov. |
 | [SO101-19](https://huu-hoan-hoang.atlassian.net/browse/SO101-19) — MCU/simulator output | Chung | 2026-10-26 | 2026-11-20 | Early MCU/simulator path 28 Oct after samples 23 Oct; deterministic replay, faults and full evidence through 20 Nov. |
 | [SO101-20](https://huu-hoan-hoang.atlassian.net/browse/SO101-20) — Communication sample tests | Chung | 2026-10-20 | 2026-10-23 | Both communication legs after runnable simulator, controller path and 19 Oct contract. Earlier completion allows weekday handoff to 19. |
-| [SO101-21](https://huu-hoan-hoang.atlassian.net/browse/SO101-21) — Simulator selection/readiness | Nguyen | 2026-10-12 | 2026-10-15 | Candidate decision 14 Oct; separate reproducible simulator readiness gate 15 Oct. No simulator exists as of user update. |
+| [SO101-21](https://huu-hoan-hoang.atlassian.net/browse/SO101-21) — Simulator selection/readiness | Chung | 2026-10-12 | 2026-10-15 | Candidate decision 14 Oct; separate reproducible simulator readiness gate 15 Oct. No simulator exists as of user update. |
 | [SO101-22](https://huu-hoan-hoang.atlassian.net/browse/SO101-22) — Benchmark and baseline | Hoan | 2026-10-12 | 2026-10-16 | Research in parallel; final benchmark/reference recommendation only after runnable simulator pilot and dataset/embodiment check. |
 | [SO101-23](https://huu-hoan-hoang.atlassian.net/browse/SO101-23) — Scope and acceptance | Hoan | 2026-10-12 | 2026-10-14 | Approve bounded research scope, platform-specific claims and minimum console; use requirements and early rubric scan. |
 | [SO101-24](https://huu-hoan-hoang.atlassian.net/browse/SO101-24) — Task ownership/access and authority | Hoan | 2026-10-12 | 2026-10-13 | Confirm task owners, reviewers, school GPU access/job ownership and fallback authority. No hours-per-week model requested or required for this proposal. |
-| [SO101-25](https://huu-hoan-hoang.atlassian.net/browse/SO101-25) — Compute access/printed-arm approval | Hoan | 2026-10-12 | 2026-11-02 | Access/setup gate 13 Oct despite board availability; printed-part approval 2 Nov after 30 Oct completion. Two separate milestones. |
+| [SO101-25](https://huu-hoan-hoang.atlassian.net/browse/SO101-25) — Compute/board access | Hoan | 2026-10-12 | 2026-11-02 | Retained access/setup gate and board/GPU reservations; printing approval is removed from Project A. |
 | [SO101-26](https://huu-hoan-hoang.atlassian.net/browse/SO101-26) — Course/phase decisions | Hoan | 2026-10-12 | 2026-10-20 | Report/course dates now settled; propose phase cutoffs and handoff rules, including staged conversion/integration. Preserve Jira phase membership until adoption. |
 | [SO101-27](https://huu-hoan-hoang.atlassian.net/browse/SO101-27) — Collaboration/repository rules | Hoan | 2026-10-12 | 2026-10-19 | Repository/evidence minimum rules 13 Oct; broader collaboration and document rules 19 Oct. Avoid pretending all governance closes today. |
 | [SO101-28](https://huu-hoan-hoang.atlassian.net/browse/SO101-28) — Risk ownership | Hoan | 2026-10-12 | 2026-10-20 | Early technical risk triggers 13 Oct; complete register 20 Oct for project plan. Weekly refresh is continuing PM work. |
@@ -154,7 +163,7 @@ Every interval below is proposed except a due date explicitly confirmed above. S
 | [SO101-37](https://huu-hoan-hoang.atlassian.net/browse/SO101-37) — Action/state contract | Hoan | 2026-10-16 | 2026-10-19 | Freeze versioned action/state/fault contract after architecture draft/controller decision; decision uses model/data compatibility evidence. |
 | [SO101-38](https://huu-hoan-hoang.atlassian.net/browse/SO101-38) — Calibration/fault procedures | Chung | 2026-10-20 | 2026-11-13 | Procedure/schema gate 22 Oct; bench/sim checks during harness hardening; physical results later under 15, not claimed here. |
 | [SO101-39](https://huu-hoan-hoang.atlassian.net/browse/SO101-39) — Simulator/sample ordering | Chung | 2026-10-12 | 2026-10-13 | Resolve initial simulator-before-samples sequence. Research may overlap; selection/ready gates must precede scored runs. |
-| [SO101-40](https://huu-hoan-hoang.atlassian.net/browse/SO101-40) — Simulator test deliverables | Nguyen | 2026-10-16 | 2026-10-19 | Recover truncated deliverable and freeze inputs, outputs, acceptance evidence before MCU/simulator implementation. |
+| [SO101-40](https://huu-hoan-hoang.atlassian.net/browse/SO101-40) — Simulator test deliverables | Chung | 2026-10-16 | 2026-10-19 | Recover truncated deliverable and freeze inputs, outputs, acceptance evidence before MCU/simulator implementation. |
 | [SO101-42](https://huu-hoan-hoang.atlassian.net/browse/SO101-42) — Console workflow/scope | Khanh | 2026-10-12 | 2026-10-15 | Reforecast overdue scope approval; minimum workflow and result schema first. No implementation exists yet per user. |
 | [SO101-43](https://huu-hoan-hoang.atlassian.net/browse/SO101-43) — EDA report | Hoan | 2026-10-14 | 2026-10-16 | Fixed 16 Oct EDA report within 11. Findings/configuration evidence 15 Oct, review and deliver 16 Oct; supersedes stale 13 Oct description target. |
 | [SO101-44](https://huu-hoan-hoang.atlassian.net/browse/SO101-44) — Baseline report | Hoan | 2026-10-19 | 2026-10-24 | Fixed 24 Oct baseline report: methods draft early, frozen results 22 Oct, Duc technical review 23 Oct. Each lead supplies evidence; Hoan writes/consolidates. |
@@ -170,9 +179,9 @@ G identifiers are proposed splits/milestones, not created Jira issues. They expo
 | ID | Work/owner | Proposed start | Proposed due | Acceptance and downstream handoff |
 |---|---|---|---|---|
 | G01 | Dataset manifest/access; Hoan, Duc | 2026-10-12 | 2026-10-13 | Existing split IDs, data/schema revisions, school GPU access and checkpoint storage usable. |
-| G02 | Simulator selection; Nguyen, Chung | 2026-10-12 | 2026-10-14 | ManiSkill SO100 working recommendation assessed against the ready data/control path. |
-| G03 | Runnable simulator; Nguyen, Chung | 2026-10-15 | 2026-10-15 | Reset/step, agreed cameras/state, valid actions and saved run instructions. |
-| G04 | Benchmark pilot/reference; Hoan, Nguyen, Duc | 2026-10-16 | 2026-10-16 | Success/failure signal and scripted reference; camera/action mapping and bounded task work. |
+| G02 | Simulator selection; Chung | 2026-10-12 | 2026-10-14 | ManiSkill SO100 working recommendation assessed against the ready data/control path. |
+| G03 | Runnable simulator; Chung | 2026-10-15 | 2026-10-15 | Reset/step, agreed cameras/state, valid actions and saved run instructions. |
+| G04 | Benchmark pilot/reference; Hoan, Chung, Duc | 2026-10-16 | 2026-10-16 | Success/failure signal and scripted reference; camera/action mapping and bounded task work. |
 | G05 | Runtime/profile feasibility; Hoan owns, Duc prepares | 2026-10-12 | 2026-10-16 | Native board probes for proposed model/profile paths, exact dtype/placement and fidelity checks; memory/throughput probes on school GPUs. No final trained-result claims. |
 | G06 | Protocol and model gates; Hoan, Duc | 2026-10-17 | 2026-10-18 | Protocol frozen 17 Oct; final three confirmed 18 Oct after runtime/benchmark evidence. Weekend dates are proposed work dates, not historical work. |
 | G07 | Baseline production and evidence freeze; Duc | 2026-10-19 | 2026-10-22 | Proposed GPU job order; all three frozen checkpoints, raw results, configuration and failed-run records. |
@@ -186,16 +195,13 @@ G identifiers are proposed splits/milestones, not created Jira issues. They expo
 | G15 | Main matched measurements; Duc, IoT support | 2026-10-30 | 2026-11-06 | Simulation rollouts plus actual board requests; one shared board has one booked benchmark workload at a time. |
 | G16 | Reruns/evidence freeze; Duc | 2026-11-09 | 2026-11-11 | Missing/failed-run investigation, required reruns, consolidated raw evidence and limitations. |
 | G17 | Conversion draft/review/report; Hoan, Duc | 2026-11-12 | 2026-11-14 | Complete draft 12 Nov, technical review 13 Nov, fixed report 14 Nov. Methods/rolling coverage draft from 4 Nov. |
-| G18 | Printed fit approval; Nguyen, Chung, Hoan | 2026-10-30 | 2026-11-02 | Finished parts/compatibility evidence precedes order release 3–6 Nov. BOM/quotes may start 19 Oct. |
-| G19 | Conditional component receipt/inspection; Nguyen | 2026-11-09 | 2026-11-13 | Actual inspected inventory, not merely an order record; prerequisite for reserved 16 Nov assembly. |
-| G20 | Conditional assembly/calibration/trials; Nguyen, Chung | 2026-11-16 | 2026-11-30 | Mechanical build by 20 Nov; calibration/limits/stop checks 23–24 Nov; physical positioning trials 27 Nov with 30 Nov reserve/status. Avoid competing with full board integration 25–26 Nov. |
 | G21 | Complete components; Khanh, Trieu, Chung | 2026-11-16 | 2026-11-20 | Full scoped backend and simulator test artifacts; frontend already delivered 6 Nov. |
 | G22 | Full integration; Hoan, all leads | 2026-11-23 | 2026-11-26 | UI/backend/simulator checks 23–24 Nov while conditional calibration uses the board; exclusive native board/MCU/core integration 25–26 Nov. Physical branch only after its gates. |
-| G23 | Review package/meeting; Hoan, leads | 2026-11-27 | 2026-11-29 | Package follows integrated acceptance; meeting 29 Nov. Physical availability checkpoint remains 30 Nov. |
+| G23 | Review package/meeting; Hoan, leads | 2026-11-27 | 2026-11-29 | Package follows integrated acceptance; meeting 29 Nov. Evidence and defect follow-up begins 30 Nov. |
 | G24 | Corrections/reproduction; Hoan, leads | 2026-11-30 | 2026-12-03 | Lead-owned fixes, regression, independently reproduced evidence and defect disposition. |
 | G25 | Package approval/preflight; Hoan, leads | 2026-12-04 | 2026-12-05 | Final approval 4 Dec follows retests; upload/preflight reserve 5 Dec; Project A submission 6 Dec. |
 
-**Mandatory splits on adoption:** 8 early logger/full backend; 19 early native measurement path/full robustness evidence; 25 early compute access/printed-part approval; 38 procedure/bench evidence/conditional physical results; 46 early acceptance/full integration/retests; 30 checklist preparation/final approval. Connect dependencies to the specific intermediate output rather than block an entire long task.
+**Mandatory splits on adoption:** 8 early logger/full backend; 19 early native measurement path/full robustness evidence; 25 compute access; 38 board/simulator procedure and bench evidence; 46 early acceptance/full integration/retests; 30 checklist preparation/final approval. Connect dependencies to the specific intermediate output rather than block an entire long task.
 
 ## 6. Dependency and impact map
 
@@ -217,12 +223,10 @@ FS means the whole predecessor completes before the successor starts. Gates allo
 | 12 report/reference complete 24 Oct + 34 runtime plan | FS to 18 conversion | 18 begins 26 Oct; conversion scripts/calibration may overlap logger/harness construction. |
 | 8 early logger + 19 early path delivered 28 Oct → 46/G12 acceptance 29 Oct | Acceptance gate | **Scored** 18 activity starts 30 Oct; full backend/simulator hardening continues to 20 Nov. |
 | 18 matrix first pass → 45 rolling draft; evidence freeze 11 Nov → final draft/review | Parent/subtask gates | 14 Nov report includes all nine outcomes/limitations. Missing measurements cannot become completed cells. |
-| 13 parts/fit 30 Oct → 25 approval 2 Nov → 14 order release 3–6 Nov | Order gate | BOM/quote preparation overlaps printing; actual release waits for validation. |
-| 14 orders + actual inspected receipt 13 Nov + 38 procedure + printed parts | External/physical gate | 15 starts 16 Nov only when ready. Ordering is not delivery; incompatible parts restart the physical forecast. |
 | Mechanical assembly → calibration/stop test → positioning/performance trials | Conditional gates | Physical evidence enters 46 only if actual testing succeeds. Missing hardware uses the recorded simulation/board fallback. |
 | 6 UI + 8/19 full components by 20 Nov + AI artifacts | Full acceptance gate | 46 integration 23–26 Nov → 17 review 29 Nov. Coordination from 20 Oct does not mean the complete system is ready. |
 | 16 review 8 Nov + course sections + 45 reviewed report 14 Nov where required | Submission gate | 15 Nov course package; prepare other sections by 6 Nov to limit Hoan's late compilation work. |
-| 17 review + physical availability record 30 Nov + 46 retests 3 Dec | Final evidence gate | 30 approval 4 Dec → preflight 5 Dec → Project A final 6 Dec. Drafting may overlap fixes; approval follows their closure. |
+| 17 review + evidence reconciliation from 30 Nov + 46 retests 3 Dec | Final evidence gate | 30 approval 4 Dec → preflight 5 Dec → Project A final 6 Dec. Drafting may overlap fixes; approval follows their closure. |
 | 26 dates/phases + 27 evidence/review rules + 28 risk register + 29 rubric | Governance gates | All course packages, review evidence and final sign-off. Routine rules/checklists are scheduled outputs, not additional unanswered user questions. |
 
 The map covers every current non-epic issue, including the three report subtasks. Epics aggregate deliverables and do not block one another. A simulator/runtime slip propagates to both report evidence and integration. A physical-arm slip affects physical claims under the recorded fallback; board evidence is still required.
@@ -266,11 +270,9 @@ These 25 links are current Jira data; stage gates above are analytical additions
 | 10063 | [SO101-32](https://huu-hoan-hoang.atlassian.net/browse/SO101-32) ↔ relates to [SO101-12](https://huu-hoan-hoang.atlassian.net/browse/SO101-12) | Recipe is a real comparison prerequisite despite Relates; proposal 16 Oct before 19 Oct production comparison. |
 | 10064 | [SO101-35](https://huu-hoan-hoang.atlassian.net/browse/SO101-35) ↔ relates to [SO101-12](https://huu-hoan-hoang.atlassian.net/browse/SO101-12) | Current protocol finishes 2 Nov after 24 Oct report. Proposal protocol 17 Oct before 19 Oct comparisons; separate draft from approval. |
 | 10065 | [SO101-36](https://huu-hoan-hoang.atlassian.net/browse/SO101-36) ↔ relates to [SO101-7](https://huu-hoan-hoang.atlassian.net/browse/SO101-7) | 36 is currently undated. Controller decision 15 Oct informs architecture draft, contract 19 Oct and final architecture 20 Oct; avoid reciprocal whole-ticket blocking. |
-| 10066 | [SO101-38](https://huu-hoan-hoang.atlassian.net/browse/SO101-38) ↔ relates to [SO101-15](https://huu-hoan-hoang.atlassian.net/browse/SO101-15) | Procedure currently undated. Procedure gate 22 Oct, bench evidence 13 Nov; powered physical testing only after assembly/calibration gates. |
 | 10067 | [SO101-39](https://huu-hoan-hoang.atlassian.net/browse/SO101-39) ↔ relates to [SO101-20](https://huu-hoan-hoang.atlassian.net/browse/SO101-20) | Ordering decision currently undated; proposal 13 Oct precedes samples 20–23 Oct. |
 | 10068 | [SO101-39](https://huu-hoan-hoang.atlassian.net/browse/SO101-39) ↔ relates to [SO101-21](https://huu-hoan-hoang.atlassian.net/browse/SO101-21) | Proposal ordering decision 13 Oct precedes simulator choice 14 Oct/readiness 15 Oct; research can overlap. |
 | 10069 | [SO101-40](https://huu-hoan-hoang.atlassian.net/browse/SO101-40) ↔ relates to [SO101-19](https://huu-hoan-hoang.atlassian.net/browse/SO101-19) | Currently no dates for missing deliverable clarification; proposal 40 finishes 19 Oct before 19 starts 26 Oct. |
-| 10070 | [SO101-25](https://huu-hoan-hoang.atlassian.net/browse/SO101-25) ↔ relates to [SO101-14](https://huu-hoan-hoang.atlassian.net/browse/SO101-14) | BOM research may start 19 Oct, but ordering waits for printed approval 2 Nov. A whole 25→14 FS link would incorrectly block quote preparation. |
 | 10071 | [SO101-30](https://huu-hoan-hoang.atlassian.net/browse/SO101-30) ↔ relates to [SO101-46](https://huu-hoan-hoang.atlassian.net/browse/SO101-46) | Current 30 is reversed. Draft package overlaps retests; integration closure 3 Dec precedes final approval 4 Dec. |
 | 10072 | [SO101-26](https://huu-hoan-hoang.atlassian.net/browse/SO101-26) ↔ relates to [SO101-16](https://huu-hoan-hoang.atlassian.net/browse/SO101-16) | 26 course/phase decisions by 20 Oct inform 8 Nov review. Meeting and 15 Nov submission are separate. |
 | 10073 | [SO101-26](https://huu-hoan-hoang.atlassian.net/browse/SO101-26) ↔ relates to [SO101-17](https://huu-hoan-hoang.atlassian.net/browse/SO101-17) | 26 informs 29 Nov meeting, not 30 Nov hardware checkpoint. Proposal 17 ends 29 Nov. |
@@ -278,12 +280,10 @@ These 25 links are current Jira data; stage gates above are analytical additions
 | 10075 | [SO101-42](https://huu-hoan-hoang.atlassian.net/browse/SO101-42) → blocks [SO101-5](https://huu-hoan-hoang.atlassian.net/browse/SO101-5) | Current same-day 8 Oct handoff with overdue scope; proposal scope 15 Oct before sketch 16 Oct. |
 | 10076 | [SO101-22](https://huu-hoan-hoang.atlassian.net/browse/SO101-22) ↔ relates to [SO101-21](https://huu-hoan-hoang.atlassian.net/browse/SO101-21) | Current benchmark due 13 Oct precedes late simulator selection. Proposal runnable simulator 15 Oct before benchmark pilot/freeze 16 Oct. |
 | 10077 | [SO101-22](https://huu-hoan-hoang.atlassian.net/browse/SO101-22) → blocks [SO101-12](https://huu-hoan-hoang.atlassian.net/browse/SO101-12) | Current date order appears valid but hides missing simulator readiness. Proposal benchmark 16 Oct before comparison 19 Oct. |
-| 10078 | [SO101-13](https://huu-hoan-hoang.atlassian.net/browse/SO101-13) ↔ relates to [SO101-14](https://huu-hoan-hoang.atlassian.net/browse/SO101-14) | BOM/quotes overlap printing; print fit/approval must precede order release. No order-before-validation assumption. |
-| 10079 | [SO101-25](https://huu-hoan-hoang.atlassian.net/browse/SO101-25) → blocks [SO101-15](https://huu-hoan-hoang.atlassian.net/browse/SO101-15) | Current date order alone misses component arrival. Proposal approval 2 Nov before reserved assembly 16 Nov, additionally gated by inspected receipt 13 Nov. |
 
 ### Permitted overlaps
 
-Candidate/runtime investigation, EDA and simulator research run in parallel; scored comparisons wait for the approved configuration. Draft architecture feeds contract, which feeds final architecture. Frontend uses versioned mocks until live integration. Reports draft methods while results accumulate, then finalize after evidence freeze. Conversion preparation starts before logger completion; actual scored measurement waits for end-to-end acceptance. BOM/quotes overlap printing, but ordering waits for validation and assembly waits for receipt. Physical work is a conditional branch. A changed data/model/interface/measurement revision requires affected reruns and explicit report-impact review.
+Candidate/runtime investigation, EDA and simulator research run in parallel; scored comparisons wait for the approved configuration. Draft architecture feeds contract, which feeds final architecture. Frontend uses versioned mocks until live integration. Reports draft methods while results accumulate, then finalize after evidence freeze. Conversion preparation starts before logger completion; actual scored measurement waits for end-to-end acceptance. The printed-arm production branch is removed; retained simulation/board work continues through its own prerequisites. A changed data/model/interface/measurement revision requires affected reruns and explicit report-impact review.
 
 ## 7. Ownership and workload control through handoffs
 
@@ -292,7 +292,6 @@ Candidate/runtime investigation, EDA and simulator research run in parallel; sco
 | Hoan | 21 | 20 | AI, PM, integration, reports |
 | Duc | 5 | 4 | AI lead |
 | Chung | 6 | 5 | IoT lead |
-| Nguyen | 5 | 5 | IoT |
 | Khanh | 5 | 4 | SoftDev lead |
 | Trieu | 3 | 3 | SoftDev |
 
@@ -303,7 +302,6 @@ Counts include epics and report subtasks; 11/43 is one EDA/report work package, 
 | Hoan | EDA/report 14–16 Oct; benchmark/protocol approval 16–17 Oct; contract 19 Oct; baseline/report 19–24 Oct; conversion methods 4–6 Nov and results/review 12–14 Nov; integration 23–26 Nov; retest coordination 30 Nov–3 Dec; approval 4 Dec. Technical preparation under 34 stays with Duc's proposed support while Hoan owns the decision. |
 | Duc | Candidate/recipe/runtime probes 12–16 Oct; final three 18 Oct; school-GPU training/evaluation 19–22 Oct; technical review 23 Oct; conversion 26–29 Oct; nine-cell execution 30 Oct–11 Nov; report technical review 13 Nov; frozen artifact/reproduction support through 3 Dec. |
 | Chung | Controller/contract input 12–19 Oct; samples 20–23 Oct; MCU/simulator path 26–28 Oct; board/communication support during measurements; fault/robustness artifact through 20 Nov; conditional calibration and integration later. Board benchmarks have exclusive booked runs rather than simultaneous competing workloads. |
-| Nguyen | Simulator 12–15 Oct before print focus 16–30 Oct; test requirements 16–19 Oct; BOM/quotes from 19 Oct, orders by 6 Nov; receipt check 13 Nov; assembly/testing conditional 16–30 Nov. Printing/quotes overlap only as actual equipment and attended work allow. |
 | Khanh | Console scope/AWS/architecture 12–20 Oct; early runner 21–28 Oct; backend through 20 Nov; live integration 23–26 Nov. Proposed independent reproduction reviewer after implementation fixes; prepares SoftDev plan/package sections rather than leaving those to Hoan. |
 | Trieu | Requirements, then sketch through 23 Oct; first UI slice 30 Oct, tested agreed scope 6 Nov; console acceptance/evidence packaging 9–20 Nov; integration/demo support 23–26 Nov. This adds explicit support work, not an assumption of spare capacity. |
 
@@ -340,7 +338,7 @@ No required work is booked for 7 December–10 January. Commercial-arm arrival i
 | B04 | Console/simulator hardening; Khanh, Trieu, Chung | 2027-01-25 | 2027-02-05 | Stable APIs/export and reliability; measurement changes versioned and retested. |
 | B05 | Extension pilot/setup freeze; Duc, Chung | 2027-02-01 | 2027-02-07 | Pilot exploration may overlap B04. Components delivered 5 Feb; acceptance 6 Feb, setup freeze 7 Feb before the 8 Feb campaign. |
 | B06 | Core matched simulation/board campaign; Duc | 2027-02-08 | 2027-03-05 | Frozen setup/protocol and retained outcomes; independent of commercial-arm arrival. |
-| B07 | Conditional commercial-arm receipt/calibration/pilot; Nguyen, Chung | 2027-02-08 | 2027-02-26 | Reserve only; starts after actual receipt/inspection. Separate asset/calibration evidence from printed arm. |
+| B07 | Conditional commercial-arm receipt/calibration/pilot; owner to confirm | 2027-02-08 | 2027-02-26 | Reserve only; starts after actual receipt/inspection. Future owner is unassigned until Project B rebaseline; record the actual commercial-arm asset/calibration IDs. |
 | B08 | Conditional physical campaign; IoT, Duc | 2027-03-01 | 2027-03-12 | Calibrated available arm and approved matched task/protocol; unavailable hardware triggers bounded deferral, not lost report/review buffer. |
 | B09 | Reruns/robustness and evidence freeze; Duc, Chung | 2027-03-08 | 2027-03-19 | Core reruns may overlap physical testing only with non-conflicting equipment/jobs. Incorporate accepted physical evidence after 12 Mar. |
 | B10 | Analysis/independent reproduction; Hoan, Duc, reviewer | 2027-03-22 | 2027-04-02 | Frozen evidence, uncertainty, limits and reproduced key results. |
@@ -394,19 +392,16 @@ These are saved Jira fields at capture, not the proposed schedule. P = Pre-Sprin
 | [SO101-10](https://huu-hoan-hoang.atlassian.net/browse/SO101-10) — Brainstorm the requirements needed to complete the project | Trieu | SO101-2 | 2026-10-01 | 2026-10-15 | P |
 | [SO101-11](https://huu-hoan-hoang.atlassian.net/browse/SO101-11) — Complete single-dataset EDA, training strategy and report | Hoan | SO101-3 | 2026-10-12 | 2026-10-16 | P |
 | [SO101-12](https://huu-hoan-hoang.atlassian.net/browse/SO101-12) — Select three of four models, train, evaluate and report the baseline | Duc | SO101-3 | 2026-10-15 | 2026-10-24 | S1 |
-| [SO101-13](https://huu-hoan-hoang.atlassian.net/browse/SO101-13) — 3D-print and validate the fallback robot-arm parts | Nguyen | SO101-4 | — | 2026-10-30 | S1 |
-| [SO101-14](https://huu-hoan-hoang.atlassian.net/browse/SO101-14) — Prepare the BOM and place approved component orders | Nguyen | SO101-4 | 2026-11-03 | 2026-11-08 | S1 |
-| [SO101-15](https://huu-hoan-hoang.atlassian.net/browse/SO101-15) — Complete robot arm assembly and joint-position testing | Nguyen | SO101-4 | 2026-11-08 | 2026-11-30 | S2 |
 | [SO101-16](https://huu-hoan-hoang.atlassian.net/browse/SO101-16) — Hold the Sprint 1 review and project meeting | Hoan | SO101-1 | 2026-11-07 | 2026-11-08 | S1 |
 | [SO101-17](https://huu-hoan-hoang.atlassian.net/browse/SO101-17) — Hold the Sprint 2 review and project meeting | Hoan | SO101-1 | 2026-11-29 | 2026-11-30 | S2 |
 | [SO101-18](https://huu-hoan-hoang.atlassian.net/browse/SO101-18) — Evaluate all three models at INT8, INT4 and FP16 for the Sprint 2 report | Duc | SO101-3 | 2026-11-05 | 2026-11-14 | S2 |
 | [SO101-19](https://huu-hoan-hoang.atlassian.net/browse/SO101-19) — Run STM32H5F5 output in the selected simulator | Chung | SO101-4 | — | 2026-11-30 | S2 |
 | [SO101-20](https://huu-hoan-hoang.atlassian.net/browse/SO101-20) — Research AI-to-STM32H5F5 and MCU-to-simulator links with sample tests | Chung | SO101-4 | — | 2026-10-24 | P |
-| [SO101-21](https://huu-hoan-hoang.atlassian.net/browse/SO101-21) — Select the simulator for robot arm testing | Nguyen | SO101-4 | 2026-10-24 | 2026-11-06 | P |
+| [SO101-21](https://huu-hoan-hoang.atlassian.net/browse/SO101-21) — Select the simulator for robot arm testing | Chung | SO101-4 | 2026-10-24 | 2026-11-06 | P |
 | [SO101-22](https://huu-hoan-hoang.atlassian.net/browse/SO101-22) — Research and define the simulation benchmark, baseline and performance objectives | Hoan | SO101-1 | 2026-10-02 | 2026-10-13 | S2 |
 | [SO101-23](https://huu-hoan-hoang.atlassian.net/browse/SO101-23) — Approve the core task catalogue, operating envelope and acceptance targets | Hoan | SO101-1 | 2026-10-09 | 2026-10-22 | P |
 | [SO101-24](https://huu-hoan-hoang.atlassian.net/browse/SO101-24) — Confirm team capacity, decision ownership and KOST support plan | Hoan | SO101-1 | 2026-09-22 | 2026-10-22 | P |
-| [SO101-25](https://huu-hoan-hoang.atlassian.net/browse/SO101-25) — Validate the printed-arm fallback and confirm hardware/compute access | Hoan | SO101-1 | 2026-10-30 | 2026-11-03 | P |
+| [SO101-25](https://huu-hoan-hoang.atlassian.net/browse/SO101-25) — Confirm hardware and compute access for simulation and board research | Hoan | SO101-1 | 2026-10-30 | 2026-11-03 | P |
 | [SO101-26](https://huu-hoan-hoang.atlassian.net/browse/SO101-26) — Decide sprint membership, course milestones, timing and fallback authority | Hoan | SO101-1 | 2026-10-01 | 2026-10-12 | P |
 | [SO101-27](https://huu-hoan-hoang.atlassian.net/browse/SO101-27) — Approve collaboration, repository, document review and conduct rules | Hoan | SO101-1 | 2026-09-13 | 2026-10-12 | P |
 | [SO101-28](https://huu-hoan-hoang.atlassian.net/browse/SO101-28) — Approve risk owners, rankings, review cadence and escalation triggers | Hoan | SO101-1 | 2026-09-13 | 2026-10-18 | P |
@@ -421,7 +416,7 @@ These are saved Jira fields at capture, not the proposed schedule. P = Pre-Sprin
 | [SO101-37](https://huu-hoan-hoang.atlassian.net/browse/SO101-37) — Approve the versioned AI, STM32H5F5 and backend action/state contract | Hoan | SO101-1 | 2026-10-08 | 2026-10-22 | P |
 | [SO101-38](https://huu-hoan-hoang.atlassian.net/browse/SO101-38) — Approve calibration, transport and stop/fault tests | Chung | SO101-4 | — | — | S2 |
 | [SO101-39](https://huu-hoan-hoang.atlassian.net/browse/SO101-39) — Resolve simulator selection and communication sample-test ordering | Chung | SO101-4 | — | — | S1 |
-| [SO101-40](https://huu-hoan-hoang.atlassian.net/browse/SO101-40) — Clarify the STM32H5F5 simulator test's complete deliverables | Nguyen | SO101-4 | — | — | S2 |
+| [SO101-40](https://huu-hoan-hoang.atlassian.net/browse/SO101-40) — Clarify the STM32H5F5 simulator test's complete deliverables | Chung | SO101-4 | — | — | S2 |
 | [SO101-42](https://huu-hoan-hoang.atlassian.net/browse/SO101-42) — Define the experiment-console workflow and feature catalogue | Khanh | SO101-2 | 2026-09-25 | 2026-10-08 | S2 |
 | [SO101-43](https://huu-hoan-hoang.atlassian.net/browse/SO101-43) — Write the dataset EDA and training strategy report | Hoan | SO101-11 | — | — | P |
 | [SO101-44](https://huu-hoan-hoang.atlassian.net/browse/SO101-44) — Write the Sprint 1 model experiment and baseline report | Hoan | SO101-12 | — | — | S1 |

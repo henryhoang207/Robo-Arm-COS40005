@@ -5,7 +5,7 @@ Formal reports and official logs live in Drive. This file is the navigation inde
 | Item | Link or location | Status |
 | --- | --- | --- |
 | PM folder | [PM folder](https://drive.google.com/drive/folders/1yWe2xzxQbF7QLfUlZA8ddnn-fT9JkMsZ) | Supplied project folder |
-| Eight-month project plan | [SO101 Project Plan for Eight Months](https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI) | Current simple plan |
+| Eight-month project plan | [SO101 Project Plan for Eight Months](https://docs.google.com/document/d/1xUfMJJlBsaF_yxX0kdeXg7yiOIvMeznC8Z6g25WLXUI) | Updated 21 October: current Project A scope, Chung as sole IoT member, Nguyen acknowledgment; superseded background is labelled |
 | Detailed literature plan | [TBD TEAM Drive link] | Link to be added |
 | Formal research report | [TBD TEAM Drive link] | Link to be added |
 | SoftDev acceptance criteria, scope and constraints | [TBD TEAM Drive link] | Team source supplied locally; Drive link needed |

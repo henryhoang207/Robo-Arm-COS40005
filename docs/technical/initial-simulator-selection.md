@@ -67,6 +67,7 @@ The simulator selection remains provisional until a runnable configuration and a
 ## 9. Traceability
 
 - **Related Jira issue:** https://huu-hoan-hoang.atlassian.net/issues?jql=assignee%20%3D%20currentUser()%20AND%20statusCategory%20!%3D%20done%20AND%20due%20%3C%3D%202026-10-14%20AND%20due%20%3E%3D%202026-10-07&atlOrigin=eyJpIjoiMGY2YmFhNzViYzgwNGVmNGI2YzZmOWY1ZmVlYjE4OTkiLCJwIjoicG9zdE9mZmljZSJ9&selectedIssue=SO101-47
-- **Decision owner:** Nguyen
-- **Interface support:** Chung
-- **Last updated:** 14 October 2026
+- **Current delivery owner:** Chung (sole Project A IoT member, updated 21 October 2026)
+- **Interface responsibility:** Chung
+- **Last updated:** 21 October 2026
+- **Acknowledgment:** Nguyen contributed during the earlier project phase; historical contribution records remain preserved.
