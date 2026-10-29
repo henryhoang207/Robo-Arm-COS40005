@@ -1,0 +1,1 @@
+Copied mesh files from /mnt/c/RobotArm/so101sim/models/SO101/assets

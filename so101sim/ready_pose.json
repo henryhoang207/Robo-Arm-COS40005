@@ -1,0 +1,11 @@
+{
+  "description": "Static preview pose (radians), NOT a robot command",
+  "joints": {
+    "shoulder_pan": -0.75,
+    "shoulder_lift": -0.2,
+    "elbow_flex": 0.2,
+    "wrist_flex": 1.4,
+    "wrist_roll": 0.0,
+    "gripper": 0.8
+  }
+}

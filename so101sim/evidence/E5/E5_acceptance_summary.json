@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-10-25T11:36:46+00:00",
+  "project_path": "/mnt/c/RobotArm/so101sim",
+  "scope": "LOCAL WSL2 MuJoCo simulation, NOT validated physical VENTUNO Q or STM32 firmware",
+  "checks": {
+    "E3_scene_includes_so101_model": true,
+    "E3_four_balls_and_tray": true,
+    "E3_two_cameras_declared": true,
+    "E3_six_joints_declared": true,
+    "E3_all_mesh_paths_resolve": true,
+    "E3_six_correct_actuators_compiled": true,
+    "E3_wrist_camera_attached_to_gripper": true,
+    "E3_ready_pose_within_joint_and_actuator_limits": true,
+    "E4_http_state_ok": true,
+    "E4_app_in_local_mode": true,
+    "E4_overhead_valid_JPEG": true,
+    "E4_wrist_valid_JPEG": true,
+    "E5_self_test_passed": true,
+    "E5_six_unit_tests_passed": true
+  },
+  "notes": [],
+  "separate_E2_local_motion_evidence": "PASS",
+  "overall": "PASS"
+}

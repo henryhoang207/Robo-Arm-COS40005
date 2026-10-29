@@ -1,0 +1,66 @@
+{
+  "status": "DONE",
+  "mode": "local",
+  "fault": null,
+  "joint_names": [
+    "shoulder_pan",
+    "shoulder_lift",
+    "elbow_flex",
+    "wrist_flex",
+    "wrist_roll",
+    "gripper"
+  ],
+  "joint_positions": [
+    -0.6299999999999785,
+    -0.1992692048741051,
+    0.20072170468154843,
+    1.4000492517217247,
+    -2.997952583178685e-08,
+    0.799994371002139
+  ],
+  "joint_limits": [
+    [
+      -1.91986,
+      1.91986
+    ],
+    [
+      -1.7453292519943224,
+      1.7453292519943366
+    ],
+    [
+      -1.69,
+      1.69
+    ],
+    [
+      -1.65806,
+      1.65806
+    ],
+    [
+      -2.7438472969992493,
+      2.841206309382605
+    ],
+    [
+      -0.17453,
+      1.7453291995659765
+    ]
+  ],
+  "target_positions": [
+    -0.63,
+    -0.19963463936425352,
+    0.20036089068998958,
+    1.4000246685842794,
+    -1.5022634832310837e-08,
+    0.7999971846898735
+  ],
+  "sim_time": 2127.188,
+  "accepted_sequence": 1,
+  "applied_sequence": 1,
+  "cameras": {
+    "overhead": true,
+    "wrist": true
+  },
+  "camera_error": null,
+  "board_connected": false,
+  "last_board_heartbeat_age_s": null,
+  "geometry": "PROXY MESHES — import official STL before task benchmarking"
+}
