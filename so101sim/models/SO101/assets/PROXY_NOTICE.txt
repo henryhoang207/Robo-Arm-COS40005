@@ -1,0 +1,3 @@
+These STL meshes are GENERATED SIMPLIFIED PROXIES, NOT official SO-101 geometry.
+Replace using scripts/import_official_assets.py --source /path/to/official/Simulation/SO101/assets
+Never use these proxies for collision/grasp benchmarking or physical calibration.
