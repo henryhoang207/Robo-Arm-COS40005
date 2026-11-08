@@ -2,6 +2,8 @@
 
 > Partially superseded on 21 October 2026 by decision 0004: printed-arm work is removed from Project A, and Chung is the sole Project A IoT member. Earlier approval text below is retained as decision history.
 
+> Partially superseded on 21 October 2026 by decision 0005 (recorded 22 October 2026): the experiment console adds a bounded chat interface for typed free-text requests. Speech commands remain out of the core, and the retired F06 parser targets are not revived.
+
 Date: 2026-10-14
 Status: Approved (Hoan, 2026-10-14, in chat; see §1b). Inputs still to reconcile: SO101-10 requirements list and SO101-97 rubric (§0). Open values: SO101-37 limits; the physical envelope, deferred to SO101-38 (22 Oct).
 Decision: Project A minimum is simulation benchmark + nine VENTUNO Q cells + reports + minimum web console. Physical printed-arm trials are a conditional target tier. The core is a single task, "Pick up the cube and place it in the box.", with one cube and one box. Speech, free-text commands, multiple object classes, MQTT, OTA update/rollback and Cartesian controls are out of the current core. The console accepts a closed command set and rejects invalid input without starting anything. Every reported number carries its platform and evidence class (A-004). Old thresholds F04 and F05 are retired. The physical workspace, lighting, payload and supervision rules are deferred to the SO101-38 procedure gate on 22 Oct.
