@@ -1,0 +1,11 @@
+test_accept (test_protocol.TestProtocol.test_accept) ... ok
+test_bad_duration (test_protocol.TestProtocol.test_bad_duration) ... ok
+test_length (test_protocol.TestProtocol.test_length) ... ok
+test_nonfinite (test_protocol.TestProtocol.test_nonfinite) ... ok
+test_out_of_range (test_protocol.TestProtocol.test_out_of_range) ... ok
+test_replay (test_protocol.TestProtocol.test_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK
