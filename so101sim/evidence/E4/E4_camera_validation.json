@@ -1,0 +1,22 @@
+{
+  "overhead": {
+    "http_status": 200,
+    "content_type": "image/jpeg",
+    "pixel_size": [
+      640,
+      480
+    ],
+    "bytes": 10235,
+    "filename": "E4_overhead.jpg"
+  },
+  "wrist": {
+    "http_status": 200,
+    "content_type": "image/jpeg",
+    "pixel_size": [
+      640,
+      480
+    ],
+    "bytes": 12950,
+    "filename": "E4_wrist.jpg"
+  }
+}

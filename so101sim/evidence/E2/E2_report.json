@@ -1,0 +1,190 @@
+{
+  "capture_time": "2026-10-25T11:13:13+00:00",
+  "scope": "LOCAL simulator HTTP API, not STM32 or VENTUNO hardware",
+  "result": "PASS",
+  "checks": {
+    "out_of_range_rejected": true,
+    "malformed_action_rejected": true,
+    "rejected_actions_not_queued": true,
+    "valid_action_acknowledged": true,
+    "sequence_applied": true,
+    "completed_done": true,
+    "commanded_joint_moved": true,
+    "max_joint_error_at_most_0_025_rad": true,
+    "replay_rejected": true
+  },
+  "joint_names": [
+    "shoulder_pan",
+    "shoulder_lift",
+    "elbow_flex",
+    "wrist_flex",
+    "wrist_roll",
+    "gripper"
+  ],
+  "initial_state": {
+    "status": "LOCAL_TEST",
+    "mode": "local",
+    "fault": null,
+    "joint_names": [
+      "shoulder_pan",
+      "shoulder_lift",
+      "elbow_flex",
+      "wrist_flex",
+      "wrist_roll",
+      "gripper"
+    ],
+    "joint_positions": [
+      -0.7499999999999974,
+      -0.19963463936425352,
+      0.20036089068998958,
+      1.4000246685842794,
+      -1.5022634832310837e-08,
+      0.7999971846898735
+    ],
+    "joint_limits": [
+      [
+        -1.91986,
+        1.91986
+      ],
+      [
+        -1.7453292519943224,
+        1.7453292519943366
+      ],
+      [
+        -1.69,
+        1.69
+      ],
+      [
+        -1.65806,
+        1.65806
+      ],
+      [
+        -2.7438472969992493,
+        2.841206309382605
+      ],
+      [
+        -0.17453,
+        1.7453291995659765
+      ]
+    ],
+    "target_positions": [
+      -0.75,
+      -0.2,
+      0.2,
+      1.4,
+      0.0,
+      0.8
+    ],
+    "sim_time": 724.006,
+    "accepted_sequence": -1,
+    "applied_sequence": -1,
+    "cameras": {
+      "overhead": true,
+      "wrist": true
+    },
+    "camera_error": null,
+    "board_connected": false,
+    "last_board_heartbeat_age_s": null,
+    "geometry": "PROXY MESHES — import official STL before task benchmarking"
+  },
+  "valid_action": {
+    "type": "ACTION",
+    "sequence_id": 1,
+    "joint_targets": [
+      -0.63,
+      -0.19963463936425352,
+      0.20036089068998958,
+      1.4000246685842794,
+      -1.5022634832310837e-08,
+      0.7999971846898735
+    ],
+    "duration": 2.0,
+    "timeout": 4.0
+  },
+  "ack": {
+    "type": "ACK",
+    "sequence_id": 1,
+    "meaning": "Queued, NOT completed"
+  },
+  "final_state": {
+    "status": "DONE",
+    "mode": "local",
+    "fault": null,
+    "joint_names": [
+      "shoulder_pan",
+      "shoulder_lift",
+      "elbow_flex",
+      "wrist_flex",
+      "wrist_roll",
+      "gripper"
+    ],
+    "joint_positions": [
+      -0.6300168184049033,
+      -0.19926920383129632,
+      0.20072170431495348,
+      1.4000492513074279,
+      -3.193822954252807e-08,
+      0.799994371034121
+    ],
+    "joint_limits": [
+      [
+        -1.91986,
+        1.91986
+      ],
+      [
+        -1.7453292519943224,
+        1.7453292519943366
+      ],
+      [
+        -1.69,
+        1.69
+      ],
+      [
+        -1.65806,
+        1.65806
+      ],
+      [
+        -2.7438472969992493,
+        2.841206309382605
+      ],
+      [
+        -0.17453,
+        1.7453291995659765
+      ]
+    ],
+    "target_positions": [
+      -0.63,
+      -0.19963463936425352,
+      0.20036089068998958,
+      1.4000246685842794,
+      -1.5022634832310837e-08,
+      0.7999971846898735
+    ],
+    "sim_time": 726.014,
+    "accepted_sequence": 1,
+    "applied_sequence": 1,
+    "cameras": {
+      "overhead": true,
+      "wrist": true
+    },
+    "camera_error": null,
+    "board_connected": false,
+    "last_board_heartbeat_age_s": null,
+    "geometry": "PROXY MESHES — import official STL before task benchmarking"
+  },
+  "replay_response": {
+    "type": "REJECTED",
+    "reason": "Stale or duplicated sequence_id"
+  },
+  "limit_rejection": {
+    "type": "REJECTED",
+    "reason": "shoulder_pan outside [-1.91986, 1.91986] radians"
+  },
+  "shape_rejection": {
+    "type": "REJECTED",
+    "reason": "joint_targets must contain exactly six angles (radians)"
+  },
+  "observed_movement_rad": 0.119983,
+  "max_final_tracking_error_rad": 0.000365,
+  "samples": 11
+}

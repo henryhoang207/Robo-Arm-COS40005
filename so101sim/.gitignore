@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.log
+*.csv
+SO101_TOKEN
+.env
+*.bak
+.board-network.json
+.board-mode.pid

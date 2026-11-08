@@ -1,0 +1,75 @@
+{
+  "scene_name": "SO101_Unified_Simulation",
+  "scene_path": "models/SO101/workspace.xml",
+  "includes_robot_model": true,
+  "workspace_bodies": [
+    "blue_ball",
+    "drop_box",
+    "green_ball",
+    "overhead_camera_rig",
+    "red_ball",
+    "yellow_ball"
+  ],
+  "required_objects": [
+    "red_ball",
+    "green_ball",
+    "blue_ball",
+    "yellow_ball",
+    "drop_box"
+  ],
+  "objects_present": {
+    "red_ball": true,
+    "green_ball": true,
+    "blue_ball": true,
+    "yellow_ball": true,
+    "drop_box": true
+  },
+  "required_cameras": [
+    "overhead_camera",
+    "wrist_camera"
+  ],
+  "camera_elements_present": {
+    "overhead_camera": true,
+    "wrist_camera": true
+  },
+  "robot_joints_present": {
+    "shoulder_pan": true,
+    "shoulder_lift": true,
+    "elbow_flex": true,
+    "wrist_flex": true,
+    "wrist_roll": true,
+    "gripper": true
+  },
+  "ready_pose_rad": {
+    "shoulder_pan": -0.75,
+    "shoulder_lift": -0.2,
+    "elbow_flex": 0.2,
+    "wrist_flex": 1.4,
+    "wrist_roll": 0.0,
+    "gripper": 0.8
+  },
+  "required_stl_count": 13,
+  "missing_mesh_files": [],
+  "mesh_import_marker_present": true,
+  "caution": "Presence of STL and camera definitions alone does not establish physical grasp accuracy.",
+  "compiled_actuators": [
+    "shoulder_pan",
+    "shoulder_lift",
+    "elbow_flex",
+    "wrist_flex",
+    "wrist_roll",
+    "gripper"
+  ],
+  "camera_parent_body": {
+    "overhead_camera": "overhead_camera_rig",
+    "wrist_camera": "gripper"
+  },
+  "ready_pose_in_limits": {
+    "shoulder_pan": true,
+    "shoulder_lift": true,
+    "elbow_flex": true,
+    "wrist_flex": true,
+    "wrist_roll": true,
+    "gripper": true
+  }
+}
