@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-01T07:37:28.838842+00:00",
+  "status": "failed",
+  "board_verified": false,
+  "profiles": {
+    "smolvla/fp16": {
+      "status": "server-validated",
+      "attempt": 4,
+      "started_utc": "2026-11-01T08:02:23.423840+00:00",
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/fp16/attempt004",
+      "stage": "complete",
+      "updated_utc": "2026-11-01T10:35:29.073998+00:00",
+      "last_exit_code": 0,
+      "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/fp16_layout_revalidation.log",
+      "package": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/packages/smolvla/fp16/attempt004-layout-v2",
+      "completed_utc": "2026-11-01T08:09:19.286854+00:00",
+      "prior_package_revisions": [
+        "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/packages/smolvla/fp16/attempt004"
+      ],
+      "failure_history": [
+        {
+          "attempt": 3,
+          "error": "RuntimeError: prefix failed; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/fp16/attempt003/prefix.log",
+          "failed_utc": "2026-11-01T07:55:05.602474+00:00",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/fp16/attempt003/prefix.log"
+        }
+      ],
+      "runner_revision": "contiguous-input ABI; four full-policy frames revalidated"
+    },
+    "smolvla/int8_mixed": {
+      "status": "failed",
+      "attempt": 7,
+      "started_utc": "2026-11-01T17:48:25.004751+00:00",
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt007",
+      "stage": "full_policy_validation",
+      "updated_utc": "2026-11-01T19:40:00.561702+00:00",
+      "failure_history": [
+        {
+          "attempt": 1,
+          "error": "RuntimeError: prefix failed; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt001/prefix.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt001/prefix.log",
+          "failed_utc": "2026-11-01T08:11:14.452364+00:00"
+        },
+        {
+          "attempt": 2,
+          "error": "RuntimeError: prefix failed; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt002/prefix.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt002/prefix.log",
+          "failed_utc": "2026-11-01T08:25:04.579050+00:00"
+        },
+        {
+          "attempt": 3,
+          "error": "RuntimeError: full_policy_validation failed; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt003/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt003/validation.log",
+          "failed_utc": "2026-11-01T08:52:17.298026+00:00"
+        },
+        {
+          "attempt": 4,
+          "error": "RuntimeError: full_policy_validation failed; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt004/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt004/validation.log",
+          "failed_utc": "2026-11-01T09:24:38.803806+00:00"
+        },
+        {
+          "attempt": 5,
+          "error": "RuntimeError: full_policy_validation failed; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt005/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt005/validation.log",
+          "failed_utc": "2026-11-01T10:15:55.908863+00:00"
+        },
+        {
+          "attempt": 6,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt006/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt006/validation.log",
+          "failed_utc": "2026-11-01T17:31:53.793887+00:00"
+        }
+      ],
+      "integer_policy_sha256": "95f0e991045087297e5aadf21319c745c283a6cba27a5010e091ec476da086b2",
+      "source_snapshot": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T174824458625Z/sources",
+      "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt007/validation.log",
+      "last_exit_code": 1,
+      "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt007/validation.log",
+      "failed_utc": "2026-11-01T19:40:00.561753+00:00"
+    },
+    "smolvla/int4_mixed": {
+      "status": "failed",
+      "attempt": 3,
+      "started_utc": "2026-11-01T17:48:25.015662+00:00",
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int4_mixed/attempt003",
+      "stage": "full_policy_validation",
+      "source_snapshot": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T174824458625Z/sources",
+      "integer_policy_sha256": "95f0e991045087297e5aadf21319c745c283a6cba27a5010e091ec476da086b2",
+      "updated_utc": "2026-11-01T19:41:07.298538+00:00",
+      "failure_history": [
+        {
+          "attempt": 1,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int4_mixed/attempt001/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int4_mixed/attempt001/validation.log",
+          "failed_utc": "2026-11-01T11:36:27.526049+00:00"
+        },
+        {
+          "attempt": 2,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int4_mixed/attempt002/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int4_mixed/attempt002/validation.log",
+          "failed_utc": "2026-11-01T17:32:45.249406+00:00"
+        }
+      ],
+      "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int4_mixed/attempt003/validation.log",
+      "last_exit_code": 1,
+      "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int4_mixed/attempt003/validation.log",
+      "failed_utc": "2026-11-01T19:41:07.298580+00:00"
+    },
+    "xvla/fp16": {
+      "status": "server-validated",
+      "attempt": 1,
+      "started_utc": "2026-11-01T11:13:42.934565+00:00",
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/fp16/attempt001",
+      "stage": "complete",
+      "source_snapshot": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T111342891308Z/sources",
+      "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/fp16/attempt001/validation.log",
+      "updated_utc": "2026-11-01T11:41:59.767308+00:00",
+      "last_exit_code": 0,
+      "package": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/packages/xvla/fp16/attempt001",
+      "completed_utc": "2026-11-01T11:42:04.406498+00:00"
+    },
+    "xvla/int8_mixed": {
+      "status": "failed",
+      "attempt": 3,
+      "started_utc": "2026-11-01T17:48:25.016034+00:00",
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int8_mixed/attempt003",
+      "stage": "full_policy_validation",
+      "source_snapshot": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T174824458625Z/sources",
+      "integer_policy_sha256": "95f0e991045087297e5aadf21319c745c283a6cba27a5010e091ec476da086b2",
+      "updated_utc": "2026-11-01T19:42:43.224582+00:00",
+      "failure_history": [
+        {
+          "attempt": 1,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int8_mixed/attempt001/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int8_mixed/attempt001/validation.log",
+          "failed_utc": "2026-11-01T11:42:56.586765+00:00"
+        },
+        {
+          "attempt": 2,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int8_mixed/attempt002/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int8_mixed/attempt002/validation.log",
+          "failed_utc": "2026-11-01T17:33:53.557854+00:00"
+        }
+      ],
+      "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int8_mixed/attempt003/validation.log",
+      "last_exit_code": 1,
+      "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int8_mixed/attempt003/validation.log",
+      "failed_utc": "2026-11-01T19:42:43.224622+00:00"
+    },
+    "xvla/int4_mixed": {
+      "status": "failed",
+      "attempt": 3,
+      "started_utc": "2026-11-01T17:48:25.016413+00:00",
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int4_mixed/attempt003",
+      "stage": "full_policy_validation",
+      "source_snapshot": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T174824458625Z/sources",
+      "integer_policy_sha256": "95f0e991045087297e5aadf21319c745c283a6cba27a5010e091ec476da086b2",
+      "updated_utc": "2026-11-01T19:44:04.540088+00:00",
+      "failure_history": [
+        {
+          "attempt": 1,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int4_mixed/attempt001/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int4_mixed/attempt001/validation.log",
+          "failed_utc": "2026-11-01T11:43:51.296606+00:00"
+        },
+        {
+          "attempt": 2,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int4_mixed/attempt002/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int4_mixed/attempt002/validation.log",
+          "failed_utc": "2026-11-01T17:35:05.807733+00:00"
+        }
+      ],
+      "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int4_mixed/attempt003/validation.log",
+      "last_exit_code": 1,
+      "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int4_mixed/attempt003/validation.log",
+      "failed_utc": "2026-11-01T19:44:04.540112+00:00"
+    },
+    "pi0/fp16": {
+      "status": "server-validated",
+      "attempt": 3,
+      "started_utc": "2026-11-01T11:44:03.612904+00:00",
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/fp16/attempt003",
+      "stage": "complete",
+      "source_snapshot": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T114403520829Z/sources",
+      "updated_utc": "2026-11-01T12:32:56.736381+00:00",
+      "last_resource_event": {
+        "utc": "2026-11-01T11:17:34.486654+00:00",
+        "profile": "pi0/fp16",
+        "phase": "prefix",
+        "reason": "Memory guard: available36.52GiB, campaign64.13GiB",
+        "peak_rss_bytes": 18160328704,
+        "log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/fp16/attempt001/prefix.log"
+      },
+      "failure_history": [
+        {
+          "attempt": 2,
+          "error": "prefix exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/fp16/attempt002/prefix.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/fp16/attempt002/prefix.log",
+          "failed_utc": "2026-11-01T11:28:12.679563+00:00"
+        }
+      ],
+      "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/fp16/attempt003/validation.log",
+      "last_exit_code": 0,
+      "package": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/packages/pi0/fp16/attempt003",
+      "completed_utc": "2026-11-01T12:33:15.703507+00:00"
+    },
+    "pi0/int8_mixed": {
+      "status": "failed",
+      "attempt": 5,
+      "started_utc": "2026-11-01T17:48:25.016657+00:00",
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt005",
+      "stage": "full_policy_validation",
+      "source_snapshot": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T174824458625Z/sources",
+      "integer_policy_sha256": "95f0e991045087297e5aadf21319c745c283a6cba27a5010e091ec476da086b2",
+      "updated_utc": "2026-11-01T19:49:54.913080+00:00",
+      "last_resource_event": {
+        "utc": "2026-11-01T11:23:52.727882+00:00",
+        "profile": "pi0/int8_mixed",
+        "phase": "prefix",
+        "reason": "Memory guard: available46.34GiB, campaign64.14GiB",
+        "peak_rss_bytes": 22484377600,
+        "log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt001/prefix.log"
+      },
+      "failure_history": [
+        {
+          "attempt": 2,
+          "error": "prefix exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt002/prefix.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt002/prefix.log",
+          "failed_utc": "2026-11-01T11:31:17.097294+00:00"
+        },
+        {
+          "attempt": 3,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt003/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt003/validation.log",
+          "failed_utc": "2026-11-01T12:38:05.988313+00:00"
+        },
+        {
+          "attempt": 4,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt004/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt004/validation.log",
+          "failed_utc": "2026-11-01T17:41:01.446166+00:00"
+        }
+      ],
+      "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt005/validation.log",
+      "last_exit_code": 1,
+      "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt005/validation.log",
+      "failed_utc": "2026-11-01T19:49:54.913132+00:00"
+    },
+    "pi0/int4_mixed": {
+      "status": "failed",
+      "attempt": 5,
+      "started_utc": "2026-11-01T18:00:06.396369+00:00",
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt005",
+      "stage": "full_policy_validation",
+      "source_snapshot": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T174824458625Z/sources",
+      "integer_policy_sha256": "95f0e991045087297e5aadf21319c745c283a6cba27a5010e091ec476da086b2",
+      "updated_utc": "2026-11-01T19:54:49.154799+00:00",
+      "failure_history": [
+        {
+          "attempt": 1,
+          "error": "prefix exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt001/prefix.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt001/prefix.log",
+          "failed_utc": "2026-11-01T11:26:38.141629+00:00"
+        },
+        {
+          "attempt": 2,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt002/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt002/validation.log",
+          "failed_utc": "2026-11-01T12:43:11.147728+00:00"
+        },
+        {
+          "attempt": 3,
+          "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt003/validation.log",
+          "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt003/validation.log",
+          "failed_utc": "2026-11-01T17:45:33.320075+00:00"
+        }
+      ],
+      "last_resource_event": {
+        "utc": "2026-11-01T18:00:03.906965+00:00",
+        "profile": "pi0/int4_mixed",
+        "phase": "prefix",
+        "reason": "Memory guard: available42.18GiB, working64.03GiB, total66.64GiB",
+        "peak_rss_bytes": 22589456384,
+        "log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt004/prefix.log"
+      },
+      "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt005/validation.log",
+      "last_exit_code": 1,
+      "error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt005/validation.log",
+      "failed_utc": "2026-11-01T19:54:49.154838+00:00"
+    }
+  },
+  "controller_pid": 835151,
+  "updated_utc": "2026-11-01T19:54:49.204372+00:00",
+  "current": null,
+  "maintenance_worker": null,
+  "execution_mode": "parallel",
+  "parallel": {
+    "run_directory": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T174824458625Z",
+    "started_utc": "2026-11-01T17:48:25.002202+00:00",
+    "authorization": "User: Do All seven plus repair",
+    "maximum_workers": 8,
+    "cpu_threads_per_worker": 8,
+    "gpu": false,
+    "memory_hard_limit_bytes": 81604378624,
+    "requested_targets": [
+      "smolvla/int8_mixed",
+      "smolvla/int4_mixed",
+      "xvla/int8_mixed",
+      "xvla/int4_mixed",
+      "pi0/int8_mixed",
+      "pi0/int4_mixed"
+    ],
+    "repair_enabled": false,
+    "integer_recipe": {
+      "anchor_dynamic_ranges": true,
+      "binary_conv_scales": true,
+      "use_linear_preconditioning": false
+    },
+    "reserve_gib": 16,
+    "working_memory_gib": 64,
+    "timing": "validation runs after competing campaign workers finish",
+    "resource_events": [
+      {
+        "utc": "2026-11-01T18:00:03.906965+00:00",
+        "profile": "pi0/int4_mixed",
+        "phase": "prefix",
+        "reason": "Memory guard: available42.18GiB, working64.03GiB, total66.64GiB",
+        "peak_rss_bytes": 22589456384,
+        "log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt004/prefix.log"
+      }
+    ],
+    "slot_limit": 5,
+    "active_workers": 0,
+    "available_memory_bytes": 113690234880,
+    "cgroup_memory_bytes": 40891219968,
+    "cgroup_working_memory_bytes": 4517675008,
+    "completed_utc": "2026-11-01T19:54:49.204358+00:00"
+  },
+  "repair": {
+    "status": "diagnostic-complete",
+    "stage": "awaiting_evidence_review",
+    "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T114403520829Z/repair_vision_trace",
+    "source_snapshot": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T114403520829Z/sources",
+    "last_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T114403520829Z/repair_attempt00.log",
+    "updated_utc": "2026-11-01T11:47:12.584035+00:00",
+    "last_exit_code": 0,
+    "completed_utc": "2026-11-01T11:47:12.584189+00:00"
+  },
+  "active_profiles": [],
+  "preconditioning": {
+    "status": "fp32-verified",
+    "run_directory": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z",
+    "method": "power2-channel-balancing",
+    "alpha": 0.5,
+    "training_frames": 64,
+    "noise_seed_base": 20000,
+    "sampling_steps": 10,
+    "models": {
+      "smolvla": {
+        "status": "fp32-verified",
+        "started_utc": "2026-11-01T16:33:35.820113+00:00",
+        "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z/smolvla",
+        "log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z/smolvla.log",
+        "rss_bytes": 4579274752,
+        "exit_code": 0,
+        "peak_rss_bytes": 4675903488,
+        "completed_utc": "2026-11-01T16:42:17.201782+00:00",
+        "descriptor": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z/smolvla/descriptor.json"
+      },
+      "xvla": {
+        "status": "fp32-verified",
+        "started_utc": "2026-11-01T16:33:35.821700+00:00",
+        "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z/xvla",
+        "log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z/xvla.log",
+        "rss_bytes": 7405703168,
+        "exit_code": 0,
+        "peak_rss_bytes": 7759446016,
+        "completed_utc": "2026-11-01T16:41:42.285821+00:00",
+        "descriptor": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z/xvla/descriptor.json"
+      },
+      "pi0": {
+        "status": "fp32-verified",
+        "started_utc": "2026-11-01T16:33:35.823278+00:00",
+        "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z/pi0",
+        "log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z/pi0.log",
+        "rss_bytes": 17537720320,
+        "exit_code": 0,
+        "peak_rss_bytes": 22558724096,
+        "completed_utc": "2026-11-01T16:47:57.078297+00:00",
+        "descriptor": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/preconditioning_runs/20261101T163335771728Z/pi0/descriptor.json"
+      }
+    },
+    "retraining": false,
+    "gpu": false,
+    "cpu_threads_per_worker": 8,
+    "available_memory_bytes": 111773274112,
+    "completed_utc": "2026-11-01T16:47:57.100595+00:00"
+  }
+}

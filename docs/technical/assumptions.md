@@ -2,6 +2,8 @@
 
 Maintained per `CLAUDE.md`. Each row is an assumption Hoan approved. **UNVERIFIED** means no measurement or test has confirmed it yet.
 
+**Current roster/schedule amendment — 25 October 2026:** [Decision 0006](decisions/0006-model-roster-baseline-and-profile-allocation.md) replaces ACT and Diffusion Policy with Pi0 and X-VLA. The model-specific runtime/coverage recipes in A-001/A-002 below retain their original historical scope and do not establish Pi0/X-VLA compatibility. Verify the replacement models' exact recipes, native precision coverage and runtime support in SO101-34 and their baseline/profile tasks. General approved measurement/reporting definitions remain in force; the current nine-profile comparison window is 1–19 November 2026, superseding older 26–29 October execution-window references for this work.
+
 | ID | Statement | Source | Confidence | Verification status |
 |---|---|---|---|---|
 | A-001 | Placement and runtime (SO101-34, AP-1). All nine scored cells run on the VENTUNO Q Kryo CPU, with one runtime per model across FP16, INT8 and INT4:<br>• ACT: ExecuTorch + XNNPACK → vla.cpp → ONNX Runtime CPU<br>• DP: ExecuTorch + XNNPACK → ONNX Runtime CPU<br>• SmolVLA: ExecuTorch + XNNPACK and vla.cpp probed in parallel; ONNX Runtime third<br>PyTorch FP32 on the board is the same-input reference. NPU and GPU runs are exploratory only. | `docs/technical/decisions/0002-ventuno-q-runtime-precision-and-test-plan.md` §1, §4 (ExecuTorch XNNPACK docs, vla.cpp @ cff0cfb, ONNX Runtime docs, Qualcomm/ExecuTorch NPU docs) | Medium | Approved by Hoan 2026-10-14. **UNVERIFIED** until the E3 board probes (15–16 Oct) |

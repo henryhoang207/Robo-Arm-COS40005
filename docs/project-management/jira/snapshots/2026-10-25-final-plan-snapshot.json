@@ -1,0 +1,2109 @@
+{
+ "captured": "2026-10-25 ~18:24 Asia/Bangkok",
+ "site": "huu-hoan-hoang.atlassian.net",
+ "project": "SO101",
+ "note": "SO101-1..111 from one JQL read at capture time; SO101-112..120 from the same-day page-2 read and the 18:19 assignee read-back (labels omitted for those nine). Read-only capture; no Jira change made by this snapshot. SO101-56 assignee updated to Trieu after the 18:44 reassignment (comment 10005).",
+ "count": 109,
+ "issues": [
+  {
+   "key": "SO101-1",
+   "type": "Epic",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-12-06",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "so101-plan",
+    "timeline-v3"
+   ],
+   "summary": "Project A submission and reproducible handover"
+  },
+  {
+   "key": "SO101-2",
+   "type": "Epic",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "Khanh",
+   "start": "2026-10-12",
+   "due": "2026-12-03",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "so101-plan",
+    "timeline-v3"
+   ],
+   "summary": "Experiment console v1 and integrated demonstration"
+  },
+  {
+   "key": "SO101-3",
+   "type": "Epic",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-12",
+   "due": "2026-11-01",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "so101-plan",
+    "timeline-v3"
+   ],
+   "summary": "Three-model baseline comparison"
+  },
+  {
+   "key": "SO101-4",
+   "type": "Epic",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2026-10-12",
+   "due": "2026-11-20",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "so101-plan",
+    "timeline-v3"
+   ],
+   "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+  },
+  {
+   "key": "SO101-5",
+   "type": "Task",
+   "parent": "SO101-2",
+   "status": "Done",
+   "assignee": "Khanh",
+   "start": "2026-10-16",
+   "due": "2026-10-23",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "project-a",
+    "timeline-v3",
+    "web"
+   ],
+   "summary": "Research UX/UI and finalize the interface sketch"
+  },
+  {
+   "key": "SO101-6",
+   "type": "Task",
+   "parent": "SO101-2",
+   "status": "In Progress",
+   "assignee": "Khanh",
+   "start": "2026-10-26",
+   "due": "2026-11-06",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "project-a",
+    "timeline-v3",
+    "web"
+   ],
+   "summary": "Build the frontend from the finalized sketch"
+  },
+  {
+   "key": "SO101-7",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "In Progress",
+   "assignee": "Khanh",
+   "start": "2026-10-12",
+   "due": "2026-10-29",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "project-a",
+    "timeline-v3",
+    "web"
+   ],
+   "summary": "Research robotics architecture, communication protocol and integration links"
+  },
+  {
+   "key": "SO101-8",
+   "type": "Task",
+   "parent": "SO101-2",
+   "status": "To Do",
+   "assignee": "Khanh",
+   "start": "2026-10-21",
+   "due": "2026-11-20",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "project-a",
+    "timeline-v3",
+    "web"
+   ],
+   "summary": "Build the backend from the agreed architecture and protocol"
+  },
+  {
+   "key": "SO101-9",
+   "type": "Task",
+   "parent": "SO101-2",
+   "status": "In Review",
+   "assignee": "Khanh",
+   "start": "2026-10-12",
+   "due": "2026-10-28",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "project-a",
+    "timeline-v3",
+    "web"
+   ],
+   "summary": "Clarify AWS requirements with the supervisor"
+  },
+  {
+   "key": "SO101-10",
+   "type": "Task",
+   "parent": "SO101-107",
+   "status": "Done",
+   "assignee": "Vu Quoc Trieu",
+   "start": "2026-10-12",
+   "due": "2026-10-13",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "project-a",
+    "timeline-v3",
+    "web"
+   ],
+   "summary": "Brainstorm the requirements needed to complete the project"
+  },
+  {
+   "key": "SO101-11",
+   "type": "Task",
+   "parent": "SO101-3",
+   "status": "Done",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-14",
+   "due": "2026-10-16",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "project-a",
+    "timeline-v3"
+   ],
+   "summary": "Complete single-dataset EDA, training strategy and report"
+  },
+  {
+   "key": "SO101-12",
+   "type": "Task",
+   "parent": "SO101-3",
+   "status": "In Progress",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-13",
+   "due": "2026-11-01",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "model-roster-2026-10-25",
+    "project-a",
+    "timeline-v3"
+   ],
+   "summary": "Consolidate and accept the three-model baseline comparison"
+  },
+  {
+   "key": "SO101-16",
+   "type": "Task",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-05",
+   "due": "2026-11-08",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "governance",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "pm",
+    "project-a",
+    "timeline-v3"
+   ],
+   "summary": "Hold the Sprint 1 review and project meeting"
+  },
+  {
+   "key": "SO101-17",
+   "type": "Task",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-27",
+   "due": "2026-11-29",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "governance",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "pm",
+    "project-a",
+    "timeline-v3"
+   ],
+   "summary": "Hold the Sprint 2 review and project meeting"
+  },
+  {
+   "key": "SO101-18",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-01",
+   "due": "2026-11-19",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "early-report-target",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "model-roster-2026-10-25",
+    "project-a",
+    "timeline-v3"
+   ],
+   "summary": "Coordinate the nine-profile comparison and deliver the reviewed report"
+  },
+  {
+   "key": "SO101-19",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2026-10-26",
+   "due": "2026-11-20",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "iot",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "needs-decision",
+    "project-a",
+    "timeline-v3"
+   ],
+   "summary": "Run STM32H5F5 output in the selected simulator"
+  },
+  {
+   "key": "SO101-20",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2026-10-20",
+   "due": "2026-10-29",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "iot",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "needs-decision",
+    "project-a",
+    "timeline-v3"
+   ],
+   "summary": "Research AI-to-STM32H5F5 and MCU-to-simulator links with sample tests"
+  },
+  {
+   "key": "SO101-21",
+   "type": "Task",
+   "parent": "SO101-107",
+   "status": "Done",
+   "assignee": "bchung",
+   "start": "2026-10-12",
+   "due": "2026-10-15",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "iot",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "needs-decision",
+    "project-a",
+    "timeline-v3"
+   ],
+   "summary": "Select the simulator for robot arm testing"
+  },
+  {
+   "key": "SO101-22",
+   "type": "Task",
+   "parent": "SO101-107",
+   "status": "In Review",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-30",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "pm",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Research and define the simulation benchmark, baseline and performance objectives"
+  },
+  {
+   "key": "SO101-23",
+   "type": "Task",
+   "parent": "SO101-107",
+   "status": "In Review",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-27",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "pm",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Approve the core task catalogue, operating envelope and acceptance targets"
+  },
+  {
+   "key": "SO101-24",
+   "type": "Task",
+   "parent": null,
+   "status": "Done",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-13",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "governance",
+    "jira-reorganization-2026-10-25",
+    "pm",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Confirm team capacity, decision ownership and KOST support plan"
+  },
+  {
+   "key": "SO101-25",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "Done",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-11-02",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "jira-reorganization-2026-10-25",
+    "pm",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Confirm hardware and compute access for simulation and board research"
+  },
+  {
+   "key": "SO101-26",
+   "type": "Task",
+   "parent": null,
+   "status": "In Progress",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-20",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "governance",
+    "jira-reorganization-2026-10-25",
+    "pm",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Maintain sprint membership, course milestones and delivery handoffs"
+  },
+  {
+   "key": "SO101-27",
+   "type": "Task",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-19",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "governance",
+    "jira-reorganization-2026-10-25",
+    "pm",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Approve collaboration, repository, document review and conduct rules"
+  },
+  {
+   "key": "SO101-28",
+   "type": "Task",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-20",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "governance",
+    "jira-reorganization-2026-10-25",
+    "pm",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Approve risk owners, rankings, review cadence and escalation triggers"
+  },
+  {
+   "key": "SO101-29",
+   "type": "Task",
+   "parent": "SO101-1",
+   "status": "Done",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-14",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "jira-reorganization-2026-10-25",
+    "pm",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Confirm the course rubric, submission checklist and authorship responsibilities"
+  },
+  {
+   "key": "SO101-30",
+   "type": "Task",
+   "parent": "SO101-1",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-30",
+   "due": "2026-12-04",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "jira-reorganization-2026-10-25",
+    "pm",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Approve the final evidence, reproducibility, demonstration and report package"
+  },
+  {
+   "key": "SO101-31",
+   "type": "Task",
+   "parent": "SO101-3",
+   "status": "Done",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-13",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "decision",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Decide the single dataset, coverage, recording plan and session-level splits"
+  },
+  {
+   "key": "SO101-32",
+   "type": "Task",
+   "parent": "SO101-3",
+   "status": "Done",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-14",
+   "due": "2026-10-16",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "decision",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Decide the learning, adaptation and demonstration-capture strategy"
+  },
+  {
+   "key": "SO101-33",
+   "type": "Task",
+   "parent": "SO101-3",
+   "status": "Done",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-12",
+   "due": "2026-10-18",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "decision",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Record selection of SmolVLA, Pi0 and X-VLA and the comparison protocol"
+  },
+  {
+   "key": "SO101-34",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-31",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "decision",
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Verify approved VENTUNO Q runtime and precision/resource test readiness"
+  },
+  {
+   "key": "SO101-35",
+   "type": "Task",
+   "parent": "SO101-107",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-14",
+   "due": "2026-10-31",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "decision",
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Approve the simulation and VENTUNO Q evaluation protocol"
+  },
+  {
+   "key": "SO101-36",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2026-10-12",
+   "due": "2026-10-27",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "epic-timeline-2026-10-25",
+    "iot",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Decide the STM32H5F5 execution path and USB reference baseline"
+  },
+  {
+   "key": "SO101-37",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-16",
+   "due": "2026-10-28",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "epic-timeline-2026-10-25",
+    "integration",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Approve the versioned AI, STM32H5F5 and backend action/state contract"
+  },
+  {
+   "key": "SO101-38",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2026-10-20",
+   "due": "2026-11-13",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "iot",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Approve board/simulator transport, command validation and stop/fault tests"
+  },
+  {
+   "key": "SO101-39",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "Done",
+   "assignee": "bchung",
+   "start": "2026-10-12",
+   "due": "2026-10-13",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "iot",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Resolve simulator selection and communication sample-test ordering"
+  },
+  {
+   "key": "SO101-40",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "In Review",
+   "assignee": "bchung",
+   "start": "2026-10-16",
+   "due": "2026-10-28",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "epic-timeline-2026-10-25",
+    "iot",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Clarify the STM32H5F5 simulator test's complete deliverables"
+  },
+  {
+   "key": "SO101-42",
+   "type": "Task",
+   "parent": "SO101-2",
+   "status": "To Do",
+   "assignee": "Khanh",
+   "start": "2026-10-12",
+   "due": "2026-10-28",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "decision",
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "softdev",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Define the experiment-console workflow and feature catalogue"
+  },
+  {
+   "key": "SO101-43",
+   "type": "Subtask",
+   "parent": "SO101-11",
+   "status": "Done",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-14",
+   "due": "2026-10-16",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "project-a",
+    "report",
+    "timeline-v3"
+   ],
+   "summary": "Write the dataset EDA and training strategy report"
+  },
+  {
+   "key": "SO101-44",
+   "type": "Subtask",
+   "parent": "SO101-12",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-23",
+   "due": "2026-11-01",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "model-roster-2026-10-25",
+    "project-a",
+    "report",
+    "timeline-v3"
+   ],
+   "summary": "Write the Sprint 1 model experiment and baseline report"
+  },
+  {
+   "key": "SO101-45",
+   "type": "Subtask",
+   "parent": "SO101-18",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-01",
+   "due": "2026-11-18",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "meeting-notes",
+    "model-roster-2026-10-25",
+    "project-a",
+    "report",
+    "timeline-v3"
+   ],
+   "summary": "Write the Sprint 2 conversion and deployment experiment report"
+  },
+  {
+   "key": "SO101-46",
+   "type": "Task",
+   "parent": "SO101-2",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-23",
+   "due": "2026-12-03",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "integration",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "word-plan"
+   ],
+   "summary": "Integrate the full console with the AI, board, MCU and simulator"
+  },
+  {
+   "key": "SO101-47",
+   "type": "Subtask",
+   "parent": "SO101-21",
+   "status": "Done",
+   "assignee": "bchung",
+   "start": "2026-10-12",
+   "due": "2026-10-14",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "simulation",
+    "stage-gate",
+    "timeline-v3",
+    "v3-g02"
+   ],
+   "summary": "Select the initial simulator and record the compatibility rationale"
+  },
+  {
+   "key": "SO101-48",
+   "type": "Subtask",
+   "parent": "SO101-25",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-27",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-access"
+   ],
+   "summary": "Confirm school GPU and VENTUNO Q access for the readiness gates"
+  },
+  {
+   "key": "SO101-49",
+   "type": "Subtask",
+   "parent": "SO101-21",
+   "status": "Done",
+   "assignee": "bchung",
+   "start": "2026-10-15",
+   "due": "2026-10-15",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-g03"
+   ],
+   "summary": "Demonstrate a runnable simulator with the agreed observations and actions"
+  },
+  {
+   "key": "SO101-50",
+   "type": "Subtask",
+   "parent": "SO101-7",
+   "status": "To Do",
+   "assignee": "Khanh",
+   "start": "2026-10-12",
+   "due": "2026-10-26",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-arch-draft"
+   ],
+   "summary": "Publish the preliminary architecture and communication handoff"
+  },
+  {
+   "key": "SO101-51",
+   "type": "Subtask",
+   "parent": "SO101-7",
+   "status": "To Do",
+   "assignee": "Khanh",
+   "start": "2026-10-20",
+   "due": "2026-10-29",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-arch-freeze"
+   ],
+   "summary": "Freeze the backend implementation design after the action/state contract"
+  },
+  {
+   "key": "SO101-52",
+   "type": "Subtask",
+   "parent": "SO101-12",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-23",
+   "due": "2026-11-01",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-model-freeze"
+   ],
+   "summary": "Freeze the three-model reference checkpoints and baseline evidence"
+  },
+  {
+   "key": "SO101-53",
+   "type": "Subtask",
+   "parent": "SO101-12",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-11-01",
+   "due": "2026-11-01",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-base-review"
+   ],
+   "summary": "Review the current three-model baseline evidence and report"
+  },
+  {
+   "key": "SO101-54",
+   "type": "Subtask",
+   "parent": "SO101-38",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2026-10-20",
+   "due": "2026-10-28",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-fault-plan"
+   ],
+   "summary": "Approve the command validation and stop/fault test procedure"
+  },
+  {
+   "key": "SO101-55",
+   "type": "Subtask",
+   "parent": "SO101-20",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2026-10-23",
+   "due": "2026-10-29",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-sample-accept"
+   ],
+   "summary": "Accept sample tests for both communication legs"
+  },
+  {
+   "key": "SO101-56",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "To Do",
+   "assignee": "Vu Quoc Trieu",
+   "start": "2026-10-21",
+   "due": "2026-10-30",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-logger"
+   ],
+   "summary": "Deliver the minimal experiment runner and result logger"
+  },
+  {
+   "key": "SO101-57",
+   "type": "Subtask",
+   "parent": "SO101-19",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2026-10-26",
+   "due": "2026-10-30",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-mcu-path"
+   ],
+   "summary": "Deliver the early STM32H5F5-to-simulator measurement path"
+  },
+  {
+   "key": "SO101-58",
+   "type": "Task",
+   "parent": "SO101-4",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-01",
+   "due": "2026-11-01",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-measure-accept"
+   ],
+   "summary": "Accept and reproduce the complete board and simulation measurement path"
+  },
+  {
+   "key": "SO101-59",
+   "type": "Subtask",
+   "parent": "SO101-18",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-11-01",
+   "due": "2026-11-05",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-profile-export"
+   ],
+   "summary": "Verify conversion, calibration and probe evidence across all nine profiles"
+  },
+  {
+   "key": "SO101-60",
+   "type": "Subtask",
+   "parent": "SO101-18",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-06",
+   "due": "2026-11-08",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-matrix-pass"
+   ],
+   "summary": "Review the first-run or blocker matrix for all nine profiles"
+  },
+  {
+   "key": "SO101-61",
+   "type": "Subtask",
+   "parent": "SO101-18",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-11-06",
+   "due": "2026-11-12",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-matched-runs"
+   ],
+   "summary": "Accept coverage and comparability of the matched nine-profile campaign"
+  },
+  {
+   "key": "SO101-62",
+   "type": "Subtask",
+   "parent": "SO101-18",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-13",
+   "due": "2026-11-17",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-conv-freeze"
+   ],
+   "summary": "Verify required reruns and freeze the nine-profile evidence set"
+  },
+  {
+   "key": "SO101-63",
+   "type": "Subtask",
+   "parent": "SO101-18",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-11-19",
+   "due": "2026-11-19",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-conv-review"
+   ],
+   "summary": "Technically review the nine-profile conversion report"
+  },
+  {
+   "key": "SO101-70",
+   "type": "Subtask",
+   "parent": "SO101-46",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-23",
+   "due": "2026-11-26",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-full-integration"
+   ],
+   "summary": "Accept the full console AI board MCU and simulator integration"
+  },
+  {
+   "key": "SO101-71",
+   "type": "Task",
+   "parent": "SO101-1",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-30",
+   "due": "2026-12-03",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-retest"
+   ],
+   "summary": "Accept integration fixes and independently reproduce Project A evidence"
+  },
+  {
+   "key": "SO101-72",
+   "type": "Subtask",
+   "parent": "SO101-30",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-12-04",
+   "due": "2026-12-04",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-final-approve"
+   ],
+   "summary": "Approve the final Project A evidence after retesting"
+  },
+  {
+   "key": "SO101-73",
+   "type": "Task",
+   "parent": "SO101-1",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-14",
+   "due": "2026-10-25",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-cp01"
+   ],
+   "summary": "Compile review and submit the Project Plan by 25 October"
+  },
+  {
+   "key": "SO101-74",
+   "type": "Task",
+   "parent": "SO101-1",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-02",
+   "due": "2026-11-15",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-cp02"
+   ],
+   "summary": "Compile and submit the Sprint 1 course package by 15 November"
+  },
+  {
+   "key": "SO101-75",
+   "type": "Subtask",
+   "parent": "SO101-74",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-15",
+   "due": "2026-11-15",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-cp02-submit"
+   ],
+   "summary": "Submit the reviewed Sprint 1 course package and verify receipt"
+  },
+  {
+   "key": "SO101-77",
+   "type": "Task",
+   "parent": "SO101-1",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-16",
+   "due": "2026-12-04",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-cp04"
+   ],
+   "summary": "Map Alpha evidence demonstration and archive to the Project A checklist"
+  },
+  {
+   "key": "SO101-78",
+   "type": "Subtask",
+   "parent": "SO101-77",
+   "status": "To Do",
+   "assignee": "Khanh",
+   "start": "2026-11-30",
+   "due": "2026-12-03",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-archive"
+   ],
+   "summary": "Deliver the reproducibility archive and handover manifest for approval"
+  },
+  {
+   "key": "SO101-79",
+   "type": "Task",
+   "parent": "SO101-1",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-12-05",
+   "due": "2026-12-06",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-cp05"
+   ],
+   "summary": "Preflight and submit the final Project A package by 6 December"
+  },
+  {
+   "key": "SO101-80",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-20",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "stage-gate",
+    "timeline-v3",
+    "v3-cp09"
+   ],
+   "summary": "Confirm the Project B calendar and Beta requirements or record the publication checkpoint"
+  },
+  {
+   "key": "SO101-81",
+   "type": "Epic",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2027-01-11",
+   "due": "2027-05-12",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b-epic"
+   ],
+   "summary": "Project B research integration and final handover — provisional roadmap"
+  },
+  {
+   "key": "SO101-82",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2027-01-11",
+   "due": "2027-01-15",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b01"
+   ],
+   "summary": "Rebaseline Project B scope calendar hardware and final deliverables"
+  },
+  {
+   "key": "SO101-83",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2027-01-18",
+   "due": "2027-01-22",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b02"
+   ],
+   "summary": "Restore the pinned Project A environment and reproduce each valid evidence path"
+  },
+  {
+   "key": "SO101-84",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2027-01-25",
+   "due": "2027-01-29",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b03"
+   ],
+   "summary": "Freeze the Project B extension questions protocol and trial budget"
+  },
+  {
+   "key": "SO101-85",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "Khanh",
+   "start": "2027-01-25",
+   "due": "2027-02-05",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b04"
+   ],
+   "summary": "Harden the experiment console simulator reliability and evidence export"
+  },
+  {
+   "key": "SO101-86",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2027-02-01",
+   "due": "2027-02-07",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b05"
+   ],
+   "summary": "Pilot the extension and freeze the accepted experiment setup"
+  },
+  {
+   "key": "SO101-87",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2027-02-08",
+   "due": "2027-03-05",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b06"
+   ],
+   "summary": "Run the expanded matched simulation and VENTUNO Q campaign"
+  },
+  {
+   "key": "SO101-88",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "Unassigned",
+   "start": "2027-02-08",
+   "due": "2027-02-26",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "conditional-hardware",
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b07"
+   ],
+   "summary": "Receive calibrate and pilot the commercial arm if it arrives"
+  },
+  {
+   "key": "SO101-89",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2027-03-01",
+   "due": "2027-03-12",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "conditional-hardware",
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b08"
+   ],
+   "summary": "Prepare and run the conditional physical comparison campaign"
+  },
+  {
+   "key": "SO101-90",
+   "type": "Subtask",
+   "parent": "SO101-89",
+   "status": "To Do",
+   "assignee": "bchung",
+   "start": "2027-03-06",
+   "due": "2027-03-12",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "conditional-hardware",
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b08-trials"
+   ],
+   "summary": "Run the conditional physical comparisons after core board measurements close"
+  },
+  {
+   "key": "SO101-91",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2027-03-08",
+   "due": "2027-03-19",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b09"
+   ],
+   "summary": "Complete core reruns robustness tests and final evidence freeze"
+  },
+  {
+   "key": "SO101-92",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2027-03-22",
+   "due": "2027-04-02",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b10"
+   ],
+   "summary": "Analyse the final evidence and independently reproduce the key results"
+  },
+  {
+   "key": "SO101-93",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2027-04-05",
+   "due": "2027-04-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b11"
+   ],
+   "summary": "Compile the final Project B report from reviewed analysis"
+  },
+  {
+   "key": "SO101-94",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "Khanh",
+   "start": "2027-04-05",
+   "due": "2027-04-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b12"
+   ],
+   "summary": "Prepare the Beta demonstration release and handover candidate"
+  },
+  {
+   "key": "SO101-95",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2027-04-19",
+   "due": "2027-04-30",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b13"
+   ],
+   "summary": "Review and correct the Project B report demonstration and release"
+  },
+  {
+   "key": "SO101-96",
+   "type": "Task",
+   "parent": "SO101-81",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2027-05-03",
+   "due": "2027-05-12",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b14"
+   ],
+   "summary": "Reserve final Project B submission demonstration and closeout"
+  },
+  {
+   "key": "SO101-97",
+   "type": "Subtask",
+   "parent": "SO101-29",
+   "status": "Done",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-12",
+   "due": "2026-10-13",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-rubric-scan"
+   ],
+   "summary": "Publish the initial Project A rubric and submission checklist"
+  },
+  {
+   "key": "SO101-98",
+   "type": "Subtask",
+   "parent": "SO101-23",
+   "status": "Done",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-14",
+   "due": "2026-10-14",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-scope-approve"
+   ],
+   "summary": "Approve the bounded research scope and acceptance approach"
+  },
+  {
+   "key": "SO101-99",
+   "type": "Subtask",
+   "parent": "SO101-42",
+   "status": "To Do",
+   "assignee": "Khanh",
+   "start": "2026-10-15",
+   "due": "2026-10-28",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-console-approve"
+   ],
+   "summary": "Approve the minimum experiment console workflow and evidence schema"
+  },
+  {
+   "key": "SO101-100",
+   "type": "Subtask",
+   "parent": "SO101-22",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-16",
+   "due": "2026-10-30",
+   "sprint": "SO101 Sprint 2",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "timeline-v3",
+    "v3-bench-pilot"
+   ],
+   "summary": "Accept the executable benchmark and reference controller pilot"
+  },
+  {
+   "key": "SO101-101",
+   "type": "Subtask",
+   "parent": "SO101-35",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-17",
+   "due": "2026-10-31",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-protocol-approve"
+   ],
+   "summary": "Approve the comparison protocol before model commitment and scored trials"
+  },
+  {
+   "key": "SO101-102",
+   "type": "Subtask",
+   "parent": "SO101-33",
+   "status": "Done",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-18",
+   "due": "2026-10-18",
+   "sprint": "SO101 Pre-Sprint",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-model-approve"
+   ],
+   "summary": "Record the approved SmolVLA, Pi0 and X-VLA model selection"
+  },
+  {
+   "key": "SO101-103",
+   "type": "Subtask",
+   "parent": "SO101-86",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2027-02-06",
+   "due": "2027-02-06",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b05-accept"
+   ],
+   "summary": "Accept the stable Project B measurement components after delivery"
+  },
+  {
+   "key": "SO101-104",
+   "type": "Subtask",
+   "parent": "SO101-86",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2027-02-07",
+   "due": "2027-02-07",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b05-freeze"
+   ],
+   "summary": "Freeze the accepted Project B experiment setup before the campaign"
+  },
+  {
+   "key": "SO101-105",
+   "type": "Subtask",
+   "parent": "SO101-91",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2027-03-13",
+   "due": "2027-03-19",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "jira-reorganization-2026-10-25",
+    "project-b",
+    "semester-2-provisional",
+    "timeline-v3",
+    "v3-b09-board"
+   ],
+   "summary": "Run core board reruns in the reserved post-physical-test window"
+  },
+  {
+   "key": "SO101-106",
+   "type": "Subtask",
+   "parent": "SO101-73",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-10-22",
+   "due": "2026-10-23",
+   "sprint": "SO101 Sprint 1",
+   "priority": "Medium",
+   "labels": [
+    "course-submission",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "stage-gate",
+    "timeline-v3",
+    "v3-plan-review"
+   ],
+   "summary": "Review the complete Project Plan before submission"
+  },
+  {
+   "key": "SO101-107",
+   "type": "Epic",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "Unassigned",
+   "start": "2026-10-12",
+   "due": "2026-10-31",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "project-a",
+    "so101-plan"
+   ],
+   "summary": "Reproducible simulation benchmark and evaluation protocol"
+  },
+  {
+   "key": "SO101-108",
+   "type": "Epic",
+   "parent": null,
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-01",
+   "due": "2026-11-19",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "epic-timeline-2026-10-25",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a",
+    "so101-plan"
+   ],
+   "summary": "Nine-profile precision comparison"
+  },
+  {
+   "key": "SO101-109",
+   "type": "Task",
+   "parent": "SO101-3",
+   "status": "Done",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-13",
+   "due": "2026-10-24",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "baseline",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a"
+   ],
+   "summary": "Train and evaluate the SmolVLA reference baseline"
+  },
+  {
+   "key": "SO101-110",
+   "type": "Task",
+   "parent": "SO101-3",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-23",
+   "due": "2026-11-01",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "baseline",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a"
+   ],
+   "summary": "Train and evaluate the Pi0 reference baseline"
+  },
+  {
+   "key": "SO101-111",
+   "type": "Task",
+   "parent": "SO101-3",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-10-23",
+   "due": "2026-11-01",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [
+    "ai",
+    "baseline",
+    "jira-reorganization-2026-10-25",
+    "model-roster-2026-10-25",
+    "project-a"
+   ],
+   "summary": "Train and evaluate the X-VLA reference baseline"
+  },
+  {
+   "key": "SO101-112",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-01",
+   "due": "2026-11-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [],
+   "summary": "Convert, deploy and evaluate SmolVLA FP16"
+  },
+  {
+   "key": "SO101-113",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-01",
+   "due": "2026-11-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [],
+   "summary": "Convert, deploy and evaluate SmolVLA INT8-mixed"
+  },
+  {
+   "key": "SO101-114",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-01",
+   "due": "2026-11-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [],
+   "summary": "Convert, deploy and evaluate SmolVLA INT4-mixed"
+  },
+  {
+   "key": "SO101-115",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "HUU HOAN HOANG",
+   "start": "2026-11-01",
+   "due": "2026-11-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [],
+   "summary": "Convert, deploy and evaluate Pi0 FP16"
+  },
+  {
+   "key": "SO101-116",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-11-01",
+   "due": "2026-11-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [],
+   "summary": "Convert, deploy and evaluate Pi0 INT8-mixed"
+  },
+  {
+   "key": "SO101-117",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-11-01",
+   "due": "2026-11-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [],
+   "summary": "Convert, deploy and evaluate Pi0 INT4-mixed"
+  },
+  {
+   "key": "SO101-118",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-11-01",
+   "due": "2026-11-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [],
+   "summary": "Convert, deploy and evaluate X-VLA FP16"
+  },
+  {
+   "key": "SO101-119",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-11-01",
+   "due": "2026-11-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [],
+   "summary": "Convert, deploy and evaluate X-VLA INT8-mixed"
+  },
+  {
+   "key": "SO101-120",
+   "type": "Task",
+   "parent": "SO101-108",
+   "status": "To Do",
+   "assignee": "MANH DUC TRAN",
+   "start": "2026-11-01",
+   "due": "2026-11-16",
+   "sprint": "",
+   "priority": "Medium",
+   "labels": [],
+   "summary": "Convert, deploy and evaluate X-VLA INT4-mixed"
+  }
+ ]
+}

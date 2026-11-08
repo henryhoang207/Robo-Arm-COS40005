@@ -2,7 +2,7 @@
 
 Keep decisions, risks, dependencies, meeting actions and milestone working notes here. Formal assessed plans and reports remain in Drive.
 
-Current Project A plan: bounded pick-and-place simulation, nine VENTUNO Q model/precision profiles, reports and a minimum web experiment console. Chung is the sole Project A IoT member. Printed-arm production and its isolated dependent work were removed on 21 October 2026. See the [integrated master plan](plans/SO101_Master_Team_and_Project_Plan_2026-10-20.docx), [approved decision 0004](../technical/decisions/0004-project-a-simulation-board-scope-and-iot-ownership.md), and [Drive index](../../GOOGLE_DRIVE_INDEX.md). Commercial-arm Project B work remains conditional.
+Current Project A plan: bounded pick-and-place simulation, nine VENTUNO Q model/precision profiles, reports and a minimum web experiment console. Chung is the sole Project A IoT member. Printed-arm production and its isolated dependent work were removed on 21 October 2026. See the [integrated master plan](plans/SO101%20Master%20Team%20and%20Project%20Plan%20%282026-10-22%29.docx), [approved decision 0004](../technical/decisions/0004-project-a-simulation-board-scope-and-iot-ownership.md), and [Drive index](../../GOOGLE_DRIVE_INDEX.md). Commercial-arm Project B work remains conditional.
 
 ## Decision/action template
 

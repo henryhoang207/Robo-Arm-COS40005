@@ -1,0 +1,4631 @@
+{
+  "date": "2026-10-25",
+  "authorization": "Configure the existing SO101 board (Recommended)",
+  "board": {
+    "id": 2,
+    "name": "SO101 board",
+    "columns": [
+      "To Do",
+      "In Progress",
+      "In Review",
+      "Done"
+    ],
+    "initialGrouping": "none",
+    "initialCustomFilters": [],
+    "filterUi": "Custom filters create form; no saved filter rows"
+  },
+  "sprints": {
+    "startAt": 0,
+    "maxResults": 50,
+    "total": 3,
+    "isLast": true,
+    "values": [
+      {
+        "id": 2,
+        "state": "future",
+        "name": "SO101 Sprint 1",
+        "startDate": "2026-10-10T07:50:09.000Z",
+        "endDate": "2026-11-15T16:59:59.000Z",
+        "originBoardId": 2,
+        "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff."
+      },
+      {
+        "id": 3,
+        "state": "future",
+        "name": "SO101 Sprint 2",
+        "startDate": "2026-10-11T17:00:00.000Z",
+        "endDate": "2026-12-06T16:59:59.000Z",
+        "originBoardId": 2,
+        "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff."
+      },
+      {
+        "id": 4,
+        "state": "future",
+        "name": "SO101 Pre-Sprint",
+        "startDate": "2026-09-12T17:00:00.000Z",
+        "endDate": "2026-10-24T16:59:59.000Z",
+        "originBoardId": 2,
+        "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "id": "10045",
+      "key": "SO101-1",
+      "fields": {
+        "summary": "Project A submission and reproducible handover",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10046",
+      "key": "SO101-2",
+      "fields": {
+        "summary": "Experiment console v1 and integrated demonstration",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10047",
+      "key": "SO101-3",
+      "fields": {
+        "summary": "Three-model baseline comparison",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10048",
+      "key": "SO101-4",
+      "fields": {
+        "summary": "Validated VENTUNO Q–MCU–simulator measurement path",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10049",
+      "key": "SO101-5",
+      "fields": {
+        "summary": "Research UX/UI and finalize the interface sketch",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-2",
+          "fields": {
+            "summary": "Experiment console v1 and integrated demonstration"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-16"
+          }
+        }
+      }
+    },
+    {
+      "id": "10050",
+      "key": "SO101-6",
+      "fields": {
+        "summary": "Build the frontend from the finalized sketch",
+        "status": {
+          "name": "In Progress",
+          "statusCategory": {
+            "name": "In Progress"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-2",
+          "fields": {
+            "summary": "Experiment console v1 and integrated demonstration"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-26"
+          }
+        }
+      }
+    },
+    {
+      "id": "10051",
+      "key": "SO101-7",
+      "fields": {
+        "summary": "Research robotics architecture, communication protocol and integration links",
+        "status": {
+          "name": "In Progress",
+          "statusCategory": {
+            "name": "In Progress"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10052",
+      "key": "SO101-8",
+      "fields": {
+        "summary": "Build the backend from the agreed architecture and protocol",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-2",
+          "fields": {
+            "summary": "Experiment console v1 and integrated demonstration"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-21"
+          }
+        }
+      }
+    },
+    {
+      "id": "10053",
+      "key": "SO101-9",
+      "fields": {
+        "summary": "Clarify AWS requirements with the supervisor",
+        "status": {
+          "name": "In Review",
+          "statusCategory": {
+            "name": "In Progress"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-2",
+          "fields": {
+            "summary": "Experiment console v1 and integrated demonstration"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10054",
+      "key": "SO101-10",
+      "fields": {
+        "summary": "Brainstorm the requirements needed to complete the project",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:2bd7fe03-e8bf-409e-a145-f9bec57cfeed",
+          "displayName": "Vu Quoc Trieu"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-107",
+          "fields": {
+            "summary": "Reproducible simulation benchmark and evaluation protocol"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10055",
+      "key": "SO101-11",
+      "fields": {
+        "summary": "Complete single-dataset EDA, training strategy and report",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-3",
+          "fields": {
+            "summary": "Three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-14"
+          }
+        }
+      }
+    },
+    {
+      "id": "10056",
+      "key": "SO101-12",
+      "fields": {
+        "summary": "Consolidate and accept the three-model baseline comparison",
+        "status": {
+          "name": "In Progress",
+          "statusCategory": {
+            "name": "In Progress"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-3",
+          "fields": {
+            "summary": "Three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-13"
+          }
+        }
+      }
+    },
+    {
+      "id": "10060",
+      "key": "SO101-16",
+      "fields": {
+        "summary": "Hold the Sprint 1 review and project meeting",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-05"
+          }
+        }
+      }
+    },
+    {
+      "id": "10061",
+      "key": "SO101-17",
+      "fields": {
+        "summary": "Hold the Sprint 2 review and project meeting",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-27"
+          }
+        }
+      }
+    },
+    {
+      "id": "10062",
+      "key": "SO101-18",
+      "fields": {
+        "summary": "Coordinate the nine-profile comparison and deliver the reviewed report",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          }
+        }
+      }
+    },
+    {
+      "id": "10063",
+      "key": "SO101-19",
+      "fields": {
+        "summary": "Run STM32H5F5 output in the selected simulator",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-26"
+          }
+        }
+      }
+    },
+    {
+      "id": "10064",
+      "key": "SO101-20",
+      "fields": {
+        "summary": "Research AI-to-STM32H5F5 and MCU-to-simulator links with sample tests",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-20"
+          }
+        }
+      }
+    },
+    {
+      "id": "10065",
+      "key": "SO101-21",
+      "fields": {
+        "summary": "Select the simulator for robot arm testing",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-107",
+          "fields": {
+            "summary": "Reproducible simulation benchmark and evaluation protocol"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10066",
+      "key": "SO101-22",
+      "fields": {
+        "summary": "Research and define the simulation benchmark, baseline and performance objectives",
+        "status": {
+          "name": "In Review",
+          "statusCategory": {
+            "name": "In Progress"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-107",
+          "fields": {
+            "summary": "Reproducible simulation benchmark and evaluation protocol"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10067",
+      "key": "SO101-23",
+      "fields": {
+        "summary": "Approve the core task catalogue, operating envelope and acceptance targets",
+        "status": {
+          "name": "In Review",
+          "statusCategory": {
+            "name": "In Progress"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-107",
+          "fields": {
+            "summary": "Reproducible simulation benchmark and evaluation protocol"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10068",
+      "key": "SO101-24",
+      "fields": {
+        "summary": "Confirm team capacity, decision ownership and KOST support plan",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10069",
+      "key": "SO101-25",
+      "fields": {
+        "summary": "Confirm hardware and compute access for simulation and board research",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10070",
+      "key": "SO101-26",
+      "fields": {
+        "summary": "Maintain sprint membership, course milestones and delivery handoffs",
+        "status": {
+          "name": "In Progress",
+          "statusCategory": {
+            "name": "In Progress"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10071",
+      "key": "SO101-27",
+      "fields": {
+        "summary": "Approve collaboration, repository, document review and conduct rules",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10072",
+      "key": "SO101-28",
+      "fields": {
+        "summary": "Approve risk owners, rankings, review cadence and escalation triggers",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10073",
+      "key": "SO101-29",
+      "fields": {
+        "summary": "Confirm the course rubric, submission checklist and authorship responsibilities",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-1",
+          "fields": {
+            "summary": "Project A submission and reproducible handover"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10074",
+      "key": "SO101-30",
+      "fields": {
+        "summary": "Approve the final evidence, reproducibility, demonstration and report package",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-1",
+          "fields": {
+            "summary": "Project A submission and reproducible handover"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-30"
+          }
+        }
+      }
+    },
+    {
+      "id": "10075",
+      "key": "SO101-31",
+      "fields": {
+        "summary": "Decide the single dataset, coverage, recording plan and session-level splits",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-3",
+          "fields": {
+            "summary": "Three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10076",
+      "key": "SO101-32",
+      "fields": {
+        "summary": "Decide the learning, adaptation and demonstration-capture strategy",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-3",
+          "fields": {
+            "summary": "Three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-14"
+          }
+        }
+      }
+    },
+    {
+      "id": "10077",
+      "key": "SO101-33",
+      "fields": {
+        "summary": "Record selection of SmolVLA, Pi0 and X-VLA and the comparison protocol",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-3",
+          "fields": {
+            "summary": "Three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10078",
+      "key": "SO101-34",
+      "fields": {
+        "summary": "Verify approved VENTUNO Q runtime and precision/resource test readiness",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10079",
+      "key": "SO101-35",
+      "fields": {
+        "summary": "Approve the simulation and VENTUNO Q evaluation protocol",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-107",
+          "fields": {
+            "summary": "Reproducible simulation benchmark and evaluation protocol"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-14"
+          }
+        }
+      }
+    },
+    {
+      "id": "10080",
+      "key": "SO101-36",
+      "fields": {
+        "summary": "Decide the STM32H5F5 execution path and USB reference baseline",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10081",
+      "key": "SO101-37",
+      "fields": {
+        "summary": "Approve the versioned AI, STM32H5F5 and backend action/state contract",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-16"
+          }
+        }
+      }
+    },
+    {
+      "id": "10082",
+      "key": "SO101-38",
+      "fields": {
+        "summary": "Approve board/simulator transport, command validation and stop/fault tests",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-20"
+          }
+        }
+      }
+    },
+    {
+      "id": "10083",
+      "key": "SO101-39",
+      "fields": {
+        "summary": "Resolve simulator selection and communication sample-test ordering",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10084",
+      "key": "SO101-40",
+      "fields": {
+        "summary": "Clarify the STM32H5F5 simulator test's complete deliverables",
+        "status": {
+          "name": "In Review",
+          "statusCategory": {
+            "name": "In Progress"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-16"
+          }
+        }
+      }
+    },
+    {
+      "id": "10086",
+      "key": "SO101-42",
+      "fields": {
+        "summary": "Define the experiment-console workflow and feature catalogue",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-2",
+          "fields": {
+            "summary": "Experiment console v1 and integrated demonstration"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10087",
+      "key": "SO101-43",
+      "fields": {
+        "summary": "Write the dataset EDA and training strategy report",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-11",
+          "fields": {
+            "summary": "Complete single-dataset EDA, training strategy and report"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-14"
+          }
+        }
+      }
+    },
+    {
+      "id": "10088",
+      "key": "SO101-44",
+      "fields": {
+        "summary": "Write the Sprint 1 model experiment and baseline report",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-12",
+          "fields": {
+            "summary": "Consolidate and accept the three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-23"
+          }
+        }
+      }
+    },
+    {
+      "id": "10089",
+      "key": "SO101-45",
+      "fields": {
+        "summary": "Write the Sprint 2 conversion and deployment experiment report",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-18",
+          "fields": {
+            "summary": "Coordinate the nine-profile comparison and deliver the reviewed report"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          }
+        }
+      }
+    },
+    {
+      "id": "10090",
+      "key": "SO101-46",
+      "fields": {
+        "summary": "Integrate the full console with the AI, board, MCU and simulator",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-2",
+          "fields": {
+            "summary": "Experiment console v1 and integrated demonstration"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-23"
+          }
+        }
+      }
+    },
+    {
+      "id": "10091",
+      "key": "SO101-47",
+      "fields": {
+        "summary": "Select the initial simulator and record the compatibility rationale",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-21",
+          "fields": {
+            "summary": "Select the simulator for robot arm testing"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10092",
+      "key": "SO101-48",
+      "fields": {
+        "summary": "Confirm school GPU and VENTUNO Q access for the readiness gates",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-25",
+          "fields": {
+            "summary": "Confirm hardware and compute access for simulation and board research"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10093",
+      "key": "SO101-49",
+      "fields": {
+        "summary": "Demonstrate a runnable simulator with the agreed observations and actions",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-21",
+          "fields": {
+            "summary": "Select the simulator for robot arm testing"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-15"
+          }
+        }
+      }
+    },
+    {
+      "id": "10094",
+      "key": "SO101-50",
+      "fields": {
+        "summary": "Publish the preliminary architecture and communication handoff",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-7",
+          "fields": {
+            "summary": "Research robotics architecture, communication protocol and integration links"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10095",
+      "key": "SO101-51",
+      "fields": {
+        "summary": "Freeze the backend implementation design after the action/state contract",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-7",
+          "fields": {
+            "summary": "Research robotics architecture, communication protocol and integration links"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-20"
+          }
+        }
+      }
+    },
+    {
+      "id": "10096",
+      "key": "SO101-52",
+      "fields": {
+        "summary": "Freeze the three-model reference checkpoints and baseline evidence",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-12",
+          "fields": {
+            "summary": "Consolidate and accept the three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-23"
+          }
+        }
+      }
+    },
+    {
+      "id": "10097",
+      "key": "SO101-53",
+      "fields": {
+        "summary": "Review the current three-model baseline evidence and report",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-12",
+          "fields": {
+            "summary": "Consolidate and accept the three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          }
+        }
+      }
+    },
+    {
+      "id": "10098",
+      "key": "SO101-54",
+      "fields": {
+        "summary": "Approve the command validation and stop/fault test procedure",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-38",
+          "fields": {
+            "summary": "Approve board/simulator transport, command validation and stop/fault tests"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-20"
+          }
+        }
+      }
+    },
+    {
+      "id": "10099",
+      "key": "SO101-55",
+      "fields": {
+        "summary": "Accept sample tests for both communication legs",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-20",
+          "fields": {
+            "summary": "Research AI-to-STM32H5F5 and MCU-to-simulator links with sample tests"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-23"
+          }
+        }
+      }
+    },
+    {
+      "id": "10100",
+      "key": "SO101-56",
+      "fields": {
+        "summary": "Deliver the minimal experiment runner and result logger",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-21"
+          }
+        }
+      }
+    },
+    {
+      "id": "10101",
+      "key": "SO101-57",
+      "fields": {
+        "summary": "Deliver the early STM32H5F5-to-simulator measurement path",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-19",
+          "fields": {
+            "summary": "Run STM32H5F5 output in the selected simulator"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-26"
+          }
+        }
+      }
+    },
+    {
+      "id": "10102",
+      "key": "SO101-58",
+      "fields": {
+        "summary": "Accept and reproduce the complete board and simulation measurement path",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-4",
+          "fields": {
+            "summary": "Validated VENTUNO Q–MCU–simulator measurement path"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          }
+        }
+      }
+    },
+    {
+      "id": "10103",
+      "key": "SO101-59",
+      "fields": {
+        "summary": "Verify conversion, calibration and probe evidence across all nine profiles",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-18",
+          "fields": {
+            "summary": "Coordinate the nine-profile comparison and deliver the reviewed report"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          }
+        }
+      }
+    },
+    {
+      "id": "10104",
+      "key": "SO101-60",
+      "fields": {
+        "summary": "Review the first-run or blocker matrix for all nine profiles",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-18",
+          "fields": {
+            "summary": "Coordinate the nine-profile comparison and deliver the reviewed report"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-06"
+          }
+        }
+      }
+    },
+    {
+      "id": "10105",
+      "key": "SO101-61",
+      "fields": {
+        "summary": "Accept coverage and comparability of the matched nine-profile campaign",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-18",
+          "fields": {
+            "summary": "Coordinate the nine-profile comparison and deliver the reviewed report"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-06"
+          }
+        }
+      }
+    },
+    {
+      "id": "10106",
+      "key": "SO101-62",
+      "fields": {
+        "summary": "Verify required reruns and freeze the nine-profile evidence set",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-18",
+          "fields": {
+            "summary": "Coordinate the nine-profile comparison and deliver the reviewed report"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-13"
+          }
+        }
+      }
+    },
+    {
+      "id": "10107",
+      "key": "SO101-63",
+      "fields": {
+        "summary": "Technically review the nine-profile conversion report",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-18",
+          "fields": {
+            "summary": "Coordinate the nine-profile comparison and deliver the reviewed report"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-19"
+          }
+        }
+      }
+    },
+    {
+      "id": "10114",
+      "key": "SO101-70",
+      "fields": {
+        "summary": "Accept the full console AI board MCU and simulator integration",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-46",
+          "fields": {
+            "summary": "Integrate the full console with the AI, board, MCU and simulator"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-23"
+          }
+        }
+      }
+    },
+    {
+      "id": "10115",
+      "key": "SO101-71",
+      "fields": {
+        "summary": "Accept integration fixes and independently reproduce Project A evidence",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-1",
+          "fields": {
+            "summary": "Project A submission and reproducible handover"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-30"
+          }
+        }
+      }
+    },
+    {
+      "id": "10116",
+      "key": "SO101-72",
+      "fields": {
+        "summary": "Approve the final Project A evidence after retesting",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-30",
+          "fields": {
+            "summary": "Approve the final evidence, reproducibility, demonstration and report package"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-12-04"
+          }
+        }
+      }
+    },
+    {
+      "id": "10117",
+      "key": "SO101-73",
+      "fields": {
+        "summary": "Compile review and submit the Project Plan by 25 October",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-1",
+          "fields": {
+            "summary": "Project A submission and reproducible handover"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-14"
+          }
+        }
+      }
+    },
+    {
+      "id": "10118",
+      "key": "SO101-74",
+      "fields": {
+        "summary": "Compile and submit the Sprint 1 course package by 15 November",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-1",
+          "fields": {
+            "summary": "Project A submission and reproducible handover"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-02"
+          }
+        }
+      }
+    },
+    {
+      "id": "10119",
+      "key": "SO101-75",
+      "fields": {
+        "summary": "Submit the reviewed Sprint 1 course package and verify receipt",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-74",
+          "fields": {
+            "summary": "Compile and submit the Sprint 1 course package by 15 November"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-15"
+          }
+        }
+      }
+    },
+    {
+      "id": "10121",
+      "key": "SO101-77",
+      "fields": {
+        "summary": "Map Alpha evidence demonstration and archive to the Project A checklist",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-1",
+          "fields": {
+            "summary": "Project A submission and reproducible handover"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-16"
+          }
+        }
+      }
+    },
+    {
+      "id": "10122",
+      "key": "SO101-78",
+      "fields": {
+        "summary": "Deliver the reproducibility archive and handover manifest for approval",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-77",
+          "fields": {
+            "summary": "Map Alpha evidence demonstration and archive to the Project A checklist"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-30"
+          }
+        }
+      }
+    },
+    {
+      "id": "10123",
+      "key": "SO101-79",
+      "fields": {
+        "summary": "Preflight and submit the final Project A package by 6 December",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-1",
+          "fields": {
+            "summary": "Project A submission and reproducible handover"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-12-05"
+          }
+        }
+      }
+    },
+    {
+      "id": "10124",
+      "key": "SO101-80",
+      "fields": {
+        "summary": "Confirm the Project B calendar and Beta requirements or record the publication checkpoint",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10125",
+      "key": "SO101-81",
+      "fields": {
+        "summary": "Project B research integration and final handover — provisional roadmap",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-01-11"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10126",
+      "key": "SO101-82",
+      "fields": {
+        "summary": "Rebaseline Project B scope calendar hardware and final deliverables",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-01-11"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10127",
+      "key": "SO101-83",
+      "fields": {
+        "summary": "Restore the pinned Project A environment and reproduce each valid evidence path",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-01-18"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10128",
+      "key": "SO101-84",
+      "fields": {
+        "summary": "Freeze the Project B extension questions protocol and trial budget",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-01-25"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10129",
+      "key": "SO101-85",
+      "fields": {
+        "summary": "Harden the experiment console simulator reliability and evidence export",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-01-25"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10130",
+      "key": "SO101-86",
+      "fields": {
+        "summary": "Pilot the extension and freeze the accepted experiment setup",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-02-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10131",
+      "key": "SO101-87",
+      "fields": {
+        "summary": "Run the expanded matched simulation and VENTUNO Q campaign",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-02-08"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10132",
+      "key": "SO101-88",
+      "fields": {
+        "summary": "Receive calibrate and pilot the commercial arm if it arrives",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": null,
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-02-08"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10133",
+      "key": "SO101-89",
+      "fields": {
+        "summary": "Prepare and run the conditional physical comparison campaign",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-03-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10134",
+      "key": "SO101-90",
+      "fields": {
+        "summary": "Run the conditional physical comparisons after core board measurements close",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:5ad9d4f4-3ddc-4da6-b33d-d9beb104ddc6",
+          "displayName": "bchung"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-89",
+          "fields": {
+            "summary": "Prepare and run the conditional physical comparison campaign"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-03-06"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10135",
+      "key": "SO101-91",
+      "fields": {
+        "summary": "Complete core reruns robustness tests and final evidence freeze",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-03-08"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10136",
+      "key": "SO101-92",
+      "fields": {
+        "summary": "Analyse the final evidence and independently reproduce the key results",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-03-22"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10137",
+      "key": "SO101-93",
+      "fields": {
+        "summary": "Compile the final Project B report from reviewed analysis",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-04-05"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10138",
+      "key": "SO101-94",
+      "fields": {
+        "summary": "Prepare the Beta demonstration release and handover candidate",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-04-05"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10139",
+      "key": "SO101-95",
+      "fields": {
+        "summary": "Review and correct the Project B report demonstration and release",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-04-19"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10140",
+      "key": "SO101-96",
+      "fields": {
+        "summary": "Reserve final Project B submission demonstration and closeout",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-81",
+          "fields": {
+            "summary": "Project B research integration and final handover — provisional roadmap"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-05-03"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10141",
+      "key": "SO101-97",
+      "fields": {
+        "summary": "Publish the initial Project A rubric and submission checklist",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-29",
+          "fields": {
+            "summary": "Confirm the course rubric, submission checklist and authorship responsibilities"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          }
+        }
+      }
+    },
+    {
+      "id": "10142",
+      "key": "SO101-98",
+      "fields": {
+        "summary": "Approve the bounded research scope and acceptance approach",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-23",
+          "fields": {
+            "summary": "Approve the core task catalogue, operating envelope and acceptance targets"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-14"
+          }
+        }
+      }
+    },
+    {
+      "id": "10143",
+      "key": "SO101-99",
+      "fields": {
+        "summary": "Approve the minimum experiment console workflow and evidence schema",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:511083e8-bd3f-4880-a7ca-f95af1997c74",
+          "displayName": "Khanh"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-42",
+          "fields": {
+            "summary": "Define the experiment-console workflow and feature catalogue"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-15"
+          }
+        }
+      }
+    },
+    {
+      "id": "10144",
+      "key": "SO101-100",
+      "fields": {
+        "summary": "Accept the executable benchmark and reference controller pilot",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-22",
+          "fields": {
+            "summary": "Research and define the simulation benchmark, baseline and performance objectives"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 3,
+                "name": "SO101 Sprint 2",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Overlapping version 3 envelope includes early feasibility. Convert nine profiles 26–29 Oct; components 28 Oct, measurement acceptance 29 Oct, scored runs from 30 Oct, evidence freeze 11 Nov, fixed conversion report 14 Nov. Full components 20 Nov, integration 23–26 Nov, review 29 Nov, hardware/fallback checkpoint 30 Nov, retests 3 Dec, approval 4 Dec, fixed Project A submission 6 Dec. Mixed INT8/INT4 disclosed; all nine actual board/simulation profiles required. Administrative sprint cutoff is separate from the university cutoff.",
+                "startDate": "2026-10-11T17:00:00.000Z",
+                "endDate": "2026-12-06T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-16"
+          }
+        }
+      }
+    },
+    {
+      "id": "10145",
+      "key": "SO101-101",
+      "fields": {
+        "summary": "Approve the comparison protocol before model commitment and scored trials",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-35",
+          "fields": {
+            "summary": "Approve the simulation and VENTUNO Q evaluation protocol"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-17"
+          }
+        }
+      }
+    },
+    {
+      "id": "10146",
+      "key": "SO101-102",
+      "fields": {
+        "summary": "Record the approved SmolVLA, Pi0 and X-VLA model selection",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-33",
+          "fields": {
+            "summary": "Record selection of SmolVLA, Pi0 and X-VLA and the comparison protocol"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 4,
+                "name": "SO101 Pre-Sprint",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Foundation decisions and ready-data audit; executable simulator 15 Oct, benchmark/runtime probes 16 Oct, protocol/model gates 17–18 Oct, contract 19 Oct. EDA report fixed 16 Oct. Pre-Sprint overlaps Sprint 1. VENTUNO Q available; simulation/board fallback accepted if physical arm unavailable. Version 3 administrative end covers the full day; actual course cutoff still controls submissions.",
+                "startDate": "2026-09-12T17:00:00.000Z",
+                "endDate": "2026-10-24T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-18"
+          }
+        }
+      }
+    },
+    {
+      "id": "10147",
+      "key": "SO101-103",
+      "fields": {
+        "summary": "Accept the stable Project B measurement components after delivery",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-86",
+          "fields": {
+            "summary": "Pilot the extension and freeze the accepted experiment setup"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-02-06"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10148",
+      "key": "SO101-104",
+      "fields": {
+        "summary": "Freeze the accepted Project B experiment setup before the campaign",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-86",
+          "fields": {
+            "summary": "Pilot the extension and freeze the accepted experiment setup"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-02-07"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10149",
+      "key": "SO101-105",
+      "fields": {
+        "summary": "Run core board reruns in the reserved post-physical-test window",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-91",
+          "fields": {
+            "summary": "Complete core reruns robustness tests and final evidence freeze"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2027-03-13"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10150",
+      "key": "SO101-106",
+      "fields": {
+        "summary": "Review the complete Project Plan before submission",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-73",
+          "fields": {
+            "summary": "Compile review and submit the Project Plan by 25 October"
+          }
+        },
+        "customFields": {
+          "Sprint": {
+            "id": "customfield_10020",
+            "value": [
+              {
+                "id": 2,
+                "name": "SO101 Sprint 1",
+                "state": "future",
+                "boardId": 2,
+                "goal": "Fixed three-model baseline report 24 Oct, Project Plan 25 Oct; frontend scope complete 6 Nov, printing 30 Oct, validated orders 6 Nov. Review 8 Nov; fixed Sprint 1 course submission 15 Nov. Preserve intentional overlap with Pre-Sprint and early Sprint 2; individual prerequisites apply. Administrative end is not an invented course portal cutoff.",
+                "startDate": "2026-10-10T07:50:09.000Z",
+                "endDate": "2026-11-15T16:59:59.000Z"
+              }
+            ]
+          },
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-22"
+          }
+        }
+      }
+    },
+    {
+      "id": "10151",
+      "key": "SO101-107",
+      "fields": {
+        "summary": "Reproducible simulation benchmark and evaluation protocol",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": null,
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-12"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10152",
+      "key": "SO101-108",
+      "fields": {
+        "summary": "Nine-profile precision comparison",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10153",
+      "key": "SO101-109",
+      "fields": {
+        "summary": "Train and evaluate the SmolVLA reference baseline",
+        "status": {
+          "name": "Done",
+          "statusCategory": {
+            "name": "Done"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-3",
+          "fields": {
+            "summary": "Three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-13"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10154",
+      "key": "SO101-110",
+      "fields": {
+        "summary": "Train and evaluate the Pi0 reference baseline",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-3",
+          "fields": {
+            "summary": "Three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-23"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10155",
+      "key": "SO101-111",
+      "fields": {
+        "summary": "Train and evaluate the X-VLA reference baseline",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-3",
+          "fields": {
+            "summary": "Three-model baseline comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-10-23"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10156",
+      "key": "SO101-112",
+      "fields": {
+        "summary": "Convert, deploy and evaluate SmolVLA FP16",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10157",
+      "key": "SO101-113",
+      "fields": {
+        "summary": "Convert, deploy and evaluate SmolVLA INT8-mixed",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10158",
+      "key": "SO101-114",
+      "fields": {
+        "summary": "Convert, deploy and evaluate SmolVLA INT4-mixed",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10159",
+      "key": "SO101-115",
+      "fields": {
+        "summary": "Convert, deploy and evaluate Pi0 FP16",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:45dd4796-359d-42de-8c27-f89e6449dec0",
+          "displayName": "HUU HOAN HOANG"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10160",
+      "key": "SO101-116",
+      "fields": {
+        "summary": "Convert, deploy and evaluate Pi0 INT8-mixed",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10161",
+      "key": "SO101-117",
+      "fields": {
+        "summary": "Convert, deploy and evaluate Pi0 INT4-mixed",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10162",
+      "key": "SO101-118",
+      "fields": {
+        "summary": "Convert, deploy and evaluate X-VLA FP16",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10163",
+      "key": "SO101-119",
+      "fields": {
+        "summary": "Convert, deploy and evaluate X-VLA INT8-mixed",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    },
+    {
+      "id": "10164",
+      "key": "SO101-120",
+      "fields": {
+        "summary": "Convert, deploy and evaluate X-VLA INT4-mixed",
+        "status": {
+          "name": "To Do",
+          "statusCategory": {
+            "name": "To Do"
+          }
+        },
+        "assignee": {
+          "accountId": "712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2",
+          "displayName": "MANH DUC TRAN"
+        },
+        "priority": {
+          "name": "Medium"
+        },
+        "parent": {
+          "key": "SO101-108",
+          "fields": {
+            "summary": "Nine-profile precision comparison"
+          }
+        },
+        "customFields": {
+          "Start date": {
+            "id": "customfield_10015",
+            "value": "2026-11-01"
+          },
+          "Sprint": {
+            "id": "customfield_10020"
+          }
+        }
+      }
+    }
+  ],
+  "plannedFilters": [
+    {
+      "name": "Project A",
+      "jql": "labels = project-a"
+    },
+    {
+      "name": "Project B",
+      "jql": "labels = project-b"
+    },
+    {
+      "name": "My work",
+      "jql": "assignee = currentUser()"
+    },
+    {
+      "name": "Hoan",
+      "jql": "assignee = \"712020:45dd4796-359d-42de-8c27-f89e6449dec0\""
+    },
+    {
+      "name": "Duc",
+      "jql": "assignee = \"712020:c4d9a4d2-796d-44e4-a27d-3bf94e3373d2\""
+    },
+    {
+      "name": "Comparison",
+      "jql": "(parent = SO101-108 OR parent = SO101-18)"
+    },
+    {
+      "name": "Needs review",
+      "jql": "status = \"In Review\""
+    },
+    {
+      "name": "Overdue",
+      "jql": "duedate < startOfDay() AND statusCategory != Done"
+    },
+    {
+      "name": "Governance",
+      "jql": "labels = governance"
+    },
+    {
+      "name": "AI",
+      "jql": "labels = ai"
+    },
+    {
+      "name": "IoT",
+      "jql": "labels = iot"
+    },
+    {
+      "name": "SoftDev",
+      "jql": "labels in (softdev, web)"
+    },
+    {
+      "name": "Integration",
+      "jql": "labels = integration"
+    }
+  ]
+}

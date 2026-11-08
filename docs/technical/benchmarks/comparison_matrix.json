@@ -1,0 +1,691 @@
+{
+  "updated_utc": "2026-11-01T19:54:49.204372+00:00",
+  "server_validated_profiles": 3,
+  "total_profiles": 9,
+  "board_verified": false,
+  "scope": "four frozen validation frames per profile; host CPU evidence",
+  "parameter_share_scope": "original saved checkpoint elements; unused elements conservatively counted FP32",
+  "rows": [
+    {
+      "model": "smolvla",
+      "profile": "fp16",
+      "status": "server-validated",
+      "package_bytes": 808940156,
+      "executable_bytes": 799511424,
+      "conversion_seconds": 758.2192885186523,
+      "conversion_peak_rss_gib": 5.051734924316406,
+      "validation_peak_rss_gib": 5.4671630859375,
+      "native_eager_max_abs": 0.004044651985168457,
+      "normalized_fp32_mae": 0.0003989030886441469,
+      "normalized_fp32_max_abs": 0.0031472444534301758,
+      "server_prepared_policy_p50_seconds": 16.373834624886513,
+      "server_prepared_policy_p95_seconds": 17.206236503180115,
+      "checkpoint_share_w4": 0.0,
+      "checkpoint_share_w8": 0.0,
+      "checkpoint_share_w16": 0.8703744035367607,
+      "checkpoint_share_w32": 0.12962559646323937,
+      "failed_native_eager_max_abs": "",
+      "failure_log": "",
+      "failed_attempt_graphs_with_reports": "",
+      "failed_attempt_conversion_seconds": "",
+      "failed_attempt_conversion_peak_rss_gib": "",
+      "failed_attempt_validation_peak_rss_gib": "",
+      "package": "packages/smolvla/fp16/attempt004-layout-v2",
+      "last_error": ""
+    },
+    {
+      "model": "smolvla",
+      "profile": "int8_mixed",
+      "status": "failed",
+      "package_bytes": "",
+      "executable_bytes": "",
+      "conversion_seconds": "",
+      "conversion_peak_rss_gib": "",
+      "validation_peak_rss_gib": "",
+      "native_eager_max_abs": "",
+      "normalized_fp32_mae": "",
+      "normalized_fp32_max_abs": "",
+      "server_prepared_policy_p50_seconds": "",
+      "server_prepared_policy_p95_seconds": "",
+      "checkpoint_share_w4": "",
+      "checkpoint_share_w8": "",
+      "checkpoint_share_w16": "",
+      "checkpoint_share_w32": "",
+      "failed_native_eager_max_abs": 0.042999863624572754,
+      "failure_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt007/validation.log",
+      "failed_attempt_graphs_with_reports": 2,
+      "failed_attempt_conversion_seconds": 2219.3980251951143,
+      "failed_attempt_conversion_peak_rss_gib": 11.13162612915039,
+      "failed_attempt_validation_peak_rss_gib": 4.476871490478516,
+      "package": "",
+      "last_error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int8_mixed/attempt007/validation.log"
+    },
+    {
+      "model": "smolvla",
+      "profile": "int4_mixed",
+      "status": "failed",
+      "package_bytes": "",
+      "executable_bytes": "",
+      "conversion_seconds": "",
+      "conversion_peak_rss_gib": "",
+      "validation_peak_rss_gib": "",
+      "native_eager_max_abs": "",
+      "normalized_fp32_mae": "",
+      "normalized_fp32_max_abs": "",
+      "server_prepared_policy_p50_seconds": "",
+      "server_prepared_policy_p95_seconds": "",
+      "checkpoint_share_w4": "",
+      "checkpoint_share_w8": "",
+      "checkpoint_share_w16": "",
+      "checkpoint_share_w32": "",
+      "failed_native_eager_max_abs": 0.029209017753601074,
+      "failure_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int4_mixed/attempt003/validation.log",
+      "failed_attempt_graphs_with_reports": 2,
+      "failed_attempt_conversion_seconds": 2622.8476094994694,
+      "failed_attempt_conversion_peak_rss_gib": 11.129096984863281,
+      "failed_attempt_validation_peak_rss_gib": 4.406444549560547,
+      "package": "",
+      "last_error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/smolvla/int4_mixed/attempt003/validation.log"
+    },
+    {
+      "model": "xvla",
+      "profile": "fp16",
+      "status": "server-validated",
+      "package_bytes": 1826757389,
+      "executable_bytes": 1819141120,
+      "conversion_seconds": 884.3607713123783,
+      "conversion_peak_rss_gib": 7.484592437744141,
+      "validation_peak_rss_gib": 4.974094390869141,
+      "native_eager_max_abs": 0.0035838335752487183,
+      "normalized_fp32_mae": 0.0006300980985785524,
+      "normalized_fp32_max_abs": 0.0037758946418762207,
+      "server_prepared_policy_p50_seconds": 36.754999125376344,
+      "server_prepared_policy_p95_seconds": 37.38776221130975,
+      "checkpoint_share_w4": 0.0,
+      "checkpoint_share_w8": 0.0,
+      "checkpoint_share_w16": 0.9949493777820512,
+      "checkpoint_share_w32": 0.005050622217948784,
+      "failed_native_eager_max_abs": "",
+      "failure_log": "",
+      "failed_attempt_graphs_with_reports": "",
+      "failed_attempt_conversion_seconds": "",
+      "failed_attempt_conversion_peak_rss_gib": "",
+      "failed_attempt_validation_peak_rss_gib": "",
+      "package": "packages/xvla/fp16/attempt001",
+      "last_error": ""
+    },
+    {
+      "model": "xvla",
+      "profile": "int8_mixed",
+      "status": "failed",
+      "package_bytes": "",
+      "executable_bytes": "",
+      "conversion_seconds": "",
+      "conversion_peak_rss_gib": "",
+      "validation_peak_rss_gib": "",
+      "native_eager_max_abs": "",
+      "normalized_fp32_mae": "",
+      "normalized_fp32_max_abs": "",
+      "server_prepared_policy_p50_seconds": "",
+      "server_prepared_policy_p95_seconds": "",
+      "checkpoint_share_w4": "",
+      "checkpoint_share_w8": "",
+      "checkpoint_share_w16": "",
+      "checkpoint_share_w32": "",
+      "failed_native_eager_max_abs": 0.0764879435300827,
+      "failure_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int8_mixed/attempt003/validation.log",
+      "failed_attempt_graphs_with_reports": 2,
+      "failed_attempt_conversion_seconds": 2436.244783646427,
+      "failed_attempt_conversion_peak_rss_gib": 8.87091064453125,
+      "failed_attempt_validation_peak_rss_gib": 3.859844207763672,
+      "package": "",
+      "last_error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int8_mixed/attempt003/validation.log"
+    },
+    {
+      "model": "xvla",
+      "profile": "int4_mixed",
+      "status": "failed",
+      "package_bytes": "",
+      "executable_bytes": "",
+      "conversion_seconds": "",
+      "conversion_peak_rss_gib": "",
+      "validation_peak_rss_gib": "",
+      "native_eager_max_abs": "",
+      "normalized_fp32_mae": "",
+      "normalized_fp32_max_abs": "",
+      "server_prepared_policy_p50_seconds": "",
+      "server_prepared_policy_p95_seconds": "",
+      "checkpoint_share_w4": "",
+      "checkpoint_share_w8": "",
+      "checkpoint_share_w16": "",
+      "checkpoint_share_w32": "",
+      "failed_native_eager_max_abs": 0.06910771131515503,
+      "failure_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int4_mixed/attempt003/validation.log",
+      "failed_attempt_graphs_with_reports": 2,
+      "failed_attempt_conversion_seconds": 2225.2459511030465,
+      "failed_attempt_conversion_peak_rss_gib": 9.106670379638672,
+      "failed_attempt_validation_peak_rss_gib": 3.5674781799316406,
+      "package": "",
+      "last_error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/xvla/int4_mixed/attempt003/validation.log"
+    },
+    {
+      "model": "pi0",
+      "profile": "fp16",
+      "status": "server-validated",
+      "package_bytes": 6329947020,
+      "executable_bytes": 6302908928,
+      "conversion_seconds": 1909.0446432596073,
+      "conversion_peak_rss_gib": 26.813072204589844,
+      "validation_peak_rss_gib": 28.11746597290039,
+      "native_eager_max_abs": 0.006765246391296387,
+      "normalized_fp32_mae": 0.00045905535109341144,
+      "normalized_fp32_max_abs": 0.0059053897857666016,
+      "server_prepared_policy_p50_seconds": 33.88374896533787,
+      "server_prepared_policy_p95_seconds": 34.30403390857391,
+      "checkpoint_share_w4": 0.0,
+      "checkpoint_share_w8": 0.0,
+      "checkpoint_share_w16": 0.8925738238916079,
+      "checkpoint_share_w32": 0.10742617610839209,
+      "failed_native_eager_max_abs": "",
+      "failure_log": "",
+      "failed_attempt_graphs_with_reports": "",
+      "failed_attempt_conversion_seconds": "",
+      "failed_attempt_conversion_peak_rss_gib": "",
+      "failed_attempt_validation_peak_rss_gib": "",
+      "package": "packages/pi0/fp16/attempt003",
+      "last_error": ""
+    },
+    {
+      "model": "pi0",
+      "profile": "int8_mixed",
+      "status": "failed",
+      "package_bytes": "",
+      "executable_bytes": "",
+      "conversion_seconds": "",
+      "conversion_peak_rss_gib": "",
+      "validation_peak_rss_gib": "",
+      "native_eager_max_abs": "",
+      "normalized_fp32_mae": "",
+      "normalized_fp32_max_abs": "",
+      "server_prepared_policy_p50_seconds": "",
+      "server_prepared_policy_p95_seconds": "",
+      "checkpoint_share_w4": "",
+      "checkpoint_share_w8": "",
+      "checkpoint_share_w16": "",
+      "checkpoint_share_w32": "",
+      "failed_native_eager_max_abs": 0.1284123659133911,
+      "failure_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt005/validation.log",
+      "failed_attempt_graphs_with_reports": 2,
+      "failed_attempt_conversion_seconds": 5430.20975341741,
+      "failed_attempt_conversion_peak_rss_gib": 27.624774932861328,
+      "failed_attempt_validation_peak_rss_gib": 23.87982940673828,
+      "package": "",
+      "last_error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int8_mixed/attempt005/validation.log"
+    },
+    {
+      "model": "pi0",
+      "profile": "int4_mixed",
+      "status": "failed",
+      "package_bytes": "",
+      "executable_bytes": "",
+      "conversion_seconds": "",
+      "conversion_peak_rss_gib": "",
+      "validation_peak_rss_gib": "",
+      "native_eager_max_abs": "",
+      "normalized_fp32_mae": "",
+      "normalized_fp32_max_abs": "",
+      "server_prepared_policy_p50_seconds": "",
+      "server_prepared_policy_p95_seconds": "",
+      "checkpoint_share_w4": "",
+      "checkpoint_share_w8": "",
+      "checkpoint_share_w16": "",
+      "checkpoint_share_w32": "",
+      "failed_native_eager_max_abs": 0.05378718674182892,
+      "failure_log": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt005/validation.log",
+      "failed_attempt_graphs_with_reports": 2,
+      "failed_attempt_conversion_seconds": 4330.954935890622,
+      "failed_attempt_conversion_peak_rss_gib": 27.645694732666016,
+      "failed_attempt_validation_peak_rss_gib": 22.77297592163086,
+      "package": "",
+      "last_error": "validation exited1; see /mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/artifacts/pi0/int4_mixed/attempt005/validation.log"
+    }
+  ],
+  "unresolved_blocker": {
+    "schema_version": 1,
+    "updated_utc": "2026-11-02T01:20:18.353349+00:00",
+    "status": "unresolved",
+    "id": "smolvla-native-eager-parity",
+    "profile": "smolvla/int8_mixed",
+    "stage": "complete_policy_validation",
+    "max_abs_limit": 0.02,
+    "trials": [
+      {
+        "trial": "original eligible modules",
+        "max_normalized_native_eager_error": 0.03426849842071533,
+        "source": "artifacts/smolvla/int8_mixed/attempt003/validation.log"
+      },
+      {
+        "trial": "connector FP32",
+        "max_normalized_native_eager_error": 0.03429532051086426,
+        "source": "artifacts/smolvla/int8_mixed/attempt004/validation.log"
+      },
+      {
+        "trial": "vision encoder and connector Linear FP16",
+        "max_normalized_native_eager_error": 0.049920082092285156,
+        "source": "artifacts/smolvla/int8_mixed/attempt005/validation.log"
+      },
+      {
+        "trial": "original precision, only quantized operators delegated",
+        "max_normalized_native_eager_error": 0.05377000570297241,
+        "source": "/mnt/data8tb/henry/robot-arm-conversion/runs/smol_quant_only_partition/report.json"
+      }
+    ],
+    "exact_root_cause": "One reproducible contributor is confirmed: native dynamic A8 uses a direct inverse range, while TorchAO reciprocates a rounded scale. A real vision token crosses the nearest-integer boundary on identical inputs. This does not yet establish that every full-policy discrepancy is resolved; float-kernel accumulation remains under investigation.",
+    "dependencies_pending": [],
+    "unchanged": {
+      "runtime": "ExecuTorch1.1+XNNPACK",
+      "torch": "2.10.0",
+      "torchao": "0.15.0",
+      "native_eager_limit": 0.02,
+      "fp32_atol_rtol": 0.001,
+      "retraining": false,
+      "additional_hardware": false
+    },
+    "target_date": "2026-11-16",
+    "target_status": "provisional; re-estimate only after complete SmolVLA row passes",
+    "next_required_work": "Localize the residual native/reduced-eager mismatch after range anchoring. Small operator parity did not establish full-policy parity. Retain the pinned runtime, original oracle and0.02 bound. A repeated heavy conversion without a new proved repair is not warranted.",
+    "original_order_dependencies": [
+      "smolvla/int4_mixed",
+      "xvla/fp16",
+      "xvla/int8_mixed",
+      "xvla/int4_mixed",
+      "pi0/fp16",
+      "pi0/int8_mixed",
+      "pi0/int4_mixed"
+    ],
+    "execution_order_override": "User authorized all seven pending profiles plus repair concurrently.",
+    "shared_precision_policy_dependents": [
+      "smolvla/int4_mixed"
+    ],
+    "latest_trace": {
+      "artifacts": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/parallel_runs/20261101T111342891308Z/smolvla_prefix_trace",
+      "frames": [
+        {
+          "frame": 0,
+          "connector": [
+            {
+              "label": "connector_camera_0",
+              "max_abs": 2.757505416870117,
+              "mae": 0.18090510368347168,
+              "relative_rmse": 0.049007121473550797,
+              "shape": [
+                1,
+                64,
+                960
+              ],
+              "native_stride": [
+                61440,
+                960,
+                1
+              ],
+              "eager_stride": [
+                61440,
+                960,
+                1
+              ]
+            },
+            {
+              "label": "connector_camera_1",
+              "max_abs": 1.699493408203125,
+              "mae": 0.16483043134212494,
+              "relative_rmse": 0.04935675486922264,
+              "shape": [
+                1,
+                64,
+                960
+              ],
+              "native_stride": [
+                61440,
+                960,
+                1
+              ],
+              "eager_stride": [
+                61440,
+                960,
+                1
+              ]
+            }
+          ],
+          "first_text_input": {
+            "label": "text_layer_00_normalized_input",
+            "max_abs": 0.12366485595703125,
+            "mae": 0.000682762183714658,
+            "relative_rmse": 0.018455736339092255,
+            "shape": [
+              1,
+              177,
+              960
+            ],
+            "native_stride": [
+              169920,
+              960,
+              1
+            ],
+            "eager_stride": [
+              169920,
+              960,
+              1
+            ]
+          }
+        },
+        {
+          "frame": 1,
+          "connector": [
+            {
+              "label": "connector_camera_0",
+              "max_abs": 2.0790226459503174,
+              "mae": 0.19686099886894226,
+              "relative_rmse": 0.057879481464624405,
+              "shape": [
+                1,
+                64,
+                960
+              ],
+              "native_stride": [
+                61440,
+                960,
+                1
+              ],
+              "eager_stride": [
+                61440,
+                960,
+                1
+              ]
+            },
+            {
+              "label": "connector_camera_1",
+              "max_abs": 2.049086570739746,
+              "mae": 0.20583072304725647,
+              "relative_rmse": 0.06024482473731041,
+              "shape": [
+                1,
+                64,
+                960
+              ],
+              "native_stride": [
+                61440,
+                960,
+                1
+              ],
+              "eager_stride": [
+                61440,
+                960,
+                1
+              ]
+            }
+          ],
+          "first_text_input": {
+            "label": "text_layer_00_normalized_input",
+            "max_abs": 0.1176595687866211,
+            "mae": 0.0007835819851607084,
+            "relative_rmse": 0.022380327805876732,
+            "shape": [
+              1,
+              177,
+              960
+            ],
+            "native_stride": [
+              169920,
+              960,
+              1
+            ],
+            "eager_stride": [
+              169920,
+              960,
+              1
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "connector": [
+            {
+              "label": "connector_camera_0",
+              "max_abs": 1.6831703186035156,
+              "mae": 0.1784677803516388,
+              "relative_rmse": 0.049578458070755005,
+              "shape": [
+                1,
+                64,
+                960
+              ],
+              "native_stride": [
+                61440,
+                960,
+                1
+              ],
+              "eager_stride": [
+                61440,
+                960,
+                1
+              ]
+            },
+            {
+              "label": "connector_camera_1",
+              "max_abs": 2.039907932281494,
+              "mae": 0.19089528918266296,
+              "relative_rmse": 0.0548693984746933,
+              "shape": [
+                1,
+                64,
+                960
+              ],
+              "native_stride": [
+                61440,
+                960,
+                1
+              ],
+              "eager_stride": [
+                61440,
+                960,
+                1
+              ]
+            }
+          ],
+          "first_text_input": {
+            "label": "text_layer_00_normalized_input",
+            "max_abs": 0.10279083251953125,
+            "mae": 0.0007240410195663571,
+            "relative_rmse": 0.02074076607823372,
+            "shape": [
+              1,
+              177,
+              960
+            ],
+            "native_stride": [
+              169920,
+              960,
+              1
+            ],
+            "eager_stride": [
+              169920,
+              960,
+              1
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "connector": [
+            {
+              "label": "connector_camera_0",
+              "max_abs": 1.7863413095474243,
+              "mae": 0.19173316657543182,
+              "relative_rmse": 0.05140233039855957,
+              "shape": [
+                1,
+                64,
+                960
+              ],
+              "native_stride": [
+                61440,
+                960,
+                1
+              ],
+              "eager_stride": [
+                61440,
+                960,
+                1
+              ]
+            },
+            {
+              "label": "connector_camera_1",
+              "max_abs": 1.5289002656936646,
+              "mae": 0.1776479184627533,
+              "relative_rmse": 0.05358542129397392,
+              "shape": [
+                1,
+                64,
+                960
+              ],
+              "native_stride": [
+                61440,
+                960,
+                1
+              ],
+              "eager_stride": [
+                61440,
+                960,
+                1
+              ]
+            }
+          ],
+          "first_text_input": {
+            "label": "text_layer_00_normalized_input",
+            "max_abs": 0.09230160713195801,
+            "mae": 0.0007145837880671024,
+            "relative_rmse": 0.019624115899205208,
+            "shape": [
+              1,
+              177,
+              960
+            ],
+            "native_stride": [
+              169920,
+              960,
+              1
+            ],
+            "eager_stride": [
+              169920,
+              960,
+              1
+            ]
+          }
+        }
+      ],
+      "interpretation": "Differences are already present in visual connector outputs before text/cache computation. Exact first divergent vision operation remains unresolved.",
+      "limitation": "Extra diagnostic outputs can change native partition boundaries; this trace does not replace the original package or acceptance oracle."
+    },
+    "related_int4_failure": {
+      "profile": "smolvla/int4_mixed",
+      "max_native_eager_error": 0.06191873550415039,
+      "limit": 0.02,
+      "report": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/packages/smolvla/int4_mixed/attempt001/reports/full_policy_failure.json"
+    },
+    "operator_findings": {
+      "gelu_argument": {
+        "baseline": "/mnt/data8tb/henry/robot-arm-conversion/runs/gelu_semantics/report.json",
+        "corrected_operator": "/mnt/data8tb/henry/robot-arm-conversion/runs/gelu_semantics_portable/report.json",
+        "full_policy_candidate": "/mnt/data8tb/henry/robot-arm-conversion/runs/smol_gelu_safe_partition/report.json",
+        "outcome": "Necessary semantic correction proved, but not sufficient: full-policy gate still fails."
+      },
+      "int4_weight_scale": {
+        "proof": "/mnt/data8tb/henry/robot-arm-conversion/runs/layout_and_scale_probe/report.json",
+        "native_format": "BF16 group scales; original eager graph used FP32 scales",
+        "operator_native_eager_error_original": 0.004129886627197266,
+        "operator_native_eager_error_aligned": 1.0728836059570312e-06,
+        "production_changed": true,
+        "scope": "New integer attempts explicitly use BF16 W4 group scales; existing failed artifacts remain unchanged."
+      },
+      "rank4_layout": {
+        "proof": "/mnt/data8tb/henry/robot-arm-conversion/runs/layout_and_scale_probe/report.json",
+        "outcome": "Isolated rank4 and flattened paths matched; this test did not reproduce a layout bug."
+      },
+      "binary_conv_scales": {
+        "proof": "/mnt/data8tb/henry/robot-arm-conversion/runs/binary_conv_scales_v2/report.json",
+        "training_frames": 64,
+        "original_native_eager_mismatched_elements": [
+          [
+            12,
+            43
+          ],
+          [
+            17,
+            31
+          ],
+          [
+            19,
+            24
+          ],
+          [
+            23,
+            40
+          ]
+        ],
+        "revised_mismatched_elements": 0,
+        "scope": "Actual SmolVLA patch Conv, exact prefix resize/normalization, both cameras on four frozen inputs. Isolated operator evidence only; full-policy repair unproved.",
+        "weight_activation_types": "Static per-channel W8/A8 unchanged; calibrated scales rounded upward to powers of two; native INT32 bias grid represented explicitly in eager.",
+        "production_changed": false,
+        "source_sha256": "8cb333d80c346a10b0681a9603fb8c446f759f60413cdcb44b9234524e864fbf"
+      },
+      "dynamic_a8_rounding": {
+        "report": "/mnt/data8tb/henry/robot-arm-conversion/runs/smol_dynamic_rounding_v1/report.json",
+        "all_vision_report": "/mnt/data8tb/henry/robot-arm-conversion/runs/smol_balanced_all_vision_w8/report.json",
+        "operators_tested": 144,
+        "worst_isolated_linear_error": 0.030378341674804688,
+        "real_token_proof": {
+          "input": 0.3702044188976288,
+          "native_direct_inverse": 74.28328704833984,
+          "torchao_reciprocal_of_rounded_scale": 74.28327941894531,
+          "native_scaled_input": 27.500001907348633,
+          "torchao_scaled_input": 27.499998092651367,
+          "native_q": 57,
+          "torchao_q": 56,
+          "native_zero_point": 29,
+          "torchao_zero_point": 29.0,
+          "range_min": -2.114112615585327,
+          "range_max": 1.3186919689178467,
+          "verified_from_saved_input_storage": true
+        },
+        "pinned_xnnpack_commit": "3131afead790c5c69a9aa12273dfc40399789ad7",
+        "native_source": "https://github.com/google/XNNPACK/blob/3131afead790c5c69a9aa12273dfc40399789ad7/src/xnnpack/quantization.h",
+        "caveat": "Original identity report inferred one additional byte without correcting the quantized identity-weight gain; the explicit index151 boundary proof above is independently computed."
+      }
+    },
+    "active_repair": {
+      "method": "asymmetric per-token range anchors in zero-weight padding; binary calibrated Conv scales",
+      "changes": "Original FP32 function, eligible trained modules, exceptions, weight/activation bit types, runtime and tolerances retained. No channel balancing.",
+      "mixed_preflight": "runs/repair_preflight_v15",
+      "wide_preflight": "runs/width4304_anchor_v1",
+      "recipe": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/integer_recipe.json",
+      "status_path": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/status.json",
+      "status": "full-policy-failed",
+      "latest_results": "/mnt/data8tb/henry/robot-arm-conversion/campaigns/20261101-v1/latest_integer_attempt_results.json",
+      "active_workers": 0
+    },
+    "balanced_int4_diagnostic": {
+      "report": "/mnt/data8tb/henry/robot-arm-conversion/runs/smol_balanced_baseline_w4/report.json",
+      "max_native_eager_error": 0.04937988519668579,
+      "limit": 0.02,
+      "outcome": "Channel balancing alone still fails complete-policy parity. Diagnostic only; scheduled package validation remains pending."
+    },
+    "rejected_repairs": {
+      "linear_channel_balancing_only": "All six formal complete-policy attempts failed; original artifacts and source snapshots retained. Disabled for the next recipe.",
+      "binary_conv_scales_only_with_balancing": {
+        "int8_max_abs": 0.08739328384399414,
+        "int4_max_abs": 0.11492675542831421,
+        "outcome": "Full-policy diagnostics failed despite exact isolated Conv agreement."
+      }
+    }
+  }
+}

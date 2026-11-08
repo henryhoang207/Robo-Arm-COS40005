@@ -2,6 +2,8 @@
 
 Date: 2026-10-14
 Status: Approved (decision owner Hoan, 2026-10-14, in chat: AP-1, AP-2, AP-3 and DR-1 option a). Board evidence pending.
+
+Amended on 25 October 2026 by [decision 0006](0006-model-roster-baseline-and-profile-allocation.md): the active roster is SmolVLA, Pi0 and X-VLA; ACT and Diffusion Policy are retired from active experiments. Architecture-specific runtime paths, coverage calculations and noise recipes below remain historical findings for the original models and do not prove Pi0/X-VLA compatibility. General evidence/reporting rules and approved compute placement remain in force; replacement-model recipes and native support require their own evidence. Current nine-profile comparison dates are 1–19 November 2026.
 Decision: Score all nine cells (SmolVLA, ACT, Diffusion Policy × FP16, INT8, INT4) on the VENTUNO Q Kryo CPU, with one runtime per model across its three precisions (ExecuTorch + XNNPACK primary; vla.cpp and ONNX Runtime CPU fallbacks; SmolVLA dual-track). Use the disclosed mixed-precision profiles in §2, the measurement plan in §3, and 4-bit-Linear + 8-bit-conv for Diffusion Policy INT4. OpenVLA stays a desk-checked reserve.
 Rationale: Only the CPU route has documented FP16, INT8 and 4-bit-Linear execution paths that apply to all three architectures on ARM64 Linux [5][6][7]; the NPU route has board-specific gaps [3][4][8]. Details in §4.
 Alternatives rejected: NPU-first via QAIRT; vla.cpp only; ONNX Runtime only; PyTorch eager + torchao (§4).

@@ -1,0 +1,98 @@
+{
+  "status": "failed",
+  "scope": "four frozen policy smoke checks; sustained replay and final board acceptance remain separate",
+  "board_acceptance": false,
+  "server_test": false,
+  "created_utc": "2026-11-02T06:52:08.034506+00:00",
+  "system": {
+    "system": "Linux",
+    "machine": "aarch64",
+    "python": "3.13.15"
+  },
+  "frames": [
+    {
+      "frame": 0,
+      "preprocessing": "passed",
+      "native_eager_trajectory_max_abs": 0.034005045890808105,
+      "native_eager_final_max_abs": 0.034005045890808105,
+      "native_server_trajectory_max_abs": 0.03804969787597656,
+      "native_fp32_final_max_abs": 0.03490245342254639,
+      "prepared_policy_smoke_seconds": 24.639022317000126,
+      "timing_scope": "one request, includes first-call effects; not a latency benchmark"
+    }
+  ],
+  "package_files_verified": 47,
+  "versions": {
+    "torch": "2.10.0",
+    "torchvision": "0.25.0",
+    "executorch": "1.1.0",
+    "lerobot": "0.6.1",
+    "transformers": "5.5.4",
+    "safetensors": "0.8.0",
+    "numpy": "2.2.6",
+    "tokenizers": "0.22.2",
+    "huggingface-hub": "1.33.0"
+  },
+  "registered_backends": [
+    "XnnpackBackend"
+  ],
+  "serialized_precision": {
+    "prefix": {
+      "status": "passed",
+      "scope": "actual serialized XNNPACK1.1 XH00/XN01 delegate tensors",
+      "delegate_count": 410,
+      "tensor_types": {
+        "fp32": 2087,
+        "fp16": 826
+      },
+      "constant_tensor_types": {
+        "fp32": 4,
+        "fp16": 268
+      },
+      "block_group_sizes": [],
+      "dynamic_activation_granularity": [],
+      "profile": "fp16"
+    },
+    "denoise": {
+      "status": "passed",
+      "scope": "actual serialized XNNPACK1.1 XH00/XN01 delegate tensors",
+      "delegate_count": 259,
+      "tensor_types": {
+        "fp32": 1416,
+        "fp16": 288
+      },
+      "constant_tensor_types": {
+        "fp32": 8,
+        "fp16": 96
+      },
+      "block_group_sizes": [],
+      "dynamic_activation_granularity": [],
+      "profile": "fp16"
+    }
+  },
+  "cpu_features": [
+    "aes",
+    "asimd",
+    "asimddp",
+    "asimdhp",
+    "asimdrdm",
+    "atomics",
+    "cpuid",
+    "crc32",
+    "dcpop",
+    "evtstrm",
+    "fp",
+    "fphp",
+    "lrcpc",
+    "pmull",
+    "sha1",
+    "sha2"
+  ],
+  "cpu_fp16_feature_flags": {
+    "fphp": true,
+    "asimdhp": true
+  },
+  "error": "RuntimeError: Frame0 native/reduced-eager mismatch exceeds0.02: 0.034005045890808105",
+  "traceback": "Traceback (most recent call last):\n  File \"/app/python/main.py\", line 78, in main\n    if max(error,final_error)>.02:raise RuntimeError(f'Frame{i} native/reduced-eager mismatch exceeds0.02: {max(error,final_error)}')\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Frame0 native/reduced-eager mismatch exceeds0.02: 0.034005045890808105\n",
+  "total_seconds": 40.65638271800026
+}
