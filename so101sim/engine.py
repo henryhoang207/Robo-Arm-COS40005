@@ -16,11 +16,12 @@ MODEL_FILE = ROOT/'models'/'SO101'/'workspace.xml'
 POSE_FILE = ROOT/'ready_pose.json'
 
 class Simulation:
-    def __init__(self, mode: str, camera_interval: float = 0.25):
+    def __init__(self, mode: str, camera_interval: float = 0.25, *, model=None, ready_pose=None):
         import mujoco
         self.mj = mujoco
         self.mode = mode
-        self.model = mujoco.MjModel.from_xml_path(str(MODEL_FILE))
+        self.model = mujoco.MjModel.from_xml_path(str(MODEL_FILE)) if model is None else model
+        self.ready_pose = ready_pose
         self.data = mujoco.MjData(self.model)
         names = tuple(mujoco.mj_id2name(self.model, mujoco.mjtObj.mjOBJ_ACTUATOR, i)
                       for i in range(self.model.nu))
@@ -44,9 +45,10 @@ class Simulation:
         for camera in ('overhead_camera','wrist_camera'):
             if mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_CAMERA, camera) < 0:
                 raise RuntimeError('Missing camera: '+camera)
-        for body in ('red_ball', 'green_ball','blue_ball','yellow_ball','drop_box'):
-            if mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_BODY, body) < 0:
-                raise RuntimeError('Missing object: '+body)
+        if model is None:
+            for body in ('red_ball', 'green_ball','blue_ball','yellow_ball','drop_box'):
+                if mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_BODY, body) < 0:
+                    raise RuntimeError('Missing object: '+body)
         self.lock=threading.RLock()
         self.actions: queue.Queue[Action] = queue.Queue(maxsize=1)
         self.session_active = False
@@ -68,7 +70,9 @@ class Simulation:
         self._publish_locked()
 
     def _set_initial_pose(self):
-        pose = json.loads(POSE_FILE.read_text('utf8'))['joints']
+        pose = self.ready_pose
+        if pose is None:
+            pose = json.loads(POSE_FILE.read_text('utf8'))['joints']
         self.mj.mj_resetData(self.model,self.data)
         for index,name in enumerate(JOINT_NAMES):
             val = float(pose[name])
