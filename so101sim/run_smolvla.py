@@ -115,7 +115,7 @@ def main():
         sim = desk_cleanup.create_simulation(match_dataset=args.match_dataset)
         zero_rad, rad_per_unit = desk_cleanup.ZERO_RAD, desk_cleanup.RAD_PER_UNIT
     else:
-        sim = Simulation("local")
+        sim = Simulation()
         closed, opened = sim.limits[-1]
         zero_rad = np.r_[np.zeros(5), closed]
         rad_per_unit = np.r_[np.full(5, np.pi / 180), (opened - closed) / 100]

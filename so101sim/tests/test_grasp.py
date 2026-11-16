@@ -6,7 +6,7 @@ from protocol import Action
 
 class GraspTest(unittest.TestCase):
     def test_jaw_pads_lift_red_ball(self):
-        sim = Simulation("local")
+        sim = Simulation()
         timestep = sim.model.opt.timestep
         ball = sim.data.body("red_ball")
         for _ in range(round(0.4 / timestep)):
@@ -23,7 +23,7 @@ class GraspTest(unittest.TestCase):
             (above, 0.10, 1.20),
         )
         for sequence, (arm, gripper, duration) in enumerate(waypoints):
-            sim.enqueue(Action(sequence, (*arm, gripper), duration, duration + 0.5), from_board=False)
+            sim.enqueue(Action(sequence, (*arm, gripper), duration, duration + 0.5))
             for _ in range(round((duration + 0.2) / timestep)):
                 sim.step()
             self.assertEqual(sim.snapshot()["status"], "DONE")

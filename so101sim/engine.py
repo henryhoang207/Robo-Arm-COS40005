@@ -5,7 +5,6 @@ import io
 import math
 import threading
 import queue
-import time
 from pathlib import Path
 from typing import Optional
 
@@ -16,10 +15,9 @@ MODEL_FILE = ROOT/'models'/'SO101'/'workspace.xml'
 POSE_FILE = ROOT/'ready_pose.json'
 
 class Simulation:
-    def __init__(self, mode: str, camera_interval: float = 0.25, *, model=None, ready_pose=None):
+    def __init__(self, camera_interval: float = 0.25, *, model=None, ready_pose=None):
         import mujoco
         self.mj = mujoco
-        self.mode = mode
         self.model = mujoco.MjModel.from_xml_path(str(MODEL_FILE)) if model is None else model
         self.ready_pose = ready_pose
         self.data = mujoco.MjData(self.model)
@@ -51,12 +49,9 @@ class Simulation:
                     raise RuntimeError('Missing object: '+body)
         self.lock=threading.RLock()
         self.actions: queue.Queue[Action] = queue.Queue(maxsize=1)
-        self.session_active = False
-        self.last_board_heartbeat = 0.0
-        self.board_client = None
         self.last_accepted_sequence = -1
         self.last_applied_sequence = -1
-        self.status = 'LOCAL_TEST' if mode == 'local' else 'WAITING_FOR_BOARD'
+        self.status = 'IDLE'
         self.fault: Optional[str]=None
         self.action = None
         self.start_q = None
@@ -88,7 +83,7 @@ class Simulation:
 
     def _publish_locked(self):
         self.snapshot_state = {
-            'status':self.status, 'mode':self.mode,'fault':self.fault,
+            'status':self.status,'fault':self.fault,
             'joint_names':list(JOINT_NAMES),'joint_positions':self._joints(),
             'joint_limits':self.limits, 'target_positions':[float(self.data.ctrl[i]) for i in self.aids],
             'sim_time':round(float(self.data.time),4),
@@ -96,9 +91,6 @@ class Simulation:
             'applied_sequence':self.last_applied_sequence,
             'cameras':{c: c in self.images for c in ('overhead','wrist')},
             'camera_error':self.camera_error,
-            'board_connected':self.session_active,
-            'last_board_heartbeat_age_s':(round(time.monotonic()-self.last_board_heartbeat,2)
-                                          if self.session_active else None),
             'geometry':'PROXY MESHES — import official STL before task benchmarking',
         }
 
@@ -110,33 +102,8 @@ class Simulation:
         with self.lock:
             return self.images.get(camera)
 
-    def set_session(self, enabled: bool, peer: Optional[str] = None):
+    def enqueue(self, action: Action) -> None:
         with self.lock:
-            self.session_active=enabled
-            self.board_client=peer if enabled else None
-            self.last_board_heartbeat=time.monotonic() if enabled else 0.0
-            if enabled:
-                self.fault=None
-                self.status='BOARD_CONNECTED'
-            else:
-                self.action=None
-                self.status='WAITING_FOR_BOARD' if self.mode=='board' else 'LOCAL_TEST'
-                while True:
-                    try: self.actions.get_nowait()
-                    except queue.Empty: break
-            self._publish_locked()
-
-    def heartbeat(self):
-        with self.lock:
-            if self.session_active:
-                self.last_board_heartbeat=time.monotonic()
-
-    def enqueue(self, action: Action, from_board: bool) -> None:
-        with self.lock:
-            if from_board and (self.mode != 'board' or not self.session_active):
-                raise ValueError('Board control session not active')
-            if not from_board and self.mode != 'local':
-                raise ValueError('Web commands disabled in board mode')
             if action.sequence_id <= self.last_accepted_sequence:
                 raise ValueError('Out-of-order sequence_id')
             if self.action is not None or self.actions.full():
@@ -148,15 +115,6 @@ class Simulation:
     def step(self):
         # Only called by main simulation thread.
         with self.lock:
-            if self.mode=='board':
-                healthy=self.session_active and (time.monotonic()-self.last_board_heartbeat < 2.0)
-                if not healthy:
-                    if self.session_active:
-                        self.fault='HEARTBEAT_TIMEOUT'
-                    self.action=None
-                    self.status='WAITING_FOR_BOARD'
-                    self._publish_locked()
-                    return  # no physics or autonomous motion without connected board
             if self.action is None:
                 try: self.action=self.actions.get_nowait()
                 except queue.Empty: pass

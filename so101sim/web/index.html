@@ -19,11 +19,11 @@ button{background:#286a9d;color:white;border:0;border-radius:7px;padding:10px 16
 .rowctl{display:grid;grid-template-columns:120px 1fr 80px;align-items:center;gap:14px;margin:10px 0;font-size:13px}.meta{margin-top:16px;color:var(--muted);font-size:12px}a{color:var(--accent)}
 @media(max-width:900px){.cameras,.below{grid-template-columns:1fr}.overview{grid-template-columns:repeat(2,1fr)}}@media(max-width:510px){.overview{grid-template-columns:1fr 1fr}.joint{grid-template-columns:110px 58px 1fr}header h1{font-size:17px}}
 </style></head><body>
-<header><div><h1>SO-101 <span class="muted">/ Unified Simulation</span></h1><small>MuJoCo · IQ8 Gateway · STM32H5F5 integration boundary</small></div><div class="pill" id="mode">Connecting</div></header>
+<header><div><h1>SO-101 <span class="muted">/ Unified Simulation</span></h1><small>MuJoCo · local mode</small></div><div class="pill" id="mode">Connecting</div></header>
 <main>
 <div class="overview">
 <div class="stat"><small>Execution state</small><b id="status">—</b></div>
-<div class="stat"><small>Board TCP</small><b id="board">—</b></div>
+<div class="stat"><small>Last accepted seq</small><b id="accepted">—</b></div>
 <div class="stat"><small>Simulation time</small><b id="time">—</b></div>
 <div class="stat"><small>Last applied seq</small><b id="seq">—</b></div>
 </div>
@@ -32,27 +32,25 @@ button{background:#286a9d;color:white;border:0;border-radius:7px;padding:10px 16
 <div class="panel cam"><h2>02 / Wrist Camera</h2><img id="wrist" alt="Wrist simulation image"/><small>Attached to the robot gripper; viewpoint follows wrist motion</small></div>
 </section>
 <section class="below"><div class="panel"><h2>Joint feedback · radians</h2><div id="joints"></div><p class="meta" id="note">Waiting for scene...</p></div>
-<div class="panel" id="controls"><h2 id="ctitle">Local control</h2><p class="warntext" id="control_note">Local mode is for laptop-only smoke tests. In board mode only VENTUNO TCP commands can move the robot. Browser remains read-only.</p><div id="sliders"></div><div style="display:flex;align-items:center;gap:12px;margin-top:16px"><button id="send">Apply joint targets</button><span id="ack" class="muted" style="font-size:12px">No command sent</span></div><p class="meta">Sends absolute joint positions with 2-second smooth trajectory; does not plan grasps or override STM32 firmware.</p></div></section>
-<p class="meta">No cloud inference. Browser is a visualization interface; network authentication alone does not prove an action was approved by the STM32H5F5. Proxy STL geometry is not suitable for quantitative grasp evaluation.</p>
+<div class="panel" id="controls"><h2 id="ctitle">Local control</h2><p class="warntext" id="control_note">Laptop-only joint control. Commands are accepted from this computer (localhost) only.</p><div id="sliders"></div><div style="display:flex;align-items:center;gap:12px;margin-top:16px"><button id="send">Apply joint targets</button><span id="ack" class="muted" style="font-size:12px">No command sent</span></div><p class="meta">Sends absolute joint positions with 2-second smooth trajectory; does not plan grasps.</p></div></section>
+<p class="meta">No cloud inference. Simulation results do not establish physical-arm performance.</p>
 </main>
 <script>
-let activeMode=null,seq=0,ready=false,limits=null,initialised=false;
+let seq=0,ready=false,limits=null,initialised=false;
 const $=s=>document.getElementById(s),safe=s=>String(s);
 function format(n){return typeof n==='number'?n.toFixed(3):'—'}
 function render(state){
- activeMode=state.mode;$('mode').textContent=state.mode==='board'?'BOARD / READ ONLY':'LOCAL / DEVELOPMENT';
- $('mode').className='pill '+(state.mode==='board'?'good':'warn');
- $('status').textContent=state.status||'—';$('board').textContent=state.board_connected?'Connected':'Disconnected';
+ $('mode').textContent='LOCAL';$('mode').className='pill warn';
+ $('status').textContent=state.status||'—';$('accepted').textContent=state.accepted_sequence;
  $('time').textContent=format(state.sim_time)+' s';$('seq').textContent=state.applied_sequence;
  $('note').textContent=state.fault?'Fault: '+state.fault:state.camera_error?'Camera: '+state.camera_error:state.geometry||'';
- $('controls').style.display=state.mode==='local'?'block':'none';
  seq=Math.max(seq,state.accepted_sequence+1);
  let names=state.joint_names,q=state.joint_positions;limits=state.joint_limits;
  $('joints').innerHTML=names.map((name,i)=>{
   const lo=limits[i][0],hi=limits[i][1],pct=Math.max(0,Math.min(100,(q[i]-lo)/(hi-lo)*100));
   return '<div class="joint"><span>'+name+'</span><b>'+format(q[i])+'</b><div class="track"><div class="bar" style="width:'+pct+'%"></div></div></div>'
  }).join('');
- if(state.mode==='local'&&!initialised){
+ if(!initialised){
   initialised=true;$('sliders').innerHTML=names.map((name,i)=>{
    const lo=limits[i][0],hi=limits[i][1];
    return '<div class="rowctl"><label>'+name+'</label><input id="s'+i+'" type="range" min="'+lo+'" max="'+hi+'" step="0.01" value="'+q[i]+'"><input id="n'+i+'" type="number" min="'+lo+'" max="'+hi+'" step="0.01" value="'+q[i].toFixed(2)+'"></div>';
@@ -62,7 +60,7 @@ function render(state){
 }
 async function getState(){try{let r=await fetch('/api/state',{cache:'no-store'});if(r.ok)render(await r.json())}catch(e){$('status').textContent='Offline'}}
 function refreshImages(){for(const label of ['overhead','wrist']){let img=$(label);let next=new Image();next.onload=()=>{img.src=next.src};next.src='/api/camera/'+label+'?t='+Date.now()}}
-$('send').addEventListener('click',async()=>{if(activeMode!=='local'||!initialised)return;
+$('send').addEventListener('click',async()=>{if(!initialised)return;
  try{const targets=Array.from({length:6},(_,i)=>Number($('n'+i).value));const data={type:'ACTION',sequence_id:seq++,joint_targets:targets,duration:2,timeout:4};
  const r=await fetch('/api/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const result=await r.json();$('ack').textContent=r.ok?'Queued #'+result.sequence_id:'Rejected: '+result.reason}catch(e){$('ack').textContent=e.message}}
 );

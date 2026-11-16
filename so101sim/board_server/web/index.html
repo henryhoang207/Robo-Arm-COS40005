@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SO-101 · Simulation</title>
+<style>
+:root{color-scheme:dark;--bg:#0b111b;--panel:#151e2b;--border:#2b3849;--muted:#a1afc2;--blue:#7bc3ff;--green:#8fe3ac;--amber:#f2c86b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#e9f0f7;font:15px/1.5 system-ui,sans-serif}
+header{padding:20px 30px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:16px}h1{margin:0;font-size:23px}h2{font-size:17px;margin:0 0 14px}small,.muted{color:var(--muted)}main{max-width:1440px;margin:auto;padding:24px}
+.pill{padding:6px 12px;border:1px solid var(--border);border-radius:30px;color:var(--blue);font-size:12px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.stat,.panel{padding:18px;background:var(--panel);border:1px solid var(--border);border-radius:12px}.stat b{display:block;font-size:21px;margin-top:7px}.stat small{font-size:12px}.cameras{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.cam img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#070c13;border-radius:8px}.cam small{display:block;margin-top:10px}.below{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.joint{display:grid;grid-template-columns:125px 80px 1fr;gap:10px;align-items:center;padding:7px 0;font-size:13px}.track{height:7px;background:#29374a;border-radius:10px;overflow:hidden}.bar{height:100%;background:var(--blue)}
+button{padding:10px 14px;border:1px solid #387aa9;border-radius:7px;background:#245e88;color:white;cursor:pointer;font:inherit;font-size:13px}button:disabled{opacity:.4;cursor:default}button.stop{background:#782d3b;border-color:#a94e5f}button.secondary{background:transparent}
+.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0}input[type=number]{width:80px;padding:7px;background:#0b111b;color:white;border:1px solid var(--border);border-radius:6px}input[type=range]{width:100%;accent-color:var(--blue)}
+.rowctl{display:grid;grid-template-columns:120px 1fr 80px;align-items:center;gap:10px;margin:9px 0;font-size:13px}.note{font-size:13px;color:var(--muted);margin-top:14px}.message{font-size:13px;min-height:20px;color:var(--amber)}[hidden]{display:none!important}details{margin-top:18px}summary{cursor:pointer;color:var(--blue)}
+@media(max-width:900px){.cameras,.below{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:500px){main{padding:12px}header{padding:16px}.rowctl{grid-template-columns:105px 1fr 65px}}
+</style></head><body>
+<header><div><h1>SO-101 / Simulation</h1><small>Một workspace · Bốn quả bóng · Hai camera</small></div><span class="pill" id="mode">Đang kết nối</span></header>
+<main>
+<div class="stats">
+<div class="stat"><small>Trạng thái thực thi</small><b id="status">—</b></div>
+<div class="stat"><small>Kết nối Ventuno Q</small><b id="board">—</b></div>
+<div class="stat"><small>Thời gian mô phỏng</small><b id="time">—</b></div>
+<div class="stat"><small>Kết quả lượt chạy</small><b id="episode">—</b></div>
+</div>
+<section class="cameras">
+<div class="panel cam"><h2>01 / Camera phía trên</h2><img id="overhead" alt="Toàn cảnh robot, bốn quả bóng và hộp"><small id="frames">Đang chờ cặp ảnh...</small></div>
+<div class="panel cam"><h2>02 / Camera cổ tay</h2><img id="wrist" alt="Ảnh camera gắn trên tay robot"><small>Hai ảnh và góc khớp trong mỗi gói được lấy từ cùng một trạng thái.</small></div>
+</section>
+<section class="below">
+<div class="panel"><h2>Góc khớp thực tế · radian</h2><div id="joints"></div><p class="note" id="execution">—</p><p class="message" id="health" role="status"></p><p class="note" id="performance"></p></div>
+<div class="panel"><h2 id="controlTitle">Điều khiển trên laptop</h2>
+<div id="boardNote" hidden><p>Chế độ board: giao diện chỉ quan sát. Gateway đã xác thực mới được gửi lệnh.</p><p class="note">Sau khi mất kết nối, simulation giữ ở HOLD. Gateway cần gửi RESET cho lượt mới hoặc RESUME rõ ràng; lệnh cũ đã bị hủy.</p></div>
+<div id="controls" hidden>
+<p class="note">Bài gắp mẫu dùng vị trí biết sẵn trong simulation. Đây là kiểm tra vật lý gắp–thả, chưa phải AI hay MCU.</p>
+<div class="controls"><label>Seed <input id="seed" type="number" min="0" max="4294967295" step="1" value="0"></label><label><input id="randomize" type="checkbox"> Lệch vị trí ±8 mm</label></div>
+<div class="controls"><button id="reset" class="secondary">Đặt lại</button><button id="reference">Gắp bóng đỏ · bài mẫu</button></div>
+<div class="controls"><button id="abort" class="stop">Dừng / HOLD</button><button id="resume" class="secondary">Tiếp tục điều khiển</button></div>
+<p id="ack" class="message" role="status">Đặt lại trước mỗi lượt gắp mẫu.</p>
+<details><summary>Điều khiển từng khớp</summary><div id="sliders"></div><div class="controls"><label>Thời gian <input id="duration" type="number" min="0.1" max="30" step="0.1" value="3"> s</label><button id="send">Gửi góc khớp</button></div><p class="note">Cả 6 giá trị, kể cả gripper, đều dùng radian. ACK nghĩa là đã xếp hàng; xem số lệnh hoàn tất để biết robot đã đạt đích.</p></details>
+</div>
+</div></section>
+<p class="note">Va chạm ngón kẹp được xấp xỉ để kiểm tra gắp trong MuJoCo, chưa hiệu chuẩn theo robot thật. Kết nối board không tự chứng minh MCU đã duyệt lệnh.</p>
+</main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+let state=null,run=null,seq=0,busy=false,lastFrame=null;
+const fmt=n=>typeof n==='number'?n.toFixed(3):'—';
+function render(s){
+ const changed=run!==s.run_id;state=s;run=s.run_id;seq=changed?s.accepted_sequence+1:Math.max(seq,s.accepted_sequence+1);
+ const local=s.mode==='local';
+ $('mode').textContent=local?'LOCAL / LAPTOP':'BOARD / '+(s.board_link||'').toUpperCase();
+ $('status').textContent=s.status;$('time').textContent=fmt(s.sim_time)+' s';$('episode').textContent=s.episode.status;
+ $('board').textContent=local?'Không sử dụng':s.board_connected?'Đã kết nối':'Đang chờ';
+ $('controls').hidden=!local;$('boardNote').hidden=local;$('controlTitle').textContent=local?'Điều khiển trên laptop':'Theo dõi board';
+ $('health').textContent=[s.fault,s.camera_error,s.frame_stale?'Ảnh chưa sẵn sàng hoặc đã cũ':null,s.logging.error?'Lỗi ghi log: '+s.logging.error:null,s.logging.dropped_records?'Log bị bỏ: '+s.logging.dropped_records:null].filter(Boolean).join(' · ');
+ $('execution').textContent='Nhận #'+s.accepted_sequence+' · Đang/đã chạy #'+s.applied_sequence+' · Hoàn tất #'+s.completed_sequence+' · Hàng đợi '+s.queue_depth+(s.phase?' · '+s.phase:'');
+ $('performance').textContent='Tốc độ thời gian: '+fmt(s.metrics.real_time_factor)+'× · Camera: '+(s.render.actual_pair_fps||0).toFixed(1)+' cặp/s · '+(s.render.renderer||'Đang khởi tạo');
+ $('joints').replaceChildren(...s.joint_names.map((name,i)=>{
+  const row=document.createElement('div');row.className='joint';const label=document.createElement('span');label.textContent=name;
+  const value=document.createElement('b');value.textContent=fmt(s.joint_positions[i]);const track=document.createElement('div');track.className='track';
+  const bar=document.createElement('div');bar.className='bar';bar.style.width=Math.max(0,Math.min(100,(s.joint_positions[i]-s.joint_limits[i][0])/(s.joint_limits[i][1]-s.joint_limits[i][0])*100))+'%';
+  track.append(bar);row.append(label,value,track);return row;
+ }));
+ if(local&&changed){
+  $('sliders').replaceChildren(...s.joint_names.map((name,i)=>{
+   const row=document.createElement('div');row.className='rowctl';const label=document.createElement('label');label.textContent=name;label.htmlFor='n'+i;
+   const slider=document.createElement('input'),number=document.createElement('input');
+   for(const input of [slider,number]){input.min=s.joint_limits[i][0];input.max=s.joint_limits[i][1];input.step='.01';input.value=s.joint_positions[i].toFixed(3)}
+   slider.type='range';number.type='number';number.id='n'+i;slider.setAttribute('aria-label',name);
+   slider.oninput=()=>number.value=slider.value;number.onchange=()=>slider.value=number.value;
+   row.append(label,slider,number);return row;
+  }));
+ }
+ $('reference').disabled=busy||s.hold_latched||s.episode.status!=='READY'||s.queue_depth>0;
+ $('send').disabled=busy||s.hold_latched||s.reference_active;
+ $('resume').disabled=busy||!s.hold_latched;
+ $('reset').disabled=busy;$('abort').disabled=busy;
+}
+async function getState(){
+ try{const response=await fetch('/api/state',{cache:'no-store'});if(!response.ok)throw Error('Không đọc được trạng thái');render(await response.json())}
+ catch(e){$('status').textContent='Mất kết nối';state=null;for(const id of ['reference','send','resume','reset','abort'])$(id).disabled=true}
+}
+async function command(path,body={}){
+ if(!state||state.mode!=='local'||busy)return;
+ busy=true;render(state);
+ try{
+  const context={schema_version:state.schema_version,run_id:state.run_id,session_id:state.session_id};
+  const response=await fetch('/api/'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...body,...context})});
+  const result=await response.json();if(!response.ok)throw Error(result.reason||result.error);
+  $('ack').textContent=path==='reference'?'Đã xếp bài gắp mẫu. Theo dõi kết quả lượt chạy.':path==='reset'?'Đã đặt lại. Sẵn sàng cho lượt mới.':path==='abort'?'Đã dừng và hủy hàng đợi.':path==='resume'?'Đã bỏ HOLD. Dùng Đặt lại để bắt đầu lượt đánh giá mới.':'Đã xếp lệnh #'+result.sequence_id;
+ }catch(e){$('ack').textContent='Không thực hiện: '+e.message}
+ finally{busy=false;await getState()}
+}
+$('reset').onclick=()=>command('reset',{seed:Number($('seed').value),randomize:$('randomize').checked});
+$('reference').onclick=()=>command('reference');$('abort').onclick=()=>command('abort');$('resume').onclick=()=>command('resume');
+$('send').onclick=()=>{const duration=Number($('duration').value);command('action',{type:'ACTION',sequence_id:seq++,joint_targets:Array.from({length:6},(_,i)=>Number($('n'+i).value)),duration,timeout:duration+3})};
+async function refreshCameras(){
+ try{
+  const response=await fetch('/api/observation',{cache:'no-store'});
+  if(response.ok){
+   const packet=await response.json();
+   if(state&&packet.run_id===state.run_id&&packet.frame_id!==lastFrame){
+    const images=await Promise.all(['overhead','wrist'].map(async key=>{const img=new Image();img.src='data:image/jpeg;base64,'+packet.images[key];await img.decode();return [key,img.src]}));
+    if(state&&packet.run_id===state.run_id){for(const [key,src] of images)$(key).src=src;lastFrame=packet.frame_id}
+   }
+   $('frames').textContent='Cặp #'+packet.frame_id+' · t='+fmt(packet.sim_time)+' s · Tuổi ảnh '+Math.round(packet.frame_age_s*1000)+' ms'+(packet.stale?' · ẢNH CŨ':'');
+  }
+ }catch(e){$('frames').textContent='Chưa nhận được ảnh'}
+ setTimeout(refreshCameras,1000/15);
+}
+(async()=>{await getState();refreshCameras();while(true){await new Promise(resolve=>setTimeout(resolve,250));await getState()}})();
+</script></body></html>
