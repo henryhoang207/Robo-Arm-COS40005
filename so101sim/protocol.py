@@ -1,4 +1,4 @@
-"""Network contract and model-independent validation; no MCU trust inferred."""
+"""Action message validation (joint order, radians limits, sequence, timing) for local web control."""
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any

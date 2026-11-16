@@ -1,0 +1,7 @@
+{
+    "allowed_ip":  "172.18.16.1",
+    "laptop_ip":  "10.1.3.59",
+    "wsl_ip":  "172.18.20.92",
+    "board_ip":  "10.1.1.72",
+    "mode":  "windows_portproxy"
+}

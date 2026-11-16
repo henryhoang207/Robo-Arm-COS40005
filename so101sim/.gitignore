@@ -3,8 +3,7 @@ __pycache__/
 .venv/
 *.log
 *.csv
-SO101_TOKEN
 .env
 *.bak
-.board-network.json
-.board-mode.pid
+runs/
+runtime/

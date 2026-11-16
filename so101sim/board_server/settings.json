@@ -1,0 +1,15 @@
+{
+  "camera_fps": 15,
+  "camera_width": 640,
+  "camera_height": 480,
+  "heartbeat_timeout_s": 2.0,
+  "queue_capacity": 8,
+  "queue_horizon_s": 30.0,
+  "position_tolerance_rad": 0.025,
+  "settle_speed_rad_s": 0.15,
+  "settle_time_s": 0.08,
+  "max_target_speed_rad_s": [2.0, 2.0, 2.0, 3.0, 3.0, 4.0],
+  "episode_timeout_s": 60.0,
+  "success_dwell_s": 0.5,
+  "log_state_interval_s": 0.1
+}

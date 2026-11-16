@@ -1,4 +1,4 @@
-# SO-101 Unified Simulation — MuJoCo + Web + VENTUNO Q
+# SO-101 Simulation — MuJoCo + Web (local mode)
 
 **Một mô phỏng / một chương trình chạy chính:** `models/SO101/workspace.xml` + `app.py`.
 
@@ -7,19 +7,20 @@
 - SO-101 follower, **6 actuator**; initial pose đọc từ `ready_pose.json` và áp dụng theo **joint names** (không áp dụng nhầm vào freejoints của bóng).
 - Bàn thao tác, **4 bóng đỏ/xanh lá/xanh dương/vàng** với freejoint, hộp chứa, camera **overhead** và **wrist**; physics MuJoCo.
 - Dashboard web theo dõi hai camera (nếu OpenGL render được), joint feedback, trạng thái và sequence.
-- Một cổng TCP newline-delimited JSON để IQ8 trên VENTUNO Q kết nối; `HELLO`, `PING`, `GET_STATE`, `ACTION`; nhận command 6D radians, trajectory mềm, kiểm tra giới hạn, timeout, heartbeat.
-- Chế độ **local** cho smoke-test trên laptop, chế độ **board** chỉ nhận action từ TCP gateway của VENTUNO. Web là read-only trong board mode.
+- Chỉ còn chế độ **local**: điều khiển 6 khớp từ web (chỉ nhận lệnh từ localhost), command 6D radians, trajectory mềm, kiểm tra giới hạn, sequence và timeout.
 
 > **Quan trọng:** STL trong ZIP là **proxy đơn giản tự tạo** vì bản upload của bạn **không có assets/STL chính thức**. Bộ ZIP có thể nạp được khi cài MuJoCo, nhưng hình dáng/collision là placeholder và **không được dùng để đo chất lượng grasp**. Hãy thay bằng STL thật để khôi phục hình dáng SO-101 như bạn đang dùng trên laptop.
 
-> **Chưa hoàn thành:** Firmware STM32H5F5, Arduino App Lab Bridge/RPC, SmolVLA và IQ8 gateway dùng MCU thật, chính sách watchdog trên MCU, kiểm chứng thực tế. TCP handshake từ IQ8 **không chứng minh** MCU đã kiểm tra lệnh. `board/iq8_gateway_integration.py` cố ý chặn hoạt động cho đến khi kết nối được firmware thật.
+> **Board mode (dựng lại 11/11/2026):** `python app.py --mode board` — SmolVLA ONNX chạy trên VENTUNO Q (prefix CPU, core NPU), điều khiển MuJoCo trên laptop qua một cáp USB-C. Dùng simulator schema v2 trong `board_server/`. Xem [docs/BOARD_MODE_VI.md](docs/BOARD_MODE_VI.md) và [docs/PROTOCOL_VI.md](docs/PROTOCOL_VI.md). Firmware STM32H5F5 là việc của Sprint 2 (`sprint2_reference/`).
+>
+> **Bố cục:** `app.py`, `engine.py`, `protocol.py`, `web/` = local mode. `board_mode.py` + `board_server/` = board mode (cảnh 4 bóng + hộp riêng trong `board_server/models/`, dùng chung 13 STL ở `models/SO101/assets`). `run_smolvla_onnx.py` = test model ngay trên laptop. Bằng chứng nằm ở `C:\RobotArm\docs\evidence\`.
 
 ## 1. Cài đặt trên Ubuntu WSL2 (laptop của bạn)
 
-Giải nén vào ví dụ `C:\RobotArm\SO101_Unified_VentunoQ` trên Windows. Mở Ubuntu WSL:
+Project nằm ở `C:\RobotArm\so101sim` trên Windows. Mở Ubuntu WSL:
 
 ```bash
-cd /mnt/c/RobotArm/SO101_Unified_VentunoQ
+cd /mnt/c/RobotArm/so101sim
 source ~/.venvs/so101sim/bin/activate
 python -m pip install -r requirements.txt
 ```
@@ -115,59 +116,35 @@ Script phát các frame 100–948 ở 30 Hz qua cùng bộ đổi đơn vị và
 
 Tệp cục bộ `data/raw/desk_cleanup_episode_230.npz` chứa mảng `action` (949 × 6) lọc theo `episode_index=230`, sắp theo `frame_index`, cùng giá trị `fps=30`. Nguồn là [Parquet của Project-IRA ở revision dùng để huấn luyện](https://huggingface.co/datasets/Project-IRA/TPSoSe2026_Dataset_Full_Merged_Final_LeRobot_SO101_V1/blob/bf6f568e9ec218fff838fb266e161724ec4f7e2c/data/chunk-000/file-000.parquet). Chạy replay chỉ cần dữ liệu này và MuJoCo.
 
-## 5. Kết nối mạng với VENTUNO Q — giai đoạn link test
+### Test 2 model ONNX (VENTUNO Q) trong local mode
 
-Chọn IP laptop thực sự có thể truy cập từ board; WSL2 NAT có thể yêu cầu port forwarding hoặc mirrored networking. TCP cần hai thiết bị **có đường mạng tới nhau**. **USB-C cắm vào VENTUNO không mặc định có nghĩa là có TCP/IP**; chỉ dùng nếu đã cấu hình USB networking.
-
-Trên laptop (thay thông tin thật):
-
-```bash
-export SO101_TOKEN='GENERATE_YOUR_OWN_32_RANDOM_CHAR_TOKEN'
-python app.py --mode board --allowed-ip 192.168.1.50
-```
-
-`--allowed-ip` là IPv4 của IQ8 Linux; không phải IP laptop. Server mặc định nghe TCP port `5050`; web dashboard `http://localhost:8000`, read-only. Nếu cần web xem trên thiết bị khác trong trusted LAN, thêm `--web-host 0.0.0.0` và cấu hình firewall phù hợp.
-
-Chép `board/connectivity_probe.py` sang IQ8 Linux và chạy:
+`run_smolvla_onnx.py` dùng đúng runner sẽ chạy trên board (`so101arm/python/smolvla_runner.py`, bước ④a–④d của
+`docs/so101_board_mode_pipeline_v1.drawio`), nhưng cả prefix lẫn core chạy CPU trên laptop và chunk đưa thẳng vào sim.
+Vật lý dừng trong lúc model suy luận nên CPU chậm không làm sai vật lý.
 
 ```bash
-python3 connectivity_probe.py --host 192.168.1.20 \
-  --token 'GENERATE_YOUR_OWN_32_RANDOM_CHAR_TOKEN'
+pip install onnxruntime tokenizers          # thêm vào venv WSL (mujoco, numpy, Pillow đã có)
+cd /mnt/c/RobotArm/so101sim
+python run_smolvla_onnx.py                                   # mức 1: 4 bóng + hộp, kiểm tra tích hợp
+python run_smolvla_onnx.py --scene desk-cleanup --match-dataset --steps 900 --viewer   # mức 2: cảnh khớp dữ liệu train, ~30 s
+python run_smolvla_onnx.py --task "pick up the blue ball and place it in the box" --steps 600 --replan 25
 ```
 
-`--host` phải là địa chỉ laptop mà IQ8 truy cập được. Probe kiểm tra handshake, PING, GET_STATE, **KHÔNG điều khiển robot**.
+Mỗi lần chạy tạo `runs/<run_id>/`: `run.jsonl` (mỗi chunk một dòng: latency, số target bị clip, `first_jump_rad`),
+`summary.json`, ảnh hai camera của chunk đầu và `io_chunk000.npz` để chạy lại trên NPU của board:
+`python smolvla_runner.py replay io_chunk000.npz --core-provider qnn` (so sánh MAE CPU vs NPU theo độ).
 
-**Trạng thái sau probe thành công:** network connection IQ8 → laptop thành công. **Chưa phải** kết nối IQ8 ↔ STM32H5F5 hay AI inference.
+- `first_jump_rad` lớn ở mọi chunk thường là do sai chuẩn hóa state/calibration, không phải do policy.
+- Mức 1 không kỳ vọng gắp trúng: model chưa từng thấy cảnh 4 bóng.
+- Chuẩn hóa state hiện dùng tạm mean/std của action (`so101arm/python/smolvla_config.json`, mục `state_norm`).
 
-## 6. Tích hợp STM32H5F5 / Arduino App Lab
+## 5. Các hạn chế về an toàn & validation
 
-Hệ thống đích:
-
-`SmolVLA (IQ8) → Arduino App Lab Bridge/RPC → STM32H5F5 [validate + schedule + watchdog] → IQ8 TCP gateway → app.py/MuJoCo → joint state + images → IQ8`.
-
-Bạn phải triển khai firmware, board-side RPC và camera bridge bên IQ8 theo giao diện thực của bản Arduino App Lab đang dùng. Đừng dùng `board/connectivity_probe.py` làm firmware. Trong folder có `board/iq8_gateway_integration.py` **là integration scaffold chưa phát lệnh**: nó cố ý dừng cho tới khi thực sự đọc được *MCU-approved action*. MuJoCo không thể tự xác nhận lệnh đã đi qua MCU từ mỗi gói JSON.
-
-Về mặt giao thức TCP, gửi từng lệnh 6 khớp (radians), ví dụ:
-
-```json
-{"type":"ACTION","sequence_id":1,"joint_targets":[-0.75,-0.2,0.2,1.4,0,0.8],"duration":2.0,"timeout":4.0}
-```
-
-**Đơn vị**: các góc MJCF radians, **không** phải độ, servo ticks, LeRobot normalized value hoặc (0..100) gripper. Bạn phải làm mapping/calibration trên gateway/MCU trước khi gửi.
-
-### Camera / AI
-
-Browser đọc `GET /api/camera/overhead` và `/api/camera/wrist` (JPEG), `GET /api/state` (JSON). Đây là web endpoints trên laptop, **không phải** RPC tự động tới SmolVLA. IQ8 có thể tải ảnh qua HTTP khi có tuyến mạng; AI preprocessing, timing và đồng bộ timestamp phải được triển khai thêm. Hiện dashboard đã có chức năng xem hai luồng camera qua HTTP polling.
-
-## 7. Các hạn chế về an toàn & validation
-
-- Web/TCP không có TLS. Chỉ chạy trên mạng riêng tin cậy; không port-forward `5050/8000` ra Internet. Đổi token dài khó đoán.
+- Web không có TLS. Mặc định chỉ nghe trên `127.0.0.1`; không port-forward `8000` ra Internet.
 - Demo proxy mesh không dùng để chứng minh tính khả thi gắp bóng, force/contact, reachability hay real servo safety.
 - `ACK` nghĩa là **đã cho vào hàng đợi**, không phải đạt target. Theo dõi `STATE.status`, `applied_sequence` và `joint_positions`.
-- Server-side joint bounds/timeout chỉ là tầng bổ trợ; **không thay firmware validation của STM32**.
-- Mất kết nối board thì simulation dừng tick; **đây không phải emergency stop cho robot vật lý**.
 - Camera XML trong gói dựng lại theo góc top-down đã thống nhất; vì thiếu XML cuối trên laptop nên góc có thể không trùng 100% ảnh cũ. Thay STL thật rồi kiểm tra layout trước khi đo benchmark.
 
-## 8. Tại sao không còn nhiều môi trường?
+## 6. Tại sao không còn nhiều môi trường?
 
 Không dùng `scene.xml`, `preview_ready.py`, `server.py` cũ, không chạy `upgrade_workspace.py` hay `tune_cameras.py` nữa. **Chỉ chạy `app.py`, chỉ nạp `workspace.xml`.** Các công cụ trong `scripts/` không tạo một scene khác.

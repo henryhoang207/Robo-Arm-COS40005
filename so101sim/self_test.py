@@ -38,11 +38,11 @@ for name in required_cameras:
     assert mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_CAMERA,name)>=0
 print('PASS: MJCF compiled; 6 actuators, 4 dynamic balls, 2 working MuJoCo camera definitions')
 from engine import Simulation
-sim=Simulation('local')
+sim=Simulation()
 print('READY POSE radians:',sim.snapshot()['joint_positions'])
 siteid=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_SITE,'gripperframe')
 if siteid>=0:
     print('GRIPPERFRAME xyz [m]:', sim.data.site_xpos[siteid].tolist())
     if sim.data.site_xpos[siteid][2] < 0.03:
         print('WARNING: gripper may collide with table at ready pose')
-print('NOTE: compile does NOT prove real-world grasp success, board integration, or safety')
+print('NOTE: compile does NOT prove real-world grasp success or safety')

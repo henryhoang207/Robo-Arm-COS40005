@@ -185,4 +185,4 @@ def create_simulation(*, match_dataset=False):
             material.rgba[:] = [0.13, 0.13, 0.15, 1]
 
     pose = dict(zip(JOINT_NAMES, ZERO_RAD + RAD_PER_UNIT * RECORDED_START))
-    return Simulation("local", model=spec.compile(), ready_pose=pose)
+    return Simulation(model=spec.compile(), ready_pose=pose)
