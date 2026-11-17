@@ -71,7 +71,8 @@ def replay(sim, actions, viewer):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--match-dataset", action="store_true", help="Use the visually fitted scene")
+    # Ignored: the dataset-matched scene is always used (decision 0009).
+    parser.add_argument("--match-dataset", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--viewer", action="store_true", help="Show the replay in the MuJoCo window")
     args = parser.parse_args()
     if not EPISODE_FILE.is_file():
@@ -82,7 +83,7 @@ def main():
             parser.error("Expected episode 230 with 949 finite six-joint actions at 30 Hz")
 
     print(f"Replaying episode 230 from frame {START_FRAME} at {FPS} Hz.", flush=True)
-    sim = desk_cleanup.create_simulation(match_dataset=args.match_dataset)
+    sim = desk_cleanup.create_simulation(match_dataset=True)
     viewer_context = nullcontext()
     if args.viewer:
         from mujoco.viewer import launch_passive

@@ -64,6 +64,8 @@ python self_test.py
 
 ## 4. Chạy **một môi trường duy nhất** và web
 
+> **Nhánh local `local/episode-230-default` (quyết định 0009):** chỉ còn một cảnh: Desk Cleanup episode 230 bản khớp dữ liệu (1 bóng, 1 bát, tư thế đầu = frame 100, camera ước lượng từ video). Cảnh 4 bóng và bản "calibrated" đã ngừng dùng trong `app.py`, `run_smolvla.py`, `run_smolvla_onnx.py`, `replay_desk_cleanup.py`; cờ `--match-dataset`/`--desk-cleanup` cũ vẫn được chấp nhận nhưng không có tác dụng. Board mode không đổi.
+
 ```bash
 python app.py --mode local
 ```

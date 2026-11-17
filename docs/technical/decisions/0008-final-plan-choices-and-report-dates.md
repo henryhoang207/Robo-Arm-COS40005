@@ -1,5 +1,7 @@
 # 0008 — Final Project Plan choices: simulator, command form and report dates
 
+> Partially superseded on 17 November 2026 by [decision 0009](0009-task-scope-ball-into-bowl.md): the task is one ball into one bowl (dataset episode 230), not cube-to-box. This affects the task wording in item 1 and the fixed request text in item 3. Item 2's dataset name is an open item in 0009. The original text below is kept as decision history.
+
 Date: 2026-10-25 (Asia/Bangkok)
 Status: Approved by Hoan in chat on 2026-10-25.
 Decision owner: Hoan (PM).
