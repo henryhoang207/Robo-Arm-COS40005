@@ -9,7 +9,6 @@ import numpy as np
 import torch
 
 import desk_cleanup
-from engine import Simulation
 from joint_targets import FPS, JointTargets
 
 
@@ -71,15 +70,12 @@ def main():
     parser.add_argument("--device", choices=("auto", "cuda", "cpu"), default="auto")
     parser.add_argument("--steps", type=int, default=300, help="Number of policy targets to apply at 30 Hz")
     parser.add_argument("--viewer", action="store_true", help="Show the MuJoCo window during the rollout")
-    parser.add_argument("--desk-cleanup", action=argparse.BooleanOptionalAction, default=None,
-                        help="Use the episode-230 calibration (auto-detected for the matching checkpoint and task)")
-    parser.add_argument("--match-dataset", action="store_true",
-                        help="Use the Desk Cleanup scene with camera and visual details fitted to the recording")
+    # Ignored: kept so older commands still run. The dataset-matched episode-230 scene is always used.
+    parser.add_argument("--desk-cleanup", action="store_true", help=argparse.SUPPRESS)
+    parser.add_argument("--match-dataset", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
     if args.steps < 1 or not args.task.strip():
         parser.error("--steps must be positive and --task must contain text")
-    if args.match_dataset and args.desk_cleanup is False:
-        parser.error("--match-dataset requires the Desk Cleanup scene")
     checkpoint = args.checkpoint.resolve()
     if (checkpoint / "pretrained_model").is_dir():
         checkpoint /= "pretrained_model"
@@ -106,19 +102,13 @@ def main():
         config, str(checkpoint), preprocessor_overrides={"device_processor": {"device": device}}
     )
 
-    use_desk_cleanup = True if args.match_dataset else args.desk_cleanup
-    if use_desk_cleanup is None:
-        use_desk_cleanup = desk_cleanup.matches_checkpoint_task(checkpoint, args.task)
-    if use_desk_cleanup:
-        appearance = "dataset-matched" if args.match_dataset else "calibrated"
-        print(f"Using the {appearance} Desk Cleanup scene (episode 230).", flush=True)
-        sim = desk_cleanup.create_simulation(match_dataset=args.match_dataset)
-        zero_rad, rad_per_unit = desk_cleanup.ZERO_RAD, desk_cleanup.RAD_PER_UNIT
-    else:
-        sim = Simulation()
-        closed, opened = sim.limits[-1]
-        zero_rad = np.r_[np.zeros(5), closed]
-        rad_per_unit = np.r_[np.full(5, np.pi / 180), (opened - closed) / 100]
+    # Decision 0009: only the dataset-matched episode-230 scene is used; the other scenes are retired.
+    if not desk_cleanup.matches_checkpoint_task(checkpoint, args.task):
+        print("WARNING: checkpoint dataset/revision or --task does not match episode 230 "
+              f"({desk_cleanup.DATASET}@{desk_cleanup.DATASET_REVISION[:7]}, {desk_cleanup.TASK!r}).", flush=True)
+    print("Using the dataset-matched Desk Cleanup scene (episode 230).", flush=True)
+    sim = desk_cleanup.create_simulation(match_dataset=True)
+    zero_rad, rad_per_unit = desk_cleanup.ZERO_RAD, desk_cleanup.RAD_PER_UNIT
     viewer_context = nullcontext()
     if args.viewer:
         from mujoco.viewer import launch_passive

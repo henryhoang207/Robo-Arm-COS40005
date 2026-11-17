@@ -1,5 +1,7 @@
 # 0003 — Bounded research scope, platform-specific claims and minimum console (SO101-23 / SO101-98)
 
+> Partially superseded on 17 November 2026 by [decision 0009](0009-task-scope-ball-into-bowl.md): the single task is now one ball placed into one bowl (dataset episode 230), not one cube into one box. The rest of this decision stands. The original text below is kept as decision history.
+
 > Partially superseded on 21 October 2026 by decision 0004: printed-arm work is removed from Project A, and Chung is the sole Project A IoT member. Earlier approval text below is retained as decision history.
 
 > Partially superseded on 21 October 2026 by decision 0005 (recorded 22 October 2026): the experiment console adds a bounded chat interface for typed free-text requests. Speech commands remain out of the core, and the retired F06 parser targets are not revived.

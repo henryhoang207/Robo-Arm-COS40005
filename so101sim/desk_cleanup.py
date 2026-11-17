@@ -20,6 +20,11 @@ ZERO_RAD = np.r_[np.deg2rad([0, 5, -2, 0, 6.037]), -0.17]
 RAD_PER_UNIT = np.r_[np.full(5, np.pi / 180), 0.0095]
 # The folded home pose intersects the MuJoCo shoulder meshes. Start at frame 100,
 # with the gripper already clear and the ball still in its recorded position.
+# Dataset-matched look, estimated from episode-230 video frames on 2026-11-17 (UNVERIFIED, see decision 0009).
+# Colours are scaled so the rendered median matches the real median: desk RGB 212,209,190; bowl RGB 52,77,67.
+BALL_RADIUS_MATCHED = 0.0326  # visual radius only; contact sphere stays 16 mm (see create_simulation)
+TABLE_COLOR_MATCHED = [0.872, 0.874, 0.860, 1]
+BOWL_COLOR_MATCHED = [0.274, 0.421, 0.395, 1]
 RECORDED_START = np.array([-3.69231, -103.47253, 79.86813, 81.89011, -90.32967, 1.81087])
 TABLE_MARKERS = (
     (-0.574, 0.019), (-0.496, 0.086), (-0.409, 0.139), (-0.234, 0.351),
@@ -137,6 +142,14 @@ def create_simulation(*, match_dataset=False):
     ball.rgba[:] = [0.06, 0.10, 0.34, 1]
     if match_dataset:
         _set_ball_appearance(spec, ball)
+        # Decision 0009 calibration log (2026-11-17), "bigger look, same grip": the cameras see a ball of the
+        # radius estimated from the video, while contact physics keeps the 16 mm sphere the recorded grasp needs.
+        # A rigid 32.6 mm sphere does not fit between the jaws (the real ball is a soft bean bag). The visual
+        # sphere is concentric, so its lower part sits below the table surface and it can overlap the jaws.
+        spec.body("blue_ball").add_geom(
+            name="blue_ball_visual", type=mujoco.mjtGeom.mjGEOM_SPHERE, size=[BALL_RADIUS_MATCHED, 0, 0],
+            material=ball.material, rgba=[1, 1, 1, 1], contype=0, conaffinity=0, mass=0, group=0)
+        ball.group = 3  # contact sphere: hidden from cameras and the default viewer
     ball.condim = 6
     ball.friction[:] = [1.6, 0.04, 0.01]
     ball.solref[:] = [0.009, 1]
@@ -148,7 +161,9 @@ def create_simulation(*, match_dataset=False):
     bowl.pos[:] = [-0.269, -0.046, 0]
     for geom in list(bowl.geoms):
         spec.delete(geom)
-    bowl_color = [0.10, 0.23, 0.23, 1] if match_dataset else [0.12, 0.27, 0.28, 1]
+    bowl_color = BOWL_COLOR_MATCHED if match_dataset else [0.12, 0.27, 0.28, 1]
+    if match_dataset:
+        spec.geom("table_top").rgba[:] = TABLE_COLOR_MATCHED
     rim_radius = 0.085 if match_dataset else 0.073
     side_width = 0.0175 if match_dataset else 0.015
     bowl.add_geom(type=mujoco.mjtGeom.mjGEOM_CYLINDER, name="bowl_floor",

@@ -5,8 +5,7 @@ Uses so101arm/python/smolvla_runner.py, the same code that board mode v1 will ru
 stages run on the laptop CPU and each chunk goes straight into the simulator instead of over USB. Physics is
 paused while the model infers, so slow CPU inference does not change the physics.
 
-    python run_smolvla_onnx.py                              # 4 balls + box, level 1 (integration)
-    python run_smolvla_onnx.py --scene desk-cleanup --match-dataset --steps 900   # level 2, ~30 s like episode 230
+    python run_smolvla_onnx.py --steps 900                  # episode-230 ball + bowl scene (only scene, decision 0009)
     python run_smolvla_onnx.py --viewer --steps 600 --replan 25
 
 Every run writes runs/<run_id>/: run.jsonl (one line per chunk), summary.json, the first frames as PNG and
@@ -67,7 +66,8 @@ def balls_in_container(sim, scene):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--scene", choices=tuple(DEFAULT_TASKS), default="local")
+    # Decision 0009: only the dataset-matched episode-230 scene; the four-ball "local" scene is retired.
+    parser.add_argument("--scene", choices=("desk-cleanup",), default="desk-cleanup", help=argparse.SUPPRESS)
     parser.add_argument("--task", help="Natural-language command (default depends on --scene)")
     parser.add_argument("--steps", type=int, default=300, help="Joint targets to execute at 30 Hz (300 = 10 s)")
     parser.add_argument("--replan", type=int, default=25, help="Targets executed from each 50-step chunk (K)")
@@ -80,14 +80,12 @@ def main():
     parser.add_argument("--save-io", type=int, default=1, help="Save the first N chunks as npz for the board replay")
     parser.add_argument("--settle", type=float, default=0.4, help="Seconds of physics before the first observation")
     parser.add_argument("--viewer", action="store_true", help="Show the MuJoCo window")
-    parser.add_argument("--match-dataset", action="store_true",
-                        help="desk-cleanup only: cameras and look fitted to the Project-IRA recording")
+    parser.add_argument("--match-dataset", action="store_true", help=argparse.SUPPRESS)  # ignored: always on
     args = parser.parse_args()
+    args.match_dataset = True
     task = (args.task or DEFAULT_TASKS[args.scene]).strip()
     if args.steps < 1 or not 1 <= args.replan <= 50 or not task:
         parser.error("--steps must be positive, --replan must be 1..50 and the task must contain text")
-    if args.match_dataset and args.scene != "desk-cleanup":
-        parser.error("--match-dataset needs --scene desk-cleanup")
 
     run_id = datetime.now().strftime("%Y%m%d-%H%M%S") + f"-{args.scene}"
     run_dir = ROOT / "runs" / run_id

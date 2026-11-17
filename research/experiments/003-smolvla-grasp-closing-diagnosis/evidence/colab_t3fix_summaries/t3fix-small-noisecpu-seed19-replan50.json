@@ -1,0 +1,21 @@
+{
+  "look": "small",
+  "noise": "cpu",
+  "seed": 19,
+  "replan_every": 50,
+  "steps": 900,
+  "minutes": 0.35,
+  "closest_cm": 9.85,
+  "closest_step": 200,
+  "closest_offset_cm_xyz": [
+    7.12,
+    5.14,
+    4.47
+  ],
+  "min_grip_cmd_within_5cm": null,
+  "max_pads": 0,
+  "steps_both_pads": 0,
+  "peak_lift_cm": -0.09,
+  "in_bowl_end": false,
+  "limited_targets": 0
+}

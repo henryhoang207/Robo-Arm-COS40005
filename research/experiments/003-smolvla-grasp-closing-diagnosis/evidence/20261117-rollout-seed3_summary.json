@@ -1,0 +1,17 @@
+{
+  "seed": 3,
+  "replan_every": 50,
+  "steps": 900,
+  "minutes": 6.1,
+  "min_gripper_to_ball_cm": 4.2,
+  "max_pads_touching": 0,
+  "steps_both_pads": 0,
+  "peak_lift_cm": -0.09,
+  "ball_end_xyz": [
+    -0.3112,
+    0.2228,
+    0.0156
+  ],
+  "ball_on_bowl_floor_at_end": false,
+  "limited_targets": 0
+}

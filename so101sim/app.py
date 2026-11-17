@@ -84,12 +84,18 @@ def main():
     parser.add_argument('--web-host',default='127.0.0.1',help='Use 0.0.0.0 only on trusted LAN')
     parser.add_argument('--web-port',type=int,default=8000)
     parser.add_argument('--no-viewer',action='store_true',help='Headless simulation, web still works if OpenGL renderer does')
+    # Ignored: kept so older commands still start. The dataset-matched scene is always used.
+    parser.add_argument('--match-dataset',action='store_true',help=argparse.SUPPRESS)
     args=parser.parse_args()
-    sim=Simulation()
+    # Decision 0009: the only local scene is the episode-230 Desk Cleanup scene with cameras and
+    # look fitted to the recording. The four-ball and "calibrated" variants are retired here.
+    import desk_cleanup
+    sim=desk_cleanup.create_simulation(match_dataset=True)
+    scene_text='episode-230 Desk Cleanup (dataset-matched): 1 ball, 1 bowl, start pose = dataset frame 100'
     web=ThreadingHTTPServer((args.web_host,args.web_port),make_web_handler(sim))
     threading.Thread(target=web.serve_forever,daemon=True,name='web').start()
     print(f'WEB: http://127.0.0.1:{args.web_port}  MODE: local',flush=True)
-    print('SO-101: 6 joints, 4 balls, tray, overhead and wrist cameras',flush=True)
+    print(f'SO-101: 6 joints, overhead and wrist cameras; scene = {scene_text}',flush=True)
     print('NOTE: included STL are PROXY meshes; import OFFICIAL meshes before evaluating grasp physics.',flush=True)
     viewer=None
     ctx=None
