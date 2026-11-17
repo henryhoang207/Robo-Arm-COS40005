@@ -9,7 +9,7 @@ Simulation only: nothing here commands hardware.
 MuJoCo cannot open files under paths with non-ASCII characters, such as a Vietnamese "Documents" folder name (FAILURE_LOG C1). The analysis scripts in `scripts/` assume **`C:\RobotArm`**.
 
 ```powershell
-git clone https://github.com/henryhoang207/Robo-Arm_sedoitensau.git C:\RobotArm
+git clone https://github.com/henryhoang207/Robo-Arm-COS40005.git C:\RobotArm
 cd C:\RobotArm
 git switch sim/episode-230-ball-bowl
 ```
