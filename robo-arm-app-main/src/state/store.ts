@@ -35,6 +35,8 @@ export interface Actions {
     templateId: string,
     params: Record<string, string>,
     profileId?: string,
+    /** Free-prompt protocol (LIBERO demo): send this text instead of the template's. */
+    textOverride?: string,
   ) => string | null;
   requestStop: () => void;
   sendReady: () => void;
@@ -333,10 +335,10 @@ export const useStore = create<StoreState>()((set, get) => {
 
     tick: (now = Date.now()) => set({ now }),
 
-    sendCommand: (templateId, params, profileId) => {
+    sendCommand: (templateId, params, profileId, textOverride) => {
       const template = config.templates.find((tpl) => tpl.id === templateId);
-      if (!template) return null;
-      const text = template.build(params);
+      if (!template && textOverride === undefined) return null;
+      const text = textOverride ?? template!.build(params);
       const id = newId('cmd');
       track('command', text, {
         type: 'command',

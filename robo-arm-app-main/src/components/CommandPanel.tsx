@@ -1,6 +1,7 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { config, type ObjectId, type TemplateId } from '../config';
 import { useProfiles } from '../config/profiles';
+import { previewGoal, useProtocol, type GoalPreview } from '../config/protocol';
 import type { DerivedStatus } from '../state/deriveStatus';
 import { useStore } from '../state/store';
 import type { CommandRecord } from '../state/types';
@@ -23,19 +24,45 @@ export function CommandPanel({ derived }: { derived: DerivedStatus }) {
 
   const template = config.templates.find((x) => x.id === templateId) ?? config.templates[0]!;
   const params = { object };
-  const preview = template.build(params);
+  // LIBERO demo (free-text protocol): a prompt box replaces template + object.
+  const protocol = useProtocol();
+  const free = protocol?.free_text === true;
+  const [prompt, setPrompt] = useState<string | null>(null);
+  const promptText = prompt ?? protocol?.ui_text ?? '';
+  // The preview is kept with the text it answers, so a stale answer is never shown.
+  const [checked, setChecked] = useState<{ text: string; goal: GoalPreview | null } | null>(null);
+  const goal = checked && checked.text === promptText ? checked.goal : null;
+  useEffect(() => {
+    if (!free || !promptText.trim()) return;
+    const ctrl = new AbortController();
+    const timer = window.setTimeout(() => {
+      void previewGoal(promptText, ctrl.signal).then(
+        (g) => !ctrl.signal.aborted && setChecked({ text: promptText, goal: g }),
+      );
+    }, 300);
+    return () => {
+      ctrl.abort();
+      window.clearTimeout(timer);
+    };
+  }, [free, promptText]);
+  const preview = free ? promptText : template.build(params);
   const reason = derived.sendBlockReason
     ? fmt(t.command.blocked[derived.sendBlockReason], { task: derived.task.id ?? '' })
     : !profileId
       ? t.command.needProfile
       : null;
-  const canSend = derived.canSend && !!chosen?.enabled;
+  const promptOk =
+    !free ||
+    (promptText.trim().length > 0 && promptText.length <= (protocol?.max_text_chars ?? 300));
+  const canSend = derived.canSend && !!chosen?.enabled && promptOk;
   const last = commands.findLast((c) => c.kind === 'command');
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!canSend) return;
-    sendCommand(template.id, params, profileId);
+    if (free && protocol)
+      sendCommand(protocol.template_id, { object: protocol.object }, profileId, promptText);
+    else sendCommand(template.id, params, profileId);
   };
 
   return (
@@ -46,34 +73,67 @@ export function CommandPanel({ derived }: { derived: DerivedStatus }) {
         </h2>
       </div>
       <form className="rb-card__body app-stack-4" onSubmit={onSubmit}>
-        <label className="rb-field">
-          <span className="rb-field__label">{t.command.template}</span>
-          <select
-            className="rb-select"
-            value={templateId}
-            onChange={(e) => setTemplateId(e.target.value as TemplateId)}
-          >
-            {config.templates.map((x) => (
-              <option key={x.id} value={x.id}>
-                {t.command.templates[x.id]}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="rb-field">
-          <span className="rb-field__label">{t.command.object}</span>
-          <select
-            className="rb-select"
-            value={object}
-            onChange={(e) => setObject(e.target.value as ObjectId)}
-          >
-            {config.objects.map((o) => (
-              <option key={o.id} value={o.id}>
-                {t.command.objects[o.id]}
-              </option>
-            ))}
-          </select>
-        </label>
+        {free && protocol ? (
+          <div className="rb-field">
+            <label className="rb-field__label" htmlFor="cmd-prompt">
+              {t.command.prompt}
+            </label>
+            <input
+              id="cmd-prompt"
+              className="rb-select app-prompt"
+              type="text"
+              list="cmd-prompt-suggestions"
+              maxLength={protocol.max_text_chars}
+              value={promptText}
+              onChange={(e) => setPrompt(e.target.value)}
+              data-testid="cmd-prompt"
+            />
+            <datalist id="cmd-prompt-suggestions">
+              {protocol.suggestions.map((x) => (
+                <option key={x} value={x} />
+              ))}
+            </datalist>
+            <p className="rb-help app-m0" data-testid="cmd-goal">
+              <Icon name="info" />
+              {goal === null
+                ? t.command.promptHelp
+                : goal.scored
+                  ? fmt(t.command.goalChecking, { label: goal.label ?? '' })
+                  : fmt(t.command.goalNotScored, { reason: goal.reason ?? '' })}
+            </p>
+          </div>
+        ) : (
+          <>
+            <label className="rb-field">
+              <span className="rb-field__label">{t.command.template}</span>
+              <select
+                className="rb-select"
+                value={templateId}
+                onChange={(e) => setTemplateId(e.target.value as TemplateId)}
+              >
+                {config.templates.map((x) => (
+                  <option key={x.id} value={x.id}>
+                    {t.command.templates[x.id]}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="rb-field">
+              <span className="rb-field__label">{t.command.object}</span>
+              <select
+                className="rb-select"
+                value={object}
+                onChange={(e) => setObject(e.target.value as ObjectId)}
+              >
+                {config.objects.map((o) => (
+                  <option key={o.id} value={o.id}>
+                    {t.command.objects[o.id]}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </>
+        )}
         <label className="rb-field">
           <span className="rb-field__label">{t.command.profile}</span>
           <select
