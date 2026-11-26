@@ -9,6 +9,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
 
+# Imported here, at bridge start, not lazily: a cold `import av` took 1.6 s on 26 Nov and holds
+# Python's lock. Inside the first episode that stalled every HTTP poll long enough for the web
+# backend to call the bridge offline.
+import av
+import cv2
 import numpy as np
 
 from .board import BoardClient, BoardError
@@ -39,8 +44,6 @@ def upright(img: np.ndarray) -> np.ndarray:
 
 
 def jpeg_b64(rgb: np.ndarray, quality: int = 80) -> str:
-    import cv2
-
     ok, buf = cv2.imencode(".jpg", cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR), [cv2.IMWRITE_JPEG_QUALITY, quality])
     if not ok:
         raise RuntimeError("JPEG encoding failed")
@@ -61,8 +64,6 @@ class VideoWriter:
         if not self.ok:
             return
         try:
-            import av
-
             frame = np.concatenate([left, right], axis=1)
             if self._container is None:
                 self.path.parent.mkdir(parents=True, exist_ok=True)

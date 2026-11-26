@@ -415,6 +415,31 @@ def test_state_and_camera_endpoints_for_polling_clients(tmp_path, server):
         assert client.get("/api/camera/overhead").status_code == 404
 
 
+def test_idle_camera_shows_the_prepared_scene_not_the_last_run(tmp_path, server):
+    import cv2
+
+    cache = SceneCache(100, factory=lambda s, t, m: FakeScene(s, t, m, succeed_at=7, reset_delay=0))
+    cfg = BridgeConfig(max_steps=100, video_dir=tmp_path, realtime=False, preload=(("libero_spatial", 0),))
+    with TestClient(create_app(FakeBoard(server), SCENES, cache, cfg)) as client:
+        deadline = time.time() + 5
+        while not cache.is_prepared("libero_spatial", 0, 1000) and time.time() < deadline:
+            time.sleep(0.05)
+
+        def shade() -> float:  # FakeScene paints step t as grey level t
+            r = client.get("/api/camera/agentview")
+            assert r.status_code == 200 and r.headers["content-type"] == "image/jpeg"
+            return float(cv2.imdecode(np.frombuffer(r.content, np.uint8), cv2.IMREAD_GRAYSCALE)[8, 8])
+
+        assert shade() < 3  # the starting view (step 0) before any run
+        ep = client.post("/api/episodes", json={"suite": "libero_spatial", "task_id": 0}).json()["episode_id"]
+        assert collect(client, ep)[-1]["steps"] == 7
+        deadline = time.time() + 5
+        while not cache.is_prepared("libero_spatial", 0, 1000) and time.time() < deadline:
+            time.sleep(0.05)
+        assert shade() < 3  # re-prepared: the starting view again, not the final step-7 frame
+        assert client.get("/api/camera/wrist").status_code == 200
+
+
 def test_board_error_is_in_the_episode_summary(tmp_path):
     s = FakeBoardServer("error")
     try:
@@ -433,3 +458,38 @@ def test_unknown_episode(tmp_path, server):
         assert client.get("/api/episodes/ep_missing").status_code == 404
         assert client.post("/api/episodes/ep_missing/stop").status_code == 404
         assert client.get("/api/episodes/ep_missing/video").status_code == 404
+
+
+def test_board_checks_never_pile_up(tmp_path, server):
+    """Many stale polls at once (the web backend retries while the bridge is busy) start one
+    board check, and /api/state does not wait for it."""
+    import asyncio
+
+    from demo_bridge.app import BridgeState
+
+    calls = []
+
+    class SlowBoard(FakeBoard):
+        def status(self, timeout_s: float = 2.0):
+            calls.append(1)
+            time.sleep(0.3)
+            return dict(STATUS)
+
+    st = BridgeState(board=SlowBoard(server), scenes=SCENES, cache=SceneCache(100), config=BridgeConfig())
+
+    async def burst():
+        await asyncio.gather(*(st.refresh_board() for _ in range(20)))
+        for _ in range(20):
+            st.kick_refresh()
+        await st.refresh_board()
+
+    asyncio.run(burst())
+    assert len(calls) == 2  # one for the gathered burst, one for the kicks + final await
+
+    client, app = make_client(tmp_path, server)
+    with client:
+        st2 = app.state.bridge
+        st2.board_checked_at = time.monotonic() - 100  # stale
+        t0 = time.monotonic()
+        assert client.get("/api/state").json()["board"]["reachable"] is True
+        assert time.monotonic() - t0 < 0.25  # answered from the cache, check runs behind it

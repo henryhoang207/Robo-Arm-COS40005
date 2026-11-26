@@ -191,7 +191,7 @@ export const vi = {
     goalChecking: 'Sẽ kiểm tra: {label}',
     goalNotScored: 'Không chấm điểm: {reason}',
     liberoScene:
-      'Cảnh LIBERO Goal · tay robot Franka Panda. Mô hình SO-101 và dữ liệu khớp không áp dụng ở đây.',
+      'Cảnh LIBERO Goal · tay robot Franka Panda, do X-VLA chạy trên NPU của board điều khiển.',
     send: 'Gửi lệnh',
     blocked: {
       estop: 'Nút dừng khẩn cấp đang được nhấn. Nhả nút rồi bấm Sẵn sàng.',
