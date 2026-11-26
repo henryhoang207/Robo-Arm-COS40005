@@ -5,6 +5,8 @@ import { useT } from '../strings';
 import { CameraTile } from '../components/CameraTile';
 import { CommandPanel } from '../components/CommandPanel';
 import { JointTable } from '../components/JointTable';
+import { PandaCharts } from '../components/PandaCharts';
+import { PandaJointTable } from '../components/PandaJointTable';
 import { RobotViewer3D } from '../components/RobotViewer3D';
 import { TaskHistory } from '../components/TaskHistory';
 import { TrajectoryCharts } from '../components/TrajectoryCharts';
@@ -32,11 +34,12 @@ function useTabletLayout() {
 export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; noUrdf: boolean }) {
   const large = useStore((s) => s.largeSlot);
   const lang = useStore((s) => s.lang);
-  // LIBERO demo: no SO-101 arm, so the first camera takes the 3D model's place.
+  // LIBERO demo: same layout as the SO-101 console. The arm there is a Franka Panda, so the
+  // 3D card says the SO-101 model does not apply; the joint table and charts stay empty.
   const libero = useLiberoMode();
   const t = useT();
-  const bigCamera =
-    config.cameras.find((c) => c.id === large) ?? (libero ? config.cameras[0] : undefined);
+  const bigCamera = config.cameras.find((c) => c.id === large);
+  const viewerNa = libero ? t.viewer.liberoNotApplicable : undefined;
   const tablet = useTabletLayout();
   const liberoNote = (
     <section className="rb-card" data-testid="libero-note">
@@ -46,6 +49,13 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
     </section>
   );
   const [tabletTab, setTabletTab] = useState<TabletTab>('control');
+  // LIBERO: the Franka Panda's own table and charts; SO-101 otherwise.
+  const jointTable = libero ? (
+    <PandaJointTable derived={derived} />
+  ) : (
+    <JointTable derived={derived} />
+  );
+  const charts = libero ? <PandaCharts /> : <TrajectoryCharts />;
 
   const visual = (
     <section
@@ -56,11 +66,11 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
         {bigCamera ? (
           <CameraTile camera={bigCamera} stale={derived.stale} large />
         ) : (
-          <RobotViewer3D forcePlaceholder={noUrdf} />
+          <RobotViewer3D forcePlaceholder={noUrdf} notApplicable={viewerNa} />
         )}
       </div>
       <div className="rb-cams rb-tablet-cams">
-        {bigCamera && !libero && <RobotViewer3D compact forcePlaceholder={noUrdf} />}
+        {bigCamera && <RobotViewer3D compact forcePlaceholder={noUrdf} notApplicable={viewerNa} />}
         {config.cameras
           .filter((c) => c.id !== bigCamera?.id)
           .map((c) => (
@@ -81,10 +91,12 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
           {bigCamera ? (
             <CameraTile camera={bigCamera} stale={derived.stale} large />
           ) : (
-            <RobotViewer3D forcePlaceholder={noUrdf} />
+            <RobotViewer3D forcePlaceholder={noUrdf} notApplicable={viewerNa} />
           )}
           <div className="rb-cams">
-            {bigCamera && !libero && <RobotViewer3D compact forcePlaceholder={noUrdf} />}
+            {bigCamera && (
+              <RobotViewer3D compact forcePlaceholder={noUrdf} notApplicable={viewerNa} />
+            )}
             {config.cameras
               .filter((c) => c.id !== bigCamera?.id)
               .map((c) => (
@@ -93,20 +105,15 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
           </div>
         </div>
         <div className="rb-col rb-col--right">
-          {libero ? (
-            liberoNote
-          ) : (
-            <>
-              <JointTable derived={derived} />
-              <TrajectoryCharts />
-            </>
-          )}
+          {libero && liberoNote}
+          {jointTable}
+          {charts}
         </div>
       </div>
     );
   }
 
-  const allTabs: { id: TabletTab; label: string }[] =
+  const tabs: { id: TabletTab; label: string }[] =
     lang === 'vi'
       ? [
           { id: 'control', label: 'Điều khiển' },
@@ -118,7 +125,6 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
           { id: 'joints', label: 'Joint status' },
           { id: 'charts', label: 'Charts' },
         ];
-  const tabs = libero ? allTabs.filter((tab) => tab.id === 'control') : allTabs;
 
   return (
     <div className="rb-tablet-layout">
@@ -160,8 +166,8 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
               {libero && liberoNote}
             </div>
           )}
-          {tabletTab === 'joints' && <JointTable derived={derived} />}
-          {tabletTab === 'charts' && <TrajectoryCharts />}
+          {tabletTab === 'joints' && jointTable}
+          {tabletTab === 'charts' && charts}
         </div>
       </section>
     </div>

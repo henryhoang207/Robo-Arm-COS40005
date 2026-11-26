@@ -16,8 +16,10 @@ so it is both the simulator and the AI path here:
 
 Mapping choices:
 - The scene is the protocol's `object`, e.g. "libero_goal/8".
-- There are no SO-101 joints. `joint_positions` is empty and the runner sends no joint
-  telemetry, rather than showing Panda joints under SO-101 names.
+- There are no SO-101 joints. `joint_positions` is empty and the runner sends no SO-101
+  `telemetry`. The Panda's 7 measured joints, gripper (open/closed, from the action) and
+  end-effector position from this run's latest frame go in `SimState.arm` and reach the web
+  as `arm_state`, never under SO-101 joint names.
 - STOP counts as held only once the bridge reports the episode ended with `stopped`
   (never on the 202), or at once if no episode was started yet.
 - Bridge results: success -> success; failure (step cap) -> timeout; unscored -> failure
@@ -30,7 +32,16 @@ from typing import Any
 
 import httpx
 
-from .ports import BoardError, Evaluation, ResetResult, SimBadPayload, SimError, SimRejected, SimState
+from .ports import (
+    ArmSample,
+    BoardError,
+    Evaluation,
+    ResetResult,
+    SimBadPayload,
+    SimError,
+    SimRejected,
+    SimState,
+)
 from .settings import Settings
 
 CAMERA_MAP = {"overhead": "agentview", "wrist": "wrist"}
@@ -119,6 +130,7 @@ class LiberoSim:
             local=False,
             sim_run_id=self._sim_run_id,
             episode_status=episode_status,
+            arm=_panda_sample(ours),
             raw=raw,
         )
 
@@ -215,6 +227,25 @@ class LiberoSim:
         if resp.status_code != 200:
             raise SimError(f"goal preview returned HTTP {resp.status_code}")
         return resp.json()
+
+
+def _panda_sample(ours: dict[str, Any] | None) -> ArmSample | None:
+    """This run's latest Panda frame from the bridge's episode summary, or None.
+
+    Shape problems are not fixed up here: `adapter.to_arm_state` refuses them and the
+    runner quarantines the raw state.
+    """
+    if not ours or not isinstance(ours.get("joint_pos_rad"), list):
+        return None
+    eef = ours.get("eef_pos_m")
+    step = ours.get("step")
+    return ArmSample(
+        arm="panda",
+        joints_rad=tuple(ours["joint_pos_rad"]),
+        gripper=ours.get("gripper") if isinstance(ours.get("gripper"), str) else None,
+        eef_m=tuple(eef) if isinstance(eef, list) and len(eef) == 3 else None,
+        step=step if isinstance(step, int) else None,
+    )
 
 
 def _episode_status(ours: dict[str, Any] | None) -> str:

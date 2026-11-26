@@ -7,8 +7,8 @@ from __future__ import annotations
 
 import math
 
-from .models_web import JointSampleOut, TelemetryOut
-from .ports import SimState
+from .models_web import ArmStateOut, JointSampleOut, TelemetryOut
+from .ports import ArmSample, SimState
 from .settings import JOINT_ORDER
 
 CONVERSION_VERSION = "v2"
@@ -57,3 +57,30 @@ def to_telemetry(state: SimState, ts_ms: int, gripper_range: tuple[float, float]
         for i, name in enumerate(JOINT_ORDER)
     }
     return TelemetryOut(ts=ts_ms, joints=joints)
+
+
+PANDA_JOINTS = 7
+
+
+def to_arm_state(arm: ArmSample, ts_ms: int) -> ArmStateOut:
+    """LIBERO Panda frame -> one `arm_state` message: rad -> deg, m -> mm.
+
+    Raises ValueError on a malformed frame (the caller quarantines it).
+    """
+    if arm.arm != "panda":
+        raise ValueError(f"unknown arm {arm.arm!r}")
+    if len(arm.joints_rad) != PANDA_JOINTS:
+        raise ValueError(f"expected {PANDA_JOINTS} Panda joints, got {len(arm.joints_rad)}")
+    values = list(arm.joints_rad) + list(arm.eef_m or ())
+    if not all(isinstance(v, (int, float)) and math.isfinite(v) for v in values):
+        raise ValueError("arm value is not finite")
+    gripper = arm.gripper if arm.gripper in ("open", "closed") else None
+    eef = [round(v * 1000.0, 1) for v in arm.eef_m] if arm.eef_m is not None else None
+    return ArmStateOut(
+        ts=ts_ms,
+        arm="panda",
+        jointsDeg=[round(rad_to_deg(v), 3) for v in arm.joints_rad],
+        gripper=gripper,
+        eefMm=eef,
+        step=arm.step,
+    )

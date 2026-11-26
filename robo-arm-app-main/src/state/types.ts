@@ -46,6 +46,19 @@ export interface Sample {
   velocityEstimated: boolean;
 }
 
+/** One Franka Panda reading (LIBERO demo). Angles in degrees, velocity estimated in deg/s. */
+export interface ArmSample {
+  /** Browser receive time (ms). */
+  t: number;
+  /** Sender timestamp (ms). */
+  ts: number;
+  q: number[];
+  v: number[];
+  gripper: 'open' | 'closed' | null;
+  eefMm: [number, number, number] | null;
+  step: number | null;
+}
+
 export type CommandKind = 'command' | 'ready' | 'reconnect_usb';
 export type CommandPhase =
   'sent' | 'accepted' | 'running' | 'done' | 'failed' | 'stopped' | 'rejected' | 'noAck';
@@ -137,6 +150,8 @@ export interface MonitorState {
   /** Set by a confirmed stop; cleared only by an acknowledged "Ready". */
   awaitingReady: boolean;
   samples: Sample[];
+  /** Franka Panda readings (LIBERO demo only); empty for the SO-101. */
+  arm: ArmSample[];
   cameras: Partial<Record<CameraId, CameraRuntime>>;
   pipeline: PipelineMsg | null;
   tracking: TrackingState;

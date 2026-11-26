@@ -271,6 +271,8 @@ export const en: Strings = {
     },
     noUrdf: 'Could not load the URDF at {path}. Showing a simple placeholder chain instead.',
     loading: 'Loading the URDF model…',
+    liberoNotApplicable:
+      'The LIBERO scene uses a Franka Panda arm, so the SO-101 3D model does not apply. Use a camera’s enlarge button to show it in the large slot.',
     noWebgl: 'This browser has no WebGL, so the 3D model cannot be drawn.',
     softwareGl:
       'The 3D model is off: this machine draws 3D on the CPU (no GPU), which would slow the whole page, STOP included. Cameras, joint table and charts still run.',
@@ -326,6 +328,36 @@ export const en: Strings = {
       'The gripper is excluded from tracking: when holding an object the command closes further than the real position.',
     nearLimit: 'near limit',
     limitAria: '{joint}: {pct}% of range',
+  },
+
+  panda: {
+    jointsTitle: 'Joint state · Franka Panda',
+    jointsSub: '7 joints measured in the LIBERO simulation. There is no per-joint command.',
+    desc: [
+      'base rotation',
+      'shoulder',
+      'upper-arm rotation',
+      'elbow',
+      'forearm rotation',
+      'wrist',
+      'flange rotation',
+    ],
+    gripper: 'Gripper',
+    gripperState: { open: 'Open', closed: 'Closed' },
+    gripperNote: 'from the current command, not measured',
+    eef: 'End effector',
+    eefUnit: 'mm',
+    step: 'Simulation step',
+    noData: 'No joint data yet. It appears once a run starts.',
+    foot: 'Velocity estimated from positions. Joint limits from the robosuite 1.4.0 Panda model, the simulator LIBERO uses.',
+    limitTip: 'Where the joint is in its travel (simulator model). Amber near the end.',
+    chartsTitle: 'Trajectories over time · Franka Panda',
+    tabs: { position: 'Joint position', velocity: 'Velocity', eef: 'End effector' },
+    groups: { base: 'Joints 1–4', wrist: 'Joints 5–7' },
+    keyState: 'Solid: measured',
+    keyVelocity: 'Solid: estimated velocity',
+    keyEef: 'Solid: measured position (mm)',
+    chartNote: 'Measured values only. The board’s planned path is not in the data the BE receives.',
   },
 
   charts: {

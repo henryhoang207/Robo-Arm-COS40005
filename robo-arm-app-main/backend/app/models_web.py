@@ -85,6 +85,19 @@ class TelemetryOut(_Out):
     joints: dict[JointName, JointSampleOut]
 
 
+class ArmStateOut(_Out):
+    """Joints of a non-SO-101 arm (LIBERO demo: Franka Panda). Sent instead of `telemetry`,
+    whose six joints are the SO-101's. Measured only: there is no per-joint command."""
+
+    type: Literal["arm_state"] = "arm_state"
+    ts: int
+    arm: Literal["panda"]
+    jointsDeg: list[float] = Field(min_length=7, max_length=7)
+    gripper: Literal["open", "closed"] | None = None  # from the current action, not measured
+    eefMm: list[float] | None = Field(default=None, min_length=3, max_length=3)
+    step: int | None = None
+
+
 class LinkOut(_Out):
     web: Literal["connected"] = "connected"
     usb: UsbLink
@@ -205,6 +218,7 @@ class PingOut(_Out):
 Outgoing = Annotated[
     Union[
         TelemetryOut,
+        ArmStateOut,
         StatusOut,
         TaskOut,
         TasksOut,
@@ -220,4 +234,4 @@ Outgoing = Annotated[
 outgoing_adapter: TypeAdapter[Outgoing] = TypeAdapter(Outgoing)
 
 # Rule 4: these may be dropped for a slow client; everything else is kept.
-DROPPABLE = frozenset({"telemetry", "pipeline", "camera", "ping"})
+DROPPABLE = frozenset({"telemetry", "arm_state", "pipeline", "camera", "ping"})
