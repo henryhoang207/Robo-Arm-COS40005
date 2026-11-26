@@ -16,7 +16,6 @@ This structure follows the supplied SCAF GitHub Repository Template v1.1.
 | `evidence/research/` | Index of research and evaluation evidence |
 | `evidence/process/` | Index of planning, review and collaboration evidence |
 | `evidence/individual/` | Index of each member's contribution evidence |
-| `ai-usage/` | AI assistance notes linked to code and PRs |
 | `data/` | Dataset descriptions, schemas, versions, licences and storage pointers |
 | `handover/` | Setup, deployment, known issues and future work |
 | `.github/ISSUE_TEMPLATE/` | GitHub issue forms |

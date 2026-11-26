@@ -25,7 +25,7 @@ Record what was actually tested: mock, computer reference, board, simulation or 
 
 A work item is complete when its agreed checks have evidence, the relevant documentation is updated and the reviewer accepts the result. Record failures and outstanding checks explicitly.
 
-AI-assisted work needs a concise note in `ai-usage/` or the PR, with a reference to the official Drive log when available. See [EVIDENCE_POLICY.md](EVIDENCE_POLICY.md).
+AI-assisted work needs a concise note in the PR, with a reference to the official Drive log when available. See [EVIDENCE_POLICY.md](EVIDENCE_POLICY.md).
 
 ## Shared changes
 
