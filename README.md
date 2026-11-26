@@ -70,7 +70,6 @@ Robo-Arm_sedoitensau/
 │   ├── research/
 │   ├── process/
 │   └── individual/
-├── ai-usage/
 ├── data/
 ├── handover/
 └── SO-ARM100-main/       # imported source bundle; internal layout preserved
@@ -87,7 +86,6 @@ Folder READMEs link to the current records and retain templates for future work.
 | [docs/technical](docs/technical/README.md) | Requirements, architecture, interfaces and technical decisions |
 | [docs/project-management](docs/project-management/README.md) | Working plans, decisions, risks and actions |
 | [evidence](EVIDENCE_POLICY.md) | Product, research, process and individual evidence indexes |
-| [ai-usage](ai-usage/README.md) | AI notes on code and PRs; the official AI Usage Log stays in Drive |
 | [data](data/README.md) | Data and model descriptions, versions and external storage links |
 | [handover](handover/README.md) | Setup, deployment, known issues and future work |
 
