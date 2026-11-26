@@ -400,3 +400,88 @@ def test_to_arm_state_converts_and_refuses_bad_frames():
     ):
         with pytest.raises(ValueError):
             adapter.to_arm_state(bad, 1)
+
+
+# --- the bridge stalls while it resets its scene -------------------------------
+
+
+class StallingBridge(FakeBridge):
+    """Every request hangs for one window mid-run, like the real bridge while a scene reset
+    holds Python's lock: requests made during the window answer only when it ends."""
+
+    def __init__(self, stall_s: float, at_step: int, **kw: Any) -> None:
+        super().__init__(**kw)
+        self.stall_s, self.at_step, self.stalled = stall_s, at_step, False
+        self._until: float | None = None
+
+    async def ahandle(self, request: httpx.Request) -> httpx.Response:
+        import asyncio
+        import time
+
+        ep = self.episode
+        if self._until is None and ep and ep["step"] >= self.at_step:
+            self._until, self.stalled = time.monotonic() + self.stall_s, True
+        if self._until is not None and time.monotonic() < self._until:
+            await asyncio.sleep(self._until - time.monotonic())
+        return self.handle(request)
+
+
+def _env_ms(name: str) -> int:
+    for line in (BACKEND_DIR / "libero.env.example").read_text(encoding="utf-8").splitlines():
+        if line.startswith(f"SO101_{name}="):
+            return int(line.split("=", 1)[1])
+    raise AssertionError(f"{name} missing from libero.env.example")
+
+
+@pytest.fixture
+def make_stalling(tmp_path: Path):
+    servers: list[tuple[_Server, httpx.Client]] = []
+
+    def make(bridge: StallingBridge, **over: Any) -> BE:
+        settings = libero_settings(tmp_path, **over)
+        client = httpx.AsyncClient(transport=httpx.MockTransport(bridge.ahandle), base_url="http://bridge")
+        sim = LiberoSim(settings, client=client)
+        app = create_app(settings, sim=sim, board=LiberoBoard(sim))
+        server = _Server(app)
+        server.start()
+        url = f"http://127.0.0.1:{server.port}"
+        http = httpx.Client(base_url=url, timeout=10)
+        servers.append((server, http))
+        be = BE(url, f"ws://127.0.0.1:{server.port}/ws", http, sim, None, app, settings)  # type: ignore[arg-type]
+        be.wait(lambda: be.core.state.sim_ok is True)
+        return be
+
+    yield make
+    for server, http in servers:
+        http.close()
+        server.stop()
+
+
+def test_libero_env_rides_out_a_bridge_stall(make_stalling):
+    """With libero.env.example's timings a 1.5 s stall mid-run does not end the run."""
+    bridge = StallingBridge(stall_s=1.5, at_step=5, end_step=40)
+    be = make_stalling(
+        bridge,
+        sim_timeout_ms=_env_ms("SIM_TIMEOUT_MS"),
+        telemetry_stale_ms=_env_ms("TELEMETRY_STALE_MS"),
+        run_wall_timeout_s=20.0,
+    )
+    ws = be.ws()
+    ws.send(cmd("c1"))
+    ws.task("running")
+    done = ws.until(lambda m: m["type"] == "task" and m["task"]["state"] in ("done", "failed"), timeout=15)
+    assert bridge.stalled and done["task"]["outcome"] == "success"
+    ws.close()
+
+
+def test_so101_timings_would_end_the_run_on_the_same_stall(make_stalling):
+    """The control: with the SO-101 test timings (600 ms) the same stall ends the run."""
+    bridge = StallingBridge(stall_s=1.5, at_step=5, end_step=40)
+    be = make_stalling(bridge)
+    ws = be.ws()
+    ws.send(cmd("c1"))
+    ws.task("running")
+    ws.until(lambda m: m["type"] == "task" and m["task"]["state"] in ("done", "failed", "stopped"), timeout=15)
+    outcome, code = be.db("SELECT outcome, reason_code FROM runs")[0]
+    assert bridge.stalled and outcome != "success" and code in ("telemetry_stale", "sim_offline")
+    ws.close()
