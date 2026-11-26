@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import base64
 import logging
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -17,7 +18,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, Response
 
 from .board import BoardClient, summarize_status
 from .episode import Episode, EpisodeSpec, public_goal
@@ -58,6 +59,9 @@ class Hub:
         self._subs.setdefault(episode_id, set()).add(q)
         latest = self._latest.get(episode_id, {})
         return q, [latest[t] for t in self.REPLAY if t in latest]
+
+    def latest(self, episode_id: str, msg_type: str) -> dict | None:
+        return self._latest.get(episode_id, {}).get(msg_type)
 
     def unsubscribe(self, episode_id: str, q: asyncio.Queue) -> None:
         self._subs.get(episode_id, set()).discard(q)
@@ -186,7 +190,10 @@ def create_app(board: BoardClient, scenes: list[dict], cache: SceneCache, config
             return error(422, "bad_request", f"instruction is longer than {MAX_INSTRUCTION_CHARS} characters")
         if st.running:
             return error(409, "episode_running", "an episode is already running")
-        if await st.refresh_board() is None:
+        # A reachable status from the last poll is good enough: callers such as the web backend
+        # give the start about 2 s, and a fresh check can take up to 2 s on its own.
+        fresh = time.monotonic() - st.board_checked_at <= HEALTH_POLL_S + 1
+        if not (fresh and st.board_status is not None) and await st.refresh_board() is None:
             return error(503, "board_unreachable", f"board {st.board.host} is not answering; start the App Lab app")
         if st.running:  # another start won the race while we checked the board
             return error(409, "episode_running", "an episode is already running")
@@ -207,7 +214,7 @@ def create_app(board: BoardClient, scenes: list[dict], cache: SceneCache, config
                       fps=st.config.fps, realtime=st.config.realtime)
         if (suite, task_id) in st.config.preload:  # reset it again now, so the next run starts at once
             st.sim.submit(prepare, suite, task_id)
-        host = request.headers.get("host", "localhost:8000")
+        host = request.headers.get("host", "localhost:8002")
         return {"episode_id": episode_id, "ws_url": f"ws://{host}/ws/episodes/{episode_id}",
                 "instruction": text, "custom_instruction": spec.custom_instruction, "goal": public_goal(goal)}
 
@@ -253,6 +260,38 @@ def create_app(board: BoardClient, scenes: list[dict], cache: SceneCache, config
             return error(404, "not_found", f"no video for episode {episode_id}")
         return FileResponse(episode.video_path, media_type="video/mp4", filename=episode.video_path.name)
 
+    @app.get("/api/state")
+    async def bridge_state():
+        """One poll for clients that do not use the WebSocket (the web backend's adapter):
+        the board, and the current or most recent episode."""
+        if time.monotonic() - st.board_checked_at > HEALTH_POLL_S + 1:
+            await st.refresh_board()
+        episode = st.current.summary() if st.current is not None else None
+        if episode is not None:
+            frame = st.hub.latest(episode["episode_id"], "frame")
+            if frame is not None:
+                episode["eef_pos_m"] = frame["eef_pos_m"]
+                episode["gripper"] = frame["gripper"]
+                episode["joint_pos_rad"] = frame["joint_pos_rad"]
+        return {
+            "bridge": "ok",
+            "episode_running": st.running,
+            "board": summarize_status(st.board.host, st.board_status),
+            "scenes_ready": list(st.scenes_ready),
+            "episode": episode,
+        }
+
+    @app.get("/api/camera/{camera}")
+    async def camera_frame(camera: str):
+        """Latest JPEG of the current or most recent episode: `agentview` or `wrist`."""
+        if camera not in ("agentview", "wrist"):
+            return error(404, "not_found", f"no camera {camera}; use agentview or wrist")
+        frame = st.hub.latest(st.current.spec.episode_id, "frame") if st.current is not None else None
+        if frame is None:
+            return error(404, "not_found", "no frame yet")
+        return Response(base64.b64decode(frame[camera]), media_type="image/jpeg",
+                        headers={"Cache-Control": "no-store"})
+
     @app.websocket("/ws/episodes/{episode_id}")
     async def episode_stream(ws: WebSocket, episode_id: str):
         await ws.accept()
@@ -287,7 +326,7 @@ def main() -> None:
     p.add_argument("--status-port", type=int, default=8080)
     p.add_argument("--board-timeout", type=float, default=10.0, help="seconds to wait for one board reply")
     p.add_argument("--host", default="127.0.0.1")
-    p.add_argument("--port", type=int, default=8000)
+    p.add_argument("--port", type=int, default=8002)
     p.add_argument("--max-steps", type=int, default=400, help="step cap per episode; LIBERO Goal demos need at most 270")
     p.add_argument("--video-dir", type=Path, default=Path.home() / "outputs" / "bridge")
     p.add_argument("--no-preload", action="store_true", help="do not build the recommended scenes at startup")
