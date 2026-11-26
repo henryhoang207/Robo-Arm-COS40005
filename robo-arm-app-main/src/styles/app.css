@@ -467,3 +467,15 @@ main:focus {
     display: none;
   }
 }
+
+/* LIBERO demo prompt box: the select's look without its arrow. */
+.app-prompt {
+  padding-right: 10px;
+  background-image: none;
+  cursor: text;
+}
+.app-libero-note {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--muted);
+}

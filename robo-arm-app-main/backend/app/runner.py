@@ -83,7 +83,8 @@ class Runner:
     ) -> None:
         self.settings = settings
         self.state = state
-        state.driver = {"real": "board"}.get(settings.board_link, settings.board_link)
+        # "libero": the bridge runs X-VLA on the board, so the web shows the board as the driver.
+        state.driver = {"real": "board", "libero": "board"}.get(settings.board_link, settings.board_link)
         self._warned_bad_state = False
         self.storage = storage
         self.hub = hub
@@ -715,7 +716,8 @@ class Runner:
             self._on_board_lost(run)
             changed = False  # _finish already sent status
 
-        if now - self._last_web_telemetry >= 1.0 / self.settings.telemetry_web_hz - 0.005:
+        # No joints (the LIBERO bridge has no SO-101 arm): send no joint telemetry at all.
+        if s.joint_positions and now - self._last_web_telemetry >= 1.0 / self.settings.telemetry_web_hz - 0.005:
             self._last_web_telemetry = now
             try:
                 msg = adapter.to_telemetry(s, received, self.settings.gripper_range)

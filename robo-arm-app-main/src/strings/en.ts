@@ -189,6 +189,12 @@ export const en: Strings = {
     referenceDriver:
       "Local mode: the arm is driven by MuJoCo's reference controller (it knows where the object really is), not by the AI. The profile is only logged.",
     preview: 'Command to send',
+    prompt: 'Prompt for the robot',
+    promptHelp: 'Type a request, or pick a suggestion. The 10 LIBERO Goal tasks work best.',
+    goalChecking: 'Will check: {label}',
+    goalNotScored: 'Not scored: {reason}',
+    liberoScene:
+      'LIBERO Goal scene · Franka Panda arm. The SO-101 model and joint data do not apply here.',
     send: 'Send command',
     blocked: {
       estop: 'The emergency stop is pressed. Release it, then press Ready.',

@@ -35,8 +35,10 @@ class Settings(BaseSettings):
 
     # SimPort: "mock" is the in-process FakeSim, "real" is app/sim_client.py, which talks to
     # so101sim/board_server/app.py (schema v2) of Robo-Arm-COS40005.
-    sim_link: Literal["mock", "real"] = "mock"
+    sim_link: Literal["mock", "real", "libero"] = "mock"
     sim_url: str = "http://127.0.0.1:8000"
+    # X-VLA demo bridge (SO101_SIM_LINK=libero). Its default port is 8002 so it can run beside MuJoCo.
+    libero_url: str = "http://127.0.0.1:8002"
     # RESET moves the balls by up to +-8 mm, seeded, so each seed is its own scene.
     sim_randomize: bool = True
     sim_poll_hz: float = 10.0
@@ -50,7 +52,9 @@ class Settings(BaseSettings):
     #   "reference" MuJoCo's own ground-truth reference controller, local mode only.
     #               It is NOT the AI: runs are marked driver=reference in the manifest.
     #   "real"      app/board_link.py, the VENTUNO Q board (Phase 3, blocked by Q1)
-    board_link: Literal["mock", "reference", "real"] = "mock"
+    #   "libero"    the X-VLA demo bridge (demo_bridge/), with SO101_SIM_LINK=libero: the bridge runs
+    #               LIBERO and calls X-VLA on the board itself (app/libero_link.py).
+    board_link: Literal["mock", "reference", "real", "libero"] = "mock"
     board_timeout_ms: int = 2000
 
     data_dir: Path = Path("./data")

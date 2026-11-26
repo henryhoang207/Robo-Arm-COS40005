@@ -3,13 +3,17 @@
 The bridge is the only backend the web app talks to. It runs the LIBERO simulation on the demo laptop, sends camera images to X-VLA on the VENTUNO Q board's NPU, plays back the actions the board returns, and streams camera frames and stats to the browser.
 
 ```
-Browser (web app) ──HTTP──▶ Bridge (WSL, localhost:8000) ──TCP 8766──▶ VENTUNO Q board (X-VLA on NPU)
-                  ◀──WS───  runs the LIBERO sim             ◀─────────  30 actions + timings per call
+Browser ──WS──▶ Web backend (robo-arm-app-main, :8001) ──HTTP──▶ Bridge (WSL, :8002) ──TCP 8766──▶ VENTUNO Q board
+                SO101_SIM_LINK=libero, SO101_BOARD_LINK=libero     runs the LIBERO sim         (X-VLA on the NPU)
 ```
+
+**The web app reaches the bridge through its own backend.** Run that backend in LIBERO mode: `robo-arm-app-main/backend/libero.env.example` and the "X-VLA LIBERO" section of `robo-arm-app-main/backend/README.md`. Its adapter, `backend/app/libero_link.py`, polls `GET /api/state` and `GET /api/camera/{agentview|wrist}` (§4). The page then shows a prompt box, both cameras and the run's result. Verified live on 26 Nov 2026: "put the bowl on the stove" succeeded in 92 steps, and STOP and Ready worked through the web page.
+
+The rest of this README is the bridge's own API. Use it for direct clients, or to change the adapter.
 
 **The demo is one scene, LIBERO Goal task 8, where the user types their own prompt.** The bridge works out what success means for that prompt, then checks it in the simulator every step.
 
-Status, 26 Nov 2026: 57 tests passing. In that scene on the board, all 10 LIBERO Goal instructions succeeded and all 3 new object/place combinations failed (§2 and [`recordings/2026-11-26/`](recordings/2026-11-26/README.md)).
+Status, 26 Nov 2026: 59 tests passing. In that scene on the board, all 10 LIBERO Goal instructions succeeded and all 3 new object/place combinations failed (§2 and [`recordings/2026-11-26/`](recordings/2026-11-26/README.md)).
 
 The original design doc is "X-VLA Board Demo — Web Integration Spec" (https://claude.ai/artifact/4KCDYz7i5oRPXHjzyqB6k6). Where it differs from this README, this README is current: free prompts, goals and the 400-step cap came later.
 
@@ -25,13 +29,13 @@ Do these in order on the demo laptop.
    ```
 
    Wait about a minute, until the log shows `scene libero_goal/8 ready`. At startup the bridge builds Spatial task 0 as a backup, then the Goal demo scene, leaving the Goal scene reset and ready to start at once.
-3. **Web app.** Set `VITE_BACKEND_URL=http://localhost:8000`. WSL forwards the port to Windows, so a browser on the same laptop reaches the bridge directly.
+3. **Web app.** Start the web backend in LIBERO mode (see above) and open `http://localhost:8001`. A direct client can also use the bridge at `http://localhost:8002`; WSL forwards both ports to Windows.
 
 | Flag | Default | Use |
 | --- | --- | --- |
 | `--board-host` | `10.1.0.119` | The board's current IP |
 | `--host` | `127.0.0.1` | Set `0.0.0.0` only if the web app runs on another machine on the network |
-| `--port` | `8000` | Bridge port |
+| `--port` | `8002` | Bridge port (8000 is left free for the SO-101 MuJoCo server) |
 | `--cors` | `*` | Comma-separated allowed origins, e.g. `http://localhost:5173` |
 | `--max-steps` | `400` | Step cap per episode. LIBERO's Goal demonstrations take at most 270 steps |
 | `--no-preload` | off | Skip preparing scenes at startup |
@@ -119,7 +123,7 @@ So, for the prompt box:
 
 ## 4. HTTP API
 
-Base URL `http://localhost:8000`. Every response is JSON except the video. Every error has this shape:
+Base URL `http://localhost:8002`. Every response is JSON except the video. Every error has this shape:
 
 ```json
 {"error": {"code": "episode_running", "message": "an episode is already running"}}
@@ -134,6 +138,8 @@ Base URL `http://localhost:8000`. Every response is JSON except the video. Every
 | `GET /api/episodes/{id}` | Episode summary (live or final) | 404 `not_found` |
 | `POST /api/episodes/{id}/stop` | 202; the stream then ends with `stopped`, normally within about 1 s | 404 `not_found`, 409 `not_running` |
 | `GET /api/episodes/{id}/video` | `video/mp4`: both cameras side by side, 20 fps | 404 `not_found` |
+| `GET /api/state` | One poll for clients without the WebSocket (the web backend's adapter): `bridge`, `episode_running`, `board`, `scenes_ready`, and `episode`. `episode` is the current or latest episode summary plus `eef_pos_m`, `gripper`, `joint_pos_rad` from its latest frame; `null` before the first | none |
+| `GET /api/camera/{agentview\|wrist}` | Latest JPEG of the current or latest episode (`image/jpeg`) | 404 `not_found` before the first frame |
 
 `GET /api/health`:
 
@@ -193,7 +199,7 @@ An unscored prompt returns `"goal": {"scored": false, "source": null, "label": n
 `POST /api/episodes` response (201):
 
 ```json
-{"episode_id": "ep_20261126_123823", "ws_url": "ws://localhost:8000/ws/episodes/ep_20261126_123823",
+{"episode_id": "ep_20261126_123823", "ws_url": "ws://localhost:8002/ws/episodes/ep_20261126_123823",
  "instruction": "put the bowl on the stove", "custom_instruction": true,
  "goal": {"scored": true, "source": "LIBERO Goal task 1", "label": "put the bowl on the stove",
           "conditions": [["on", "akita_black_bowl_1", "flat_stove_1_cook_region"]], "reason": null}}
@@ -210,11 +216,13 @@ An unscored prompt returns `"goal": {"scored": false, "source": null, "label": n
  "video_url": "/api/episodes/ep_20261126_123823/video"}
 ```
 
-`state` is `starting`, `running` or `ended`. `result`, `wall_s` and `video_url` are `null` until they're known.
+`state` is `starting`, `running` or `ended`. `result`, `wall_s` and `video_url` are `null` until they're known. `error` is `{"code", "message"}` when `result` is `error`, else `null`.
+
+A start reuses the board status from the last 5 s poll when it was reachable, so `POST /api/episodes` answers well inside the web backend's 2 s budget.
 
 ## 5. WebSocket stream
 
-`ws://localhost:8000/ws/episodes/{id}`. The server sends JSON text messages; the client sends nothing. The server closes the socket after `ended`. For an unknown id it closes with code `4404`.
+`ws://localhost:8002/ws/episodes/{id}`. The server sends JSON text messages; the client sends nothing. The server closes the socket after `ended`. For an unknown id it closes with code `4404`.
 
 Connect straight after `POST /api/episodes`. If you reconnect mid-episode, or connect after it ended, the bridge first replays the latest `started`, `chunk`, `frame`, `error` and `ended` messages, so the page can redraw.
 
@@ -381,7 +389,7 @@ There is no mock mode in the bridge itself. To develop the UI without the board,
 | `board.py` | The board's TCP protocol (port 8766) and `/api/status` (port 8080) |
 | `sim.py` | LIBERO scenes through LeRobot 0.6.1, the scene list, the scene cache with ahead-of-time resets |
 | `smoke_client.py`, `record_prompts.py` | Live checks against a running bridge |
-| `tests/` | 57 tests: `test_bridge.py` (API, streaming, board protocol), `test_goals.py` (parser, scene cache) |
+| `tests/` | 59 tests: `test_bridge.py` (API, streaming, board protocol), `test_goals.py` (parser, scene cache) |
 | `recordings/2026-11-26/` | The 14-prompt recording: results, videos, frame strips |
 
 **Simulator threading.** All MuJoCo work runs on one thread, because the offscreen GL context belongs to the thread that created it. Building or resetting one scene takes that context away from the others. A prepared scene is therefore reused only if no other scene has run since; otherwise it's reset again first. Without that rule, it renders blank frames.

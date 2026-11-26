@@ -1,0 +1,23 @@
+{
+  "_note": "The one model the LIBERO demo runs: lerobot/xvla-libero, W8A16, all three stages on the VENTUNO Q NPU (QNN HTP v75) through the X-VLA App Lab app. Used with SO101_SIM_LINK=libero and SO101_BOARD_LINK=libero. It is a LIBERO (Franka Panda) model, not an SO-101 one.",
+  "profiles": [
+    {
+      "profile_id": "xvla-libero-w8a16",
+      "ai_id": "xvla-libero/w8a16",
+      "model": "X-VLA (LIBERO)",
+      "precision": "W8A16",
+      "runtime": "onnxruntime-qnn (HTP v75)",
+      "runtime_version": "onnxruntime 1.32.0, QNN 2.52.0",
+      "checkpoint_id": "lerobot/xvla-libero",
+      "artifact_hash": null,
+      "status": "not_attempted",
+      "blocked_reason": null,
+      "validation": "server-validated",
+      "board_verified": true,
+      "package_mb": 913,
+      "server_policy_p50_s": null,
+      "server_policy_p95_s": null,
+      "note": "Runs on the board: about 0.34 s per 30-action chunk (26 Nov 2026). Goal scene: 10/10 LIBERO Goal instructions succeeded, one episode each (demo_bridge/recordings/2026-11-26)."
+    }
+  ]
+}
