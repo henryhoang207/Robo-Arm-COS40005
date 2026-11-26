@@ -105,6 +105,7 @@ class Runner:
         self._jobs: set[asyncio.Task] = set()
         self._fail_since: float | None = None
         self._last_web_telemetry = 0.0
+        self._last_web_arm = 0.0
         self._seed_cursor: dict[str, int] = {}
         hub.hello = self.hello
         hub.on_message = self.on_web_message
@@ -725,6 +726,15 @@ class Runner:
                 self.storage.quarantine(s.raw, f"adapter: {exc}")
             else:
                 self.hub.broadcast(msg.wire())
+        # A non-SO-101 arm (the LIBERO Panda) goes out as `arm_state`, never as `telemetry`.
+        if s.arm is not None and now - self._last_web_arm >= 1.0 / self.settings.telemetry_web_hz - 0.005:
+            self._last_web_arm = now
+            try:
+                arm_msg = adapter.to_arm_state(s.arm, received)
+            except ValueError as exc:
+                self.storage.quarantine(s.raw, f"adapter (arm): {exc}")
+            else:
+                self.hub.broadcast(arm_msg.wire())
         if changed:
             self.hub.broadcast_status()
 

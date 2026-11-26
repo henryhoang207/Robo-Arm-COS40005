@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { ALL_JOINTS, config, type AngleUnit, type ViewPreset } from '../config';
 import type { Transport } from '../transport/Transport';
 import type {
+  ArmStateMsg,
   IncomingMessage,
   JointName,
   OutgoingMessage,
@@ -11,6 +12,7 @@ import type {
 import { storage } from '../utils/storage';
 import { initialTracking, trackingQuality } from './trackingQuality';
 import type {
+  ArmSample,
   ChartTab,
   CommandKind,
   CommandPhase,
@@ -76,6 +78,7 @@ export function initialMonitorState(now = Date.now()): MonitorState {
     stop: { phase: 'idle', id: null, requestedAt: null },
     awaitingReady: false,
     samples: [],
+    arm: [],
     cameras: {},
     pipeline: null,
     tracking: initialTracking,
@@ -153,6 +156,28 @@ export function toSample(prev: Sample | undefined, msg: TelemetryMsg, at: number
   return { t: at, ts: msg.ts, joints, velocityEstimated: estimated };
 }
 
+/** One Panda sample; velocity estimated from positions, as for the SO-101 without servo speed. */
+export function toArmSample(prev: ArmSample | undefined, msg: ArmStateMsg, at: number): ArmSample {
+  const v = msg.jointsDeg.map((pos, i) => {
+    const p = prev && prev.q.length === msg.jointsDeg.length ? prev : undefined;
+    return estimateVelocity(
+      p ? { t: p.ts, pos: p.q[i]!, vel: p.v[i]! } : null,
+      msg.ts,
+      pos,
+      config.velocitySmoothing,
+    ).vel;
+  });
+  return {
+    t: at,
+    ts: msg.ts,
+    q: msg.jointsDeg.slice(),
+    v,
+    gripper: msg.gripper ?? null,
+    eefMm: msg.eefMm ? [msg.eefMm[0], msg.eefMm[1], msg.eefMm[2]] : null,
+    step: msg.step ?? null,
+  };
+}
+
 /** Pure reducer for one incoming message. `at` is the browser receive time. */
 export function applyMessage(
   s: MonitorState,
@@ -177,6 +202,10 @@ export function applyMessage(
       const sample = toSample(s.samples[s.samples.length - 1], msg, at);
       const samples = cap([...s.samples, sample], config.sampleBufferMax);
       return { ...base, samples, tracking: trackingQuality(s.tracking, samples, at) };
+    }
+    case 'arm_state': {
+      const sample = toArmSample(s.arm[s.arm.length - 1], msg, at);
+      return { ...base, arm: cap([...s.arm, sample], config.sampleBufferMax) };
     }
     case 'status': {
       let events = s.events;

@@ -135,7 +135,7 @@ Mở `http://localhost:8001`, chọn profile X-VLA (LIBERO), gõ câu lệnh, b�
 | Lệnh | Câu cố định theo mẫu + vật | Ô nhập câu lệnh tự do (protocol `free_text`), có gợi ý |
 | Ai điều khiển | Board giả hoặc controller tham chiếu | X-VLA trên NPU của board |
 | Kết quả | MuJoCo chấm | Bridge chấm theo mục tiêu của câu lệnh: 10 nhiệm vụ LIBERO Goal, hoặc câu đơn giản kiểu "put X on Y". Câu không hiểu được thì không chấm (`failure`, mã `unscored`) |
-| Web | 3D SO-101, bảng khớp, biểu đồ | Ẩn 3D, bảng khớp, biểu đồ; hiện hai camera và ô lệnh |
+| Web | 3D SO-101, bảng khớp, biểu đồ | Cùng bố cục. Ô 3D báo SO-101 không áp dụng; bảng khớp và biểu đồ của Panda (7 khớp đo được, kẹp mở/đóng theo lệnh, vị trí đầu kẹp) từ tin `arm_state` |
 | Profile | 9 profile (`config/profiles.json`) | 1 profile `xvla-libero-w8a16` (`config/profiles.libero.json`) |
 | Dữ liệu | `./data` | `./data-libero` |
 
@@ -146,7 +146,8 @@ Kết quả bridge → BE: success → success; failure (hết 400 bước) → 
 Hạn chế:
 - App trên board có lúc tự tắt (3 lần ngày 26/11, chưa rõ lý do). Khi đó web báo board mất kết nối; mở lại app trong App Lab.
 - Sau khi lượt chạy kết thúc, camera hiện "Hình bị đứng", vì bridge chỉ gửi hình trong lúc chạy.
-- Không có dữ liệu khớp SO-101: ở chế độ này BE không gửi `telemetry`.
+- Không có dữ liệu khớp SO-101: ở chế độ này BE không gửi `telemetry`. Khớp Panda đi bằng tin `arm_state` (`app/adapter.py::to_arm_state`), lấy từ khung hình mới nhất của lượt chạy này trong `GET /api/state` của bridge: 7 góc khớp đo được (độ), kẹp `open`/`closed` (lấy từ action, là lệnh chứ không phải giá trị đo), vị trí đầu kẹp (mm). Không có lệnh theo từng khớp, nên bảng không có cột Lệnh/Sai số.
+- Quỹ đạo đầu kẹp dự kiến (`planned_eef_pos_m`) chỉ có trong WebSocket của bridge, không có trong `/api/state`, nên biểu đồ đầu kẹp chỉ có đường đo được.
 
 Test không cần board: `pytest tests/test_libero_link.py` (bridge giả).
 

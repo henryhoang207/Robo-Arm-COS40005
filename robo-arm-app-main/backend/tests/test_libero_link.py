@@ -13,9 +13,10 @@ from typing import Any
 import httpx
 import pytest
 
+from app import adapter
 from app.libero_link import LiberoBoard, LiberoSim, parse_scene
 from app.main import create_app
-from app.ports import BoardError, SimRejected
+from app.ports import ArmSample, BoardError, SimRejected
 from app.settings import BACKEND_DIR, Settings
 from tests.conftest import BE, FAST, WS, _Server
 
@@ -37,7 +38,11 @@ def cmd(cid: str, **over: Any) -> dict[str, Any]:
 class FakeBridge:
     """result: success | failure | unscored | error; end_step: when the episode ends."""
 
-    def __init__(self, result: str = "success", end_step: int = 12, steps_per_poll: int = 1) -> None:
+    def __init__(self, result: str = "success", end_step: int = 12, steps_per_poll: int = 1,
+                 panda_joints: int | None = None) -> None:  # fmt: skip
+        # panda_joints: add the latest frame's Panda data to the episode (the real bridge does);
+        # None leaves it out, as before the first frame.
+        self.panda_joints = panda_joints
         self.result = result
         self.end_step = end_step
         self.steps_per_poll = steps_per_poll
@@ -59,6 +64,11 @@ class FakeBridge:
         ep["state"] = "running"
         ep["step"] = min(ep["step"] + self.steps_per_poll, self.end_step)
         ep["chunks"] = ep["step"] // 30 + 1
+        if self.panda_joints is not None:
+            s = ep["step"]
+            ep["joint_pos_rad"] = [round(0.05 * s + 0.1 * i, 4) for i in range(self.panda_joints)]
+            ep["gripper"] = "open" if s < 6 else "closed"
+            ep["eef_pos_m"] = [-0.2016, round(0.001 * s, 4), 1.1648]
         if ep["step"] >= self.end_step:
             ep.update(state="ended", result=self.result)
             if self.result == "error":
@@ -324,3 +334,69 @@ async def test_frames_and_scene_parsing(tmp_path):
             parse_scene(bad)
     await sim.aclose()
 
+
+
+# --- Panda joints (arm_state) -----------------------------------------------------
+
+
+def test_panda_joints_reach_the_web_as_arm_state(make_libero):
+    be, _ = make_libero(FakeBridge(panda_joints=7))
+    ws = be.ws()
+    ws.status(lambda m: True)
+    ws.send(cmd("c1"))
+    ws.task("done", timeout=6)
+    arms = [m for m in ws.seen if m["type"] == "arm_state"]
+    assert arms, "no arm_state reached the web"
+    last = arms[-1]
+    assert last["arm"] == "panda" and len(last["jointsDeg"]) == 7
+    assert last["gripper"] in ("open", "closed") and len(last["eefMm"]) == 3
+    assert last["eefMm"][0] == -201.6  # metres -> millimetres
+    # Still never under SO-101 names, and nothing quarantined.
+    assert not [m for m in ws.seen if m["type"] == "telemetry"]
+    assert be.db("SELECT COUNT(*) FROM quarantine")[0][0] == 0
+    ws.close()
+
+
+def test_malformed_panda_frame_is_quarantined_not_sent(make_libero):
+    be, _ = make_libero(FakeBridge(panda_joints=6))
+    ws = be.ws()
+    ws.status(lambda m: True)
+    ws.send(cmd("c1"))
+    ws.task("done", timeout=6)
+    assert not [m for m in ws.seen if m["type"] == "arm_state"]
+    assert be.db("SELECT COUNT(*) FROM quarantine WHERE error LIKE 'adapter (arm)%'")[0][0] > 0
+    ws.close()
+
+
+async def test_panda_sample_only_from_this_run(tmp_path):
+    bridge = FakeBridge(panda_joints=7, end_step=1)
+    sim = make_sim(libero_settings(tmp_path), bridge)
+    await sim.reset(1000, 1, "libero_goal/8")
+    assert (await sim.get_state()).arm is None  # no episode yet
+    await sim.start(PROMPT, 1000)
+    state = await sim.get_state()  # step 1: the episode ends on this poll
+    assert state.arm is not None and state.arm.arm == "panda" and len(state.arm.joints_rad) == 7
+    assert state.joint_positions == ()  # the SO-101 joints stay empty
+    await sim.reset(1000, 2, "libero_goal/8")
+    assert (await sim.get_state()).arm is None  # run 1's frame is not shown for run 2
+    await sim.aclose()
+
+
+def test_to_arm_state_converts_and_refuses_bad_frames():
+    msg = adapter.to_arm_state(
+        ArmSample(arm="panda", joints_rad=(0.0, 0.5, 0, -1.5708, 0, 1.5708, 0.7854),
+                  gripper="closed", eef_m=(-0.2016, 0.0124, 1.1648), step=31),  # fmt: skip
+        123,
+    ).wire()
+    assert msg["type"] == "arm_state" and msg["ts"] == 123 and msg["step"] == 31
+    assert msg["jointsDeg"][3] == -90.0 and msg["jointsDeg"][5] == 90.0
+    assert msg["eefMm"] == [-201.6, 12.4, 1164.8] and msg["gripper"] == "closed"
+    no_extras = adapter.to_arm_state(ArmSample(arm="panda", joints_rad=(0.0,) * 7, gripper="?"), 1).wire()
+    assert "gripper" not in no_extras and "eefMm" not in no_extras
+    for bad in (
+        ArmSample(arm="panda", joints_rad=(0.0,) * 6),
+        ArmSample(arm="panda", joints_rad=(float("nan"),) + (0.0,) * 6),
+        ArmSample(arm="ur5", joints_rad=(0.0,) * 7),
+    ):
+        with pytest.raises(ValueError):
+            adapter.to_arm_state(bad, 1)
