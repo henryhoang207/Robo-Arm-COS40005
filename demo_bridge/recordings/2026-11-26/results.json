@@ -1,0 +1,380 @@
+[
+  {
+    "name": "own_bowl_plate",
+    "prompt": "put the bowl on the plate",
+    "episode_id": "ep_20261126_125606",
+    "goal_source": "scene's own LIBERO goal",
+    "goal_label": "put the bowl on the plate",
+    "conditions": null,
+    "result": "success",
+    "steps": 76,
+    "chunks": 3,
+    "start_s": 0.5,
+    "wall_s": 13.72,
+    "board_total_ms": [
+      344,
+      358
+    ],
+    "rtt_ms": [
+      520,
+      612
+    ],
+    "error": null
+  },
+  {
+    "name": "task1_bowl_stove",
+    "prompt": "put the bowl on the stove",
+    "episode_id": "ep_20261126_123823",
+    "goal_source": "LIBERO Goal task 1",
+    "goal_label": "put the bowl on the stove",
+    "conditions": [
+      [
+        "on",
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region"
+      ]
+    ],
+    "result": "success",
+    "steps": 87,
+    "chunks": 3,
+    "start_s": 20.1,
+    "wall_s": 23.14,
+    "board_total_ms": [
+      357,
+      359
+    ],
+    "rtt_ms": [
+      517,
+      570
+    ],
+    "error": null
+  },
+  {
+    "name": "task7_stove_on",
+    "prompt": "turn on the stove",
+    "episode_id": "ep_20261126_123907",
+    "goal_source": "LIBERO Goal task 7",
+    "goal_label": "turn on the stove",
+    "conditions": [
+      [
+        "turnon",
+        "flat_stove_1"
+      ]
+    ],
+    "result": "success",
+    "steps": 80,
+    "chunks": 3,
+    "start_s": 8.7,
+    "wall_s": 23.6,
+    "board_total_ms": [
+      361,
+      362
+    ],
+    "rtt_ms": [
+      493,
+      567
+    ],
+    "error": null
+  },
+  {
+    "name": "task0_middle_drawer",
+    "prompt": "open the middle drawer of the cabinet",
+    "episode_id": "ep_20261126_123941",
+    "goal_source": "LIBERO Goal task 0",
+    "goal_label": "open the middle drawer of the cabinet",
+    "conditions": [
+      [
+        "open",
+        "wooden_cabinet_1_middle_region"
+      ]
+    ],
+    "result": "success",
+    "steps": 122,
+    "chunks": 5,
+    "start_s": 8.4,
+    "wall_s": 29.54,
+    "board_total_ms": [
+      345,
+      360
+    ],
+    "rtt_ms": [
+      520,
+      756
+    ],
+    "error": null
+  },
+  {
+    "name": "task9_wine_rack",
+    "prompt": "put the wine bottle on the rack",
+    "episode_id": "ep_20261126_124021",
+    "goal_source": "LIBERO Goal task 9",
+    "goal_label": "put the wine bottle on the rack",
+    "conditions": [
+      [
+        "on",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ]
+    ],
+    "result": "success",
+    "steps": 136,
+    "chunks": 5,
+    "start_s": 7.6,
+    "wall_s": 35.61,
+    "board_total_ms": [
+      345,
+      363
+    ],
+    "rtt_ms": [
+      515,
+      754
+    ],
+    "error": null
+  },
+  {
+    "name": "task2_wine_cabinet",
+    "prompt": "put the wine bottle on top of the cabinet",
+    "episode_id": "ep_20261126_124106",
+    "goal_source": "LIBERO Goal task 2",
+    "goal_label": "put the wine bottle on top of the cabinet",
+    "conditions": [
+      [
+        "on",
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side"
+      ]
+    ],
+    "result": "success",
+    "steps": 98,
+    "chunks": 4,
+    "start_s": 8.9,
+    "wall_s": 29.93,
+    "board_total_ms": [
+      355,
+      362
+    ],
+    "rtt_ms": [
+      523,
+      575
+    ],
+    "error": null
+  },
+  {
+    "name": "task6_cheese_bowl",
+    "prompt": "put the cream cheese in the bowl",
+    "episode_id": "ep_20261126_124146",
+    "goal_source": "LIBERO Goal task 6",
+    "goal_label": "put the cream cheese in the bowl",
+    "conditions": [
+      [
+        "on",
+        "cream_cheese_1",
+        "akita_black_bowl_1"
+      ]
+    ],
+    "result": "success",
+    "steps": 86,
+    "chunks": 3,
+    "start_s": 7.5,
+    "wall_s": 24.53,
+    "board_total_ms": [
+      356,
+      360
+    ],
+    "rtt_ms": [
+      510,
+      635
+    ],
+    "error": null
+  },
+  {
+    "name": "task5_plate_front",
+    "prompt": "push the plate to the front of the stove",
+    "episode_id": "ep_20261126_124219",
+    "goal_source": "LIBERO Goal task 5",
+    "goal_label": "push the plate to the front of the stove",
+    "conditions": [
+      [
+        "on",
+        "plate_1",
+        "main_table_stove_front_region"
+      ]
+    ],
+    "result": "success",
+    "steps": 142,
+    "chunks": 5,
+    "start_s": 13.6,
+    "wall_s": 46.55,
+    "board_total_ms": [
+      340,
+      366
+    ],
+    "rtt_ms": [
+      482,
+      607
+    ],
+    "error": null
+  },
+  {
+    "name": "task4_bowl_cabinet",
+    "prompt": "put the bowl on top of the cabinet",
+    "episode_id": "ep_20261126_124322",
+    "goal_source": "LIBERO Goal task 4",
+    "goal_label": "put the bowl on top of the cabinet",
+    "conditions": [
+      [
+        "on",
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side"
+      ]
+    ],
+    "result": "success",
+    "steps": 89,
+    "chunks": 3,
+    "start_s": 10.6,
+    "wall_s": 36.74,
+    "board_total_ms": [
+      359,
+      362
+    ],
+    "rtt_ms": [
+      534,
+      686
+    ],
+    "error": null
+  },
+  {
+    "name": "task3_bowl_drawer",
+    "prompt": "open the top drawer and put the bowl inside",
+    "episode_id": "ep_20261126_124411",
+    "goal_source": "LIBERO Goal task 3",
+    "goal_label": "open the top drawer and put the bowl inside",
+    "conditions": [
+      [
+        "in",
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region"
+      ]
+    ],
+    "result": "success",
+    "steps": 192,
+    "chunks": 7,
+    "start_s": 12.5,
+    "wall_s": 61.95,
+    "board_total_ms": [
+      343,
+      432
+    ],
+    "rtt_ms": [
+      482,
+      947
+    ],
+    "error": null
+  },
+  {
+    "name": "new_cheese_plate",
+    "prompt": "put the cream cheese on the plate",
+    "episode_id": "ep_20261126_124529",
+    "goal_source": "parsed prompt",
+    "goal_label": "the cream cheese on the plate",
+    "conditions": [
+      [
+        "on",
+        "cream_cheese_1",
+        "plate_1"
+      ]
+    ],
+    "result": "failure",
+    "steps": 400,
+    "chunks": 14,
+    "start_s": 10.3,
+    "wall_s": 112.42,
+    "board_total_ms": [
+      356,
+      364
+    ],
+    "rtt_ms": [
+      496,
+      680
+    ],
+    "error": null
+  },
+  {
+    "name": "new_wine_plate",
+    "prompt": "put the wine bottle on the plate",
+    "episode_id": "ep_20261126_124736",
+    "goal_source": "parsed prompt",
+    "goal_label": "the wine bottle on the plate",
+    "conditions": [
+      [
+        "on",
+        "wine_bottle_1",
+        "plate_1"
+      ]
+    ],
+    "result": "failure",
+    "steps": 400,
+    "chunks": 14,
+    "start_s": 10.7,
+    "wall_s": 114.58,
+    "board_total_ms": [
+      355,
+      423
+    ],
+    "rtt_ms": [
+      494,
+      785
+    ],
+    "error": null
+  },
+  {
+    "name": "new_cheese_stove",
+    "prompt": "put the cream cheese on the stove",
+    "episode_id": "ep_20261126_124948",
+    "goal_source": "parsed prompt",
+    "goal_label": "the cream cheese on the stove",
+    "conditions": [
+      [
+        "on",
+        "cream_cheese_1",
+        "flat_stove_1_cook_region"
+      ]
+    ],
+    "result": "failure",
+    "steps": 400,
+    "chunks": 14,
+    "start_s": 10.8,
+    "wall_s": 89.39,
+    "board_total_ms": [
+      344,
+      365
+    ],
+    "rtt_ms": [
+      534,
+      1085
+    ],
+    "error": null
+  },
+  {
+    "name": "unscored_wave",
+    "prompt": "wave hello",
+    "episode_id": "ep_20261126_125132",
+    "goal_source": null,
+    "goal_label": null,
+    "conditions": null,
+    "result": "stopped",
+    "steps": 120,
+    "chunks": 5,
+    "start_s": 7.9,
+    "wall_s": 24.21,
+    "board_total_ms": [
+      342,
+      360
+    ],
+    "rtt_ms": [
+      476,
+      565
+    ],
+    "error": null
+  }
+]
