@@ -194,7 +194,7 @@ export const en: Strings = {
     goalChecking: 'Will check: {label}',
     goalNotScored: 'Not scored: {reason}',
     liberoScene:
-      'LIBERO Goal scene · Franka Panda arm. The SO-101 model and joint data do not apply here.',
+      'LIBERO Goal scene · Franka Panda arm, driven by X-VLA running on the VENTUNO Q NPU.',
     send: 'Send command',
     blocked: {
       estop: 'The emergency stop is pressed. Release it, then press Ready.',

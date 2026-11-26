@@ -13,7 +13,7 @@ The rest of this README is the bridge's own API. Use it for direct clients, or t
 
 **The demo is one scene, LIBERO Goal task 8, where the user types their own prompt.** The bridge works out what success means for that prompt, then checks it in the simulator every step.
 
-Status, 26 Nov 2026: 59 tests passing. In that scene on the board, all 10 LIBERO Goal instructions succeeded and all 3 new object/place combinations failed (§2 and [`recordings/2026-11-26/`](recordings/2026-11-26/README.md)).
+Status, 26 Nov 2026: 61 tests passing. In that scene on the board, all 10 LIBERO Goal instructions succeeded and all 3 new object/place combinations failed (§2 and [`recordings/2026-11-26/`](recordings/2026-11-26/README.md)).
 
 The original design doc is "X-VLA Board Demo — Web Integration Spec" (https://claude.ai/artifact/4KCDYz7i5oRPXHjzyqB6k6). Where it differs from this README, this README is current: free prompts, goals and the 400-step cap came later.
 
@@ -139,7 +139,7 @@ Base URL `http://localhost:8002`. Every response is JSON except the video. Every
 | `POST /api/episodes/{id}/stop` | 202; the stream then ends with `stopped`, normally within about 1 s | 404 `not_found`, 409 `not_running` |
 | `GET /api/episodes/{id}/video` | `video/mp4`: both cameras side by side, 20 fps | 404 `not_found` |
 | `GET /api/state` | One poll for clients without the WebSocket (the web backend's adapter): `bridge`, `episode_running`, `board`, `scenes_ready`, and `episode`. `episode` is the current or latest episode summary plus `eef_pos_m`, `gripper`, `joint_pos_rad` from its latest frame; `null` before the first | none |
-| `GET /api/camera/{agentview\|wrist}` | Latest JPEG of the current or latest episode (`image/jpeg`) | 404 `not_found` before the first frame |
+| `GET /api/camera/{agentview\|wrist}` | `image/jpeg`. During an episode: its latest frame. While idle: the demo scene's starting view once it is prepared, otherwise the last frame of the latest episode | 404 `not_found` before any frame |
 
 `GET /api/health`:
 
@@ -219,6 +219,8 @@ An unscored prompt returns `"goal": {"scored": false, "source": null, "label": n
 `state` is `starting`, `running` or `ended`. `result`, `wall_s` and `video_url` are `null` until they're known. `error` is `{"code", "message"}` when `result` is `error`, else `null`.
 
 A start reuses the board status from the last 5 s poll when it was reachable, so `POST /api/episodes` answers well inside the web backend's 2 s budget.
+
+`GET /api/state` answers from the cached board status and never waits on the board; at most one board check runs at a time. The bridge's HTTP server pauses for 1–3 s while a scene resets after each episode, because the reset holds Python's lock. Clients must tolerate that pause: the web backend's `libero.env.example` does (offline after 8 s, stale after 6 s). The video library is imported at startup, because a cold import inside the first episode stalled the server for 1.6 s.
 
 ## 5. WebSocket stream
 
@@ -389,7 +391,7 @@ There is no mock mode in the bridge itself. To develop the UI without the board,
 | `board.py` | The board's TCP protocol (port 8766) and `/api/status` (port 8080) |
 | `sim.py` | LIBERO scenes through LeRobot 0.6.1, the scene list, the scene cache with ahead-of-time resets |
 | `smoke_client.py`, `record_prompts.py` | Live checks against a running bridge |
-| `tests/` | 59 tests: `test_bridge.py` (API, streaming, board protocol), `test_goals.py` (parser, scene cache) |
+| `tests/` | 61 tests: `test_bridge.py` (API, streaming, board protocol), `test_goals.py` (parser, scene cache) |
 | `recordings/2026-11-26/` | The 14-prompt recording: results, videos, frame strips |
 
 **Simulator threading.** All MuJoCo work runs on one thread, because the offscreen GL context belongs to the thread that created it. Building or resetting one scene takes that context away from the others. A prepared scene is therefore reused only if no other scene has run since; otherwise it's reset again first. Without that rule, it renders blank frames.

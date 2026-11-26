@@ -143,6 +143,13 @@ class SceneCache:
         self._current = (suite, task_id)
         self._prepared[(suite, task_id)] = (seed, obs)
 
+    def prepared_observation(self, suite: str, task_id: int, seed: int) -> Observation | None:
+        """The starting view of a prepared scene, or None. Read-only: safe from another thread."""
+        entry = self._prepared.get((suite, task_id))
+        if entry is None or entry[0] != seed or self._current != (suite, task_id):
+            return None
+        return entry[1]
+
     def is_prepared(self, suite: str, task_id: int, seed: int) -> bool:
         entry = self._prepared.get((suite, task_id))
         return entry is not None and entry[0] == seed and self._current == (suite, task_id)

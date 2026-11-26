@@ -145,7 +145,8 @@ Kết quả bridge → BE: success → success; failure (hết 400 bước) → 
 
 Hạn chế:
 - App trên board có lúc tự tắt (3 lần ngày 26/11, chưa rõ lý do). Khi đó web báo board mất kết nối; mở lại app trong App Lab.
-- Sau khi lượt chạy kết thúc, camera hiện "Hình bị đứng", vì bridge chỉ gửi hình trong lúc chạy.
+- Sau mỗi lượt, bridge đặt lại cảnh và trong 1–3 s không trả lời. `libero.env.example` vì thế cho phép MuJoCo im lặng lâu hơn (offline sau 8 s, dữ liệu cũ sau 6 s thay vì 2 s và 1,5 s). Giữ hai giá trị này, nếu không thì lượt bắt đầu ngay sau lượt trước có thể bị dừng với `sim_offline` hoặc `telemetry_stale`.
+- Khi chưa chạy, camera hiện cảnh ban đầu của bàn; trong lúc chạy là hình trực tiếp.
 - Không có dữ liệu khớp SO-101: ở chế độ này BE không gửi `telemetry`. Khớp Panda đi bằng tin `arm_state` (`app/adapter.py::to_arm_state`), lấy từ khung hình mới nhất của lượt chạy này trong `GET /api/state` của bridge: 7 góc khớp đo được (độ), kẹp `open`/`closed` (lấy từ action, là lệnh chứ không phải giá trị đo), vị trí đầu kẹp (mm). Không có lệnh theo từng khớp, nên bảng không có cột Lệnh/Sai số.
 - Quỹ đạo đầu kẹp dự kiến (`planned_eef_pos_m`) chỉ có trong WebSocket của bridge, không có trong `/api/state`, nên biểu đồ đầu kẹp chỉ có đường đo được.
 
@@ -154,7 +155,7 @@ Test không cần board: `pytest tests/test_libero_link.py` (bridge giả).
 ## Kiểm tra
 
 ```bash
-cd backend && pytest          # 165 test (+1 bỏ qua): đơn vị, hợp đồng (16 mẫu MuJoCo thật), toàn tuyến
+cd backend && pytest          # 172 test (+1 bỏ qua): đơn vị, hợp đồng (16 mẫu MuJoCo thật), toàn tuyến
 cd .. && npm test             # FE, gồm src/transport/contract.test.ts
 ```
 
