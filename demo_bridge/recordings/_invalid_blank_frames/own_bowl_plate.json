@@ -1,0 +1,24 @@
+[
+  {
+    "name": "own_bowl_plate",
+    "prompt": "put the bowl on the plate",
+    "episode_id": "ep_20261126_123715",
+    "goal_source": "scene's own LIBERO goal",
+    "goal_label": "put the bowl on the plate",
+    "conditions": null,
+    "result": "failure",
+    "steps": 400,
+    "chunks": 14,
+    "start_s": 5.7,
+    "wall_s": 64.97,
+    "board_total_ms": [
+      355,
+      363
+    ],
+    "rtt_ms": [
+      480,
+      723
+    ],
+    "error": null
+  }
+]
