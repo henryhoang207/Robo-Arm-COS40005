@@ -479,3 +479,34 @@ main:focus {
   line-height: 18px;
   color: var(--muted);
 }
+
+/* Show the whole camera frame. The design system uses object-fit: cover, and the <img> could
+   also grow taller than its box (grid row sized to the image), so square LIBERO frames lost
+   their top and bottom. Pin the image to the box and letterbox on --camera-bg instead. */
+.rb-camera__img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Franka Panda (LIBERO demo): joints 1-5 reuse the SO-101 joint palette, 6-7 and the
+   end-effector axes add three more. */
+:root {
+  --panda-joint1: var(--joint-shoulder_pan);
+  --panda-joint2: var(--joint-shoulder_lift);
+  --panda-joint3: var(--joint-elbow_flex);
+  --panda-joint4: var(--joint-wrist_flex);
+  --panda-joint5: var(--joint-wrist_roll);
+  --panda-joint6: #65a30d;
+  --panda-joint7: #0891b2;
+  --panda-eef-x: #dc2626;
+  --panda-eef-y: #16a34a;
+  --panda-eef-z: #2563eb;
+}
+.app-panda-note {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--muted);
+}

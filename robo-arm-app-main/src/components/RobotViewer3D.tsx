@@ -40,10 +40,16 @@ interface ViewerProps {
   /** Small slot (a camera was swapped into the large one). */
   compact?: boolean;
   forcePlaceholder?: boolean;
+  /** Shown instead of the model when the scene has no SO-101 arm (LIBERO demo). */
+  notApplicable?: string;
 }
 
 /** "Mô hình 3D · thời gian thực": URDF-driven measured robot, commanded ghost, trail and plan. */
-export function RobotViewer3D({ compact = false, forcePlaceholder = false }: ViewerProps) {
+export function RobotViewer3D({
+  compact = false,
+  forcePlaceholder = false,
+  notApplicable,
+}: ViewerProps) {
   const t = useT();
   const lang = useStore((s) => s.lang);
   const layers = useStore((s) => s.layers);
@@ -74,7 +80,12 @@ export function RobotViewer3D({ compact = false, forcePlaceholder = false }: Vie
 
   const viewport = (
     <div className={`rb-viewport ${compact ? 'app-viewport--compact' : ''}`}>
-      {webgl ? (
+      {notApplicable ? (
+        <div className="app-viewport-msg" data-testid="viewer-not-applicable">
+          <Icon name="info" />
+          <span>{notApplicable}</span>
+        </div>
+      ) : webgl ? (
         <Suspense fallback={loadingMsg}>
           <ViewerCanvas
             forcePlaceholder={forcePlaceholder}
@@ -105,7 +116,7 @@ export function RobotViewer3D({ compact = false, forcePlaceholder = false }: Vie
           {t.viewer.noWebgl}
         </div>
       )}
-      {!compact && (
+      {!compact && !notApplicable && (
         <div className="rb-viewport__tl">
           <button type="button" className="rb-btn" onClick={resetView}>
             <Icon name="reset" />
@@ -113,7 +124,7 @@ export function RobotViewer3D({ compact = false, forcePlaceholder = false }: Vie
           </button>
         </div>
       )}
-      {ee && (
+      {ee && !notApplicable && (
         <div className="rb-viewport__tr">
           <span className="rb-readout" data-testid="ee-readout">
             {t.viewer.ee} <b>{fmt(t.viewer.eeValue, { x: n(ee[0]), y: n(ee[1]), z: n(ee[2]) })}</b>

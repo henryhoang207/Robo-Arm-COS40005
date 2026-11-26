@@ -18,6 +18,8 @@ interface UPlotChartProps {
   yRange: [number, number];
   height: number;
   ariaLabel: string;
+  /** Width of the y-axis labels in px (default 44; wider for 4-digit values). */
+  yAxisSize?: number;
   /** Pointer entered the plot area. */
   onHover: () => void;
   /** Hovered data index (null when the cursor leaves). */
@@ -26,14 +28,14 @@ interface UPlotChartProps {
 
 /** Thin uPlot wrapper: recreates the plot when the series styling changes. */
 export function UPlotChart(props: UPlotChartProps) {
-  const { series, data, xRange, yRange, height, ariaLabel } = props;
+  const { series, data, xRange, yRange, height, ariaLabel, yAxisSize = 44 } = props;
   const host = useRef<HTMLDivElement>(null);
   const plot = useRef<uPlot | null>(null);
   const cb = useRef(props);
   useEffect(() => {
     cb.current = props;
   });
-  const styleKey = JSON.stringify([series, yRange, height]);
+  const styleKey = JSON.stringify([series, yRange, height, yAxisSize]);
 
   useEffect(() => {
     const el = host.current;
@@ -56,7 +58,7 @@ export function UPlotChart(props: UPlotChartProps) {
       scales: { x: { time: false }, y: { range: yRange } },
       axes: [
         { ...axis, values: (_u, vals) => vals.map((v) => `${v.toFixed(0)}s`) },
-        { ...axis, size: 44 },
+        { ...axis, size: yAxisSize },
       ],
       series: [
         {},

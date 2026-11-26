@@ -32,6 +32,23 @@ export interface TelemetryMsg {
   joints: Record<JointName, JointSample>;
 }
 
+/**
+ * Joints of an arm that is not the SO-101: the LIBERO demo's Franka Panda (BE `arm_state`).
+ * Measured only; there is no per-joint command. Never mixed into `telemetry`.
+ */
+export interface ArmStateMsg {
+  type: 'arm_state';
+  ts: number;
+  arm: 'panda';
+  /** 7 measured joint angles, degrees, joint1..joint7. */
+  jointsDeg: number[];
+  /** From the current action (a command), not measured. */
+  gripper?: 'open' | 'closed';
+  /** Measured end-effector position, mm. */
+  eefMm?: [number, number, number];
+  step?: number;
+}
+
 export interface RobotError {
   code: string;
   /** Joint involved, if any (technical name). */
@@ -140,6 +157,7 @@ export interface ConnectionMsg {
 
 export type IncomingMessage =
   | TelemetryMsg
+  | ArmStateMsg
   | StatusMsg
   | TaskEventMsg
   | TaskListMsg
