@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { config } from '../config';
+import { useLiberoMode } from '../config/protocol';
+import { useT } from '../strings';
 import { CameraTile } from '../components/CameraTile';
 import { CommandPanel } from '../components/CommandPanel';
 import { JointTable } from '../components/JointTable';
@@ -30,8 +32,19 @@ function useTabletLayout() {
 export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; noUrdf: boolean }) {
   const large = useStore((s) => s.largeSlot);
   const lang = useStore((s) => s.lang);
-  const bigCamera = config.cameras.find((c) => c.id === large);
+  // LIBERO demo: no SO-101 arm, so the first camera takes the 3D model's place.
+  const libero = useLiberoMode();
+  const t = useT();
+  const bigCamera =
+    config.cameras.find((c) => c.id === large) ?? (libero ? config.cameras[0] : undefined);
   const tablet = useTabletLayout();
+  const liberoNote = (
+    <section className="rb-card" data-testid="libero-note">
+      <div className="rb-card__body">
+        <p className="app-libero-note app-m0">{t.command.liberoScene}</p>
+      </div>
+    </section>
+  );
   const [tabletTab, setTabletTab] = useState<TabletTab>('control');
 
   const visual = (
@@ -47,9 +60,9 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
         )}
       </div>
       <div className="rb-cams rb-tablet-cams">
-        {bigCamera && <RobotViewer3D compact forcePlaceholder={noUrdf} />}
+        {bigCamera && !libero && <RobotViewer3D compact forcePlaceholder={noUrdf} />}
         {config.cameras
-          .filter((c) => c.id !== large)
+          .filter((c) => c.id !== bigCamera?.id)
           .map((c) => (
             <CameraTile key={c.id} camera={c} stale={derived.stale} />
           ))}
@@ -71,23 +84,29 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
             <RobotViewer3D forcePlaceholder={noUrdf} />
           )}
           <div className="rb-cams">
-            {bigCamera && <RobotViewer3D compact forcePlaceholder={noUrdf} />}
+            {bigCamera && !libero && <RobotViewer3D compact forcePlaceholder={noUrdf} />}
             {config.cameras
-              .filter((c) => c.id !== large)
+              .filter((c) => c.id !== bigCamera?.id)
               .map((c) => (
                 <CameraTile key={c.id} camera={c} stale={derived.stale} />
               ))}
           </div>
         </div>
         <div className="rb-col rb-col--right">
-          <JointTable derived={derived} />
-          <TrajectoryCharts />
+          {libero ? (
+            liberoNote
+          ) : (
+            <>
+              <JointTable derived={derived} />
+              <TrajectoryCharts />
+            </>
+          )}
         </div>
       </div>
     );
   }
 
-  const tabs: { id: TabletTab; label: string }[] =
+  const allTabs: { id: TabletTab; label: string }[] =
     lang === 'vi'
       ? [
           { id: 'control', label: 'Điều khiển' },
@@ -99,6 +118,7 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
           { id: 'joints', label: 'Joint status' },
           { id: 'charts', label: 'Charts' },
         ];
+  const tabs = libero ? allTabs.filter((tab) => tab.id === 'control') : allTabs;
 
   return (
     <div className="rb-tablet-layout">
@@ -137,6 +157,7 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
             <div className="rb-tablet-control">
               <CommandPanel derived={derived} />
               <TaskHistory />
+              {libero && liberoNote}
             </div>
           )}
           {tabletTab === 'joints' && <JointTable derived={derived} />}

@@ -105,6 +105,7 @@ class Episode:
         self.result: str | None = None
         self.wall_s: float | None = None
         self.video_path: Path | None = None
+        self.error: dict | None = None  # {"code", "message"} when result is "error"
         self._t_started: float | None = None
 
     def request_stop(self) -> None:
@@ -133,6 +134,7 @@ class Episode:
             "result": self.result,
             "wall_s": None if wall is None else round(wall, 2),
             "video_url": self.video_url,
+            "error": self.error,
         }
 
     @property
@@ -240,11 +242,13 @@ class Episode:
         except BoardError as exc:
             log.warning("episode %s board failure: %s", spec.episode_id, exc.message)
             self.result = "error"
-            self._emit({"type": "error", "code": exc.code, "message": exc.message})
+            self.error = {"code": exc.code, "message": exc.message}
+            self._emit({"type": "error", **self.error})
         except Exception as exc:  # sim, rendering or encoding failure
             log.exception("episode %s sim failure", spec.episode_id)
             self.result = "error"
-            self._emit({"type": "error", "code": "sim_error", "message": f"{type(exc).__name__}: {exc}"})
+            self.error = {"code": "sim_error", "message": f"{type(exc).__name__}: {exc}"}
+            self._emit({"type": "error", **self.error})
         finally:
             if video.close():
                 self.video_path = video.path

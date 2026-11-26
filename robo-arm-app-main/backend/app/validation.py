@@ -52,6 +52,11 @@ class Protocol:
     dataset: dict[str, Any] = field(default_factory=dict)
     contract: dict[str, Any] = field(default_factory=dict)
     file_hash: str | None = None
+    # Free prompts (LIBERO demo): any text up to max_text_chars is accepted instead of ui_text,
+    # and it is what reaches the model when policy_task_text is empty.
+    free_text: bool = False
+    max_text_chars: int = 300
+    suggestions: tuple[str, ...] = ()
 
     @classmethod
     def from_dict(cls, d: dict[str, Any], file_hash: str | None = None) -> "Protocol":
@@ -70,6 +75,9 @@ class Protocol:
             dataset=dict(d.get("dataset") or {}),
             contract=dict(d.get("contract") or {}),
             file_hash=file_hash,
+            free_text=bool(d.get("free_text", False)),
+            max_text_chars=int(d.get("max_text_chars", 300)),
+            suggestions=tuple(str(x) for x in d.get("suggestions") or ()),
         )
 
 
@@ -131,7 +139,12 @@ def validate_command(cmd: CommandIn, ctx: Context) -> Rejection | None:
         return Rejection("bad_template", f"Chỉ có task: {p.ui_text}")
     if cmd.params.get("object") != p.object:
         return Rejection("bad_object", f"Chỉ có vật: {p.object}")
-    if cmd.text != p.ui_text:
+    if p.free_text:
+        if not cmd.text.strip():
+            return Rejection("text_empty", "Câu lệnh đang trống")
+        if len(cmd.text) > p.max_text_chars:
+            return Rejection("text_too_long", f"Câu lệnh dài quá {p.max_text_chars} ký tự")
+    elif cmd.text != p.ui_text:
         return Rejection("text_mismatch", "Câu lệnh không đúng mẫu")
 
     profile = ctx.profiles.get(cmd.profileId) if cmd.profileId else None

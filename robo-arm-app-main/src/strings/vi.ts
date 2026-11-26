@@ -186,6 +186,12 @@ export const vi = {
     referenceDriver:
       'Chế độ local: tay robot chạy bằng controller tham chiếu của MuJoCo (biết vị trí thật của vật), không phải AI. Profile chỉ được ghi vào log.',
     preview: 'Lệnh sẽ gửi',
+    prompt: 'Câu lệnh cho robot',
+    promptHelp: 'Gõ yêu cầu hoặc chọn gợi ý. 10 nhiệm vụ LIBERO Goal chạy tốt nhất.',
+    goalChecking: 'Sẽ kiểm tra: {label}',
+    goalNotScored: 'Không chấm điểm: {reason}',
+    liberoScene:
+      'Cảnh LIBERO Goal · tay robot Franka Panda. Mô hình SO-101 và dữ liệu khớp không áp dụng ở đây.',
     send: 'Gửi lệnh',
     blocked: {
       estop: 'Nút dừng khẩn cấp đang được nhấn. Nhả nút rồi bấm Sẵn sàng.',

@@ -74,6 +74,10 @@ def build_ports(settings: Settings) -> tuple[SimPort, BoardPort]:
         from tools.mock_sim import FakeSim
 
         sim: SimPort = FakeSim.from_env()
+    elif settings.sim_link == "libero":
+        from .libero_link import LiberoSim
+
+        sim = LiberoSim(settings)
     else:
         from .sim_client import SimClient
 
@@ -82,6 +86,10 @@ def build_ports(settings: Settings) -> tuple[SimPort, BoardPort]:
         from tools.mock_board import FakeBoard
 
         board: BoardPort = FakeBoard.from_env(sim)
+    elif settings.board_link == "libero":
+        from .libero_link import LiberoBoard
+
+        board = LiberoBoard(sim)
     elif settings.board_link == "reference":
         from .reference_driver import ReferenceDriver
 

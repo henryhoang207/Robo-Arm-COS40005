@@ -1,0 +1,42 @@
+{
+  "_note": "LIBERO free-prompt demo through the X-VLA demo bridge (demo_bridge/, SO101_SIM_LINK=libero). object = the LIBERO scene. With free_text the user's prompt is sent to X-VLA as typed; the bridge scores it against its own goal (demo_bridge/README.md section 2). Seed 1000 is the one the bridge prepares and the one recorded on 26 Nov 2026.",
+  "id": "libero-goal8-v1",
+  "rule_version": "dev",
+  "template_id": "libero_prompt",
+  "object": "libero_goal/8",
+  "ui_text": "put the bowl on the plate",
+  "policy_task_text": null,
+  "free_text": true,
+  "max_text_chars": 300,
+  "suggestions": [
+    "put the bowl on the plate",
+    "put the bowl on the stove",
+    "turn on the stove",
+    "open the middle drawer of the cabinet",
+    "put the wine bottle on the rack",
+    "put the wine bottle on top of the cabinet",
+    "put the cream cheese in the bowl",
+    "push the plate to the front of the stove",
+    "put the bowl on top of the cabinet",
+    "open the top drawer and put the bowl inside",
+    "put the cream cheese on the plate",
+    "put the wine bottle on the plate",
+    "put the cream cheese on the stove",
+    "close the middle drawer"
+  ],
+  "seeds": [1000],
+  "trials_per_seed": 1,
+  "warmup_chunks": 0,
+  "episode_limit_s": null,
+  "retry_incomplete": false,
+  "dataset": {
+    "id": "lerobot/xvla-libero",
+    "revision": null,
+    "split_id": null
+  },
+  "contract": {
+    "stop_to_halt_ms": null,
+    "control_period_ms": null,
+    "action_queue_capacity": null
+  }
+}

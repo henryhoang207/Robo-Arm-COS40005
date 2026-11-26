@@ -19,6 +19,7 @@ from . import pipeline
 from .camera import BOUNDARY, CameraProxy
 from .export import export_run
 from .live import Hub
+from .ports import SimError
 from .runner import Runner
 from .settings import CAMERAS, Settings
 from .state import SystemState, task_info
@@ -112,6 +113,29 @@ def build_router(core: Core) -> APIRouter:
                         "server_policy_p50_s", "server_policy_p95_s", "note"):  # fmt: skip
                 row[key] = getattr(p, key, None) if p else None
         return {"profiles": rows}
+
+    @r.get("/api/v1/protocol")
+    async def protocol() -> dict[str, Any]:
+        """The command the web may send. With `free_text` the web shows a prompt box."""
+        p = runner.protocol
+        return {
+            "id": p.id, "template_id": p.template_id, "object": p.object, "ui_text": p.ui_text,
+            "free_text": p.free_text, "max_text_chars": p.max_text_chars, "suggestions": list(p.suggestions),
+        }  # fmt: skip
+
+    @r.post("/api/v1/goal-preview")
+    async def goal_preview(body: dict[str, Any] = Body(...)) -> dict[str, Any]:
+        """LIBERO demo only: what the bridge would score this prompt against."""
+        preview = getattr(runner.sim, "preview_goal", None)
+        if preview is None or not runner.protocol.free_text:
+            raise HTTPException(404, "goal preview needs SO101_SIM_LINK=libero and a free_text protocol")
+        text = body.get("text")
+        if not isinstance(text, str) or len(text) > runner.protocol.max_text_chars:
+            raise HTTPException(422, "text must be a string within max_text_chars")
+        try:
+            return await asyncio.wait_for(preview(text, runner.protocol.object), s.sim_timeout_ms / 1000)
+        except (SimError, TimeoutError) as exc:
+            raise HTTPException(503, f"demo bridge not answering: {exc}") from exc
 
     @r.get("/api/v1/runs")
     async def runs(

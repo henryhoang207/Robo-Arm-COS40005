@@ -106,10 +106,54 @@ MOCK_SIM_SCENARIO=normal uvicorn tools.mock_sim:app --port 8000
 SO101_SIM_LINK=real SO101_BOARD_LINK=reference uvicorn app.main:app --port 8001 --workers 1
 ```
 
+## Chạy với X-VLA LIBERO trên board (cách C)
+
+Cách này cho AI thật chạy trên board: model X-VLA (LIBERO, W8A16) chạy trên NPU của VENTUNO Q, qua demo bridge (`demo_bridge/` ở gốc repo). Bridge chạy mô phỏng LIBERO (tay Franka Panda) trên laptop và tự gọi board, nên BE coi bridge vừa là MuJoCo vừa là board (`app/libero_link.py`).
+
+Cần ba thứ chạy, theo thứ tự:
+
+1. **Board.** Mở App Lab, chạy app **X-VLA LIBERO NPU**. Kiểm tra `http://10.1.0.119:8080/api/status` có trả lời.
+2. **Bridge** (WSL, venv `~/libero`), từ gốc repo. Chờ log in `scene libero_goal/8 ready` (khoảng 1 phút). Bridge chạy ở cổng 8002.
+
+   ```bash
+   MUJOCO_GL=egl GALLIUM_DRIVER=d3d12 ~/libero/bin/python -m demo_bridge.app --board-host 10.1.0.119
+   ```
+
+3. **BE** ở chế độ LIBERO, cổng 8001 (build FE trước như cách A):
+
+   ```bash
+   cd backend
+   cp libero.env.example .env
+   uvicorn app.main:app --host 0.0.0.0 --port 8001 --workers 1 --timeout-graceful-shutdown 3
+   ```
+
+Mở `http://localhost:8001`, chọn profile X-VLA (LIBERO), gõ câu lệnh, bấm **Gửi lệnh**.
+
+| | SO-101 (cách A, B) | X-VLA LIBERO (cách C) |
+| --- | --- | --- |
+| Robot | SO-101, 6 khớp | Franka Panda (LIBERO), 7 khớp |
+| Lệnh | Câu cố định theo mẫu + vật | Ô nhập câu lệnh tự do (protocol `free_text`), có gợi ý |
+| Ai điều khiển | Board giả hoặc controller tham chiếu | X-VLA trên NPU của board |
+| Kết quả | MuJoCo chấm | Bridge chấm theo mục tiêu của câu lệnh: 10 nhiệm vụ LIBERO Goal, hoặc câu đơn giản kiểu "put X on Y". Câu không hiểu được thì không chấm (`failure`, mã `unscored`) |
+| Web | 3D SO-101, bảng khớp, biểu đồ | Ẩn 3D, bảng khớp, biểu đồ; hiện hai camera và ô lệnh |
+| Profile | 9 profile (`config/profiles.json`) | 1 profile `xvla-libero-w8a16` (`config/profiles.libero.json`) |
+| Dữ liệu | `./data` | `./data-libero` |
+
+Kết quả bridge → BE: success → success; failure (hết 400 bước) → timeout; unscored → failure (`unscored`); stopped → aborted; error → error, kèm mã lỗi của bridge.
+
+Đã chạy thật ngày 26/11 qua trang web: "put the bowl on the stove" thành công (92 bước, 34 s); STOP dừng sau 0,86 s, bấm **Sẵn sàng** thì chạy tiếp được.
+
+Hạn chế:
+- App trên board có lúc tự tắt (3 lần ngày 26/11, chưa rõ lý do). Khi đó web báo board mất kết nối; mở lại app trong App Lab.
+- Sau khi lượt chạy kết thúc, camera hiện "Hình bị đứng", vì bridge chỉ gửi hình trong lúc chạy.
+- Không có dữ liệu khớp SO-101: ở chế độ này BE không gửi `telemetry`.
+
+Test không cần board: `pytest tests/test_libero_link.py` (bridge giả).
+
 ## Kiểm tra
 
 ```bash
-cd backend && pytest          # 146 test: đơn vị, hợp đồng (16 mẫu MuJoCo thật), toàn tuyến
+cd backend && pytest          # 165 test (+1 bỏ qua): đơn vị, hợp đồng (16 mẫu MuJoCo thật), toàn tuyến
 cd .. && npm test             # FE, gồm src/transport/contract.test.ts
 ```
 

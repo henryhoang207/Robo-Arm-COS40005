@@ -394,6 +394,39 @@ def test_preload_prepares_scenes_and_reprepares_after_episode(tmp_path, server):
         assert scene.resets == 2  # one at preload (used by the episode), one re-prepare after it
 
 
+def test_state_and_camera_endpoints_for_polling_clients(tmp_path, server):
+    import base64
+
+    client, _ = make_client(tmp_path, server, succeed_at=3)
+    with client:
+        idle = client.get("/api/state").json()
+        assert idle["episode"] is None and idle["board"]["reachable"] and idle["episode_running"] is False
+        assert client.get("/api/camera/agentview").status_code == 404
+        ep = client.post("/api/episodes", json={"suite": "libero_spatial", "task_id": 0}).json()["episode_id"]
+        msgs = collect(client, ep)
+        state = client.get("/api/state").json()
+        e = state["episode"]
+        assert e["episode_id"] == ep and e["state"] == "ended" and e["result"] == "success" and e["error"] is None
+        assert e["step"] == 3 and len(e["eef_pos_m"]) == 3 and len(e["joint_pos_rad"]) == 7 and e["gripper"] == "open"
+        jpg = client.get("/api/camera/wrist")
+        last = [m for m in msgs if m["type"] == "frame"][-1]
+        assert jpg.status_code == 200 and jpg.headers["content-type"] == "image/jpeg"
+        assert jpg.content == base64.b64decode(last["wrist"])
+        assert client.get("/api/camera/overhead").status_code == 404
+
+
+def test_board_error_is_in_the_episode_summary(tmp_path):
+    s = FakeBoardServer("error")
+    try:
+        client, _ = make_client(tmp_path, s)
+        with client:
+            ep = client.post("/api/episodes", json={"suite": "libero_spatial", "task_id": 0}).json()["episode_id"]
+            collect(client, ep)
+            assert client.get("/api/state").json()["episode"]["error"]["code"] == "board_error"
+    finally:
+        s.close()
+
+
 def test_unknown_episode(tmp_path, server):
     client, _ = make_client(tmp_path, server)
     with client:
