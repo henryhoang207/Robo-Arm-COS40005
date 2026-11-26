@@ -268,6 +268,8 @@ export const vi = {
     },
     noUrdf: 'Không tải được URDF ở {path}. Đang hiển thị chuỗi khớp đơn giản thay thế.',
     loading: 'Đang tải mô hình URDF…',
+    liberoNotApplicable:
+      'Cảnh LIBERO dùng tay Franka Panda nên mô hình 3D SO-101 không áp dụng. Bấm nút phóng to trên một camera để xem camera đó ở ô lớn.',
     noWebgl: 'Trình duyệt không hỗ trợ WebGL nên không vẽ được mô hình 3D.',
     softwareGl:
       'Mô hình 3D đang tắt: máy này vẽ 3D bằng CPU (không có GPU), sẽ làm chậm cả trang, kể cả nút STOP. Camera, bảng khớp và biểu đồ vẫn chạy.',
@@ -323,6 +325,37 @@ export const vi = {
       'Kẹp không tính vào độ bám lệnh, vì khi giữ vật lệnh luôn đóng sâu hơn vị trí thật.',
     nearLimit: 'gần giới hạn',
     limitAria: '{joint}: {pct}% hành trình',
+  },
+
+  panda: {
+    jointsTitle: 'Trạng thái khớp · Franka Panda',
+    jointsSub: '7 khớp đo trong mô phỏng LIBERO. Không có lệnh theo từng khớp.',
+    desc: [
+      'xoay đế',
+      'vai',
+      'xoay cánh tay trên',
+      'khuỷu',
+      'xoay cẳng tay',
+      'cổ tay',
+      'xoay mặt bích',
+    ],
+    gripper: 'Kẹp',
+    gripperState: { open: 'Mở', closed: 'Đóng' },
+    gripperNote: 'theo lệnh hiện tại, không phải giá trị đo',
+    eef: 'Đầu kẹp',
+    eefUnit: 'mm',
+    step: 'Bước mô phỏng',
+    noData: 'Chưa có dữ liệu khớp. Số liệu hiện khi một lượt chạy bắt đầu.',
+    foot: 'Vận tốc ước tính từ vị trí. Giới hạn khớp theo mô hình Panda của robosuite 1.4.0, bộ mô phỏng của LIBERO.',
+    limitTip:
+      'Khớp đang ở đâu trong hành trình (theo mô hình mô phỏng). Vàng khi gần hết hành trình.',
+    chartsTitle: 'Quỹ đạo theo thời gian · Franka Panda',
+    tabs: { position: 'Vị trí khớp', velocity: 'Vận tốc', eef: 'Đầu kẹp' },
+    groups: { base: 'Khớp 1–4', wrist: 'Khớp 5–7' },
+    keyState: 'Nét liền: giá trị đo',
+    keyVelocity: 'Nét liền: vận tốc ước tính',
+    keyEef: 'Nét liền: vị trí đo (mm)',
+    chartNote: 'Chỉ có giá trị đo. Quỹ đạo dự kiến của board không có trong dữ liệu BE nhận được.',
   },
 
   charts: {

@@ -39,6 +39,20 @@ class BoardError(Exception):
 
 
 @dataclass(frozen=True)
+class ArmSample:
+    """Joints of an arm that is not the SO-101 (the LIBERO demo's Franka Panda).
+
+    Kept apart from `SimState.joint_positions`, which is always the SO-101's six joints.
+    """
+
+    arm: str  # "panda"
+    joints_rad: tuple[float, ...]  # measured, 7 values for the Panda; no per-joint command
+    gripper: str | None = None  # "open" | "closed", from the current action (a command)
+    eef_m: tuple[float, float, float] | None = None  # measured end-effector position
+    step: int | None = None  # simulation step of the frame
+
+
+@dataclass(frozen=True)
 class SimState:
     status: str
     # True when something can drive the arm: the board (board mode) or, in local mode,
@@ -59,6 +73,7 @@ class SimState:
     sim_run_id: str | None = None  # MuJoCo's own episode id, new at every RESET
     episode_status: str | None = None  # READY | RUNNING | SUCCESS | FAILURE | ABORTED
     gripper_limits: tuple[float, float] | None = None  # rad (closed, open), from the model
+    arm: ArmSample | None = None  # non-SO-101 arm (LIBERO Panda); None for SO-101
     raw: dict[str, Any] = field(default_factory=dict, compare=False)
 
 
