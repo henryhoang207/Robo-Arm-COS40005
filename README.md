@@ -49,15 +49,18 @@ Details: [`demo_bridge/README.md`](demo_bridge/README.md) (bridge API, what to e
    ~/.venvs/robo-be/bin/pip install -r ~/Robo-Arm-COS40005/robo-arm-app-main/backend/requirements.txt
    ```
 
-5. **Build the web page** on Windows (Node 20 or later; WSL has no Node), in a checkout of `main`, for example `C:\RobotArm`:
+5. **Build the web page** on Windows (Node 20 or later; WSL has no Node). Use a separate clone of `main`, so the build never touches a working copy that's on another branch:
 
    ```powershell
-   cd C:\RobotArm\robo-arm-app-main
+   git clone https://github.com/henryhoang207/Robo-Arm-COS40005.git C:\Robo-Arm-COS40005
+   cd C:\Robo-Arm-COS40005\robo-arm-app-main
    npm ci
    npm run build
    ```
 
-   Rebuild after pulling frontend changes.
+   To update later: `git pull`, then `npm ci` and `npm run build` again.
+
+First-time setup took about 10 minutes on the lab network: about 2 minutes per clone, 2 for `npm ci` and 5 for the pip installs.
 
 ### Every demo
 
@@ -72,7 +75,7 @@ Details: [`demo_bridge/README.md`](demo_bridge/README.md) (bridge API, what to e
 2. **WSL terminal 1: the bridge.** Wait until the log shows `scene libero_goal/8 ready`. That takes 1 to 2 minutes, because the bridge prepares the demo scene before the first request.
 
    ```bash
-   cd ~/Robo-Arm-COS40005 && git pull
+   cd ~/Robo-Arm-COS40005 && git pull   # if the frontend changed, also rebuild the page (setup step 5)
    MUJOCO_GL=egl GALLIUM_DRIVER=d3d12 ~/libero/bin/python -m demo_bridge.app --board-host 10.1.0.119
    ```
 
@@ -81,7 +84,7 @@ Details: [`demo_bridge/README.md`](demo_bridge/README.md) (bridge API, what to e
    ```bash
    cd ~/Robo-Arm-COS40005/robo-arm-app-main/backend
    cp libero.env.example .env
-   echo "SO101_FE_DIST_DIR=/mnt/c/RobotArm/robo-arm-app-main/dist" >> .env
+   echo "SO101_FE_DIST_DIR=/mnt/c/Robo-Arm-COS40005/robo-arm-app-main/dist" >> .env
    ~/.venvs/robo-be/bin/uvicorn app.main:app --host 0.0.0.0 --port 8001 --workers 1 --timeout-graceful-shutdown 3
    ```
 
