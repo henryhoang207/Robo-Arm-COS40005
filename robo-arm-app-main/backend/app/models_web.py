@@ -96,6 +96,7 @@ class ArmStateOut(_Out):
     gripper: Literal["open", "closed"] | None = None  # from the current action, not measured
     eefMm: list[float] | None = Field(default=None, min_length=3, max_length=3)
     step: int | None = None
+    plannedEefMm: list[list[float]] | None = None
 
 
 class LinkOut(_Out):

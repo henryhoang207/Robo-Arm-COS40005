@@ -408,6 +408,7 @@ def test_state_and_camera_endpoints_for_polling_clients(tmp_path, server):
         e = state["episode"]
         assert e["episode_id"] == ep and e["state"] == "ended" and e["result"] == "success" and e["error"] is None
         assert e["step"] == 3 and len(e["eef_pos_m"]) == 3 and len(e["joint_pos_rad"]) == 7 and e["gripper"] == "open"
+        assert len(e["planned_eef_pos_m"]) == 30 and len(e["planned_eef_pos_m"][0]) == 3
         jpg = client.get("/api/camera/wrist")
         last = [m for m in msgs if m["type"] == "frame"][-1]
         assert jpg.status_code == 200 and jpg.headers["content-type"] == "image/jpeg"

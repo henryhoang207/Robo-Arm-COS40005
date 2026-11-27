@@ -10,6 +10,7 @@ const s = (t: number): ArmSample => ({
   gripper: null,
   eefMm: null,
   step: null,
+  plannedEefMm: null,
 });
 
 describe('armChart', () => {

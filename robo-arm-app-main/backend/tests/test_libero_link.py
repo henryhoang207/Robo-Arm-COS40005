@@ -69,6 +69,9 @@ class FakeBridge:
             ep["joint_pos_rad"] = [round(0.05 * s + 0.1 * i, 4) for i in range(self.panda_joints)]
             ep["gripper"] = "open" if s < 6 else "closed"
             ep["eef_pos_m"] = [-0.2016, round(0.001 * s, 4), 1.1648]
+            ep["planned_eef_pos_m"] = [
+                [round(-0.2016 + 0.001 * k, 4), round(0.001 * s, 4), 1.1648] for k in range(30)
+            ]
         if ep["step"] >= self.end_step:
             ep.update(state="ended", result=self.result)
             if self.result == "error":
@@ -351,6 +354,8 @@ def test_panda_joints_reach_the_web_as_arm_state(make_libero):
     assert last["arm"] == "panda" and len(last["jointsDeg"]) == 7
     assert last["gripper"] in ("open", "closed") and len(last["eefMm"]) == 3
     assert last["eefMm"][0] == -201.6  # metres -> millimetres
+    assert len(last["plannedEefMm"]) == 30 and last["plannedEefMm"][0] == [-201.6, last["eefMm"][1], 1164.8]
+    assert last["plannedEefMm"][-1][0] == -172.6
     # Still never under SO-101 names, and nothing quarantined.
     assert not [m for m in ws.seen if m["type"] == "telemetry"]
     assert be.db("SELECT COUNT(*) FROM quarantine")[0][0] == 0
@@ -385,18 +390,22 @@ async def test_panda_sample_only_from_this_run(tmp_path):
 def test_to_arm_state_converts_and_refuses_bad_frames():
     msg = adapter.to_arm_state(
         ArmSample(arm="panda", joints_rad=(0.0, 0.5, 0, -1.5708, 0, 1.5708, 0.7854),
-                  gripper="closed", eef_m=(-0.2016, 0.0124, 1.1648), step=31),  # fmt: skip
+                  gripper="closed", eef_m=(-0.2016, 0.0124, 1.1648), step=31,
+                  planned_eef_m=((-0.202, -0.0023, 1.1878), (-0.19, 0.01, 1.15))),  # fmt: skip
         123,
     ).wire()
     assert msg["type"] == "arm_state" and msg["ts"] == 123 and msg["step"] == 31
     assert msg["jointsDeg"][3] == -90.0 and msg["jointsDeg"][5] == 90.0
     assert msg["eefMm"] == [-201.6, 12.4, 1164.8] and msg["gripper"] == "closed"
+    assert msg["plannedEefMm"] == [[-202.0, -2.3, 1187.8], [-190.0, 10.0, 1150.0]]
     no_extras = adapter.to_arm_state(ArmSample(arm="panda", joints_rad=(0.0,) * 7, gripper="?"), 1).wire()
-    assert "gripper" not in no_extras and "eefMm" not in no_extras
+    assert "gripper" not in no_extras and "eefMm" not in no_extras and "plannedEefMm" not in no_extras
     for bad in (
         ArmSample(arm="panda", joints_rad=(0.0,) * 6),
         ArmSample(arm="panda", joints_rad=(float("nan"),) + (0.0,) * 6),
         ArmSample(arm="ur5", joints_rad=(0.0,) * 7),
+        ArmSample(arm="panda", joints_rad=(0.0,) * 7, planned_eef_m=((0.1, 0.2),)),
+        ArmSample(arm="panda", joints_rad=(0.0,) * 7, planned_eef_m=((0.1, float("inf"), 0.3),)),
     ):
         with pytest.raises(ValueError):
             adapter.to_arm_state(bad, 1)

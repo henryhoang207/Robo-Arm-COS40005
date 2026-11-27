@@ -1,8 +1,10 @@
 import { lazy, Suspense, useState } from 'react';
 import { config, type ViewPreset } from '../config';
+import { PANDA_URDF_PATH } from '../config/panda';
 import { useStore } from '../state/store';
 import type { Layers } from '../state/types';
 import { fmt, useT } from '../strings';
+import type { ArmKind } from '../three/robotKit';
 import { formatNumber } from '../utils/units';
 import { Icon } from './Icon';
 import { Tooltip } from './Tooltip';
@@ -11,6 +13,7 @@ const ViewerCanvas = lazy(() => import('../three/ViewerCanvas'));
 
 const PRESETS: ViewPreset[] = ['perspective', 'top', 'front', 'side'];
 const LAYERS: (keyof Layers)[] = ['ghost', 'trail', 'plan', 'axes', 'labels'];
+const PANDA_LAYERS: (keyof Layers)[] = ['trail', 'plan', 'axes', 'labels'];
 
 type GlKind = 'none' | 'software' | 'hardware';
 
@@ -37,15 +40,18 @@ function probeGl(): GlKind {
 }
 
 interface ViewerProps {
+  /** Which robot model to display (SO-101 default; Franka Panda in LIBERO mode). */
+  arm?: ArmKind;
   /** Small slot (a camera was swapped into the large one). */
   compact?: boolean;
   forcePlaceholder?: boolean;
-  /** Shown instead of the model when the scene has no SO-101 arm (LIBERO demo). */
+  /** Shown instead of the model when no 3D arm applies. */
   notApplicable?: string;
 }
 
 /** "Mô hình 3D · thời gian thực": URDF-driven measured robot, commanded ghost, trail and plan. */
 export function RobotViewer3D({
+  arm = 'so101',
   compact = false,
   forcePlaceholder = false,
   notApplicable,
@@ -70,6 +76,9 @@ export function RobotViewer3D({
 
   const object = objectId ? ((t.command.objects as Record<string, string>)[objectId] ?? '') : '';
   const n = (v: number) => formatNumber(v, 0, lang);
+  const panda = arm === 'panda';
+  const layerList = panda ? PANDA_LAYERS : LAYERS;
+  const urdfPath = panda ? PANDA_URDF_PATH : config.urdfPath;
 
   const loadingMsg = (
     <div className="app-viewport-msg">
@@ -88,6 +97,7 @@ export function RobotViewer3D({
       ) : webgl ? (
         <Suspense fallback={loadingMsg}>
           <ViewerCanvas
+            arm={arm}
             forcePlaceholder={forcePlaceholder}
             layers={layers}
             selected={selected}
@@ -97,7 +107,7 @@ export function RobotViewer3D({
               object: object.charAt(0).toUpperCase() + object.slice(1),
             })}
             dropLabel={t.viewer.drop}
-            ariaLabel={t.viewer.canvasLabel}
+            ariaLabel={panda ? t.viewer.pandaCanvasLabel : t.viewer.canvasLabel}
             loading={loadingMsg}
             onEe={setEe}
           />
@@ -137,7 +147,7 @@ export function RobotViewer3D({
   const notice = source === 'placeholder' && (
     <p className="rb-notice" role="status" data-testid="no-urdf">
       <Icon name="info" />
-      {fmt(t.viewer.noUrdf, { path: config.urdfPath })}
+      {fmt(t.viewer.noUrdf, { path: urdfPath })}
     </p>
   );
 
@@ -167,7 +177,7 @@ export function RobotViewer3D({
           <h2 className="rb-card__title" id="viewer-title">
             {t.viewer.title}
           </h2>
-          <p className="rb-card__sub">{t.viewer.sub}</p>
+          <p className="rb-card__sub">{panda ? t.viewer.pandaSub : t.viewer.sub}</p>
         </div>
         <div className="rb-seg" role="group" aria-label={t.viewer.presetsLabel}>
           {PRESETS.map((p) => (
@@ -179,7 +189,7 @@ export function RobotViewer3D({
       </div>
       <div className="rb-viewer__toolbar">
         <div className="rb-checks" role="group" aria-label={t.viewer.layersLabel}>
-          {LAYERS.map((l) => (
+          {layerList.map((l) => (
             <Tooltip key={l} content={t.viewer.layerTips[l]}>
               {(id) => (
                 <label className="rb-check">
@@ -203,10 +213,12 @@ export function RobotViewer3D({
           <span className="rb-key rb-key--solid" />
           {t.viewer.legend.measured}
         </span>
-        <span className="rb-legend__item">
-          <span className="rb-key rb-key--ghost" />
-          {t.viewer.legend.commanded}
-        </span>
+        {!panda && (
+          <span className="rb-legend__item">
+            <span className="rb-key rb-key--ghost" />
+            {t.viewer.legend.commanded}
+          </span>
+        )}
         <span className="rb-legend__item">
           <span className="rb-key rb-key--dot" style={{ color: 'var(--ee-trail)' }} />
           {t.viewer.legend.trail}

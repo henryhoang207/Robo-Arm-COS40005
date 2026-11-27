@@ -76,6 +76,15 @@ def to_arm_state(arm: ArmSample, ts_ms: int) -> ArmStateOut:
         raise ValueError("arm value is not finite")
     gripper = arm.gripper if arm.gripper in ("open", "closed") else None
     eef = [round(v * 1000.0, 1) for v in arm.eef_m] if arm.eef_m is not None else None
+    planned: list[list[float]] | None = None
+    if arm.planned_eef_m is not None:
+        planned = []
+        for pt in arm.planned_eef_m:
+            if len(pt) != 3 or not all(
+                isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v) for v in pt
+            ):
+                raise ValueError("planned EEF waypoint must be 3 finite numbers")
+            planned.append([round(v * 1000.0, 1) for v in pt])
     return ArmStateOut(
         ts=ts_ms,
         arm="panda",
@@ -83,4 +92,5 @@ def to_arm_state(arm: ArmSample, ts_ms: int) -> ArmStateOut:
         gripper=gripper,
         eefMm=eef,
         step=arm.step,
+        plannedEefMm=planned or None,
     )

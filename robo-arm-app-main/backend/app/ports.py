@@ -50,6 +50,7 @@ class ArmSample:
     gripper: str | None = None  # "open" | "closed", from the current action (a command)
     eef_m: tuple[float, float, float] | None = None  # measured end-effector position
     step: int | None = None  # simulation step of the frame
+    planned_eef_m: tuple[tuple[float, ...], ...] | None = None  # latest chunk's planned EEF path (m)
 
 
 @dataclass(frozen=True)

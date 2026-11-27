@@ -1,11 +1,14 @@
-// Robot geometry for the 3D viewer: the SO-101 URDF when available, otherwise
-// a placeholder kinematic chain built from cylinders. Both expose the same API.
+// Robot geometry for the 3D viewer: SO-101 or Franka Panda URDF when available,
+// otherwise a placeholder kinematic chain built from cylinders. Both expose the same API.
 import * as THREE from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import URDFLoader, { type URDFJoint, type URDFRobot } from 'urdf-loader';
 import { ALL_JOINTS, config } from '../config';
+import { PANDA_EE_LINK, PANDA_FINGER_OPEN_M, PANDA_JOINTS, PANDA_URDF_PATH } from '../config/panda';
 import type { JointName } from '../types/messages';
 import { urdfLimitsToData } from '../utils/units';
+
+export type ArmKind = 'so101' | 'panda';
 
 export interface JointHandle {
   object: THREE.Object3D;
@@ -16,16 +19,20 @@ export interface JointHandle {
 export interface RobotInstance {
   /** Robot base in URDF frame (z up). */
   root: THREE.Object3D;
-  joints: Partial<Record<JointName, JointHandle>>;
+  /** Ordered joint IDs exposed for rings, labels and link highlighting. */
+  jointIds: string[];
+  joints: Record<string, JointHandle>;
   ee: THREE.Object3D | null;
   /** Meshes moved directly by each joint (its child link). */
-  linkMeshes: Partial<Record<JointName, THREE.Mesh[]>>;
+  linkMeshes: Record<string, THREE.Mesh[]>;
   meshes: THREE.Mesh[];
+  /** Optional parallel-jaw gripper helper (Panda). */
+  setGripper?: (open: boolean) => void;
 }
 
 export interface RobotKit {
   source: 'urdf' | 'placeholder';
-  /** Joint ranges in data units (deg, gripper %), from the URDF limits. */
+  /** Joint ranges in data units (deg, gripper %), from the SO-101 URDF limits. */
   limits: Partial<Record<JointName, [number, number]>>;
   create: () => RobotInstance;
 }
@@ -83,12 +90,13 @@ function loadJsonMesh(
     .finally(() => manager.itemEnd(url));
 }
 
-/** Visual meshes of a link, not descending into child joints. */
+/** Visual meshes of a link, descending through fixed joints but stopping at movable child joints. */
 function directMeshes(link: THREE.Object3D): THREE.Mesh[] {
   const out: THREE.Mesh[] = [];
   const walk = (o: THREE.Object3D) => {
     for (const c of o.children) {
-      if ((c as URDFJoint).isURDFJoint) continue;
+      const j = c as URDFJoint;
+      if (j.isURDFJoint && j.jointType !== 'fixed') continue;
       if ((c as THREE.Mesh).isMesh) out.push(c as THREE.Mesh);
       walk(c);
     }
@@ -97,10 +105,18 @@ function directMeshes(link: THREE.Object3D): THREE.Mesh[] {
   return out;
 }
 
-function urdfInstance(source: URDFRobot): RobotInstance {
+function collectMeshes(root: THREE.Object3D): THREE.Mesh[] {
+  const meshes: THREE.Mesh[] = [];
+  root.traverse((o) => {
+    if ((o as THREE.Mesh).isMesh) meshes.push(o as THREE.Mesh);
+  });
+  return meshes;
+}
+
+function so101UrdfInstance(source: URDFRobot): RobotInstance {
   const robot = source.clone(true) as URDFRobot;
-  const joints: RobotInstance['joints'] = {};
-  const linkMeshes: RobotInstance['linkMeshes'] = {};
+  const joints: Record<string, JointHandle> = {};
+  const linkMeshes: Record<string, THREE.Mesh[]> = {};
   for (const name of ALL_JOINTS) {
     const j = robot.joints[name];
     if (!j) continue;
@@ -108,18 +124,53 @@ function urdfInstance(source: URDFRobot): RobotInstance {
     const child = j.children.find((c) => (c as { isURDFLink?: boolean }).isURDFLink);
     linkMeshes[name] = child ? directMeshes(child) : [];
   }
-  const meshes: THREE.Mesh[] = [];
-  robot.traverse((o) => {
-    if ((o as THREE.Mesh).isMesh) meshes.push(o as THREE.Mesh);
-  });
   const ee = robot.links[config.eeLink] ?? robot.frames?.[config.eeLink] ?? null;
-  return { root: robot, joints, ee, linkMeshes, meshes };
+  return {
+    root: robot,
+    jointIds: [...ALL_JOINTS],
+    joints,
+    ee,
+    linkMeshes,
+    meshes: collectMeshes(robot),
+  };
 }
 
-// --- Placeholder chain -------------------------------------------------------
+function pandaUrdfInstance(source: URDFRobot): RobotInstance {
+  const robot = source.clone(true) as URDFRobot;
+  const joints: Record<string, JointHandle> = {};
+  const linkMeshes: Record<string, THREE.Mesh[]> = {};
+  const jointIds = PANDA_JOINTS.map((j) => j.id);
+  for (let i = 0; i < PANDA_JOINTS.length; i++) {
+    const id = PANDA_JOINTS[i]!.id;
+    const j = robot.joints[`panda_joint${i + 1}`];
+    if (!j) continue;
+    joints[id] = { object: j, axis: j.axis.clone(), set: (rad) => void j.setJointValue(rad) };
+    const child = j.children.find((c) => (c as { isURDFLink?: boolean }).isURDFLink);
+    linkMeshes[id] = child ? directMeshes(child) : [];
+  }
+  const f1 = robot.joints['panda_finger_joint1'];
+  const f2 = robot.joints['panda_finger_joint2'];
+  const setGripper = (open: boolean) => {
+    const pos = open ? PANDA_FINGER_OPEN_M : 0;
+    f1?.setJointValue(pos);
+    f2?.setJointValue(pos);
+  };
+  const ee = robot.links[PANDA_EE_LINK] ?? robot.frames?.[PANDA_EE_LINK] ?? null;
+  return {
+    root: robot,
+    jointIds,
+    joints,
+    ee,
+    linkMeshes,
+    meshes: collectMeshes(robot),
+    setGripper,
+  };
+}
+
+// --- Placeholder chains ------------------------------------------------------
 
 /** Rough SO-101 proportions (m); joint i rotates about `axis`, then offsets by `next`. */
-const CHAIN: { joint: JointName; axis: [number, number, number]; length: number }[] = [
+const SO101_CHAIN: { joint: JointName; axis: [number, number, number]; length: number }[] = [
   { joint: 'shoulder_pan', axis: [0, 0, 1], length: 0.05 },
   { joint: 'shoulder_lift', axis: [0, 1, 0], length: 0.116 },
   { joint: 'elbow_flex', axis: [0, 1, 0], length: 0.135 },
@@ -135,16 +186,16 @@ function cylinder(length: number, radius: number): THREE.Mesh {
   return new THREE.Mesh(geo, new THREE.MeshStandardMaterial());
 }
 
-function placeholderInstance(): RobotInstance {
+function so101PlaceholderInstance(): RobotInstance {
   const root = new THREE.Group();
   const base = cylinder(0.05, 0.045);
   root.add(base);
   const meshes: THREE.Mesh[] = [base];
-  const joints: RobotInstance['joints'] = {};
-  const linkMeshes: RobotInstance['linkMeshes'] = {};
+  const joints: Record<string, JointHandle> = {};
+  const linkMeshes: Record<string, THREE.Mesh[]> = {};
   let parent: THREE.Object3D = root;
   let offset = 0.05;
-  for (const { joint, axis, length } of CHAIN) {
+  for (const { joint, axis, length } of SO101_CHAIN) {
     const pivot = new THREE.Group();
     pivot.position.set(0, 0, offset);
     const ax = new THREE.Vector3(...axis);
@@ -168,31 +219,105 @@ function placeholderInstance(): RobotInstance {
   const ee = new THREE.Object3D();
   ee.position.set(0, 0, 0.1);
   joints.wrist_roll!.object.add(ee);
-  return { root, joints, ee, linkMeshes, meshes };
+  return { root, jointIds: [...ALL_JOINTS], joints, ee, linkMeshes, meshes };
 }
 
-// --- Kit ---------------------------------------------------------------------
+/** Rough Franka Panda kinematic chain (m) matching robosuite joint offsets. */
+const PANDA_CHAIN: {
+  id: string;
+  xyz: [number, number, number];
+  rpy: [number, number, number];
+  length: number;
+  radius: number;
+}[] = [
+  { id: 'joint1', xyz: [0, 0, 0.333], rpy: [0, 0, 0], length: 0.12, radius: 0.055 },
+  { id: 'joint2', xyz: [0, 0, 0], rpy: [-Math.PI / 2, 0, 0], length: 0.316, radius: 0.05 },
+  { id: 'joint3', xyz: [0, -0.316, 0], rpy: [Math.PI / 2, 0, 0], length: 0.12, radius: 0.045 },
+  { id: 'joint4', xyz: [0.0825, 0, 0], rpy: [Math.PI / 2, 0, 0], length: 0.384, radius: 0.042 },
+  { id: 'joint5', xyz: [-0.0825, 0.384, 0], rpy: [-Math.PI / 2, 0, 0], length: 0.12, radius: 0.038 },
+  { id: 'joint6', xyz: [0, 0, 0], rpy: [Math.PI / 2, 0, 0], length: 0.088, radius: 0.036 },
+  { id: 'joint7', xyz: [0.088, 0, 0], rpy: [Math.PI / 2, 0, 0], length: 0.1065, radius: 0.032 },
+];
 
-const placeholderKit: RobotKit = {
-  source: 'placeholder',
-  limits: {},
-  create: placeholderInstance,
+function pandaPlaceholderInstance(): RobotInstance {
+  const root = new THREE.Group();
+  const base = cylinder(0.14, 0.075);
+  root.add(base);
+  const meshes: THREE.Mesh[] = [base];
+  const joints: Record<string, JointHandle> = {};
+  const linkMeshes: Record<string, THREE.Mesh[]> = {};
+  const zAxis = new THREE.Vector3(0, 0, 1);
+  let parent: THREE.Object3D = root;
+  for (const spec of PANDA_CHAIN) {
+    const frame = new THREE.Group();
+    frame.position.set(...spec.xyz);
+    frame.rotation.set(...spec.rpy, 'XYZ');
+    parent.add(frame);
+    const pivot = new THREE.Group();
+    frame.add(pivot);
+    const link = cylinder(spec.length, spec.radius);
+    pivot.add(link);
+    meshes.push(link);
+    linkMeshes[spec.id] = [link];
+    joints[spec.id] = {
+      object: pivot,
+      axis: zAxis.clone(),
+      set: (rad) => pivot.quaternion.setFromAxisAngle(zAxis, rad),
+    };
+    parent = pivot;
+  }
+  const ee = new THREE.Object3D();
+  ee.position.set(0, 0, 0.2035);
+  joints.joint7!.object.add(ee);
+  return {
+    root,
+    jointIds: PANDA_JOINTS.map((j) => j.id),
+    joints,
+    ee,
+    linkMeshes,
+    meshes,
+  };
+}
+
+// --- Kits --------------------------------------------------------------------
+
+const placeholderKits: Record<ArmKind, RobotKit> = {
+  so101: { source: 'placeholder', limits: {}, create: so101PlaceholderInstance },
+  panda: { source: 'placeholder', limits: {}, create: pandaPlaceholderInstance },
 };
 
-let urdfKit: Promise<RobotKit> | null = null;
+const urdfKits = new Map<ArmKind, Promise<RobotKit>>();
 
-/** Loads the URDF once (cached); falls back to the placeholder chain. */
-export function loadRobotKit(opts: { forcePlaceholder?: boolean } = {}): Promise<RobotKit> {
-  if (opts.forcePlaceholder) return Promise.resolve(placeholderKit);
-  urdfKit ??= loadUrdf(config.urdfPath)
-    .then((robot): RobotKit => {
-      const limits: RobotKit['limits'] = {};
-      for (const name of ALL_JOINTS) {
-        const l = robot.joints[name]?.limit;
-        if (l && l.upper > l.lower) limits[name] = urdfLimitsToData(name, l.lower, l.upper);
-      }
-      return { source: 'urdf', limits, create: () => urdfInstance(robot) };
-    })
-    .catch(() => placeholderKit);
-  return urdfKit;
+/** Loads the requested arm's URDF once (cached per arm); falls back to a placeholder chain. */
+export function loadRobotKit(
+  opts: { arm?: ArmKind; forcePlaceholder?: boolean } = {},
+): Promise<RobotKit> {
+  const arm: ArmKind = opts.arm ?? 'so101';
+  if (opts.forcePlaceholder) return Promise.resolve(placeholderKits[arm]);
+  let cached = urdfKits.get(arm);
+  if (!cached) {
+    cached =
+      arm === 'panda'
+        ? loadUrdf(PANDA_URDF_PATH)
+            .then(
+              (robot): RobotKit => ({
+                source: 'urdf',
+                limits: {},
+                create: () => pandaUrdfInstance(robot),
+              }),
+            )
+            .catch(() => placeholderKits.panda)
+        : loadUrdf(config.urdfPath)
+            .then((robot): RobotKit => {
+              const limits: RobotKit['limits'] = {};
+              for (const name of ALL_JOINTS) {
+                const l = robot.joints[name]?.limit;
+                if (l && l.upper > l.lower) limits[name] = urdfLimitsToData(name, l.lower, l.upper);
+              }
+              return { source: 'urdf', limits, create: () => so101UrdfInstance(robot) };
+            })
+            .catch(() => placeholderKits.so101);
+    urdfKits.set(arm, cached);
+  }
+  return cached;
 }

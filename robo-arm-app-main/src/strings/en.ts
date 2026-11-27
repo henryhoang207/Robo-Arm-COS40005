@@ -242,6 +242,7 @@ export const en: Strings = {
   viewer: {
     title: '3D model · real time',
     sub: 'Built from the SO-101 URDF using each joint’s measured position',
+    pandaSub: 'Built from the Franka Panda URDF using LIBERO’s 7 measured joints and planned path',
     presetsLabel: 'View',
     presets: { perspective: 'Perspective', top: 'Top', front: 'Front', side: 'Side' },
     layersLabel: 'Layers',
@@ -280,6 +281,7 @@ export const en: Strings = {
     pick: '{object} · pick point',
     drop: 'Box · drop point',
     canvasLabel: '3D model of the SO-101 arm',
+    pandaCanvasLabel: '3D model of the Franka Panda arm',
   },
 
   joints: {
@@ -357,7 +359,8 @@ export const en: Strings = {
     keyState: 'Solid: measured',
     keyVelocity: 'Solid: estimated velocity',
     keyEef: 'Solid: measured position (mm)',
-    chartNote: 'Measured values only. The board’s planned path is not in the data the BE receives.',
+    chartNote:
+      'Measured values only. The board’s 30-step planned end-effector path is shown in the 3D viewer.',
   },
 
   charts: {
