@@ -239,6 +239,7 @@ export const vi = {
   viewer: {
     title: 'Mô hình 3D · thời gian thực',
     sub: 'Dựng từ URDF SO-101 theo vị trí đo của từng khớp',
+    pandaSub: 'Dựng từ URDF Franka Panda theo 7 khớp đo trong LIBERO và quỹ đạo dự kiến',
     presetsLabel: 'Góc nhìn',
     presets: { perspective: 'Phối cảnh', top: 'Trên', front: 'Trước', side: 'Bên' },
     layersLabel: 'Lớp hiển thị',
@@ -277,6 +278,7 @@ export const vi = {
     pick: '{object} · điểm gắp',
     drop: 'Hộp · điểm thả',
     canvasLabel: 'Mô hình 3D tay robot SO-101',
+    pandaCanvasLabel: 'Mô hình 3D tay robot Franka Panda',
   },
 
   joints: {
@@ -355,7 +357,7 @@ export const vi = {
     keyState: 'Nét liền: giá trị đo',
     keyVelocity: 'Nét liền: vận tốc ước tính',
     keyEef: 'Nét liền: vị trí đo (mm)',
-    chartNote: 'Chỉ có giá trị đo. Quỹ đạo dự kiến của board không có trong dữ liệu BE nhận được.',
+    chartNote: 'Chỉ có giá trị đo. Quỹ đạo dự kiến 30 bước của board được hiển thị trên mô hình 3D.',
   },
 
   charts: {

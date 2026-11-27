@@ -4,6 +4,12 @@
 
 export const PANDA_JOINT_COUNT = 7;
 
+export const PANDA_URDF_PATH = `${import.meta.env.BASE_URL}robot/panda/panda.urdf`;
+export const PANDA_EE_LINK = 'panda_eef';
+export const PANDA_FINGER_OPEN_M = 0.04;
+/** Fallback LIBERO kitchen_table base offset (m) if plannedEefMm arrives without eefMm. */
+export const PANDA_FALLBACK_BASE_M: readonly [number, number, number] = [-0.66, 0, 0.912];
+
 const RANGES_RAD: [number, number][] = [
   [-2.8973, 2.8973],
   [-1.7628, 1.7628],
@@ -15,6 +21,17 @@ const RANGES_RAD: [number, number][] = [
 ];
 
 const deg = (rad: number) => (rad * 180) / Math.PI;
+
+/** LIBERO MountedPanda.init_qpos (degrees), shown before the first live arm_state arrives. */
+export const PANDA_INIT_DEG: readonly number[] = [
+  0,
+  deg(-0.161037389),
+  0,
+  deg(-2.44459747),
+  0,
+  deg(2.2267522),
+  deg(Math.PI / 4),
+];
 
 export interface PandaJointDef {
   /** "joint1" … "joint7", as in the simulator model. */

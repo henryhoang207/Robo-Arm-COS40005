@@ -1,3 +1,4 @@
+import type { KeyboardEvent } from 'react';
 import { config, type AngleUnit } from '../config';
 import { PANDA_JOINTS } from '../config/panda';
 import type { DerivedStatus } from '../state/deriveStatus';
@@ -56,6 +57,8 @@ export function PandaJointTable({ derived }: { derived: DerivedStatus }) {
   const lang = useStore((s) => s.lang);
   const unit = useStore((s) => s.unit);
   const setUnit = useStore((s) => s.setUnit);
+  const selected = useStore((s) => s.selectedJoint);
+  const selectJoint = useStore((s) => s.selectJoint);
   const latest = useStore((s) => s.arm[s.arm.length - 1]);
   const cell = derived.stale ? 'is-stale' : '';
   const dec = unit === 'deg' ? 1 : 3;
@@ -63,6 +66,13 @@ export function PandaJointTable({ derived }: { derived: DerivedStatus }) {
   const speed = unit === 'deg' ? t.joints.unitSuffix.degS : t.joints.unitSuffix.radS;
   const num = (v: number | undefined) =>
     v === undefined ? '—' : formatNumber(toUnit(v, unit), dec, lang);
+
+  const onRowKey = (e: KeyboardEvent, id: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      selectJoint(id);
+    }
+  };
 
   return (
     <section className="rb-card" aria-labelledby="panda-joints-title" data-testid="panda-joints">
@@ -107,7 +117,15 @@ export function PandaJointTable({ derived }: { derived: DerivedStatus }) {
           </thead>
           <tbody>
             {PANDA_JOINTS.map((j, i) => (
-              <tr key={j.id} data-joint={j.id}>
+              <tr
+                key={j.id}
+                aria-selected={selected === j.id}
+                tabIndex={0}
+                onClick={() => selectJoint(j.id)}
+                onKeyDown={(e) => onRowKey(e, j.id)}
+                className={selected && selected !== j.id ? 'app-row-dim' : ''}
+                data-joint={j.id}
+              >
                 <td>
                   <span className="rb-joint">
                     <span className="rb-joint__swatch" style={{ background: `var(${j.color})` }} />

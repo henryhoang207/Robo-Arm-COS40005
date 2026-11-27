@@ -47,7 +47,7 @@ export interface Actions {
   setTab: (tab: Tab) => void;
   setUnit: (unit: AngleUnit) => void;
   setChartTab: (tab: ChartTab) => void;
-  selectJoint: (joint: JointName | null) => void;
+  selectJoint: (joint: string | null) => void;
   setLayer: (layer: keyof Layers, on: boolean) => void;
   setViewPreset: (preset: ViewPreset) => void;
   resetView: () => void;
@@ -175,6 +175,9 @@ export function toArmSample(prev: ArmSample | undefined, msg: ArmStateMsg, at: n
     gripper: msg.gripper ?? null,
     eefMm: msg.eefMm ? [msg.eefMm[0], msg.eefMm[1], msg.eefMm[2]] : null,
     step: msg.step ?? null,
+    plannedEefMm: msg.plannedEefMm?.length
+      ? msg.plannedEefMm.map((p): [number, number, number] => [p[0], p[1], p[2]])
+      : null,
   };
 }
 

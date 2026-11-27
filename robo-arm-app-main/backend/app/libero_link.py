@@ -239,12 +239,19 @@ def _panda_sample(ours: dict[str, Any] | None) -> ArmSample | None:
         return None
     eef = ours.get("eef_pos_m")
     step = ours.get("step")
+    raw_plan = ours.get("planned_eef_pos_m")
+    planned = (
+        tuple(tuple(pt) for pt in raw_plan)
+        if isinstance(raw_plan, list) and raw_plan and all(isinstance(pt, list) for pt in raw_plan)
+        else None
+    )
     return ArmSample(
         arm="panda",
         joints_rad=tuple(ours["joint_pos_rad"]),
         gripper=ours.get("gripper") if isinstance(ours.get("gripper"), str) else None,
         eef_m=tuple(eef) if isinstance(eef, list) and len(eef) == 3 else None,
         step=step if isinstance(step, int) else None,
+        planned_eef_m=planned,
     )
 
 

@@ -290,6 +290,9 @@ def create_app(board: BoardClient, scenes: list[dict], cache: SceneCache, config
                 episode["eef_pos_m"] = frame["eef_pos_m"]
                 episode["gripper"] = frame["gripper"]
                 episode["joint_pos_rad"] = frame["joint_pos_rad"]
+            chunk = st.hub.latest(episode["episode_id"], "chunk")
+            if chunk is not None and "planned_eef_pos_m" in chunk:
+                episode["planned_eef_pos_m"] = chunk["planned_eef_pos_m"]
         return {
             "bridge": "ok",
             "episode_running": st.running,

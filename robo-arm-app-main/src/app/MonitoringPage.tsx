@@ -34,12 +34,12 @@ function useTabletLayout() {
 export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; noUrdf: boolean }) {
   const large = useStore((s) => s.largeSlot);
   const lang = useStore((s) => s.lang);
-  // LIBERO demo: same layout as the SO-101 console. The arm there is a Franka Panda, so the
-  // 3D card says the SO-101 model does not apply; the joint table and charts stay empty.
+  // LIBERO demo: same layout as the SO-101 console, switching the 3D viewer, joint table
+  // and charts to the 7-DOF Franka Panda arm.
   const libero = useLiberoMode();
   const t = useT();
   const bigCamera = config.cameras.find((c) => c.id === large);
-  const viewerNa = libero ? t.viewer.liberoNotApplicable : undefined;
+  const arm = libero ? 'panda' : 'so101';
   const tablet = useTabletLayout();
   const liberoNote = (
     <section className="rb-card" data-testid="libero-note">
@@ -66,11 +66,11 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
         {bigCamera ? (
           <CameraTile camera={bigCamera} stale={derived.stale} large />
         ) : (
-          <RobotViewer3D forcePlaceholder={noUrdf} notApplicable={viewerNa} />
+          <RobotViewer3D arm={arm} forcePlaceholder={noUrdf} />
         )}
       </div>
       <div className="rb-cams rb-tablet-cams">
-        {bigCamera && <RobotViewer3D compact forcePlaceholder={noUrdf} notApplicable={viewerNa} />}
+        {bigCamera && <RobotViewer3D arm={arm} compact forcePlaceholder={noUrdf} />}
         {config.cameras
           .filter((c) => c.id !== bigCamera?.id)
           .map((c) => (
@@ -91,12 +91,10 @@ export function MonitoringPage({ derived, noUrdf }: { derived: DerivedStatus; no
           {bigCamera ? (
             <CameraTile camera={bigCamera} stale={derived.stale} large />
           ) : (
-            <RobotViewer3D forcePlaceholder={noUrdf} notApplicable={viewerNa} />
+            <RobotViewer3D arm={arm} forcePlaceholder={noUrdf} />
           )}
           <div className="rb-cams">
-            {bigCamera && (
-              <RobotViewer3D compact forcePlaceholder={noUrdf} notApplicable={viewerNa} />
-            )}
+            {bigCamera && <RobotViewer3D arm={arm} compact forcePlaceholder={noUrdf} />}
             {config.cameras
               .filter((c) => c.id !== bigCamera?.id)
               .map((c) => (

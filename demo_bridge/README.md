@@ -138,7 +138,7 @@ Base URL `http://localhost:8002`. Every response is JSON except the video. Every
 | `GET /api/episodes/{id}` | Episode summary (live or final) | 404 `not_found` |
 | `POST /api/episodes/{id}/stop` | 202; the stream then ends with `stopped`, normally within about 1 s | 404 `not_found`, 409 `not_running` |
 | `GET /api/episodes/{id}/video` | `video/mp4`: both cameras side by side, 20 fps | 404 `not_found` |
-| `GET /api/state` | One poll for clients without the WebSocket (the web backend's adapter): `bridge`, `episode_running`, `board`, `scenes_ready`, and `episode`. `episode` is the current or latest episode summary plus `eef_pos_m`, `gripper`, `joint_pos_rad` from its latest frame; `null` before the first | none |
+| `GET /api/state` | One poll for clients without the WebSocket (the web backend's adapter): `bridge`, `episode_running`, `board`, `scenes_ready`, and `episode`. `episode` is the current or latest episode summary plus `eef_pos_m`, `gripper`, `joint_pos_rad` from its latest frame and `planned_eef_pos_m` from its latest chunk; `null` before the first | none |
 | `GET /api/camera/{agentview\|wrist}` | `image/jpeg`. During an episode: its latest frame. While idle: the demo scene's starting view once it is prepared, otherwise the last frame of the latest episode | 404 `not_found` before any frame |
 
 `GET /api/health`:

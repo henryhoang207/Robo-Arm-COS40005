@@ -47,6 +47,8 @@ export interface ArmStateMsg {
   /** Measured end-effector position, mm. */
   eefMm?: [number, number, number];
   step?: number;
+  /** Latest 30-step planned end-effector waypoints from X-VLA, mm (LIBERO world frame). */
+  plannedEefMm?: [number, number, number][];
 }
 
 export interface RobotError {

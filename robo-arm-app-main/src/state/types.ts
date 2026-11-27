@@ -57,6 +57,7 @@ export interface ArmSample {
   gripper: 'open' | 'closed' | null;
   eefMm: [number, number, number] | null;
   step: number | null;
+  plannedEefMm: [number, number, number][] | null;
 }
 
 export type CommandKind = 'command' | 'ready' | 'reconnect_usb';
@@ -163,7 +164,7 @@ export interface UiState {
   tab: Tab;
   unit: AngleUnit;
   chartTab: ChartTab;
-  selectedJoint: JointName | null;
+  selectedJoint: string | null;
   layers: Layers;
   viewPreset: ViewPreset;
   /** Bumped by "Reset view" so the viewer re-applies the preset. */

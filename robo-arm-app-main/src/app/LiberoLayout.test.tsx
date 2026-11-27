@@ -19,15 +19,18 @@ describe('LIBERO mode keeps the SO-101 console layout', () => {
   });
   afterEach(() => vi.useRealTimers());
 
-  it('shows the 3D card (marked not applicable), both cameras, joint table and charts', async () => {
+  it('shows the Panda 3D card, both cameras, joint table and charts', async () => {
     render(<App createTransport={() => new MockTransport('idle')} scenario="idle" />);
     await act(async () => {
       vi.advanceTimersByTime(1500);
     });
 
-    // 3D card stays in the large slot, with a message instead of the SO-101 model.
+    // 3D card stays in the large slot, now configured for the Franka Panda URDF (no command ghost).
     expect(screen.getByText('Mô hình 3D · thời gian thực')).toBeInTheDocument();
-    expect(screen.getByTestId('viewer-not-applicable')).toHaveTextContent('Franka Panda');
+    expect(screen.getByText(/URDF Franka Panda/)).toBeInTheDocument();
+    expect(screen.queryByTestId('viewer-not-applicable')).toBeNull();
+    expect(screen.queryByLabelText('Bóng lệnh')).toBeNull();
+    expect(screen.getByLabelText('Quỹ đạo dự kiến')).toBeInTheDocument();
     // Right column as in the original layout: the Panda's own joint table and charts.
     expect(screen.getByTestId('libero-note')).toBeInTheDocument();
     expect(screen.getByText('Trạng thái khớp · Franka Panda')).toBeInTheDocument();
@@ -39,11 +42,15 @@ describe('LIBERO mode keeps the SO-101 console layout', () => {
     expect(document.querySelectorAll('.rb-cams .rb-camera')).toHaveLength(2);
   });
 
-  it('fills the Panda table from arm_state messages', async () => {
+  it('fills the Panda table, planned path and joint selection from arm_state messages', async () => {
     render(<App createTransport={() => new MockTransport('idle')} scenario="idle" />);
     await act(async () => {
       vi.advanceTimersByTime(1500);
     });
+    const plan: [number, number, number][] = [
+      [-202.0, -2.3, 1187.8],
+      [-190.0, 10.0, 1150.0],
+    ];
     const send = (ts: number, j4: number, gripper: 'open' | 'closed') =>
       useStore.setState((s) => ({
         ...applyMessage(
@@ -56,6 +63,7 @@ describe('LIBERO mode keeps the SO-101 console layout', () => {
             gripper,
             eefMm: [-201.6, 12.4, 1164.8],
             step: 31,
+            plannedEefMm: plan,
           },
           ts,
         ),
@@ -74,7 +82,13 @@ describe('LIBERO mode keeps the SO-101 console layout', () => {
     expect(screen.getByTestId('panda-eef')).toHaveTextContent('x −202 · y 12 · z 1165');
     expect(screen.getByTestId('panda-eef')).toHaveTextContent('Bước mô phỏng 31');
     // Velocity is estimated from positions: joint4 moved +1° in 0.1 s.
-    const v = useStore.getState().arm[1]!.v[3]!;
-    expect(v).toBeGreaterThan(0);
+    const latest = useStore.getState().arm[1]!;
+    expect(latest.v[3]!).toBeGreaterThan(0);
+    expect(latest.plannedEefMm).toEqual(plan);
+    // Clicking a Panda row selects that joint for 3D link highlighting.
+    await act(async () => {
+      row4.click();
+    });
+    expect(useStore.getState().selectedJoint).toBe('joint4');
   });
 });
