@@ -64,19 +64,23 @@ First-time setup took about 10 minutes on the lab network: about 2 minutes per c
 
 ### Every demo
 
-1. **Start the board app.** In App Lab, start **X-VLA LIBERO NPU**. Then check that it answers; this should show `"mode": "full-onboard-stage1+stage2"`:
+1. **Start the board app.** In App Lab, start **X-VLA LIBERO NPU**. The board's IP address changes from day to day (10.1.0.119 on 26 Nov, 10.1.0.113 on 27 Nov). Find today's address from Windows:
 
-   ```bash
-   curl http://10.1.0.119:8080/api/status
+   ```powershell
+   ping -4 -n 1 ventunoQ.local
    ```
 
-   The board's IP address has changed before; if it has, use the new one in step 2.
+   Then check that the app answers on that address; this should show `"mode": "full-onboard-stage1+stage2"`:
+
+   ```bash
+   curl http://<board IP>:8080/api/status
+   ```
 
 2. **WSL terminal 1: the bridge.** Wait until the log shows `scene libero_goal/8 ready`. That takes 1 to 2 minutes, because the bridge prepares the demo scene before the first request.
 
    ```bash
    cd ~/Robo-Arm-COS40005 && git pull   # if the frontend changed, also rebuild the page (setup step 5)
-   MUJOCO_GL=egl GALLIUM_DRIVER=d3d12 ~/libero/bin/python -m demo_bridge.app --board-host 10.1.0.119
+   MUJOCO_GL=egl GALLIUM_DRIVER=d3d12 ~/libero/bin/python -m demo_bridge.app --board-host <board IP>
    ```
 
 3. **WSL terminal 2: the web backend** in LIBERO mode. Use `libero.env.example` as it is: its timings let runs ride out the bridge's 1–3 s pause after each run. The last line points at the page built in setup step 5.
@@ -107,7 +111,8 @@ Which requests to use (recorded 26 Nov 2026, one try each; [`demo_bridge/recordi
 
 | What you see | What to do |
 | --- | --- |
-| A board warning in the status bar, or a banner saying the board lost its link | The App Lab app has stopped; it stopped by itself several times on 26 Nov. Restart it in App Lab. If the board's IP changed, restart the bridge with `--board-host <new IP>` |
+| A board warning in the status bar, or a banner saying the board lost its link | Either the App Lab app has stopped (it stopped by itself several times on 26 Nov), or the board's IP changed. Restart the app in App Lab, or find the new IP (`ping -4 -n 1 ventunoQ.local`) and restart the bridge with `--board-host <new IP>`. The backend can keep running |
+| "Stopped · press Ready" after the board comes back | Expected: the backend never resumes by itself after losing the board. Press **Ready**, then send |
 | The page shows the SO-101 command form instead of the prompt box | The backend was not up yet. The page retries every 2 s; if it doesn't switch, reload |
 | A run ends with `sim_offline` or `telemetry_stale` | The backend is not using `libero.env.example`'s timings. Copy it to `.env` again and restart the backend |
 | The cameras say "No picture yet" | The bridge has not finished preparing the scene. Wait for `scene libero_goal/8 ready` |
